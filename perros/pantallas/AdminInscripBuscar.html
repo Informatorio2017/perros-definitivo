@@ -78,20 +78,30 @@
     </div>
   </nav>
   <!-- fin nav -->
-  <div class="row  ">
-    <div class="separador"></div>
-      <div class="col s9">
-        <p>Número de Preinscripción: <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1875</p>
-      </div>
-      <div class="col s3">
-            <a href="C:\Users\Alan\Google Drive\Notebook\Informatorio\perros\AdminInscripForm.html"class="waves-effect waves-light btn-large btn-ancho"><i class="material-icons right">search</i>Buscar</a>
-      </div>    
-  </div>
-  <div class="row">
-      <div class="col s12">
-            <a class="waves-effect waves-light btn-large btn-ancho">No Preinscripto</a> 
-      </div>
+
+  <div class="container">
+      <div class="separador"></div>
+        <div class="row">
+            <div class="col s6">
+              <p>Número de Preinscripción: <br></p>
+              <form>
+                <input id="last_name" type="text" class="validate">
+              </form>
+            </div>
+            <div class="col s6 center-align">              
+              <button class="btn waves-effect waves-light" type="submit" name="action">Buscar
+                <i class="material-icons right">search</i>
+              </button>
+            </div>    
+        </div>
+        <div class="row">
+          <div class="col s12 l4"></div>
+            <div class="col s12 l4">
+                  <a class="waves-effect waves-light btn-large btn-ancho">No Preinscripto</a> 
+            </div>
+            <div class="col s12 l4"></div>
+        </div>
+
   </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
