@@ -1,12 +1,13 @@
 {% load staticfiles %}
 
 
-{% include 'material/includes/material_css.html' %}
-    <script src="{% static 'material/js/jquery.js' %}"></script>
-{% include 'material/includes/material_js.html' %}
 
-{% load material_form %}
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+          
 
 
 
@@ -19,6 +20,7 @@
 	</head>
 
 	<body>
+		 <div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
 		{% block header %} header base{% endblock %}
 		{% block content %} content base {% endblock %}
 	</body>
