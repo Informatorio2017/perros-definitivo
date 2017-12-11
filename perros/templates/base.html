@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+
+{% include 'material/includes/material_css.html' %}
+    <script src="{% static 'material/js/jquery.js' %}"></script>
+{% include 'material/includes/material_js.html' %}
+
+{% load material_form %}
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			{% block title %} title base {% endblock %}
+		</title>
+	</head>
+
+	<body>
+		{% block header %} header base{% endblock %}
+		{% block content %} content base {% endblock %}
+	</body>
+
+</html>
