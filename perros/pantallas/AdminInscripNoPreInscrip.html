@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amo los Perros</title>
+  <link rel="stylesheet" href="css/materialize.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>       
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="cuerpo">
+  <!--Import jQuery before materialize.js-->
+  
+
+  <!-- inicio nav -->
+  <nav class="nav-extended">
+    <div class="nav-wrapper blue light">
+      <div class="brand-logo left topbar-boton-arriba-izquierda">
+        <!--botón atrás reemplaza al regresar-->
+        <a href="#" onclick="history.go(-1)">
+          <i class="material-icons">keyboard_backspace</i>
+        </a>
+      </div>
+      <div class="top-titulos">
+        <p class="truncate top-bar-primeralinea">
+          <strong>AMO LOS PERROS</strong>
+        </p>
+        <!-- <p class="truncate top-bar-segundalinea">
+          <strong>AMO LOS PERROS</strong>
+        </p> -->
+        
+          
+        </p>
+      </div>
+      <!-- inicio lista de enlaces del menú arriba derecha -->
+  <nav>    
+      <ul id="slide-out" class="side-nav">
+        <li>
+          <div class="user-view">
+            <div class="background logo-menu">
+              <img class="responsive-img" src="imagenes/amo los perros.png">
+            </div>
+            <!-- <a href="#!user" class="valign-wrapper">
+              <img class="circle avatar-menu" src="imagenes/amo los perros.png">
+              <p class="black-text name truncate">
+                 -->
+              </p>
+            </a>
+          </div>
+        </li>
+        <li>
+          <a href="#!">
+            <i class="material-icons">home</i>CAMPAÑA/CREAR
+          </a>
+        </li>
+        <li>
+          <a href="#!">
+            <i class="material-icons">insert_chart</i>CREAR REPORTE
+          </a>
+        </li>
+        <li>
+          <a href="#!">
+            <i class="material-icons">visibility</i>VER CAMPAÑAS
+          </a>
+        </li>
+        <!-- <li><div class="divider"></div></li> -->
+        <!-- <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Inicio</a></li> -->
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
+  
+  <div class=" col s12 separador "></div>
+<div class="container">
+    
+    <!-- Inicio Formulario -->
+    <div class="row ">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input  placeholder="Responsable" id="first_name" type="text" class="validate">
+                <label for="first_name">Nombre</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Apellido</label>
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="input-field col s12">
+                <input  id="password" type="text" class="validate">
+                <label for="password">Teléfono</label>
+              </div>
+            </div>
+            <div class="row">
+                <label>&nbsp;&nbsp;&nbsp;Barrio</label>
+                <select class="browser-default">
+                  <option value ="" disabled selected>Elegir Barrio</option>
+                  <option value="1">San Calletano</option>
+                  <option value="2">Puerta del sol</option>
+                  <option value="3">Loma Linda</option>
+                </select>
+                <div class="divider grey lighten-1"></div>
+            </div>
+
+            <div class="row">
+                  <div class="input-field col s12">
+                    <input placeholder="Paciente" id="first_name" type="text" class="validate">
+                    <label for="first_name">Nombre</label>
+                  </div>         
+          </form>
+        </div>
+        <!-- Fin Formulario -->
+        <div class="row borde-amarillo  ">
+            <div class="col s6 m6  ">
+                  <p>Especie:</p>
+                  <a class="waves-effect waves-light btn-large btn-ancho"><i class="material-icons left">
+                      assignment</i><form action="#"> <p class="right">
+                              <input  type="checkbox" id="test5" />
+                              <label for="test5"></label>
+                            </p></form></a>        
+            </div>
+            <!-- <div class=" col s3 separador "></div> -->
+            <div class="col s6 m6  ">
+              <p>Sexo:</p>
+                  <a class="waves-effect waves-light btn-large btn-ancho 2">
+                    <i class="material-icons left">
+                    assignment</i><form action="#"> <p class="right white-text">
+                    <input  type="checkbox" id="test5" />
+                    <label for="test5"></label></p></form></a>                          
+            </div>
+        </div> 
+        <!-- ........................................................    -->
+            <!-- <div class=" col s12 separador "></div> -->
+
+        <div class="row borde-azul  ">
+            <div class="col s6 m6  ">
+                
+                <a class="waves-effect waves-light btn-large btn-ancho"><i class="material-icons left">
+                    assignment</i><form action="#"> <p class="right">
+                            <input  type="checkbox" id="test5" />
+                            <label for="test5"></label>
+                          </p></form></a>        
+            </div>
+          <!-- <div class=" col s3 separador "></div> -->
+            <div class="col s6 m6  ">
+                
+                <a class="waves-effect waves-light btn-large btn-ancho 2">
+                  <i class="material-icons left">assignment</i>
+                  <form action="#"> <p class="right white-text">
+                  <input  type="checkbox" id="test5" />
+                  <label for="test5"></label></p></form> </a>  
+            </div>          
+        </div>
+        <!-- fin botones de perros y gatos -->
+
+        <div class="row">
+            <div class="col s4 m6">
+              <div class="card-panel">
+                <strong>turno:<br>
+                000</strong>
+              </div>
+            </div> 
+            <div class="col s8 m6 ">
+                  <!-- <div class="fixed-action-btn">  -->
+                    <a class="btn-floating btn-large btn-ancho red" onclick= "Materialize.toast('Guardado!', 4000)">
+                    <i class="large material-icons">save</i> </a>
+            </div>
+                
+          </div>       
+</div>
+      
+     
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript">
+   $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true, // Choose whether you can drag to open on touch screens,
+      onOpen: function(el) {  }, // A function to be called when sideNav is opened
+      onClose: function(el) {  }, // A function to be called when sideNav is closed
+    });
+</script>
+
+<script>
+    $('.timepicker').pickatime({
+    default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+    fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+    twelvehour: false, // Use AM/PM or 24-hour format
+    donetext: 'OK', // text for done-button
+    cleartext: 'Clear', // text for clear-button
+    canceltext: 'Cancel', // Text for cancel-button
+    autoclose: false, // automatic close timepicker
+    ampmclickable: true, // make AM PM clickable
+    aftershow: function(){} //Function for after opening timepicker
+</script>
+<script>
+    $(document).ready(function() {
+    $('select').material_select();
+</script>
+<script>
+    $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+</script>
+
+<script>
+  $('input.autocomplete').autocomplete({
+    data: {
+      "Apple": null,
+      "Microsoft": null,
+      "Google": 'https://placehold.it/250x250'
+    },
+    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete: function(val) {
+      // Callback function when value is autcompleted.
+    },
+    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
+</script>
