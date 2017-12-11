@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{%block pagina %} 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amo a los perros</title>
+  
+
+
+
+</head>
+<body class="cuerpo">
+
+  <!--             inicio nav -->
+  <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <div class="brand-logo left topbar-boton-arriba-izquierda">
+        <!--botón atrás reemplaza al regresar-->
+        <a href="#" onclick="history.go(-1)">
+          <i class="material-icons">keyboard_backspace</i>
+        </a>
+      </div>
+      <div class="top-titulos">
+        <p class="truncate top-bar-primeralinea">
+          <strong>AMO LOS PERROS</strong>
+        </p>
+        <!--<p class="truncate top-bar-segundalinea"> 
+          
+        </p> -->
+      </div>
+      <!-- inicio lista de enlaces del menú arriba derecha -->
+      <ul id="slide-out" class="side-nav">
+        <li>
+          <div class="user-view">
+            <div class="background logo-menu">
+              <img class="responsive-img" src="" alt="side-nav">
+            </div>
+            
+          </div>
+        </li>
+        <li>
+          <a href="#!">
+            <i class="material-icons">home</i>Campaña/Crear
+          </a>
+        </li>
+        <li>
+          <a href="#!">
+            <i class="material-icons"><i class="material-icons">insert_chart</i></i>Crear Reporte
+          </a>
+        </li>
+        <!--<li><div class="divider"></div></li> -->
+        <li>
+          <a class="waves-effect" href="#!"><i class="material-icons">visibility</i>Ver Campañas</a>
+        </li>
+      </ul>
+      <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
+  <!--               fin nav -->
+
+  <!-- inicio contenedor principal -->
+  <div class="container">
+    <!-- inicio row  -->
+    <div class="row">
+      <!-- inicio columna para datos de campaña -->
+      <div class="col s12">
+       <div class="card-panel grey center-align">
+          <span class="white-text"><strong>AGREGUE LOS DATOS PARA CREAR UNA</strong> <!-- ES PARA QUE VAYA UN RENGLON ABAJO, strong= para que sea en negrita -->
+            NUEVA CAMPAÑA
+          </span>
+        </div>       
+      </div>
+      <!-- fin datos campaña -->      
+    </div>
+          <!-- fin row  -->
+
+
+
+
+                      <!-- INICIO FORMULARIO  -->
+    <div class="row">
+    <form class="col s12" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      <h1>ASDASDASDASD</h1>
+
+      <!-- Fecha  -->
+      <div class="row">
+        <div class="input-field col s12 ">
+          <input placeholder="Placeholder" id="fecha" type="text" class="validate">
+          <label for="fecha"><strong>Fecha: </strong></label>
+        </div>
+      </div>
+
+      <!-- Lugar  -->
+      <div class="row">
+        <div class="input-field col s12 ">
+          <input placeholder="Placeholder" id="lugar" type="text" class="validate">
+          <label for="lugar"><strong>Lugar: </strong></label>
+        </div>
+      </div>
+
+      <!-- Tipo  -->
+      <div class="row">
+        <div class="input-field col s12">
+          <select>
+            <option value="" disabled selected>Elija una opción</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+          <label>Tipo: </label>
+        </div>
+      </div>
+
+      <!-- Valor Intervencion  -->
+      <div class="row">
+        <div class="input-field col s12 ">
+          <input placeholder="Placeholder" id="valor_inter" type="text" class="validate">
+          <label for="valor_inter"><strong>Valor Intervención: </strong></label>
+        </div>
+      </div>
+
+      <!-- Valor Intervenciones Cubiertas  -->
+      <div class="row">
+        <div class="input-field col s12 ">
+          <input placeholder="Placeholder" id="valor_inter_cub" type="text" class="validate">
+          <label for="valor_inter_cub"><strong>Valor Intervenciones Cubiertas: </strong></label>
+        </div>
+      </div>
+       
+    </form>
+  </div>
+             <!-- FIN FORMULARIO  -->
+
+
+
+    <div class="row"> <!-- row para los botones de abajo -->
+
+      <div class="col s12  center-align">
+        <a class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>      Crear Campaña
+        </a>
+      </div>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+ 
+
+  </div>
+  <!-- fin contenedor principal -->
+</body>
+
+  
+
+<script type="text/javascript">
+   $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true, // Choose whether you can drag to open on touch screens,
+      onOpen: function(el) {  }, // A function to be called when sideNav is opened
+      onClose: function(el) {  }, // A function to be called when sideNav is closed
+    }
+  );
+
+</script>
+
+<!-- Para que funcione el select  -->
+<script>
+$(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
+</html>
+
+
+{%endblock%}

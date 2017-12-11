@@ -1,0 +1,106 @@
+
+/* -----comienzo v4-------------------- */
+
+/* -----bordes de prueba------ */
+
+.borde-rojo{
+	border: solid 1px red;
+}
+
+.borde-azul{
+	border: solid 1px blue;
+}
+
+.borde-anaranjado{
+	border: solid 1px orange;
+}
+
+.borde-verde{
+	border: solid 1px green;
+}
+
+.borde-amarillo{
+	border: solid 1px yellow;
+}
+
+
+/* -----bordes de prueba------ */
+
+body{
+
+}
+
+
+.cuerpo{
+/* 	background-image: url("../images/back-app.jpg");
+ 	background-repeat: repeat;*/
+}
+
+.btn-ancho{
+	width: 100%;
+	top: 0;
+}
+
+.separador{
+	height: 20px;
+}
+.pie{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  height: 3rem;
+  margin-bottom: 0;
+}
+/*
+.renglon-logo{
+	padding:2%;
+}
+
+.renglon-logo img{
+	width: 70%;
+	margin-bottom: -12%;
+}
+
+.renglon-titulo h5{
+	margin-bottom: -4%;
+}*/
+
+/* barra superior */
+.topbar-boton-arriba-izquierda{
+/*	position: relative!important;
+*/	display: block!important;
+}
+
+.top-bar-primeralinea{
+	font-size: 1.7em;
+	line-height:1.1em;
+	
+	margin-top: 2px!important;
+	margin-bottom: -8px!important;
+/*	margin:auto;
+*/}
+
+.top-bar-segundalinea{
+	line-height:1.1em;
+	margin-bottom: 0px!important;
+
+/*	margin-top: -12px!important;
+*/}
+
+.top-titulos {
+	width:62%;
+	margin-left: 50px;
+	float: left;
+	padding: 0;
+}
+
+.logo-menu{
+	max-width: 30%;
+	margin: auto;
+	padding-top: 4%;
+}
+
