@@ -83,53 +83,58 @@
 
 
                       <!-- INICIO FORMULARIO  -->
-    <div class="row">
+  <div class="row">
     <form class="col s12">
 
       <!-- Fecha  -->
-      <div class="row">
-        <div class="input-field col s12 ">
-          <input placeholder="Placeholder" id="fecha" type="text" class="validate">
+      <!--<div class="row"> -->
+        <div class="input-field col s12 l3 ">
+          <!--<input placeholder="Placeholder" id="fecha" type="text" class="validate"> -->
+          <!--<label for="fecha"><strong>Fecha: </strong></label> -->
+          <input type="text" class="datepicker" id="fecha">
           <label for="fecha"><strong>Fecha: </strong></label>
+
         </div>
-      </div>
+      <!--</div> -->
 
       <!-- Lugar  -->
-      <div class="row">
-        <div class="input-field col s12 ">
-          <input placeholder="Placeholder" id="lugar" type="text" class="validate">
+      <!--<div class="row"> -->
+        <div class="input-field col s12 l9 ">
+          <input placeholder="Ingrese el lugar" id="lugar" type="text" class="validate">
           <label for="lugar"><strong>Lugar: </strong></label>
         </div>
-      </div>
+      <!--</div> -->
 
       <!-- Tipo  -->
-      <div class="row">
-        <div class="input-field col s12">
+      <!--<div class="row"> -->
+        <div class="input-field col s12 l6">
           <select>
             <option value="" disabled selected>Elija una opción</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            <option value="1">Castración</option>
+            <option value="2" disabled="disabled">Vacunación</option>
+            <option value="3" disabled="disabled">Vacunación espontanea</option>
+            <!-- disabled="disabled" DESABILITA LA OPCIÓN -->
           </select>
-          <label>Tipo: </label>
+          <label><strong>Tipo:</strong></label>
         </div>
-      </div>
+      <!--</div> -->
 
       <!-- Valor Intervencion  -->
-      <div class="row">
-        <div class="input-field col s12 ">
-          <input placeholder="Placeholder" id="valor_inter" type="text" class="validate">
+      <!--<div class="row"> -->
+        <div class="input-field col s12 l3 ">
+          <input placeholder="$" id="valor_inter" type="text" class="validate">
           <label for="valor_inter"><strong>Valor Intervención: </strong></label>
         </div>
-      </div>
+      <!--</div> -->
 
       <!-- Valor Intervenciones Cubiertas  -->
-      <div class="row">
+      <!--<div class="row"> -->
         <div class="input-field col s12 ">
-          <input placeholder="Placeholder" id="valor_inter_cub" type="text" class="validate">
+          <input placeholder="$" id="valor_inter_cub" type="text" class="validate">
           <label for="valor_inter_cub"><strong>Valor Intervenciones Cubiertas: </strong></label>
         </div>
-      </div>
+      <!--</div> -->
+
        
     </form>
   </div>
@@ -137,13 +142,16 @@
 
 
 
-    <div class="row"> <!-- row para los botones de abajo -->
+    <div class="row"> <!-- row para el boton de abajo ya centrado -->
 
-      <div class="col s12  center-align">
-        <a class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>      Crear Campaña
-        </a>
-      </div>
+      <div class="col s12  l4"></div>
+        <div class="col s12  l4"> <!-- para centrar el boton -->
+          <a class="waves-effect waves-light red accent-2 btn-large btn-ancho" href="home.html"><i class="material-icons">assignment</i></i>      Crear Campaña
+          </a>
+        </div>
+      <div class="col s12  l4"></div> <!-- para centrar el boton -->
 
+      <!--   href="home.html  ASÍ SE ENLAZA !!!!!!! -->
     </div>
 
     
@@ -182,6 +190,17 @@
 <script>
 $(document).ready(function() {
     $('select').material_select();
+  });
+</script>
+
+<script>
+ $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
   });
 </script>
 </html>
