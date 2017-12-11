@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amo a los perros</title> 
+  <link rel="stylesheet" href="css/materialize.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>       
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="cuerpo">
+
+  <!-- BOTON CERRAR -->
+
+    <!--<div class="nav-wrapper"> -->
+
+      <div class="row">
+
+        <div class="row col s12 borde-rojo right-align">   <!-- row 3 -->
+
+          <div id="global">
+            <a href="JavaScript:window.close()"><i class="material-icons">close</i></a>
+          </div>
+
+        </div>
+      </div>
+      
+  <!--  FIN BOTON CERRAR -->
+
+  
+
+  <!-- inicio contenedor principal -->
+  <div class="container">
+    <!-- inicio row  -->
+
+
+    <div class="row col s12 borde-rojo center-align">   <!-- row 3 -->
+      
+       
+    <div class="row"> <!-- row 2 -->
+      <div class="col s6 borde-rojo">
+
+        <h3><i class="material-icons">pets</i></h3>
+        <p><strong>MACARENA</strong></p>
+      </div>
+
+
+      <div class="col s6 borde-verde">
+        <p><h3><strong>29</strong></h3></p>
+        <p><strong>TURNO</strong></p>
+
+      </div>
+    </div>
+  </div>
+
+    <div class="row"> <!-- ROW 4 -->
+      <div class="col s12 borde-verde center-align">
+
+        <p><h5><em>Responsable</em><br><strong>Nelson Núñez </strong>
+        </h5><br><h5><em>Barrio<br></em><strong>Primero de Mayo</strong><h5>
+        </p> <!-- br: para que vaya un renglon abajo -->
+      </div>
+    </div> <!-- fin de los row superiores -->
+
+    <div class="row"> <!-- row para los botones -->
+
+      <div class="col s12 m6 right">
+        <a class="waves-effect waves-light red accent-2 btn-large btn-ancho"></i>  CONFIRMAR
+        </a>
+      </div>
+
+    </div>
+
+
+
+
+
+
+  </div>
+  <!-- fin contenedor principal -->
+</body>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+<script type="text/javascript">
+   $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true, // Choose whether you can drag to open on touch screens,
+      onOpen: function(el) {  }, // A function to be called when sideNav is opened
+      onClose: function(el) {  }, // A function to be called when sideNav is closed
+    }
+  );
+
+</script>
+</html>
