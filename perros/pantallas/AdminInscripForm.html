@@ -80,98 +80,100 @@
   <!-- fin nav -->
   <!--<div class=" col s12 separador "></div>-->
 
-  
-  <!-- Inicio Formulario -->
-  <div class="row borde-amarillo  ">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Responsable" id="first_name" type="text" class="validate">
-              <label for="first_name">Nombre</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Apellido</label>
-            </div>
-          </div>
-         
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
-              <label for="password">Teléfono</label>
-            </div>
-          </div>
-          <div class="row">
-              <label>&nbsp;&nbsp;&nbsp;Barrio</label>
-              <select class="browser-default">
-                <option value ="" disabled selected>Elegir Barrio</option>
-                <option value="1">San Calletano</option>
-                <option value="2">Puerta del sol</option>
-                <option value="3">Loma Linda</option>
-              </select>
-              <div class="divider grey lighten-1"></div>
-          </div>
-
-          <div class="row">
-                <div class="input-field col s12">
-                  <input placeholder="Paciente"id="nombre_paciente" type="text" class="validate">
-                  <label for="password">Nombre</label>
-                </div>
-          </div>         
-        </form>
-  </div>
-       <!-- Fin Formulario -->
-
-       <!-- BOTONES DE ABAJO -->
-    <div class="row borde-verde  s12"> 
-      <div class="row">   
-            <div class="col s6 borde-azul"> 
-              <p>Especie: </p>           
-              <form action="#"> 
-              <p class="right">
-                <input type="checkbox" id="test5" />
-                <label for="test5">Perro</label>
-
-                <input type="checkbox" id="test6" />
-                <label for="test6">Gato</label>
-            </div>
-
-            <div class="col s6 borde-rojo">
-                <p>Sexo: </p>
-                <input type="checkbox" id="test7" />
-                <label for="test7">Hembra</label> 
-
-                <input type="checkbox" id="test8" />
-                <label for="test8">Macho</label> 
-              </p>                   
-              </form>  
-            </div>
-      </div>
-    </div>
-
-      <!-- ........................................................    -->
-          <!-- <div class=" col s12 separador "></div> -->
-
-      <!-- fin botones de perros y gatos -->
-
-
-
-
-      <div class="row">
-        <div class="col s4 m6">
-          <div class="card-panel">
-            <strong>turno:<br>
-            29</strong>
-          </div>
-        </div> 
-        <div class="col s8 m6 ">
-              <div class="fixed-action-btn"> 
-                <a class="btn-floating btn-large btn-ancho red" onclick= "Materialize.toast('Guardado!', 4000)">
-                <i class="large material-icons">save</i> </a>
+<div class="container">  
+    <!-- Inicio Formulario -->
+    <div class="row borde-amarillo  ">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Responsable" id="first_name" type="text" class="validate">
+                <label for="first_name">Nombre</label>
               </div>
-              
-        </div>       
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Apellido</label>
+              </div>
+            </div>
+          
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Teléfono</label>
+              </div>
+            </div>
+            <div class="row">
+                <label>&nbsp;&nbsp;&nbsp;Barrio</label>
+                <select class="browser-default">
+                  <option value ="" disabled selected>Elegir Barrio</option>
+                  <option value="1">San Calletano</option>
+                  <option value="2">Puerta del sol</option>
+                  <option value="3">Loma Linda</option>
+                </select>
+                <div class="divider grey lighten-1"></div>
+            </div>
+
+            <div class="row">
+                  <div class="input-field col s12">
+                    <input placeholder="Paciente"id="nombre_paciente" type="text" class="validate">
+                    <label for="password">Nombre</label>
+                  </div>
+            </div>         
+          </form>
+    </div>
+        <!-- Fin Formulario -->
+
+        <!-- BOTONES DE ABAJO -->
+      <div class="row borde-verde  s12"> 
+        <div class="row">   
+              <div class="col s6 borde-azul"> 
+                <p>Especie: </p>           
+                <form action="#"> 
+                <p class="right">
+                  <input type="checkbox" id="test5" />
+                  <label for="test5">Perro</label>
+
+                  <input type="checkbox" id="test6" />
+                  <label for="test6">Gato</label>
+              </div>
+
+              <div class="col s6 borde-rojo">
+                  <p>Sexo: </p>
+                  <input type="checkbox" id="test7" />
+                  <label for="test7">Hembra</label> 
+
+                  <input type="checkbox" id="test8" />
+                  <label for="test8">Macho</label> 
+                </p>                   
+                </form>  
+              </div>
+        </div>
       </div>
+
+        <!-- ........................................................    -->
+            <!-- <div class=" col s12 separador "></div> -->
+
+        <!-- fin botones de perros y gatos -->
+
+
+        <div class="row">
+          <div class="col s4 m6">
+            <div class="">
+              <strong>Turno:</strong>
+               <form>
+                  <input id="last_name" type="text" class="validate">
+                </form>
+            </div>
+          </div> 
+          <div class="col s8 m6 ">
+                <!-- <div class="fixed-action-btn">  -->
+                  <a class="btn-floating btn-large btn-ancho red" onclick= "Materialize.toast('Guardado!', 4000)">
+                  <i class="large material-icons">save</i> </a>
+                </div>
+                
+          </div>       
+        </div>
+
+</div>
 
 </body>
 
