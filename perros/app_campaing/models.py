@@ -6,6 +6,9 @@ class Lugar(models.Model):
 	nombre = models.CharField(max_length = 120)
 	direccion = models.CharField(max_length = 120)
 
+	def __str__(self):
+		return self.nombre
+
 class Colaborador(models.Model):
 
 	nombre = models.CharField(max_length = 30)
