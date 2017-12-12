@@ -1,69 +1,13 @@
 {% extends "base.html" %}
 
-{%block pagina %} 
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Amo a los perros</title>
   
+{% block title %} Amo a los perros {% endblock %}
+
+{% block encabezado %} Crear Campaña {% endblock %}
 
 
 
-</head>
-<body class="cuerpo">
-
-  <!--             inicio nav -->
-  <nav class="nav-extended">
-    <div class="nav-wrapper">
-      <div class="brand-logo left topbar-boton-arriba-izquierda">
-        <!--botón atrás reemplaza al regresar-->
-        <a href="#" onclick="history.go(-1)">
-          <i class="material-icons">keyboard_backspace</i>
-        </a>
-      </div>
-      <div class="top-titulos">
-        <p class="truncate top-bar-primeralinea">
-          <strong>AMO LOS PERROS</strong>
-        </p>
-        <!--<p class="truncate top-bar-segundalinea"> 
-          
-        </p> -->
-      </div>
-      <!-- inicio lista de enlaces del menú arriba derecha -->
-      <ul id="slide-out" class="side-nav">
-        <li>
-          <div class="user-view">
-            <div class="background logo-menu">
-              <img class="responsive-img" src="" alt="side-nav">
-            </div>
-            
-          </div>
-        </li>
-        <li>
-          <a href="#!">
-            <i class="material-icons">home</i>Campaña/Crear
-          </a>
-        </li>
-        <li>
-          <a href="#!">
-            <i class="material-icons"><i class="material-icons">insert_chart</i></i>Crear Reporte
-          </a>
-        </li>
-        <!--<li><div class="divider"></div></li> -->
-        <li>
-          <a class="waves-effect" href="#!"><i class="material-icons">visibility</i>Ver Campañas</a>
-        </li>
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
-        <i class="material-icons">menu</i>
-      </a>
-    </div>
-  </nav>
-  <!--               fin nav -->
-
+{% block content %} 
   <!-- inicio contenedor principal -->
   <div class="container">
     <!-- inicio row  -->
@@ -126,7 +70,11 @@
 
   </div>
   <!-- fin contenedor principal -->
-</body>
+
+
+
+
+
 
 <script type="text/javascript">
 
@@ -163,7 +111,7 @@ $(document).ready(function() {
     $('select').material_select();
   });
 </script>
-</html>
 
 
-{%endblock%}
+{% endblock %}
+
