@@ -33,14 +33,14 @@ class Propietario(models.Model):
 		
 
 class Campaing(models.Model):
-	TIPO = (("castracion","castración"),("vacunacion","Vacunación"))
+	TIPO = (("castracion","Castración"),("vacunacion","Vacunación"))
 	fecha = models.DateField()
 	lugar = models.ForeignKey(Lugar, related_name="campaings")
 	colaborador = models.ManyToManyField(Colaborador, through = "CampaingColaborador")
 	tipo = models.CharField(max_length = 10, choices = TIPO)
 
 	monto_valor_operacion = models.IntegerField()
-	monto_inter_grupo_gastado = models.IntegerField()
+	monto_inter_grupo_gastado = models.IntegerField(default=0)
 	monto_inter_grupo_total = models.IntegerField()
 	url = models.CharField(max_length = 200)
 

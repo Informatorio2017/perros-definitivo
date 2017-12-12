@@ -14,7 +14,7 @@ class CreateCampaing(forms.ModelForm):
 	
 	lugar = forms.ModelChoiceField(app_campaing.models.Lugar.objects.all())
 	
-	tipo = forms.CharField()
+	tipo = forms.ChoiceField(app_campaing.models.Campaing.TIPO)
 
 	monto_valor_operacion = forms.IntegerField()
 	

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import CreateCampaing
 
 
@@ -9,20 +9,25 @@ def creado(request):
 
 
 def create_campaing(request):
-   
+
+	
+
     if request.method == 'POST':
 
         form = CreateCampaing(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.INFO, 'Evento creado correctamente.')
-            return redirect('/creado/')
+            
+            return redirect('/campaing/creado/')
+        else:
+        	return redirect('/creado/')
+
     else:
-
     	contexto = {"form":CreateCampaing}
+    	return render(request, "create_campaing.html", contexto)
+    	
 
-    contexto = {"form":CreateCampaing}
-    return render(request, "create_campaing.html", contexto)
+    
         
 
     
