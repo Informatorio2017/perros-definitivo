@@ -86,55 +86,24 @@
                       <!-- INICIO FORMULARIO  -->
     <div class="row">
     <form class="col s12" method="POST">
+      
       {% csrf_token %}
       {{ form.as_p }}
 
-      <h1>ASDASDASDASD</h1>
 
-      <!-- Fecha  -->
-      <div class="row">
-        <div class="input-field col s12 ">
-          <input placeholder="Placeholder" id="fecha" type="text" class="validate">
-          <label for="fecha"><strong>Fecha: </strong></label>
-        </div>
+
+      <div class="row"> <!-- row para los botones de abajo -->
+
+      <div class="col s12  center-align">
+
+        <button type="submit" class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>      Crear Campaña
+        </button>
       </div>
 
-      <!-- Lugar  -->
-      <div class="row">
-        <div class="input-field col s12 ">
-          <input placeholder="Placeholder" id="lugar" type="text" class="validate">
-          <label for="lugar"><strong>Lugar: </strong></label>
-        </div>
-      </div>
+    </div>
 
-      <!-- Tipo  -->
-      <div class="row">
-        <div class="input-field col s12">
-          <select>
-            <option value="" disabled selected>Elija una opción</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-          </select>
-          <label>Tipo: </label>
-        </div>
-      </div>
-
-      <!-- Valor Intervencion  -->
-      <div class="row">
-        <div class="input-field col s12 ">
-          <input placeholder="Placeholder" id="valor_inter" type="text" class="validate">
-          <label for="valor_inter"><strong>Valor Intervención: </strong></label>
-        </div>
-      </div>
-
-      <!-- Valor Intervenciones Cubiertas  -->
-      <div class="row">
-        <div class="input-field col s12 ">
-          <input placeholder="Placeholder" id="valor_inter_cub" type="text" class="validate">
-          <label for="valor_inter_cub"><strong>Valor Intervenciones Cubiertas: </strong></label>
-        </div>
-      </div>
+      
+      
        
     </form>
   </div>
@@ -142,14 +111,7 @@
 
 
 
-    <div class="row"> <!-- row para los botones de abajo -->
-
-      <div class="col s12  center-align">
-        <a class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>      Crear Campaña
-        </a>
-      </div>
-
-    </div>
+    
 
     
 

@@ -9,6 +9,7 @@ urlpatterns = [
   
 
     url(r'^create_campaing/', views.create_campaing, name="create_campaing"),
+    url(r'^creado/', views.creado, name="creado"),
    
 
 ]
