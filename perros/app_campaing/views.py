@@ -15,11 +15,16 @@ def create_campaing(request):
     if request.method == 'POST':
 
         form = CreateCampaing(request.POST)
+
         if form.is_valid():
-            form.save()
-            
-            return redirect('/campaing/creado/')
+        	
+
+        	form.save()
+        	return redirect('/campaing/creado/')
+
+
         else:
+        	
         	return redirect('/Aca_si_no_valida_los_datos')
 
     else:
