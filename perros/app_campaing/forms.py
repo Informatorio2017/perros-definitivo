@@ -1,6 +1,6 @@
 from django import forms
 from .models import Campaing
-
+import app_campaing
 
 
 
@@ -12,7 +12,7 @@ class CreateCampaing(forms.ModelForm):
 
 	fecha = forms.DateField()
 	
-	lugar = forms.CharField()
+	lugar = forms.ModelChoiceField(app_campaing.models.Lugar.objects.all())
 	
 	tipo = forms.CharField()
 

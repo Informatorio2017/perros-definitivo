@@ -18,7 +18,11 @@ def create_campaing(request):
             messages.add_message(request, messages.INFO, 'Evento creado correctamente.')
             return redirect('/creado/')
     else:
+
     	contexto = {"form":CreateCampaing}
+
+    contexto = {"form":CreateCampaing}
+    return render(request, "create_campaing.html", contexto)
         
 
-    return render(request, "create_campaing.html", contexto)
+    
