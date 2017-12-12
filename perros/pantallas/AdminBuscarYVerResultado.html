@@ -19,95 +19,100 @@
   
 
   <!-- inicio nav -->
-  <nav class="nav-extended">
-    <div class="nav-wrapper blue light">
-      <div class="brand-logo left topbar-boton-arriba-izquierda">
-        <!--botón atrás reemplaza al regresar-->
-        <a href="#" onclick="history.go(-1)">
-          <i class="material-icons">keyboard_backspace</i>
+  <nav class="nav-extended ">
+      <div class="nav-wrapper blue light"> <!-- con valign-wrapper se alinea el titulo pero cambia el sidebar -->
+        <div class="brand-logo left topbar-boton-arriba-izquierda ">
+          <!--botón atrás reemplaza al regresar-->
+          <a href="#" onclick="history.go(-1)">
+            <i class="material-icons">keyboard_backspace</i>
+          </a>
+        </div>
+        <div class="top-titulos">
+          <p class="truncate top-bar-primeralinea ">
+            <strong>AMO LOS PERROS</strong>
+          </p>
+          <!-- <p class="truncate top-bar-segundalinea">
+            <strong>AMO LOS PERROS</strong>
+          </p> -->
+        </div>
+  
+  
+        <!-- inicio lista de enlaces del menú arriba derecha -->
+     
+        <ul id="slide-out" class="side-nav">
+          <li>
+            <div class="user-view">
+              <div class="background logo-menu">
+                <img class="responsive-img" src="" alt="side-nav">
+              </div>
+              <!-- <a href="#!user" class="valign-wrapper">
+                <img class="circle avatar-menu" src="imagenes/amo los perros.png">
+                <p class="black-text name truncate">
+                   
+                </p>
+              </a>-->
+            </div>
+          </li>
+          <li>
+            <a href="#!">
+              <i class="material-icons">home</i>CAMPAÑA/CREAR
+            </a>
+          </li>
+          <li>
+            <a href="#!">
+              <i class="material-icons">insert_chart</i>CREAR REPORTE
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect" href="#!">
+              <i class="material-icons">visibility</i>VER CAMPAÑAS
+            </a>
+          </li>
+          <!-- <li><div class="divider"></div></li> -->
+          <!-- <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Inicio</a></li> -->
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
+          <i class="material-icons">menu</i>
         </a>
       </div>
-      <div class="top-titulos">
-        <p class="truncate top-bar-primeralinea">
-          <strong>AMO LOS PERROS</strong>
-        </p>
-        <!-- <p class="truncate top-bar-segundalinea">
-          <strong>AMO LOS PERROS</strong>
-        </p> -->
-        
-          
-        </p>
-      </div>
-      <!-- inicio lista de enlaces del menú arriba derecha -->
-  <nav>    
-      <ul id="slide-out" class="side-nav">
-        <li>
-          <div class="user-view">
-            <div class="background logo-menu">
-              <img class="responsive-img" src="imagenes/amo los perros.png">
+    </nav>
+    <!-- fin nav -->
+    <div class="separador"></div>
+<div class="container">    <!--al agregar contenedor se queda todo en el medio-->
+        <div class="row">
+          <div class="col-12">
+              <div class="card-panel">
+                  <strong>BUSCAR PACIENTE<strong>
+              </div>
+          </div>
+          <div class="divider"></div>
+        </div>
+      
+        <div class="row">
+            <div class="col s9">
+              <strong>Código de Paciente: <br></strong>
+              <p>7732</p>
             </div>
-            <!-- <a href="#!user" class="valign-wrapper">
-              <img class="circle avatar-menu" src="imagenes/amo los perros.png">
-              <p class="black-text name truncate">
-                 -->
-              </p>
-            </a>
-          </div>
-        </li>
-        <li>
-          <a href="#!">
-            <i class="material-icons">home</i>CAMPAÑA/CREAR
-          </a>
-        </li>
-        <li>
-          <a href="#!">
-            <i class="material-icons">insert_chart</i>CREAR REPORTE
-          </a>
-        </li>
-        <li>
-          <a href="#!">
-            <i class="material-icons">visibility</i>VER CAMPAÑAS
-          </a>
-        </li>
-        <!-- <li><div class="divider"></div></li> -->
-        <!-- <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Inicio</a></li> -->
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
-        <i class="material-icons">menu</i>
-      </a>
-    </div>
-  </nav>
-  <!-- fin nav -->
-  <div class="row">
-      <div class="col-12">
-          <div class="card-panel">
-              <strong>BUSCAR PACIENTE<strong>
-          </div>
-      </div>
-      <div class="divider"></div>
-  </div>
-  
-  <div class="row  ">
-      <div class="col s9">
-        <strong>Código de Paciente: <br></strong>
-        <p>7732</p>
-      </div>
-      <div class="col s3">
-            <a href="#!"class="waves-effect waves-light btn-large btn-ancho"><i class="material-icons right">search</i>Buscar</a>
-      </div>    
-  </div>
-  <div class="divider"></div>
-  <div class="separador"></div>
-  <div class="row">
-      <div class="col s12">
-            <strong>Datos del Paciente</strong>
-            <p>Nombre:&nbsp;Cachito <br>
-               Especie:&nbsp;Canino <br>
-               Sexo:&nbsp;Machomen <br>
-               Edad:&nbsp;3 años <br> 
-            </p> 
-      </div>
-  </div>
+            <div class="col s3">
+                  <a href="#!"class="waves-effect waves-light btn-large btn-ancho">
+                  <i class="material-icons right">search</i>Buscar</a>
+            </div>    
+        </div>
+
+        <div class="divider"></div>
+        
+        <div class="separador"></div>
+        <div class="row">
+            <div class="col s12">
+                  <strong>Datos del Paciente</strong>
+                  <p>Nombre:&nbsp;Cachito <br>
+                    Especie:&nbsp;Canino <br>
+                    Sexo:&nbsp;Machomen <br>
+                    Edad:&nbsp;3 años <br> 
+                  </p> 
+            </div>
+        </div>
+
 
   <div class="divider"></div>
   <div class="separador"></div>
@@ -126,8 +131,10 @@
     <div class="col s12 center-align">
         <a class="waves-effect waves-light btn-large" href="home.html">MARCAR COMO ATENDIDO</a>
     </div>
+
 </div>
 </body>
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript">
