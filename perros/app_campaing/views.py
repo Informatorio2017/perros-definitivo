@@ -20,7 +20,7 @@ def create_campaing(request):
             
             return redirect('/campaing/creado/')
         else:
-        	return redirect('/creado/')
+        	return redirect('/Aca_si_no_valida_los_datos')
 
     else:
     	contexto = {"form":CreateCampaing}

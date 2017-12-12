@@ -26,10 +26,10 @@ class CreateCampaing(forms.ModelForm):
 		labels = {"fecha":"Fecha","lugar":"Lugar", "tipo":"Tipo","monto_valor_operacion":"Valor Intervención", "monto_inter_grupo_total":"Valor Intervenciones Cubiertas"}
 
 	def __init__(self, *args, **kwargs):
-
+		
 		super(CreateCampaing, self).__init__(*args, **kwargs)
 		#self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre'})
-		self.fields['fecha'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Fecha'})
+		self.fields['fecha'].widget.attrs.update({'class' : 'datepicker','placeholder' : 'Fecha'})
 		self.fields['lugar'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Lugar'})
 		self.fields['tipo'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Tipo'})
 		self.fields['monto_valor_operacion'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Valor Intervención'})
