@@ -1,0 +1,14 @@
+estadisticas seleccionar campañas lo enlace a seleccionar campañas.
+
+crear campaña lo enlace al home.
+
+Inscribir paciente de la home lo enlace a AdminInscripBuscar.
+
+Dar de alta lo enlace a buscar paciente.
+
+Buscar paciente lo enlace a AdminBuscarYVerResultado.
+
+AdminBuscarYVerResultado boton marcar como atendido lo enlace a home.
+
+Confirmar inscripción lo enlace a home.
+
