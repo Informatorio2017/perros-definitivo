@@ -3,44 +3,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
-
-
-	  
 		     
 		<!--Import Google Icon Font-->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
-
-
 		<link rel="stylesheet" href= " {% static 'css/materialize.min.css' %}">         
 		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
-
-
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src=" {% static 'js/materialize.min.js' %}"></script>
 
-
-
 		<meta charset="UTF-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
 
 		<title>
 			{% block title %} {% endblock %}
 		</title>
 
 	</head>
-
-
-
 	<body>
-
-
-
 		<nav class="nav-extended">
 		    <div class="nav-wrapper">
 		      <div class="brand-logo left topbar-boton-arriba-izquierda">
@@ -88,17 +68,9 @@
 		    </div>
 	  	</nav>
 
-
-
-
-
 		{% block content %} {% endblock %}
 
 
 	</body>
-
-
-
-
 
 </html>
