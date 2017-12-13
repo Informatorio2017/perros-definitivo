@@ -35,4 +35,7 @@ def create_campaing(request):
     
         
 
-    
+def home(request):
+
+    contexto = {}
+    return render(request, "home.html", contexto)
