@@ -1,41 +1,104 @@
 {% load staticfiles %}
 
-
-
-
-  
-     
-  <!--Import Google Icon Font-->
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-
-
-<link rel="stylesheet" href= " {% static 'css/materialize.min.css' %}">         
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
-
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src=" {% static 'js/materialize.min.js' %}"></script>
-
-
-
-{% block pagina %} {% endblock%}
-
-
 <!DOCTYPE html>
 <html>
 	<head>
+
+
+
+	  
+		     
+		<!--Import Google Icon Font-->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+		<link rel="stylesheet" href= " {% static 'css/materialize.min.css' %}">         
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src=" {% static 'js/materialize.min.js' %}"></script>
+
+
+
+		<meta charset="UTF-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
 		<title>
-			{% block title %} title base {% endblock %}
+			{% block title %} {% endblock %}
 		</title>
+
 	</head>
 
+
+
 	<body>
-		 <div class="card-panel teal lighten-2">This is a card panel with a teal lighten-2 class</div>
-		{% block header %} header base{% endblock %}
-		{% block content %} content base {% endblock %}
+
+
+
+		<nav class="nav-extended">
+		    <div class="nav-wrapper">
+		      <div class="brand-logo left topbar-boton-arriba-izquierda">
+		        <!--botón atrás reemplaza al regresar-->
+		        <a href="#" onclick="history.go(-1)">
+		          <i class="material-icons">keyboard_backspace</i>
+		        </a>
+		      </div>
+		      <div class="top-titulos">
+		        <p class="truncate top-bar-primeralinea">
+		          <strong>{% block encabezado %} {% endblock %}</strong>
+		        </p>
+		        <!--<p class="truncate top-bar-segundalinea"> 
+		          
+		        </p> -->
+		      </div>
+		      <!-- inicio lista de enlaces del menú arriba derecha -->
+		      <ul id="slide-out" class="side-nav">
+		        <li>
+		          <div class="user-view">
+		            <div class="background logo-menu">
+		              <img class="responsive-img" src="" alt="side-nav">
+		            </div>
+		            
+		          </div>
+		        </li>
+		        <li>
+		          <a href="#!">
+		            <i class="material-icons">home</i>Campaña/Crear
+		          </a>
+		        </li>
+		        <li>
+		          <a href="#!">
+		            <i class="material-icons"><i class="material-icons">insert_chart</i></i>Crear Reporte
+		          </a>
+		        </li>
+		        <!--<li><div class="divider"></div></li> -->
+		        <li>
+		          <a class="waves-effect" href="#!"><i class="material-icons">visibility</i>Ver Campañas</a>
+		        </li>
+		      </ul>
+		      <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
+		        <i class="material-icons">menu</i>
+		      </a>
+		    </div>
+	  	</nav>
+
+
+
+
+
+		{% block content %} {% endblock %}
+
+
 	</body>
+
+
+
+
 
 </html>
