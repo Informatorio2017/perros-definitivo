@@ -26,12 +26,9 @@ class Propietario(models.Model):
 	nombre = models.CharField(max_length = 50)
 	apellido = models.CharField(max_length = 50)
 	dni = models.CharField(max_length = 8)
-	telefono = models.CharField(max_length = 20)
-	
+	telefono = models.CharField(max_length = 20)	
 	barrio = models.ForeignKey(Barrio, related_name="propietario")
 	
-		
-
 class Campaing(models.Model):
 	TIPO = (("castracion","Castración"),("vacunacion","Vacunación"))
 	fecha = models.DateField()
@@ -43,6 +40,8 @@ class Campaing(models.Model):
 	monto_inter_grupo_gastado = models.IntegerField(default=0)
 	monto_inter_grupo_total = models.IntegerField()
 	url = models.CharField(max_length = 200)
+	preinscripcion = models.BooleanField(default=True)
+	habilitada = models.BooleanField(default=True)
 
 
 class Animalito(models.Model):
@@ -61,9 +60,6 @@ class Animalito(models.Model):
 	abono = models.IntegerField()
 	campaing = models.ForeignKey(Campaing, related_name = "animalitos")
 	user_name = models.CharField(max_length = 30)
-
-
-
 
 class CampaingColaborador(models.Model):
 	padrino = models.BooleanField()
