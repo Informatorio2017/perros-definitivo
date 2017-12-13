@@ -17,6 +17,7 @@ urlpatterns = [
 
 	#
 	url(r'^buscar_paciente/', views.buscar_paciente, name="buscar_paciente"),
+
 	
 	url(r'^home/', views.home, name="home"),
 	url(r'^home/', views.home, name="home"),

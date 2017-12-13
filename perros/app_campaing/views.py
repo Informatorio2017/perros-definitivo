@@ -39,8 +39,11 @@ def create_campaing(request):
 
 
 def home(request):
-
+    
+    
     contexto = {}
+
+
     return render(request, "home.html", contexto)
 
 
@@ -51,3 +54,5 @@ def buscar_paciente(request):
 
     contexto = {}
     return render(request, "base.html", contexto)
+
+
