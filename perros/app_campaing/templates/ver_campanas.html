@@ -1,20 +1,39 @@
 {% extends "base.html" %}
 
-{%block pagina %} 
+  
+{% block title %} AMO LOS PERROS SP{% endblock %}
 
+{% block encabezado %} <h4>Amo los Perros </h4>   {% endblock %}
+			
+			
+{% block content %} 
+	<h4>Listado de Campañas </h4> 
 
-
-			<nav id="principal">
-				<ul>
-					<li><a href="#">AMO LOS PERROS</a></li>
-
-				</ul>
-			</nav>
-
-
+<div class="row">
 {% for campana in campanas %}
-	<h2>{{ campana.lugar }}</h2>
-	
+        
+        <div class="col s6 m4 l3">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <p class="titulo-ver_campana center-align" > {{ campana.fecha  }}</p>
+              <p class="subtitulo-ver_campana center-align">Campaña en: {{ campana.lugar }}</p>
+              <p class="total-ver_campana center-align">200</p>
+              <p class="subtitulo-ver_campana center-align">Castraciones</p>
+
+            </div>
+            <div class="card-action center-align">
+              <a href="#">Detalles de la campaña</a>
+            </div>
+          </div>
+        </div>
 {% endfor %}
+</div>
 
 {% endblock %}
+
+
+
+
+
+
+

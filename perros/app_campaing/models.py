@@ -44,7 +44,10 @@ class Campaing(models.Model):
 
 	def __str__(self):
 		return self.lugar
+		return self.fecha
+		return self.tipo
 
+		
 class Animalito(models.Model):
 	
 	ESPECIE = (("canino","Canino"),("felino","Felino"))
