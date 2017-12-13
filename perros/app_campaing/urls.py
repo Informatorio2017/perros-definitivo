@@ -22,7 +22,9 @@ urlpatterns = [
 	url(r'^home/', views.home, name="home"),
 	url(r'^home/', views.home, name="home"),
 	url(r'^home/', views.home, name="home"),
-   
+
+    url(r'^ver_campanas/', views.ver_campanas, name="ver_campanas"),
+
 
 
 

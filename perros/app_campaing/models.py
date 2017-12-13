@@ -37,13 +37,14 @@ class Campaing(models.Model):
 	fecha = models.DateField()
 	lugar = models.ForeignKey(Lugar, related_name="campaings")
 	colaborador = models.ManyToManyField(Colaborador, through = "CampaingColaborador")
-	tipo = models.CharField(max_length = 10, choices = TIPO)
-
+	tipo = models.CharField(max_length = 10, choices = TIPO)	
 	monto_valor_operacion = models.IntegerField()
 	monto_inter_grupo_gastado = models.IntegerField(default=0)
 	monto_inter_grupo_total = models.IntegerField()
 	url = models.CharField(max_length = 200)
 
+	def __str__(self):
+		return self.lugar
 
 class Animalito(models.Model):
 	

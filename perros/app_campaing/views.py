@@ -1,17 +1,18 @@
 from django.shortcuts import render, redirect
 from .forms import CreateCampaing
+from .models import Campaing
 
 
 
 
 def creado(request):
-	return render(request, 'creado.html', {})	
+	return render(request, 'creado.html', {})
 
+def ver_campanas(request):
+
+    return render(request, 'ver_campanas.html', {'campanas':Campaing.objects.all()})
 
 def create_campaing(request):
-
-	
-
     if request.method == 'POST':
 
         form = CreateCampaing(request.POST)

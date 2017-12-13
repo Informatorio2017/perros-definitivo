@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{%block pagina %} 
+
+
+
+			<nav id="principal">
+				<ul>
+					<li><a href="#">AMO LOS PERROS</a></li>
+
+				</ul>
+			</nav>
+
+
+{% for campana in campanas %}
+	<h2>{{ campana.lugar }}</h2>
+	
+{% endfor %}
+
+{% endblock %}
