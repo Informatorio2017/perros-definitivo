@@ -28,6 +28,6 @@ class CreateCampaing(forms.ModelForm):
 
 
 class BuscarPaciente(forms.ModelForm):
-	query = forms.CharField(label="Búsqueda", max_length = 10)
+	query = forms.IntegerField(label="Búsqueda")
 
-	
+

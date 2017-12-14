@@ -62,12 +62,6 @@ def home_admin(request):
 
 
 def inscribir_paciente(request):
-    contexto = {}
-    return render(request, "inscribir_paciente.html", contexto)
-
-
-
-def formulario_inscripcion(request):
        
 
     if request.method == "POST":
@@ -86,3 +80,12 @@ def formulario_inscripcion(request):
 
         
         return render(request,"inscribir_paciente.html",{"form":form})
+
+
+
+
+
+def formulario_inscripcion(request):
+    contexto = {}
+    return render(request, "inscribir_paciente.html", contexto)
+
