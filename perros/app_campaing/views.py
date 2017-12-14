@@ -61,6 +61,12 @@ def home_admin(request):
 
 
 
-def  inscribir_paciente(request):
+def inscribir_paciente(request):
     contexto = {}
     return render(request, "inscribir_paciente.html", contexto)
+
+
+
+def formulario_inscripcion(request):
+    contexto = {}
+    return render(request, "formulario_inscripcion.html", contexto)

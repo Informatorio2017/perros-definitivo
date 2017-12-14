@@ -17,9 +17,13 @@ urlpatterns = [
 	url(r'^buscar_paciente/', views.buscar_paciente, name="buscar_paciente"),
 
 	
+
+	#aca esta para buscar preinscriptos??? y despues ir a la ventana formulario inscripcion??
 	url(r'^inscribir_paciente/', views.inscribir_paciente, name="inscribir_paciente"),
+	url(r'^formulario_inscripcion/', views.formulario_inscripcion, name="formulario_inscripcion"),
+
+
 	
-	url(r'^home/', views.home, name="home"),
 	url(r'^home/', views.home, name="home"),
 	url(r'^home/', views.home, name="home"),
 
