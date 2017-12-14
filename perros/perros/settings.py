@@ -25,7 +25,7 @@ SECRET_KEY = '0#1fd)y(guv0rn22yfrtk$8l@y9kd()(^j3x9f8x+(kx$bvf$w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['amoalosperros.com', '10.147.48.18']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
