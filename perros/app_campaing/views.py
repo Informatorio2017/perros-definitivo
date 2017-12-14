@@ -4,7 +4,7 @@ from .models import Campaing
 
 
 def creado(request):
-	return render(request, 'creado.html', {})
+    return render(request, 'creado.html', {})
 
 
 def ver_campanas(request):
@@ -16,15 +16,15 @@ def create_campaing(request):
     if request.method == 'POST':
         form = CreateCampaing(request.POST)
         if form.is_valid():        
-        	form.save()
-        	return redirect('/campaing/creado/')
+            form.save()
+            return redirect('/campaing/creado/')
         else:        
-        	return redirect('/Aca_si_no_valida_los_datos')
+            return redirect('/Aca_si_no_valida_los_datos')
     else:
-    	contexto = {"form":CreateCampaing}
+        contexto = {"form":CreateCampaing}
 
-    	return render(request, "create_campaing.html", contexto)
-    	
+        return render(request, "create_campaing.html", contexto)
+        
 
     
         
@@ -65,21 +65,21 @@ def inscribir_paciente(request):
        
 
     if request.method == "POST":
-            form = BuscarPaciente(request.POST)
+        form = BuscarPaciente(request.POST)
 
-            if form.is_valid():
+        if form.is_valid():
 
-                query = form.cleaned_data["query"]
+            query = form.cleaned_data["query"]
 
-                movimientos = Movimiento.objects.filter(nro_pre_inscripcion=query)
+            movimientos = Movimiento.objects.filter(nro_pre_inscripcion=query)
                 
-                return render(request, "inscribir_paciente_resultado.html", {"query":query,"movimientos":movimientos})
+            return render(request, "inscribir_paciente_resultado.html", {"query":query,"movimientos":movimientos})
 
-        else:
-            form = BuscarPaciente()
+    else:
+        form = BuscarPaciente()
 
         
-        return render(request,"inscribir_paciente.html",{"form":form})
+    return render(request,"inscribir_paciente.html",{"form":form})
 
 
 
@@ -88,4 +88,3 @@ def inscribir_paciente(request):
 def formulario_inscripcion(request):
     contexto = {}
     return render(request, "inscribir_paciente.html", contexto)
-

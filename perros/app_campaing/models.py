@@ -19,8 +19,10 @@ class Colaborador(models.Model):
 
 class Barrio(models.Model):
 	nombre = models.CharField(max_length = 50)
-	detalle = models.CharField(max_length = 120)
+	detalle = models.CharField(max_length = 120,null=True)
 
+	def __str__(self):
+		return self.nombre
 
 class Propietario(models.Model):
 	nombre = models.CharField(max_length = 50)
@@ -29,6 +31,9 @@ class Propietario(models.Model):
 	telefono = models.CharField(max_length = 20)	
 	barrio = models.ForeignKey(Barrio, related_name="propietario")
 	
+	def __str__(self):
+		return self.nombre
+
 class Campaing(models.Model):
 	TIPO = (("castracion","Castración"),("vacunacion","Vacunación"))
 	fecha = models.DateField()
@@ -64,6 +69,9 @@ class Animalito(models.Model):
 	abono = models.IntegerField()
 	campaing = models.ForeignKey(Campaing, related_name = "animalitos")
 	user_name = models.CharField(max_length = 30)
+
+	def __str__(self):
+		return self.ESPECIE
 
 class CampaingColaborador(models.Model):
 	padrino = models.BooleanField()
