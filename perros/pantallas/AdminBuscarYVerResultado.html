@@ -31,9 +31,9 @@
           <p class="truncate top-bar-primeralinea ">
             <strong>AMO LOS PERROS</strong>
           </p>
-          <!-- <p class="truncate top-bar-segundalinea">
-            <strong>AMO LOS PERROS</strong>
-          </p> -->
+          <p class="truncate top-bar-segundalinea">
+            <strong>Buscar Paciente</strong>
+          </p>
         </div>
   
   
@@ -79,32 +79,38 @@
     <!-- fin nav -->
     <div class="separador"></div>
 <div class="container">    <!--al agregar contenedor se queda todo en el medio-->
-        <div class="row">
-          <div class="col-12">
-              <div class="card-panel">
-                  <strong>BUSCAR PACIENTE<strong>
-              </div>
+       
+  <div class="row col s12">   <!-- row 3 -->
+
+    
+
+    <div class="row"> <!-- row 2 -->
+<p></p>
+      <div class="col s6">
+          <strong>Código de Paciente:</strong>
+        <form>
+          <div class="input-field">
+            <input placeholder="000" id="first_name" type="text" class="validate">
+            
           </div>
-          <div class="divider"></div>
-        </div>
-      
-        <div class="row">
-            <div class="col s9">
-              <strong>Código de Paciente: <br></strong>
-              <p>7732</p>
-            </div>
-            <div class="col s3">
-                  <a href="#!"class="waves-effect waves-light btn-large btn-ancho">
-                  <i class="material-icons right">search</i>Buscar</a>
-            </div>    
-        </div>
+        </form>
+      </div> <!-- cierra row 2 -->
+
+
+      <div class="col s6">
+          <a class="waves-effect waves-light red accent-2 btn-large btn-ancho" href="AdminBuscarYVerResultado.html"><i class="material-icons">search</i></i>      Buscar
+          </a>
+      </div>
+
+    </div>
+
 
         <div class="divider"></div>
         
         <div class="separador"></div>
         <div class="row">
             <div class="col s12">
-                  <strong>Datos del Paciente</strong>
+                  <strong>Datos del Paciente:</strong>
                   <p>Nombre:&nbsp;Cachito <br>
                     Especie:&nbsp;Canino <br>
                     Sexo:&nbsp;Machomen <br>
@@ -117,14 +123,26 @@
   <div class="divider"></div>
   <div class="separador"></div>
   <div class="row">
-    <div class="col s12">
-          <strong>Datos del Responsable </strong>
-          <p>Nombre:&nbsp;Gerogina Nazareno <br>
-             Teléfono:&nbsp;3644556677 <br>
-             E-mail:&nbsp;georgi22nazita@yahoo.com <br>
-             Dni:&nbsp;12999888 <br>
-             Barrio:&nbsp;San Martín 
-          </p> 
+    <div class="col s12 ">
+          <strong>Datos del Responsable: </strong>
+          <p>Gerogina Nazareno <p>
+             <i class="material-icons">phone</i>&nbsp&nbsp3644556677 
+
+             <div class="row">
+               <div class="col s12 m6">
+                  <ul class="collapsible" data-collapsible="accordion">
+                      <li>
+                        <div class="collapsible-header">
+                        <i class="material-icons right">keyboard_arrow_down</i><strong>Más información</strong></div>
+                        <div class="collapsible-body grey lighten-2"><span>
+                          E-mail:&nbsp;georgi22nazita@yahoo.com <br>
+                          Dni:&nbsp;12999888 <br>
+                          Barrio:&nbsp;San Martín</span></div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+
     </div>
 </div>
 <div class="row">
