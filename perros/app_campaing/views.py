@@ -57,3 +57,10 @@ def home_admin(request):
     contexto = {'campaing':campaing}
     return render(request, "home_admin.html", contexto)
 
+
+
+
+
+def  inscribir_paciente(request):
+    contexto = {}
+    return render(request, "inscribir_paciente.html", contexto)
