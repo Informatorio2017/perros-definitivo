@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Resultados{% endblock %}
+
+{% block content %}
+<h2>Se buscó: {{ query }}</h2>
+{% for paciente in pacientes %}
+	<p>{{ paciente.nombre }} - ${{ paciente.especie }}</p>
+
+{% endfor %}
+<a class="waves-effect waves-light btn-large">buscar otro</a>
+<a class="waves-effect waves-light btn-large">no pre inscripto</a>
+
+{% endblock %}
