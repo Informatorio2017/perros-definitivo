@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import CreateCampaing
-from .models import Campaing
+from .models import Campaing, Colaborador
 
 
 def creado(request):
@@ -11,6 +11,9 @@ def ver_campanas(request):
 
     return render(request, 'ver_campanas.html', {'campanas':Campaing.objects.all()})
 
+def ver_colaboradores(request):
+
+    return render(request, 'ver_colaboradores.html', {'colaboradores':Colaborador.objects.all()})
 
 def create_campaing(request):
     if request.method == 'POST':
@@ -65,18 +68,18 @@ def inscribir_paciente(request):
        
 
     if request.method == "POST":
-            form = BuscarPaciente(request.POST)
+        form = BuscarPaciente(request.POST)
 
-            if form.is_valid():
+        if form.is_valid():
 
-                query = form.cleaned_data["query"]
+            query = form.cleaned_data["query"]
 
-                movimientos = Movimiento.objects.filter(nro_pre_inscripcion=query)
+            movimientos = Movimiento.objects.filter(nro_pre_inscripcion=query)
                 
-                return render(request, "inscribir_paciente_resultado.html", {"query":query,"movimientos":movimientos})
+            return render(request, "inscribir_paciente_resultado.html", {"query":query,"movimientos":movimientos})
 
-        else:
-            form = BuscarPaciente()
+    else:
+        form = BuscarPaciente()
 
         
         return render(request,"inscribir_paciente.html",{"form":form})

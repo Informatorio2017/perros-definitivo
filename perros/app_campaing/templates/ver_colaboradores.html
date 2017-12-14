@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+  
+{% block title %} AMO LOS PERROS SP{% endblock %}
+
+{% block encabezado %} <h4>Amo los Perros </h4>   {% endblock %}
+			
+			
+{% block content %} 
+	<h4>Lista de Colaboradores </h4> 
+
+
+<ul class="collection">
+{% for colaborador in colaboradores %}
+    <li class="collection-item avatar">
+      <i class="material-icons circle">pan_tool</i>
+      <span class="title">{{colaborador.nombre}}, {{colaborador.apellido}}</span>
+      <p>{{colaborador.telefono}}</p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
+
+
+
+
+
+
+
