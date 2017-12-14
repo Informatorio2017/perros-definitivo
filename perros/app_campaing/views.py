@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import CreateCampaing
-from .models import Campaing
+from .models import Campaing, Animalito, Propietario
 
 
 def creado(request):
@@ -86,5 +86,55 @@ def inscribir_paciente(request):
 
 
 def formulario_inscripcion(request):
-    contexto = {}
-    return render(request, "inscribir_paciente.html", contexto)
+
+    if request.method == 'POST':
+        form = FormularioInscripcion(request.POST)
+        if form.is_valid():
+
+            #crear animalito
+            #crear propietario
+            animal = Animalito()
+            propietario = Propietario()
+            #asignarles los datos del form
+
+            animal.especie = form.POST["especie"]
+            propietario.dni = form.POST["dni"]
+
+            propietario.apellido = form.POST["apellido"]
+
+            propietario.nombre = form.POST["nombre"]
+
+            propietario.telefono = form.POST["telefono"]
+
+            propietario.barrio = form.POST["barrio"]
+
+            animal.nombre = form.POST["nombre_paciente"]
+
+            animal.sexo = form.POST["sexo"]
+
+            animal.descripcion = form.POST["descripcion"]
+
+            animal.turno = form.POST["turno"]
+
+            animal.abono = form.POST["abono"]
+            
+            
+            #relacionar animal con propietario
+            #guardar animal y propietario
+
+            propietario.save()
+            animal.propietario = propietario
+            animal.save()
+
+
+            
+
+            return redirect('/campaing/creado/')
+        else:        
+            return redirect('/Aca_si_no_valida_los_datos')
+    else:
+        contexto = {"form":FormularioInscripcion}
+
+        return render(request, "formulario_inscripcion.html", contexto)
+
+
