@@ -68,5 +68,21 @@ def inscribir_paciente(request):
 
 
 def formulario_inscripcion(request):
-    contexto = {}
-    return render(request, "formulario_inscripcion.html", contexto)
+       
+
+    if request.method == "POST":
+            form = BuscarPaciente(request.POST)
+
+            if form.is_valid():
+
+                query = form.cleaned_data["query"]
+
+                movimientos = Movimiento.objects.filter(nro_pre_inscripcion=query)
+                
+                return render(request, "inscribir_paciente_resultado.html", {"query":query,"movimientos":movimientos})
+
+        else:
+            form = BuscarPaciente()
+
+        
+        return render(request,"inscribir_paciente.html",{"form":form})

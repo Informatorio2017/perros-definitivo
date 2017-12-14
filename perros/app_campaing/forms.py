@@ -26,4 +26,8 @@ class CreateCampaing(forms.ModelForm):
 		self.fields['monto_inter_grupo_total'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Valores Intervenciones Cubiertas'})
 		
 
+
+class BuscarPaciente(forms.ModelForm):
+	query = forms.CharField(label="Búsqueda", max_length = 10)
+
 	
