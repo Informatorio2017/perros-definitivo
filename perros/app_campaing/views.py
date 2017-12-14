@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 from .forms import CreateCampaing
-<<<<<<< HEAD
+
 from .models import Campaing, Animalito, Propietario
-=======
-from .models import Campaing, Colaborador
->>>>>>> origin/nelsoncolaboradores
+
+from .models import Colaborador
 
 
 def creado(request):
