@@ -27,7 +27,7 @@ class CreateCampaing(forms.ModelForm):
 		
 
 
-class BuscarPaciente(forms.ModelForm):
+class BuscarPaciente(forms.Form):
 	query = forms.IntegerField(label="Búsqueda")
 
 

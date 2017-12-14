@@ -32,21 +32,11 @@ def create_campaing(request):
         return render(request, "create_campaing.html", contexto)
         
 
-    
-        
-
-
 
 def home(request):
-    
-    
-    contexto = {}
 
-
+   contexto = {}
     return render(request, "home.html", contexto)
-
-
-
 
 
 def buscar_paciente(request):
@@ -54,22 +44,14 @@ def buscar_paciente(request):
     contexto = {}
     return render(request, "base.html", contexto)
 
-
-
-    
-
 def home_admin(request):
     campaing = Campaing.objects.filter(habilitada=True)
     contexto = {'campaing':campaing}
     return render(request, "home_admin.html", contexto)
 
 
-
-
-
 def inscribir_paciente(request):
-       
-
+      
     if request.method == "POST":
         form = BuscarPaciente(request.POST)
 
@@ -77,7 +59,7 @@ def inscribir_paciente(request):
 
             query = form.cleaned_data["query"]
 
-            movimientos = Movimiento.objects.filter(nro_pre_inscripcion=query)
+            pacientess = Animalito.objects.filter(nro_pre_inscripcion=query)
                 
             return render(request, "inscribir_paciente_resultado.html", {"query":query,"movimientos":movimientos})
 
@@ -86,9 +68,6 @@ def inscribir_paciente(request):
 
         
     return render(request,"inscribir_paciente.html",{"form":form})
-
-
-
 
 
 def formulario_inscripcion(request):
