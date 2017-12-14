@@ -31,3 +31,29 @@ class BuscarPaciente(forms.ModelForm):
 	query = forms.IntegerField(label="Búsqueda")
 
 
+
+class  FormularioInscripcion(forms.Form):
+
+
+	especie = forms.ModelChoiceField(app_campaing.models.Animalito.ESPECIE)
+
+	dni = models.CharField(max_length = 8)
+	apellido = models.CharField(max_length = 50)
+	nombre = forms.Charfield(max_length = 50)
+
+	telefono = models.CharField(max_length = 20)
+
+	barrio = forms.ModelChoiceField(app_campaing.models.Barrio.objects.all())
+
+	nombre_paciente = models.CharField(max_length = 30)
+
+	sexo = forms.ModelChoiceField(app_campaing.models.Animalito.SEXO)
+	descripcion = models.CharField(max_length = 50)
+
+	turno = models.IntegerField()
+	abono = models.IntegerField()
+
+	class Meta:
+
+			
+		labels = {"especie":"Especie","dni":"DNI", "apellido":"Apellido","nombre":"Nombre", "telefono":"Teléfono","barrio":"Barrio","nombre_paciente":"Nombre Mascota","sexo":"Sexo","descripcion":"Observaciones","turno":"Turno","abono":"Abono"}
