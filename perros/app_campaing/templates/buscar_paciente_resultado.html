@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+  
+{% block title %} AMO LOS PERROS SP{% endblock %}
+
+{% block encabezado %}<h4>Amo los Perros</h4>{% endblock %}
+			
+
+{% block content %}
+<h2>Se encontraron: {{ query }}</h2>
+
+
+ <ul class="collection">
+ {% for paciente in pacientes %}
+   <li class="collection-item avatar">
+    {% if paciente.especie == "CANINO" %}
+    	<img src="../../../static/images/dog.png" alt="" class="circle">
+    {% else %}
+      	<img src="../../../static/images/cat.png" alt="" class="circle">
+    {%endif%}
+
+    <p>{{ paciente.nombre }} - {{ paciente.especie }}      </p>
+    <a href="../alta_paciente/{{paciente.id}}" class="secondary-content">
+	  <button class="btn waves-effect waves-light" type="submit" name="action" >Alta
+	    <i class="material-icons right">check</i>
+	  </button>
+    </a>
+    </li>
+
+{% endfor %}
+<a class="waves-effect waves-light btn-large">buscar otro</a>
+<a class="waves-effect waves-light btn-large">no pre inscriptos</a>
+
+{% endblock %}

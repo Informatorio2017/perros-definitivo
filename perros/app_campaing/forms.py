@@ -35,6 +35,11 @@ class BuscarPaciente(forms.Form):
 	query = forms.IntegerField(label="Búsqueda")
 
 
+
+
+	query = forms.IntegerField(label="Búsqueda")
+
+
 # class  FormularioInscripcion(forms.Form):
 # 	especie = forms.ModelChoiceField(app_campaing.models.Animalito.ESPECIE)
 # 	dni = forms.CharField(max_length = 8)
