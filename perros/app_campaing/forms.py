@@ -112,3 +112,27 @@ class AnimalitoForm(forms.ModelForm):
 				  "turno":forms.TextInput(),
 				  "abono":forms.TextInput()}		  
 
+
+
+class AnimalitoPreinscripcionForm(forms.ModelForm):
+	class Meta:
+		model = Animalito
+
+		fields = ("especie",				  
+				  "nombre",
+				  "sexo",
+				  "descripcion"
+				  )
+
+		labels = {"especie":"Especie",
+				  "nombre":"Nombre Mascota",
+				  "sexo":"Sexo",
+				  "descripcion":"Observaciones"
+				  }
+
+		widget = {"especie":forms.TextInput(), 
+				  "nombre":forms.TextInput(),
+				  "sexo":forms.Select(), 
+				  "descripcion":forms.TextInput()
+				  }		  
+

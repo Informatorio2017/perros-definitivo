@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from .forms import CreateCampaing, BuscarPaciente_pre
 
-from .forms import CreateCampaing, BuscarPaciente, AnimalitoForm, PropietarioForm
+from .forms import CreateCampaing, BuscarPaciente, AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm
 
 
 from .models import Campaing, Animalito, Propietario
@@ -25,7 +25,7 @@ def ver_colaboradores(request):
 def create_campaing(request):
     if request.method == 'POST':
         form = CreateCampaing(request.POST)
-        if form.is_valid():        
+        if form.is_valid():       
             form.save()
             return redirect('/campaing/creado/')
         else:        
@@ -122,3 +122,45 @@ def formulario_inscripcion(request):
         return render(request, "formulario_inscripcion.html", contexto)
 
 
+
+
+def pre_inscribirse(request):
+    if request.method == 'POST':
+
+        form_propietario = PropietarioForm(request.POST)
+        form_animalito = AnimalitoPreinscripcionForm(request.POST)
+
+        if form_propietario.is_valid() and form_animalito.is_valid():
+
+            #crear animalito
+            #crear propietario
+            animal = Animalito()
+            propietario = Propietario()
+            #asignarles los datos del form
+
+            animal.especie = form_animalito.POST["especie"]
+            propietario.dni = form_propietario.POST["dni"]
+            propietario.apellido = form_propietario.POST["apellido"]
+            propietario.nombre = form_propietario.POST["nombre"]
+            propietario.telefono = form_propietario.POST["telefono"]
+            propietario.barrio = form_propietario.POST["barrio"]
+            animal.nombre = form_animalito.POST["nombre"]
+            animal.sexo = form_animalito.POST["sexo"]
+            animal.descripcion = form_animalito.POST["descripcion"]
+                     
+            #relacionar animal con propietario
+            #guardar animal y propietario
+
+            propietario.save()
+            animal.propietario = propietario
+            campania = Campaing.objects.filter(habilitada=True)
+            animal.campaing = campania[0]
+            animal.save()
+        
+            return redirect('/campaing/creado/')
+        else:        
+            return redirect('/Aca_si_no_valida_los_datos')
+    else:
+        contexto = {"formPropietario":PropietarioForm,"formAnimalito":AnimalitoPreinscripcionForm}
+
+        return render(request, "pre_inscribirse.html", contexto)
