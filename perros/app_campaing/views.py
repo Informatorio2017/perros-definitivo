@@ -31,6 +31,8 @@ def ver_colaboradores(request):
 def create_campaing(request):
     if request.method == 'POST':
         form = CreateCampaing(request.POST)
+        
+
         if form.is_valid():       
             form.save()
             return redirect('/campaing/creado/')
@@ -83,15 +85,28 @@ def buscar_paciente(request):
 
 
 def home_admin(request):
-    campanias = Campaing.objects.get(id=1)#(habilitada=True)
-    campaing = campanias# ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+    campanias = Campaing.objects.filter(habilitada=True)
+    #campanias = Campaing.objects.get(id=1)#(habilitada=True)
+    campaing = Campaing()
+    if campanias:
+        campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+        
+
     c_inscriptos = Animalito.objects.filter(campaing=campaing.id).count()
     inscriptos = Animalito.objects.filter(campaing=campaing.id)
     perros = inscriptos.filter(especie="CANINO").count()
     gatos = inscriptos.filter(especie="FELINO").count()
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
     atendidos = inscriptos.exclude(user_name='').count()
-    contexto = {'atendidos':atendidos, 'pagados':pagados["abono__sum"],'campaing':campaing,'c_inscriptos':c_inscriptos, 'perros':perros, 'gatos':gatos}
+    contexto = {
+    'atendidos':atendidos,
+    'pagados':pagados["abono__sum"],
+    'campaing':campaing,
+    'c_inscriptos':c_inscriptos,
+    'perros':perros,
+    'gatos':gatos,
+    "campanias":campanias,
+    }
     return render(request, "home_admin.html", contexto)
 
 
