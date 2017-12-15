@@ -1,8 +1,16 @@
 from django.shortcuts import render, redirect
 
+
 from .forms import CreateCampaing, BuscarPaciente, AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm
 
 
+from .forms import CreateCampaing, BuscarPaciente_pre
+
+from .models import Campaing, Animalito, Propietario
+from .models import Colaborador
+
+
+campaning = None
 
 from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente
 
@@ -13,13 +21,10 @@ from django.http import Http404
 def creado(request):
     return render(request, 'creado.html', {})
 
-
 def ver_campanas(request):
-
     return render(request, 'ver_campanas.html', {'campanas':Campaing.objects.all()})
 
 def ver_colaboradores(request):
-
     return render(request, 'ver_colaboradores.html', {'colaboradores':Colaborador.objects.all()})
 
 def create_campaing(request):
@@ -54,6 +59,7 @@ def alta_paciente(request,id):
 
 
 def buscar_paciente(request):
+
     if request.method == "POST":
         form = BuscarPaciente(request.POST)
 
@@ -74,6 +80,7 @@ def buscar_paciente(request):
     return render(request,"buscar_paciente.html",{"form":form})
 
 
+
 def home_admin(request):
     campaing = Campaing.objects.filter(habilitada=True)
     contexto = {'campaing':campaing}
@@ -81,16 +88,14 @@ def home_admin(request):
 
 
 
-
-def inscribir_paciente_pre(request): 
-       
-
+def inscribir_paciente_pre(request):       
 
     if request.method == "POST":
         form = BuscarPaciente_pre(request.POST)
 
         if form.is_valid():
             query = form.cleaned_data["query"]
+
 
 
 
@@ -108,37 +113,30 @@ def inscribir_paciente_pre(request):
 
 
 def formulario_inscripcion(request):
-
     if request.method == 'POST':
-        form = FormularioInscripcion(request.POST)
-        if form.is_valid():
+        # import ipdb; ipdb.set_trace()                
+        formPro = PropietarioForm(request.POST)
+        formAni = AnimalitoForm(request.POST)
 
+        if formPro.is_valid() and formAni.is_valid():
             #crear animalito
             #crear propietario
-            animal = Animalito()
-            propietario = Propietario()
-            #asignarles los datos del form
+            propietario = formPro.save(commit=False)        
+            propietario.save()
 
-            animal.especie = form.POST["especie"]
-            propietario.dni = form.POST["dni"]
-            propietario.apellido = form.POST["apellido"]
-            propietario.nombre = form.POST["nombre"]
-            propietario.telefono = form.POST["telefono"]
-            propietario.barrio = form.POST["barrio"]
-            animal.nombre = form.POST["nombre_paciente"]
-            animal.sexo = form.POST["sexo"]
-            animal.descripcion = form.POST["descripcion"]
-            animal.turno = form.POST["turno"]
-            animal.abono = form.POST["abono"]
+            animalito   = formAni.save(commit=False)         
+            animalito.propietario = propietario
                      
-            #relacionar animal con propietario
-            #guardar animal y propietario
+            campania = Campaing.objects.filter(habilitada=True)
+
 
             propietario.save()
             animal.propietario = propietario
             campania = Campaing.objects.filter(habilitada=True)
-            animal.campaing = campania
-            animal.save()
+
+            animalito.campaing = campania[0]
+            animalito.save()  
+
         
             return redirect('/campaing/creado/')
         else:        

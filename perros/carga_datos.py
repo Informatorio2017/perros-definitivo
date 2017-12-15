@@ -144,7 +144,7 @@ reg22 =("GATITA 4","DESCRIPCION","FELINO","HEMBRA",4,4,200,"JUAN",2,6)
 reg23= ("GATITA 5","DESCRIPCION","FELINO","HEMBRA",5,5,200,"JUAN",2,3)
 reg24 =("GATITA 6","DESCRIPCION","FELINO","HEMBRA",6,6,200,"JUAN",2,2)
 
-sql = "INSERT INTO app_campaing_animalito(nombre,descripcion,especie,sexo,nro_pre_inscripcion,turno,abono,user_name,campaing_id,propietario_id) VALUES(?,?,?,?,?,?,?,?,?,?)"
+sql = "INSERT INTO app_campaing_animalito(nombre_mascota,descripcion,especie,sexo,nro_pre_inscripcion,turno,abono,user_name,campaing_id,propietario_id) VALUES(?,?,?,?,?,?,?,?,?,?)"
 err = False
 try:
 	consulta.execute(sql,reg1)

@@ -26,7 +26,6 @@ class CreateCampaing(forms.ModelForm):
 		
 
 
-
 class BuscarPaciente_pre(forms.Form):
 	pass
 
@@ -40,32 +39,13 @@ class BuscarPaciente(forms.Form):
 	query = forms.IntegerField(label="Búsqueda")
 
 
-# class  FormularioInscripcion(forms.Form):
-# 	especie = forms.ModelChoiceField(app_campaing.models.Animalito.ESPECIE)
-# 	dni = forms.CharField(max_length = 8)
-# 	apellido = forms.CharField(max_length = 50)
-# 	nombre = forms.CharField(max_length = 50)
-# 	telefono = forms.CharField(max_length = 20)
-# 	barrio = forms.ModelChoiceField(app_campaing.models.Barrio.objects.all())
-# 	nombre_paciente = forms.CharField(max_length = 30)
-# 	sexo = forms.ModelChoiceField(app_campaing.models.Animalito.SEXO)
-# 	descripcion = forms.CharField(max_length = 50)
-# 	turno = forms.IntegerField()
-# 	abono = forms.IntegerField()
-
-# 	class Meta:			
-# 		labels = {"especie":"Especie",
-# 				  "dni":"DNI", 
-# 				  "apellido":"Apellido",
-# 				  "nombre":"Nombre", 
-# 				  "telefono":"Teléfono",
-# 				  "barrio":"Barrio",
-# 				  "nombre_paciente":"Nombre Mascota",
-# 				  "sexo":"Sexo",
-# 				  "descripcion":"Observaciones",
-# 				  "turno":"Turno","abono":"Abono"}
-
 class PropietarioForm(forms.ModelForm):
+	# dni = forms.CharField(max_length = 50,label='DNI')
+	# apellido = forms.CharField(max_length = 50)
+	# nombre = forms.CharField(max_length = 50)
+	# telefono = forms.CharField(max_length = 50)
+	# barrio = forms.ModelChoiceField(app_campaing.models.Barrio.objects.all())
+
 	class Meta:
 		model = Propietario
 		fields = ("dni", 
@@ -74,7 +54,7 @@ class PropietarioForm(forms.ModelForm):
 				  "telefono",
 				  "barrio")
 
-		labels = {"dni":"DNI", 
+		labels = {"dni":"DNIiiii", 
 				  "apellido":"Apellido",
 				  "nombre":"Nombre", 
 				  "telefono":"Teléfono",
@@ -86,32 +66,32 @@ class PropietarioForm(forms.ModelForm):
 				  "telefono":forms.TextInput(),
 				  "barrio":forms.Select()}		  
 	
-	# def __init__(self, *args, **kwargs):
-	# 	super(CreateCampaing, self).__init__(*args, **kwargs)
-	# 	self.fields['fecha'].widget.attrs.update({'class' : 'mi_clase_fecha','placeholder' : 'Fecha'})
-	# 	self.fields['lugar'].widget.attrs.update({'class' : 'mi_clase_lugar','placeholder' : 'Lugar'})
-
 
 class AnimalitoForm(forms.ModelForm):
+	# especie = forms.ChoiceField(choices=((None, ''), ('C', 'CANINO'), ('F', 'FELINO')))
+	# nombre = forms.CharField(max_length = 50)
+	# sexo = forms.ChoiceField(choices=((None, ''), ('M', 'MACHO'), ('H', 'HEMBRA')))
+	# descripcion = forms.CharField(max_length = 50)
+	# abono = forms.IntegerField()
+
 	class Meta:
 		model = Animalito
-
 		fields = ("especie",				  
-				  "nombre",
+				  "nombre_mascota",
 				  "sexo",
 				  "descripcion",
 				  "turno",
 				  "abono")
 
 		labels = {"especie":"Especie",
-				  "nombre":"Nombre Mascota",
+				  "nombre_mascota":"Nombre Mascota",
 				  "sexo":"Sexo",
 				  "descripcion":"Observaciones",
 				  "turno":"Turno",
 				  "abono":"Abono"}
 
 		widget = {"especie":forms.TextInput(), 
-				  "nombre":forms.TextInput(),
+				  "nombre_mascota":forms.TextInput(),
 				  "sexo":forms.Select(), 
 				  "descripcion":forms.TextInput(),
 				  "turno":forms.TextInput(),
