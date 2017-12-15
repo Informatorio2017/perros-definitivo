@@ -115,6 +115,8 @@ def formulario_inscripcion(request):
 
             propietario.save()
             animal.propietario = propietario
+            campania = Campaing.objects.filter(habilitada=True)
+            animal.campaing = campania
             animal.save()
 
 
