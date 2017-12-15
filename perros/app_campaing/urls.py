@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^create_campaing/', views.create_campaing, name="create_campaing"),
     url(r'^creado/', views.creado, name="creado"),
     url(r'^ver_colaboradores/', views.ver_colaboradores, name="ver_colaboradores"),
-    url(r'^buscar_preinscriptos/', views.buscar_preinscriptos, name="buscar_preinscriptos"),
+    # url(r'^buscar_preinscriptos/', views.buscar_preinscriptos, name="buscar_preinscriptos"),
 
 
     #home campaing
@@ -18,7 +18,6 @@ urlpatterns = [
 	url(r'^buscar_paciente/', views.buscar_paciente, name="buscar_paciente"),
 
 	
-
 	#aca esta para buscar preinscriptos??? y despues ir a la ventana formulario inscripcion??
 	url(r'^inscribir_paciente/', views.inscribir_paciente, name="inscribir_paciente"),
 	url(r'^formulario_inscripcion/', views.formulario_inscripcion, name="formulario_inscripcion"),
