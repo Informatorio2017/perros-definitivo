@@ -5,11 +5,190 @@
 
 {% block content %} 
 	{% if campaing %}  
+
+
+  <div class="container">
+    <!-- inicio row para datos de campaña -->
+    <div class="row">
+      <!-- inicio columna datos de campaña -->
+      <div class="col s12">
+        <div class="card-panel grey center-align">
+          <span class="white-text">
+            <strong>CAMPAÑA ACTUAL</strong>
+            <br>
+            {{ campaing.0.tipo.upper  }} en {{ campaing.0.lugar  }}
+          </span>
+        </div>
+      </div>
+      <!-- fin columna para datos de campaña  -->      
+    </div>
+    <!-- fin row para para datos de campaña  -->
+
+
+  <div class="row borde-anaranjado">
+    <div class="row grey lighten-3">
+      <div class="col s7 borde-rojo">
+        <p>INSCRIPTOS</p>
+        <p>NODATA</p>
+      </div>
+
+      <div class="col s5 borde-verde">
+        <p>perros NODATA</p>
+      </div>
+
+      <div class="col s5 borde-verde">
+        <p>NODATA</p>
+      </div>
+    </div>
+
+    <div class="row grey lighten-3">
+      <div class="col s6 borde-rojo">
+        <p>Pagados: NODATA</p>
+      </div>
+
+      <div class="col s6 borde-verde">
+        <p>{{ campaing.0.monto_inter_grupo_gastado }}/{{ campaing.0.monto_inter_grupo_total }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col s12 center-align borde-amarillo">
+      <h5>Atendidos</h5>
+      <h2>NODATA</h2>
+    </div>
+  </div>
+<!-- inicio botones inscribir y dar alta -->  
+  <div class="row">
+    <div class="col s12 m6 center-align">
+      <a class="waves-effect waves-light btn-large btn-ancho" href="AdminInscripBuscar.html"><i class="material-icons left">assignment</i>(NOURL)Inscribir Paciente</a>
+    </div>
+    <div class="col s12 separador hide-on-med-and-up borde-anaranjado"></div>
+    <div class="col s12 m6 center-align">
+      <a class="waves-effect waves-light btn-large btn-ancho" href="../buscar_paciente/"><i class="material-icons left">assignment_turned_in</i>Dar de Alta</a>
+    </div>
+
+  </div>
+<!-- fin botones inscribir y dar alta -->
+
+<div class="row">
+
+  <div class="col s12">
+
+    <ul class="collapsible" data-collapsible="accordion">
+
+      <li>
+        <div class="collapsible-header grey lighten-4">
+          <i class="material-icons">tune
+          </i>
+          Ajustes de la campaña
+          <span class="secondary-content">
+            <i class="material-icons">expand_more</i>
+          </span>
+        </div>
+        
+        <div class="collapsible-body grey lighten-5">
+
+
+          <ul class="collection">
+            <li class="collection-item avatar">
+              
+              <span class="title">
+                <strong>Cerrar Inscripción</strong>
+              </span>
+              <p>No se recibirán más inscripciones públicas
+              </p>
+              <!-- Switch -->
+              <div class="secondary-content">
+                <div class="switch">
+                  <label>
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                  </label>
+                </div>
+              </div>  
+
+            </li>
+
+            <a href="#" class="grey-text text-darken-3">
+              <li class="collection-item avatar">
+                  <span class="title"><strong>Enlace público</strong>
+                  </span>
+
+                  <p>Ver, imprimir o compartir el enlace público de inscripciones
+                  </p>
+
+
+                  <span href="#!" class="secondary-content"><i class="material-icons">link</i></span>
+              </li>
+            </a>
+            <div class="divider"></div>
+
+            <li class="collection-item avatar">
+              
+              <span class="title">
+                <strong>Finalizar Campaña</strong>
+              </span>
+              <p>Finalizará la campaña activa y se generarán las estadísticas
+              </p>
+              <!-- Switch -->
+              <div class="secondary-content">
+                <div class="switch">
+                  <label>
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                  </label>
+                </div>
+              </div>  
+
+            </li>
+
+      
+          </ul>
+
+
+
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+        
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 	
 		<h1>HOME HABILITADO</h1>
 		<h1>{{ campaing.0.tipo  }}</h1>
 		<h1>{{ campaing.0.fecha  }}</h1>
-		<h1>Inscripciones: {{ campaing.0.preinscripcion  }}</h1>
+		<h1>Inscripciones: {{ campaing.0.preinscripcion  }}</h1> -->
+
+
+
+
+
+
+
+
+
+
 
 	{% else %}
 
