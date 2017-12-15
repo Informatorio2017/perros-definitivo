@@ -37,16 +37,7 @@ class BuscarPaciente(forms.Form):
 
 
 
-
-	query = forms.IntegerField(label="Búsqueda")
-
-
 class PropietarioForm(forms.ModelForm):
-	# dni = forms.CharField(max_length = 50,label='DNI')
-	# apellido = forms.CharField(max_length = 50)
-	# nombre = forms.CharField(max_length = 50)
-	# telefono = forms.CharField(max_length = 50)
-	# barrio = forms.ModelChoiceField(app_campaing.models.Barrio.objects.all())
 
 	class Meta:
 		model = Propietario
@@ -70,12 +61,6 @@ class PropietarioForm(forms.ModelForm):
 	
 
 class AnimalitoForm(forms.ModelForm):
-	# especie = forms.ChoiceField(choices=((None, ''), ('C', 'CANINO'), ('F', 'FELINO')))
-	# nombre = forms.CharField(max_length = 50)
-	# sexo = forms.ChoiceField(choices=((None, ''), ('M', 'MACHO'), ('H', 'HEMBRA')))
-	# descripcion = forms.CharField(max_length = 50)
-	# abono = forms.IntegerField()
-
 	class Meta:
 		model = Animalito
 		fields = ("especie",				  
