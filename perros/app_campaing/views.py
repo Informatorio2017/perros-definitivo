@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CreateCampaing
+from .forms import CreateCampaing, BuscarPaciente
 
 from .models import Campaing, Animalito, Propietario
 
@@ -59,15 +59,17 @@ def inscribir_paciente(request):
 
             query = form.cleaned_data["query"]
 
-            pacientess = Animalito.objects.filter(nro_pre_inscripcion=query)
+
+            pacientes = Animalito.objects.filter(nro_pre_inscripcion=query)
+
                 
-            return render(request, "inscribir_paciente_resultado.html", {"query":query,"movimientos":movimientos})
+            return render(request, "inscribir_paciente_resultado.html", {"query":query,"pacientes":pacientes})
 
     else:
         form = BuscarPaciente()
 
         
-    return render(request,"inscribir_paciente.html",{"form":form})
+    return render(request,"buscar_paciente.html",{"form":form})
 
 
 def formulario_inscripcion(request):
