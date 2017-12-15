@@ -39,6 +39,7 @@ class Propietario(models.Model):
 class Campaing(models.Model):
 	TIPO = (("castracion","Castración"),("vacunacion","Vacunación"))
 	fecha = models.DateField()
+	
 	lugar = models.ForeignKey(Lugar, related_name="campaings")
 	colaborador = models.ManyToManyField(Colaborador, through = "CampaingColaborador")
 	tipo = models.CharField(max_length = 10, choices = TIPO)	
@@ -49,11 +50,10 @@ class Campaing(models.Model):
 	preinscripcion = models.BooleanField(default=True)
 	habilitada = models.BooleanField(default=True)
 
-	def __str__(self):
-		return self.lugar
-		return self.fecha
-		return self.tipo
-
+	#def __str__(self):
+		#return self.lugar
+		#return "self.fecha"
+		#return self.tipo
 		
 class Animalito(models.Model):
 	
@@ -61,19 +61,19 @@ class Animalito(models.Model):
 	SEXO = (("macho","Macho"),("hembra","Hembra"))
 
 	propietario = models.ForeignKey(Propietario, related_name="animalitos")
-	nombre = models.CharField(max_length = 30)
+	nombre_mascota = models.CharField(max_length = 30, null=True)
 	descripcion = models.CharField(max_length = 50)
 
 	especie = models.CharField(max_length = 10, choices = ESPECIE)
 	sexo = models.CharField(max_length = 10, choices = SEXO)
-	nro_pre_inscripcion = models.IntegerField()
-	turno = models.IntegerField()
+	nro_pre_inscripcion = models.IntegerField(null=True)
+	turno = models.IntegerField(null=True)
 	abono = models.IntegerField()
 	campaing = models.ForeignKey(Campaing, related_name = "animalitos")
-	user_name = models.CharField(max_length = 30)
+	user_name = models.CharField(max_length = 30, null=True)
 
 	def __str__(self):
-		return self.ESPECIE
+		return self.especie
 
 class CampaingColaborador(models.Model):
 	padrino = models.BooleanField()
