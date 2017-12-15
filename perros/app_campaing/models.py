@@ -69,7 +69,7 @@ class Animalito(models.Model):
 	sexo = models.CharField(max_length = 10, choices = SEXO)
 	nro_pre_inscripcion = models.IntegerField(null=True)
 	turno = models.IntegerField(null=True)
-	abono = models.IntegerField()
+	abono = models.IntegerField(null=True)
 	campaing = models.ForeignKey(Campaing, related_name = "animalitos")
 	user_name = models.CharField(max_length = 30, null=True)
 

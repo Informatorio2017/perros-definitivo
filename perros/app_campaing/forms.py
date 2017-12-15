@@ -100,24 +100,23 @@ class AnimalitoForm(forms.ModelForm):
 
 
 class AnimalitoPreinscripcionForm(forms.ModelForm):
+	
+
 	class Meta:
 		model = Animalito
-
 		fields = ("especie",				  
-				  "nombre",
+				  "nombre_mascota",
 				  "sexo",
-				  "descripcion"
-				  )
+				  "descripcion")
 
 		labels = {"especie":"Especie",
-				  "nombre":"Nombre Mascota",
+				  "nombre_mascota":"Nombre Mascota",
 				  "sexo":"Sexo",
 				  "descripcion":"Observaciones"
 				  }
 
 		widget = {"especie":forms.TextInput(), 
-				  "nombre":forms.TextInput(),
+				  "nombre_mascota":forms.TextInput(),
 				  "sexo":forms.Select(), 
 				  "descripcion":forms.TextInput()
-				  }		  
-
+				  }	

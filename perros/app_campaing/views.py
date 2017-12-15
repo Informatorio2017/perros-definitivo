@@ -151,36 +151,27 @@ def formulario_inscripcion(request):
 
 def pre_inscribirse(request):
     if request.method == 'POST':
+        # import ipdb; ipdb.set_trace()                
+        formPro = PropietarioForm(request.POST)
+        formAni = AnimalitoPreinscripcionForm(request.POST)
 
-        form_propietario = PropietarioForm(request.POST)
-        form_animalito = AnimalitoPreinscripcionForm(request.POST)
-
-        if form_propietario.is_valid() and form_animalito.is_valid():
-
+        if formPro.is_valid() and formAni.is_valid():
             #crear animalito
             #crear propietario
-            animal = Animalito()
-            propietario = Propietario()
-            #asignarles los datos del form
-
-            animal.especie = form_animalito.POST["especie"]
-            propietario.dni = form_propietario.POST["dni"]
-            propietario.apellido = form_propietario.POST["apellido"]
-            propietario.nombre = form_propietario.POST["nombre"]
-            propietario.telefono = form_propietario.POST["telefono"]
-            propietario.barrio = form_propietario.POST["barrio"]
-            animal.nombre = form_animalito.POST["nombre"]
-            animal.sexo = form_animalito.POST["sexo"]
-            animal.descripcion = form_animalito.POST["descripcion"]
-                     
-            #relacionar animal con propietario
-            #guardar animal y propietario
-
+            propietario = formPro.save(commit=False)        
             propietario.save()
-            animal.propietario = propietario
+
+            animalito   = formAni.save(commit=False)         
+            animalito.propietario = propietario
+                     
             campania = Campaing.objects.filter(habilitada=True)
-            animal.campaing = campania[0]
-            animal.save()
+
+
+            
+            
+            animalito.campaing = campania[0]
+            animalito.save()  
+
         
             return redirect('/campaing/creado/')
         else:        
