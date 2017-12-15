@@ -4,7 +4,7 @@
 {% block content %}
 <h2>Se buscó: {{ query }}</h2>
 {% for paciente in pacientes %}
-	<p>{{ paciente.nombre }} - ${{ paciente.especie }}</p>
+	<p>{{ paciente.nombre_mascota }} - ${{ paciente.especie }}</p>
 
 {% endfor %}
 <a class="waves-effect waves-light btn-large">buscar otro</a>
