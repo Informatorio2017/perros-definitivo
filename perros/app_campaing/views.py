@@ -31,11 +31,12 @@ def ver_colaboradores(request):
 def create_campaing(request):
     if request.method == 'POST':
         form = CreateCampaing(request.POST)
-        
 
+        import ipdb
+        ipdb.set_trace()
         if form.is_valid():       
             form.save()
-            return redirect('/campaing/creado/')
+            return redirect('/campaing/home_admin/')
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
     else:
