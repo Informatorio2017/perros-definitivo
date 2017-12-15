@@ -39,6 +39,7 @@ class Propietario(models.Model):
 class Campaing(models.Model):
 	TIPO = (("castracion","Castración"),("vacunacion","Vacunación"))
 	fecha = models.DateField()
+	
 	lugar = models.ForeignKey(Lugar, related_name="campaings")
 	colaborador = models.ManyToManyField(Colaborador, through = "CampaingColaborador")
 	tipo = models.CharField(max_length = 10, choices = TIPO)	
@@ -49,10 +50,10 @@ class Campaing(models.Model):
 	preinscripcion = models.BooleanField(default=True)
 	habilitada = models.BooleanField(default=True)
 
-	def __str__(self):
-		return self.lugar
-		return self.fecha
-		return self.tipo
+	#def __str__(self):
+		#return self.lugar
+		#return "self.fecha"
+		#return self.tipo
 
 		
 class Animalito(models.Model):

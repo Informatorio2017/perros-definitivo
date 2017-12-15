@@ -7,8 +7,12 @@
 	{% if campaing %}  
 	
 		<h1>HOME HABILITADO</h1>
+		<h1>{{ campaing.0.tipo  }}</h1>
+		<h1>{{ campaing.0.fecha  }}</h1>
+		<h1>Inscripciones: {{ campaing.0.preinscripcion  }}</h1>
+
 	{% else %}
-	
+
 		<a href="/campaing/create_campaing/">Crear Campaña</a>
 		
 	{% endif %}
