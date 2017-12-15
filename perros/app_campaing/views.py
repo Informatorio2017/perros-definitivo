@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
-from .forms import CreateCampaing, BuscarPaciente_pre
-
+from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente
 from .models import Campaing, Animalito, Propietario
-
 from .models import Colaborador
-
+from django.http import Http404
 
 def creado(request):
     return render(request, 'creado.html', {})
@@ -38,11 +36,38 @@ def home(request):
     contexto = {}
     return render(request, "home.html", contexto)
 
+def alta_paciente(request,id):
+    try:
+        paciente= Animalito.objects.get(pk=id)
+        # idprop= paciente.propietario
+        # propietario= Propietario.objects.get(pk=idprop)
+   
+    except Animalito.DoesNotExist:
+        raise Http404("No se encontro la mascota")
+    return render(request, "alta_paciente.html",{"paciente":paciente})
+
+
 
 def buscar_paciente(request):
+    if request.method == "POST":
+        form = BuscarPaciente(request.POST)
 
-    contexto = {}
-    return render(request, "base.html", contexto)
+        if form.is_valid():
+
+            query = form.cleaned_data["query"]
+
+
+            pacientes = Animalito.objects.filter(turno=query)
+
+                
+            return render(request, "buscar_paciente_resultado.html", {"query":query,"pacientes":pacientes})
+
+    else:
+        form = BuscarPaciente()
+
+        
+    return render(request,"buscar_paciente.html",{"form":form})
+
 
 def home_admin(request):
     campaing = Campaing.objects.filter(habilitada=True)
@@ -52,7 +77,7 @@ def home_admin(request):
 
 
 
-def inscribir_paciente_pre(request):
+def inscribir_paciente_pre(request): 
        
 
 
@@ -73,7 +98,7 @@ def inscribir_paciente_pre(request):
         form = BuscarPaciente_pre()
 
         
-    return render(request,"buscar_paciente.html",{"form":form})
+    return render(request,"buscar_paciente_pre.html",{"form":form})
 
 
 def formulario_inscripcion(request):

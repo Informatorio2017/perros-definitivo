@@ -31,6 +31,10 @@ class BuscarPaciente_pre(forms.Form):
 	query = forms.IntegerField(label="Búsqueda")
 
 
+class BuscarPaciente(forms.Form):
+	query = forms.IntegerField(label="Búsqueda")
+
+
 
 # class  FormularioInscripcion(forms.Form):
 
