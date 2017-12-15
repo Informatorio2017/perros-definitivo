@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
+
 from .forms import CreateCampaing, BuscarPaciente_pre
+
+from .forms import CreateCampaing, BuscarPaciente, AnimalitoForm, PropietarioForm
+
 
 from .models import Campaing, Animalito, Propietario
 
@@ -32,7 +36,6 @@ def create_campaing(request):
         return render(request, "create_campaing.html", contexto)
         
 
-
 def home(request):
 
     contexto = {}
@@ -60,14 +63,15 @@ def inscribir_paciente_pre(request):
         form = BuscarPaciente_pre(request.POST)
 
         if form.is_valid():
-
             query = form.cleaned_data["query"]
+
 
 
             pacientes = Animalito.objects.filter(nro_pre_inscripcion=query)
 
                 
             return render(request, "inscribir_paciente_resultado_pre.html", {"query":query,"pacientes":pacientes})
+
 
     else:
         form = BuscarPaciente_pre()
@@ -90,26 +94,16 @@ def formulario_inscripcion(request):
 
             animal.especie = form.POST["especie"]
             propietario.dni = form.POST["dni"]
-
             propietario.apellido = form.POST["apellido"]
-
             propietario.nombre = form.POST["nombre"]
-
             propietario.telefono = form.POST["telefono"]
-
             propietario.barrio = form.POST["barrio"]
-
             animal.nombre = form.POST["nombre_paciente"]
-
             animal.sexo = form.POST["sexo"]
-
             animal.descripcion = form.POST["descripcion"]
-
             animal.turno = form.POST["turno"]
-
             animal.abono = form.POST["abono"]
-            
-            
+                     
             #relacionar animal con propietario
             #guardar animal y propietario
 
@@ -118,15 +112,12 @@ def formulario_inscripcion(request):
             campania = Campaing.objects.filter(habilitada=True)
             animal.campaing = campania
             animal.save()
-
-
-            
-
+        
             return redirect('/campaing/creado/')
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
     else:
-        contexto = {"form":FormularioInscripcion}
+        contexto = {"formPropietario":PropietarioForm,"formAnimalito":AnimalitoForm}
 
         return render(request, "formulario_inscripcion.html", contexto)
 

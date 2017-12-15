@@ -4,5 +4,54 @@
 {% block encabezado %} Home {% endblock %}
 
 {% block content %} 
-	
+  <!-- inicio contenedor principal -->
+  <div class="container">
+    <!-- inicio row  -->
+    <div class="row">
+      <!-- inicio columna para datos de campaña -->
+      <div class="col s12">
+       <div class="card-panel grey center-align">
+          <span class="white-text"><strong>AGREGUE LOS DATOS PARA CREAR UNA</strong> <!-- ES PARA QUE VAYA UN RENGLON ABAJO, strong= para que sea en negrita -->
+            INSCRIPCIÓN
+          </span>
+        </div>       
+      </div>
+      <!-- fin datos campaña -->      
+    </div>
+          <!-- fin row  -->
+
+    <!-- INICIO FORMULARIO  -->
+    <div class="row">
+    <form class="col s12" method="POST">
+      {% csrf_token %}
+      <h3>DATOS PROPIETARIO</h3>      
+      {{ formPropietario.as_p }}
+	  <h3>DATOS MASCOTA</h3>      
+      {{ formAnimalito.as_p }}
+  
+      <div class="row"> <!-- row para los botones de abajo -->
+
+        <div class="col s12  center-align">
+
+          <button type="submit" class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>Confirmar
+          </button>
+        </div>
+
+      </div>              
+    </form>
+  </div>
+             <!-- FIN FORMULARIO  -->
+  </div>
+  <!-- fin contenedor principal -->
+
+{% endblock %}
+
+{% block extra_js %}
+  <!-- Para que funcione el select  -->
+  <script>
+  $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
+
 {% endblock %}

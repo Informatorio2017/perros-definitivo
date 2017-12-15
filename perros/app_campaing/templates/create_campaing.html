@@ -1,11 +1,8 @@
 {% extends "base.html" %}
-
   
 {% block title %} Amo a los perros {% endblock %}
 
 {% block encabezado %} Crear Campaña {% endblock %}
-
-
 
 {% block content %} 
   <!-- inicio contenedor principal -->
@@ -24,82 +21,51 @@
     </div>
           <!-- fin row  -->
 
-
-
-
                       <!-- INICIO FORMULARIO  -->
     <div class="row">
     <form class="col s12" method="POST">
-      
       {% csrf_token %}
       {{ form.as_p }}
-
-
-      
-
+  
       <div class="row"> <!-- row para los botones de abajo -->
 
-      <div class="col s12  center-align">
+        <div class="col s12  center-align">
 
-        <button type="submit" class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>      Crear Campaña
-        </button>
-      </div>
+          <button type="submit" class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>      Crear Campaña
+          </button>
+        </div>
 
-    </div>
-
-      
-      
-       
+      </div>              
     </form>
   </div>
              <!-- FIN FORMULARIO  -->
-
-
-
-    
-
-    
-
-
-
-
-
-
-
- 
-
   </div>
   <!-- fin contenedor principal -->
 
+{% endblock %}
 
+{% block extra_js %}
+  <script type="text/javascript">
 
+  $('.datepicker').pickadate({
+           selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15, // Creates a dropdown of 15 years to control year,
+      today: 'Today',
+      clear: 'Clear',
+      close: 'Ok',
+      format: 'mm/dd/yyyy',
+      closeOnSelect: true // Close upon selecting a date,
 
-
-
-<script type="text/javascript">
-
-$('.datepicker').pickadate({
-         selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15, // Creates a dropdown of 15 years to control year,
-    today: 'Today',
-    clear: 'Clear',
-    close: 'Ok',
-    format: 'mm/dd/yyyy',
-    closeOnSelect: true // Close upon selecting a date,
-
-  });
-</script>
-  
-
-
-
-<!-- Para que funcione el select  -->
-<script>
-$(document).ready(function() {
-    $('select').material_select();
-  });
-</script>
-
+    });
+  </script>
+    
+  <!-- Para que funcione el select  -->
+  <script>
+  $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
 
 {% endblock %}
+
 
