@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 
+from django.db.models import Sum
 
 from .forms import CreateCampaing, BuscarPaciente, AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm
 
@@ -82,8 +83,15 @@ def buscar_paciente(request):
 
 
 def home_admin(request):
-    campaing = Campaing.objects.filter(habilitada=True)
-    contexto = {'campaing':campaing}
+    campanias = Campaing.objects.get(id=1)#(habilitada=True)
+    campaing = campanias# ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+    c_inscriptos = Animalito.objects.filter(campaing=campaing.id).count()
+    inscriptos = Animalito.objects.filter(campaing=campaing.id)
+    perros = inscriptos.filter(especie="CANINO").count()
+    gatos = inscriptos.filter(especie="FELINO").count()
+    pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
+    atendidos = inscriptos.exclude(user_name='').count()
+    contexto = {'atendidos':atendidos, 'pagados':pagados["abono__sum"],'campaing':campaing,'c_inscriptos':c_inscriptos, 'perros':perros, 'gatos':gatos}
     return render(request, "home_admin.html", contexto)
 
 

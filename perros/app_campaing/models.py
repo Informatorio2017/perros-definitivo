@@ -64,7 +64,6 @@ class Animalito(models.Model):
 	propietario = models.ForeignKey(Propietario, related_name="animalitos")
 	nombre_mascota = models.CharField(max_length = 30, null=True)
 	descripcion = models.CharField(max_length = 50)
-
 	especie = models.CharField(max_length = 10, choices = ESPECIE)
 	sexo = models.CharField(max_length = 10, choices = SEXO)
 	nro_pre_inscripcion = models.IntegerField(null=True)
@@ -74,7 +73,9 @@ class Animalito(models.Model):
 	user_name = models.CharField(max_length = 30, null=True)
 
 	def __str__(self):
-		return self.especie
+
+		return self.nombre
+
 
 class CampaingColaborador(models.Model):
 	padrino = models.BooleanField()

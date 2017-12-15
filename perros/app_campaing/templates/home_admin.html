@@ -16,7 +16,7 @@
           <span class="white-text">
             <strong>CAMPAÑA ACTUAL</strong>
             <br>
-            {{ campaing.0.tipo.upper  }} en {{ campaing.0.lugar  }}
+            {{ campaing.tipo.upper  }} en {{ campaing.lugar  }}
           </span>
         </div>
       </div>
@@ -29,25 +29,25 @@
     <div class="row grey lighten-3">
       <div class="col s7 borde-rojo">
         <p>INSCRIPTOS</p>
-        <p>NODATA</p>
+        <p>{{ c_inscriptos }}</p>
       </div>
 
       <div class="col s5 borde-verde">
-        <p>perros NODATA</p>
+        <p>perros {{perros}}</p>
       </div>
 
       <div class="col s5 borde-verde">
-        <p>NODATA</p>
+        <p>gatos {{gatos}}</p>
       </div>
     </div>
 
     <div class="row grey lighten-3">
       <div class="col s6 borde-rojo">
-        <p>Pagados: NODATA</p>
+        <p>Pagados: {{ pagados }}</p>
       </div>
 
       <div class="col s6 borde-verde">
-        <p>{{ campaing.0.monto_inter_grupo_gastado }}/{{ campaing.0.monto_inter_grupo_total }}</p>
+        <p>{{ campaing.monto_inter_grupo_gastado }}/{{ campaing.monto_inter_grupo_total }}</p>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@
   <div class="row">
     <div class="col s12 center-align borde-amarillo">
       <h5>Atendidos</h5>
-      <h2>NODATA</h2>
+      <h2>{{atendidos}}</h2>
     </div>
   </div>
 <!-- inicio botones inscribir y dar alta -->  
