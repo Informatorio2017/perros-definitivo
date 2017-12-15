@@ -130,9 +130,9 @@ def formulario_inscripcion(request):
             campania = Campaing.objects.filter(habilitada=True)
 
 
-            propietario.save()
-            animal.propietario = propietario
-            campania = Campaing.objects.filter(habilitada=True)
+            #propietario.save()
+            #animal.propietario = propietario
+            #campania = Campaing.objects.filter(habilitada=True)
 
             animalito.campaing = campania[0]
             animalito.save()  
