@@ -204,3 +204,8 @@ def pre_inscribirse(request):
         contexto = {"formPropietario":PropietarioForm,"formAnimalito":AnimalitoPreinscripcionForm}
 
         return render(request, "pre_inscribirse.html", contexto)
+
+
+def ver_qr():
+    contexto = {}
+    return render(request, "ver_qr.html", contexto)    
