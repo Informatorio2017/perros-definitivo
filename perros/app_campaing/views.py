@@ -206,6 +206,6 @@ def pre_inscribirse(request):
         return render(request, "pre_inscribirse.html", contexto)
 
 
-def ver_qr():
+def ver_qr(request):
     contexto = {}
     return render(request, "ver_qr.html", contexto)    
