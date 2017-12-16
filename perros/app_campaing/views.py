@@ -207,5 +207,11 @@ def pre_inscribirse(request):
 
 
 def ver_qr(request):
-    contexto = {}
+    
+    campania = Campaing.objects.filter(preinscripcion=True)
+
+    contexto = {
+    "campaing": campaing[0],
+
+    }
     return render(request, "ver_qr.html", contexto)    
