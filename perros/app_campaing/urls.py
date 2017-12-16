@@ -27,6 +27,8 @@ urlpatterns = [
 
     url(r'^ver_campanas/', views.ver_campanas, name="ver_campanas"),
 
+	url(r'^ver_campanas/', views.ver_campanas, name="ver_campanas"),
 
+	url(r'^ver_qr/', views.ver_qr, name="ver_qr"),
 
 ]
