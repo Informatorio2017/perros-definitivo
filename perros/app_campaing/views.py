@@ -211,7 +211,7 @@ def ver_qr(request):
     campania = Campaing.objects.filter(preinscripcion=True)
 
     contexto = {
-    "campaing": campaing,
+    "campaing": campaing[0],
 
     }
     return render(request, "ver_qr.html", contexto)    
