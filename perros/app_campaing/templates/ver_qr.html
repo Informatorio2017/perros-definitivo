@@ -27,6 +27,32 @@
       <div class="col s12  center-align">
 
         <p><h2> CÓDIGO<br>QR </h2></p> <!-- br: para que vaya un renglon abajo -->
+
+
+
+
+        <div id="qrcode">
+          
+        </div>
+
+
+        <script>
+          
+          var qrcode = new QRCode("qrcode", {
+            text: "{{campaing.url}}",
+            width: 128,
+            height: 128,
+            colorDark : "#ff0000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+          });
+
+
+        </script>
+
+
+
+
       </div>
     </div> 
 
