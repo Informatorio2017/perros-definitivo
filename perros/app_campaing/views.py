@@ -1,37 +1,32 @@
 from django.shortcuts import render, redirect
-
 from django.db.models import Sum
-
 from .forms import CreateCampaing, BuscarPaciente, AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm
-
-
 from .forms import CreateCampaing, BuscarPaciente_pre
-
 from .models import Campaing, Animalito, Propietario
 from .models import Colaborador
-
-
-campaning = None
-
 from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio, CrearLugar
-
 from .models import Campaing, Animalito, Propietario
 from .models import Colaborador
 from django.http import Http404
 
+campaning = None
+
+#se va esta view
 def creado(request):
     return render(request, 'creado.html', {})
 
+#
 def ver_campanas(request):
     return render(request, 'ver_campanas.html', {'campanas':Campaing.objects.all()})
 
+#
 def ver_colaboradores(request):
     return render(request, 'ver_colaboradores.html', {'colaboradores':Colaborador.objects.all()})
 
+#
 def create_campaing(request):
     if request.method == 'POST':
         form = CreateCampaing(request.POST)
-
         #import ipdb
         #ipdb.set_trace()
         if form.is_valid():       
@@ -43,10 +38,8 @@ def create_campaing(request):
         contexto = {"form":CreateCampaing}
 
         return render(request, "create_campaing.html", contexto)
-        
 
 def home(request):
-
     contexto = {}
     return render(request, "home.html", contexto)
 
