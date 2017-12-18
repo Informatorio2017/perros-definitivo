@@ -107,3 +107,21 @@ class AnimalitoPreinscripcionForm(forms.ModelForm):
 				  "sexo":forms.Select(), 
 				  "descripcion":forms.TextInput()
 				  }	
+
+
+
+class CrearBarrio(forms.ModelForm):
+	nombre = forms.CharField()
+	detalle = forms.CharField()
+	
+	class Meta:
+		model = Barrio
+		fields =  ["nombre", "detalle"]
+		labels = {"nombre":"Nombre del Barrio", "detalle":"Descripción"}
+
+	def __init__(self, *args, **kwargs):
+
+		super(CrearBarrio, self).__init__(*args, **kwargs)
+		self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre'})
+		self.fields['detalle'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Descripción del Barrio'})
+		

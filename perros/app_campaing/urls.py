@@ -31,4 +31,5 @@ urlpatterns = [
 
 	url(r'^ver_qr/', views.ver_qr, name="ver_qr"),
 
+	url(r'^crear_barrio/', views.crear_barrio, name="crear_barrio"),
 ]
