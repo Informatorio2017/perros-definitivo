@@ -21,6 +21,29 @@
       </div>              
     </form>
   </div>
+
+
+
+<h4>Listado de Lugares </h4> 
+
+<div class="row">
+{% for lugar in lugares %}
+        
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="images/yuna.jpg" alt="" class="circle">
+      <span class="title">{{lugar.nombre}}</span>
+      <p>{{barrio.direccion}}
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    
+  </ul>
+
+{% endfor %}
+</div>
+
+
 {% endblock %}
 
 {% block extra_js %} 
