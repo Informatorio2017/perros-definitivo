@@ -29,6 +29,9 @@ urlpatterns = [
     ########falta para ver una campaña en particular(estadisticas)
     #ver enlace y codigo qr del enlace
 	url(r'^ver_qr/', views.ver_qr, name="ver_qr"),
+
+	#####falta finalizar campaña confirmar (campaña_id)
+	#####falta finalizar inscripcion pública campaña confirmar (campaña_id)
     
 
 	#Colaborador################
