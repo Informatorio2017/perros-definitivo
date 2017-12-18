@@ -21,7 +21,7 @@ class Colaborador(models.Model):
 
 class Barrio(models.Model):
 	nombre = models.CharField(max_length = 50)
-	detalle = models.CharField(max_length = 120,null=True)
+	detalle = models.CharField(max_length = 120,null=True,default="")
 
 	def __str__(self):
 		return self.nombre

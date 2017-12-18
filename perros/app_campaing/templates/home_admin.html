@@ -7,7 +7,6 @@
 	{% if campanias %}  
 
 
-  <div class="container">
     <!-- inicio row para datos de campaña -->
     <div class="row">
       <!-- inicio columna datos de campaña -->
@@ -88,7 +87,7 @@
           </span>
         </div>
         
-        <div class="collapsible-body grey lighten-5">
+        <div class="collapsible-body grey lighten-5 opciones_home">
 
 
           <ul class="collection">
@@ -101,12 +100,9 @@
               </p>
               <!-- Switch -->
               <div class="secondary-content">
-                <div class="switch">
-                  <label>
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                  </label>
-                </div>
+                <a href="../close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red">
+                  <i class="material-icons">lock</i>
+                </a>
               </div>  
 
             </li>
@@ -120,10 +116,15 @@
                   </p>
 
 
-                  <span href="#!" class="secondary-content"><i class="material-icons">link</i></span>
+              <div class="secondary-content">
+                <a href="../ver_qr/" class="btn-floating btn-medium waves-effect waves-light red">
+                  <i class="material-icons">link</i>
+                </a>
+              </div>  
+
               </li>
             </a>
-            <div class="divider"></div>
+
 
             <li class="collection-item avatar">
               
@@ -132,15 +133,11 @@
               </span>
               <p>Finalizará la campaña activa y se generarán las estadísticas
               </p>
-              <!-- Switch -->
               <div class="secondary-content">
-                <div class="switch">
-                  <label>
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                  </label>
-                </div>
-              </div>  
+                <a href="../end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red">
+                  <i class="material-icons">power_settings_new</i>
+                </a>
+              </div>   
 
             </li>
 
@@ -161,7 +158,6 @@
 
 
 
-  </div>
 
 
 

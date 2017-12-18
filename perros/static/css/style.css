@@ -123,3 +123,17 @@ body{
 	line-height:2.0em;
 	margin-top: 2px!important;
 }
+
+
+
+/*    home admin      */
+
+.opciones_home{
+	padding: 0;
+}
+
+
+#qrcode canvas img{
+	width: 120%!important;
+	height: auto!important;
+}
