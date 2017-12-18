@@ -13,7 +13,7 @@ from .models import Colaborador
 
 campaning = None
 
-from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio
+from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio, CrearLugar
 
 from .models import Campaing, Animalito, Propietario
 from .models import Colaborador
@@ -234,3 +234,20 @@ def crear_barrio(request):
         contexto = {"form":CrearBarrio}
 
         return render(request, "crear_barrio.html", contexto)
+
+
+def crear_lugar(request):
+    if request.method == 'POST':
+        form = CrearLugar(request.POST)
+
+        #import ipdb
+        #ipdb.set_trace()
+        if form.is_valid():       
+            form.save()
+            return redirect('/campaing/home_admin/')
+        else:        
+            return redirect('/Aca_si_no_valida_los_datos')
+    else:
+        contexto = {"form":CrearLugar}
+
+        return render(request, "crear_lugar.html", contexto)

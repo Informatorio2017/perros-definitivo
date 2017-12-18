@@ -1,5 +1,5 @@
 from django import forms
-from .models import Campaing, Animalito, Propietario, Barrio
+from .models import Campaing, Animalito, Propietario, Barrio, Lugar
 import app_campaing
 
 class CreateCampaing(forms.ModelForm):
@@ -125,3 +125,17 @@ class CrearBarrio(forms.ModelForm):
 		self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre'})
 		self.fields['detalle'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Descripción del Barrio'})
 		
+
+class CrearLugar(forms.ModelForm):
+	nombre = forms.CharField()
+	direccion = forms.CharField()
+
+	class Meta:
+		model = Lugar
+		fields = ["nombre","direccion"]
+		labels = {"nombre":"Nombre del Lugar", "direccion":"Direccion"}
+
+	def __init__(self, *args, **kwargs):
+		super(CrearLugar, self).__init__(*args, **kwargs)
+		self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre del Lugar'})
+		self.fields['direccion'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Descripción del Lugar'})
