@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+  
+{% block title %} AMO LOS PERROS SP{% endblock %}
+
+{% block encabezado %}<h4>Amo los Perros</h4>{% endblock %}
+			
+			
+{% block content %} 
+	<h4>Campaña </h4> 
+
+
+    <ul class="collection">
+        <li class="collection-item avatar">
+            <i class="material-icons circle">account_balance_wallet</i>
+            <span class="title">Campaña de: {{ campana.tipo }} en {{ campana.lugar }}. Realizada el: {{ campana.fecha }} </span>
+        </li>	
+    </ul>
+    <div class="row grey lighten-3">
+		<div class="col s6 borde-rojo">
+	    	<p>Total Inscriptos: {{ c_inscriptos }}</p>
+	    </div>
+		<div class="col s6 borde-rojo">
+	    	<p>Atendidos: {{ atendidos }}</p>
+	   		<p></p>
+	    </div>
+	</div>
+    <div class="row grey lighten-3">
+		<div class="col s6 borde-rojo">
+	    	<p><img src="../../../static/images/dog.png" alt="" class="circle">Perros: {{ perros }}</p>
+	    </div>
+		<div class="col s6 borde-rojo">
+	    	<p>	<img src="../../../static/images/cat.png" alt="" class="circle">Gatos: {{ gatos }}</p>
+	   		<p></p>
+	    </div>
+	</div>
+    <div class="row grey lighten-3">
+		<div class="col s12 borde-rojo">
+	    	<span class="title">Costo operación: {{ campana.monto_valor_operacion }} </span>
+	    </div>
+	</div>
+    <div class="row grey lighten-3">
+		<div class="col s12 borde-rojo">
+			<span class="title">Gastado de grupo: {{ campana.monto_inter_grupo_gastado }} </span>
+	    </div>
+	</div>
+    <div class="row grey lighten-3">
+		<div class="col s12 borde-rojo">
+			<span class="title">Fondo total de grupo: {{ campana.monto_inter_grupo_total }} </span>
+	    </div>
+	</div>    
+
+
+{% endblock %}
