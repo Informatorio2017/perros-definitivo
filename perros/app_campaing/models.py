@@ -70,11 +70,11 @@ class Animalito(models.Model):
 	turno = models.IntegerField(null=True)
 	abono = models.IntegerField(null=True)
 	campaing = models.ForeignKey(Campaing, related_name = "animalitos")
-	user_name = models.CharField(max_length = 30, null=True)
+	user_name = models.CharField(max_length = 30, null=True, default="")
 
 	def __str__(self):
 
-		return self.nombre
+		return self.nombre_mascota
 
 
 class CampaingColaborador(models.Model):
