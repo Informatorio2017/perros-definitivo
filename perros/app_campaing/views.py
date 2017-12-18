@@ -217,3 +217,20 @@ def ver_qr(request):
 
     }
     return render(request, "ver_qr.html", contexto)    
+
+
+def crear_barrio(request):
+    if request.method == 'POST':
+        form = CrearBarrio(request.POST)
+
+        #import ipdb
+        #ipdb.set_trace()
+        if form.is_valid():       
+            form.save()
+            return redirect('/campaing/home_admin/')
+        else:        
+            return redirect('/Aca_si_no_valida_los_datos')
+    else:
+        contexto = {"form":CrearBarrio}
+
+        return render(request, "crear_barrio.html", contexto)

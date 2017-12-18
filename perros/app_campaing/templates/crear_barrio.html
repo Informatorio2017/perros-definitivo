@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Perros de la Calle {% endblock %}
+{% block encabezado %} Crear Barrio {% endblock %}
+
+{% block content %} 
+	
+	<div class="row">
+    <form class="col s12" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+  
+      <div class="row"> <!-- row para los botones de abajo -->
+
+        <div class="col s12  center-align">
+
+          <button type="submit" class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>      Crear Campaña
+          </button>
+        </div>
+
+      </div>              
+    </form>
+  </div>
+{% endblock %}
+
+{% block extra_js %} 
+
+{% endblock %}
