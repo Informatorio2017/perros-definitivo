@@ -5,7 +5,7 @@ from .forms import CreateCampaing, BuscarPaciente_pre
 from .models import Campaing, Animalito, Propietario
 from .models import Colaborador
 from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio, CrearLugar
-from .models import Campaing, Animalito, Propietario
+from .models import Campaing, Animalito, Propietario, Barrio
 from .models import Colaborador
 from django.http import Http404
 
@@ -224,7 +224,11 @@ def crear_barrio(request):
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
     else:
-        contexto = {"form":CrearBarrio}
+        contexto = {
+        "form":CrearBarrio,
+        "barrios": Barrio.objects.all(),
+
+        }
 
         return render(request, "crear_barrio.html", contexto)
 
