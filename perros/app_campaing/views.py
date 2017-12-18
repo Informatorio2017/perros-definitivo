@@ -9,6 +9,7 @@ from .models import Campaing, Animalito, Propietario
 from .models import Colaborador
 from django.http import Http404
 
+
 campaning = None
 
 #se va esta view
@@ -18,6 +19,34 @@ def creado(request):
 #
 def ver_campanas(request):
     return render(request, 'ver_campanas.html', {'campanas':Campaing.objects.all()})
+
+def ver_campana(request,id):
+    try:
+        campana= Campaing.objects.get(pk=id)
+    except Campaing.DoesNotExist:
+        raise Http404("No se encontro la mascota")
+
+    campanias = Campaing.objects.filter(habilitada=True)
+    #campanias = Campaing.objects.get(id=1)#(habilitada=True)
+    campaing = Campaing()
+
+    c_inscriptos = Animalito.objects.filter(campaing=campana.id).count()
+    inscriptos = Animalito.objects.filter(campaing=campana.id)
+    perros = inscriptos.filter(especie="CANINO").count()
+    gatos = inscriptos.filter(especie="FELINO").count()
+    pagados = Animalito.objects.filter(campaing=campana.id).aggregate(Sum('abono'))
+    atendidos = inscriptos.exclude(user_name='').count()
+    contexto = {
+    "campana":campana,
+    'atendidos':atendidos,
+    'pagados':pagados["abono__sum"],
+    'campaing':campaing,
+    'c_inscriptos':c_inscriptos,
+    'perros':perros,
+    'gatos':gatos,
+    "campanias":campanias,
+    }
+    return render(request, "ver_campana.html",contexto)
 
 #
 def ver_colaboradores(request):
@@ -52,7 +81,6 @@ def alta_paciente(request,id):
     except Animalito.DoesNotExist:
         raise Http404("No se encontro la mascota")
     return render(request, "alta_paciente.html",{"paciente":paciente})
-
 
 
 def buscar_paciente(request):

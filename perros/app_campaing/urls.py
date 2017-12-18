@@ -7,10 +7,6 @@ from . import views
 urlpatterns = [
 
 
-
-
-
-
     #home publica##################
 
 	url(r'^home/', views.home, name="home"),
@@ -23,10 +19,14 @@ urlpatterns = [
     url(r'^create_campaing/', views.create_campaing, name="create_campaing"),
     #home admin admin campaña
 	url(r'^home_admin/', views.home_admin, name="home_admin"),    
+	
 	#listado campañas
     url(r'^ver_campanas/', views.ver_campanas, name="ver_campanas"),
     #ver campaña
-    ########falta para ver una campaña en particular(estadisticas)
+   	#alta paciente / id 
+	url(r'^ver_campana/([0-9]+)$', views.ver_campana, name="ver_campana"),
+
+
     #ver enlace y codigo qr del enlace
 	url(r'^ver_qr/', views.ver_qr, name="ver_qr"),
     
