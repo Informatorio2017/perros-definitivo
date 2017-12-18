@@ -124,7 +124,7 @@ class CrearBarrio(forms.ModelForm):
 		super(CrearBarrio, self).__init__(*args, **kwargs)
 		self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre'})
 		self.fields['detalle'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Descripción del Barrio'})
-		
+		self.fields['detalle'].required=False
 
 class CrearLugar(forms.ModelForm):
 	nombre = forms.CharField()

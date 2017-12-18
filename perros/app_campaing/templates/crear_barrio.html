@@ -14,7 +14,7 @@
 
         <div class="col s12  center-align">
 
-          <button type="submit" class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">assignment</i></i>      Crear Barrio
+          <button type="submit" class="waves-effect waves-light red accent-2 btn-large btn-ancho"><i class="material-icons">add_location</i></i>      Crear Barrio
           </button>
         </div>
 
@@ -24,23 +24,24 @@
 
 
 
-<h4>Listado de Barrios </h4> 
+<div class="divider"></div>
+<h5 class="center-align">Listado de Lugares </h5> 
 
 <div class="row">
+  <ul class="collection">
 {% for barrio in barrios %}
         
-  <ul class="collection">
     <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
+      <i class="material-icons circle">room</i>
       <span class="title">{{barrio.nombre}}</span>
       <p>{{barrio.detalle}}
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
     </li>
     
-  </ul>
 
 {% endfor %}
+  </ul>
 </div>
 
 

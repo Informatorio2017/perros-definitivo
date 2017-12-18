@@ -11,6 +11,13 @@ from django.http import Http404
 
 campaning = None
 
+def cerrar_inscripcion_campaing(request):
+    return render(request, 'confirmar_fin_inscrip.html')
+
+def fin_campaing(request):
+    return render(request, 'confirmar_fin_campana.html')
+
+
 #se va esta view
 def creado(request):
     return render(request, 'creado.html', {})
@@ -88,8 +95,8 @@ def home_admin(request):
 
     c_inscriptos = Animalito.objects.filter(campaing=campaing.id).count()
     inscriptos = Animalito.objects.filter(campaing=campaing.id)
-    perros = inscriptos.filter(especie="CANINO").count()
-    gatos = inscriptos.filter(especie="FELINO").count()
+    perros = inscriptos.filter(especie="canino").count()
+    gatos = inscriptos.filter(especie="felino").count()
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
     atendidos = inscriptos.exclude(user_name='').count()
     contexto = {
@@ -226,7 +233,7 @@ def crear_barrio(request):
     else:
         contexto = {
         "form":CrearBarrio,
-        "barrios": Barrio.objects.all(),
+        "barrios": Barrio.objects.all().order_by('nombre'),
 
         }
 
@@ -247,7 +254,7 @@ def crear_lugar(request):
     else:
         contexto = {
         "form":CrearLugar,
-        "lugares": Lugar.objects.all(),
+        "lugares": Lugar.objects.all().order_by('nombre'),
         }
 
         return render(request, "crear_lugar.html", contexto)

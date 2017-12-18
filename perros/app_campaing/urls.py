@@ -30,8 +30,10 @@ urlpatterns = [
     #ver enlace y codigo qr del enlace
 	url(r'^ver_qr/', views.ver_qr, name="ver_qr"),
 
-	#####falta finalizar campaña confirmar (campaña_id)
 	#####falta finalizar inscripcion pública campaña confirmar (campaña_id)
+	url(r'^close_inscription_campaing/([0-9]+)$', views.cerrar_inscripcion_campaing, name="cerrar_inscripcion_campaing"),
+	#####falta finalizar campaña confirmar (campaña_id)
+	url(r'^end_campaing/([0-9]+)$', views.fin_campaing, name="fin_campaing"),
     
 
 	#Colaborador################
