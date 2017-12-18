@@ -13,7 +13,7 @@ from .models import Colaborador
 
 campaning = None
 
-from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente
+from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio
 
 from .models import Campaing, Animalito, Propietario
 from .models import Colaborador

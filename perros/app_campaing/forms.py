@@ -1,5 +1,5 @@
 from django import forms
-from .models import Campaing, Animalito, Propietario
+from .models import Campaing, Animalito, Propietario, Barrio
 import app_campaing
 
 class CreateCampaing(forms.ModelForm):
