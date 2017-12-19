@@ -1,0 +1,15 @@
+<h1>login</h1>
+{% if messages %}
+	<ul>
+	{% for message in messages %}
+		<li> {{ message }}</li>
+	{% endfor %}
+	</ul>
+{% endif %}
+<form action="" method="post">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" value = "ingresar">	
+</form>
+
+

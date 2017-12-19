@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from app_campaing import views
+# from app_campaing import views
+from . import views
 
 urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
-
     url(r'^campaing/', include('app_campaing.urls')),
-
-    
-
+    url(r'^$',views.home,name= 'home' ),
+	url(r'^login/',views.login,name= 'login' ),
+    url(r'^logout/',views.logout,name= 'logout' ),
+    url(r'^create_user/',views.create_user,name= 'create_user' ),
 
 ]

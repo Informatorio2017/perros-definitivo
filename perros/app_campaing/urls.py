@@ -4,15 +4,14 @@
 from django.conf.urls import url
 from . import views
 
+app_name = 'app_campaing'
+
 urlpatterns = [
 
 
     #home publica##################
 
 	url(r'^home/', views.home, name="home"),
-
-
-
 	#Urls Campaña##########33333
 
 	#Crear Campaña###########################
@@ -73,7 +72,7 @@ urlpatterns = [
 		#ver lugares
 		#ver barrios
 
-
+	url(r'^formulario_inscripcion_preinscriptos/(?P<id>\d+)/$', views.formulario_inscripcion_preinscriptos, name="formulario_inscripcion_preinscriptos"),
 
 	#login###############
 		#login

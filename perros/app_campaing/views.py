@@ -9,7 +9,6 @@ from .models import Campaing, Animalito, Propietario, Barrio, Lugar
 from .models import Colaborador
 from django.http import Http404
 
-
 campaning = None
 
 def cerrar_inscripcion_campaing(request):
@@ -47,14 +46,10 @@ def ver_campana(request,id):
     lista_atendidos = inscriptos.exclude(user_name='')
     atendidos = lista_atendidos.count()
 
-
-
-
     #parte para sacar por barrio
 
     barrios = Barrio.objects.all()
     estadistica = {}
-
 
     for b in barrios:
         atendidos_barrio = lista_atendidos.filter(propietario__barrio__nombre=b.nombre)
@@ -68,13 +63,6 @@ def ver_campana(request,id):
             estadistica[b.nombre] = (cant, porcentaje, perros, gatos)
 
         #estadistica[b.nombre] = cant
-
-
-
-
-
-
-
 
     contexto = {
     "campana":campana,
@@ -132,19 +120,13 @@ def buscar_paciente(request):
         if form.is_valid():
 
             query = form.cleaned_data["query"]
-
-
             pacientes = Animalito.objects.filter(turno=query)
-
-                
+            
             return render(request, "buscar_paciente_resultado.html", {"query":query,"pacientes":pacientes})
-
     else:
         form = BuscarPaciente()
 
-        
     return render(request,"buscar_paciente.html",{"form":form})
-
 
 
 def home_admin(request):
@@ -173,7 +155,6 @@ def home_admin(request):
     return render(request, "home_admin.html", contexto)
 
 
-
 def inscribir_paciente_pre(request):       
 
     if request.method == "POST":
@@ -182,22 +163,16 @@ def inscribir_paciente_pre(request):
         if form.is_valid():
             query = form.cleaned_data["query"]
 
-
-
-
             pacientes = Animalito.objects.filter(nro_pre_inscripcion=query)
-
                 
             return render(request, "inscribir_paciente_resultado_pre.html", {"query":query,"pacientes":pacientes})
-
-
     else:
         form = BuscarPaciente_pre()
-
         
     return render(request,"buscar_paciente_pre.html",{"form":form})
 
 
+# incripción para los pacientes NO preinscriptos
 def formulario_inscripcion(request):
     if request.method == 'POST':
         # import ipdb; ipdb.set_trace()                
@@ -205,24 +180,13 @@ def formulario_inscripcion(request):
         formAni = AnimalitoForm(request.POST)
 
         if formPro.is_valid() and formAni.is_valid():
-            #crear animalito
-            #crear propietario
             propietario = formPro.save(commit=False)        
             propietario.save()
-
             animalito   = formAni.save(commit=False)         
-            animalito.propietario = propietario
-                     
+            animalito.propietario = propietario                    
             campania = Campaing.objects.filter(habilitada=True)
-
-
-            #propietario.save()
-            #animal.propietario = propietario
-            #campania = Campaing.objects.filter(habilitada=True)
-
             animalito.campaing = campania[0]
             animalito.save()  
-
         
             return redirect('/campaing/home_admin/')
         else:        
@@ -231,6 +195,27 @@ def formulario_inscripcion(request):
         contexto = {"formPropietario":PropietarioForm,"formAnimalito":AnimalitoForm}
 
         return render(request, "formulario_inscripcion.html", contexto)
+
+# incripción para los pacientes preinscriptos
+def formulario_inscripcion_preinscriptos(request,id):
+    animali = Animalito.objects.get(id = id )
+    # import ipdb; ipdb.set_trace()                
+    if request.method == 'GET':
+        formAni = AnimalitoForm(instance = animali)        
+        formPro = PropietarioForm(instance = animali.propietario)    
+    else:
+       # import ipdb; ipdb.set_trace()                
+        formAni = AnimalitoForm(request.POST,instance=animali)
+        formPro = PropietarioForm(request.POST,instance=animali.propietario)
+        if formPro.is_valid() and formAni.is_valid():
+            formPro.save()
+            formAni.save()    
+            return redirect('/campaing/home_admin/')
+        else:        
+            return redirect('/Aca_si_no_valida_los_datos')
+
+    contexto = {"formPropietario":formPro,"formAnimalito":formAni}
+    return render(request, "formulario_inscripcion.html", contexto)
 
 
 
