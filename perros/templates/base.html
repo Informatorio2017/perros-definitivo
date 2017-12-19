@@ -5,10 +5,7 @@
 
 	<head>     
 
-	<head>
-		     
-
-
+	<head>		     
 		<!--Import Google Icon Font-->
 		<link href=" {% static 'css/material-icons.css' %}" rel="stylesheet">
 
@@ -27,9 +24,12 @@
 			{% block title %} {% endblock %}
 		</title>
 
+		
 	</head>
 	<body>
+		
 		<nav class="nav-extended">
+		  {% block nav %}	
 		    <div class="nav-wrapper">
 		      <div class="brand-logo left topbar-boton-arriba-izquierda">
 		        <!--botón atrás reemplaza al regresar-->
@@ -74,7 +74,9 @@
 		        <i class="material-icons">menu</i>
 		      </a>
 		    </div>
+		  {% endblock %}	  
 	  	</nav>
+
 	  	<div class="container">
 		{% block content %} 
 		{% endblock %}

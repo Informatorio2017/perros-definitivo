@@ -1,223 +1,114 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block pagina %}
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  {% block title %} Home Amo los Perros {% endblock %}
-
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-</head>
 <body class="cuerpo">
-
+  <!--Import jQuery before materialize.js-->
   <!-- inicio nav -->
-  <nav class="nav-extended">
-    <div class="nav-wrapper">
-      <div class="brand-logo left topbar-boton-arriba-izquierda">
-        <!--botón atrás reemplaza al regresar-->
-        <a href="#" onclick="history.go(-1)">
-          <i class="material-icons">keyboard_backspace</i>
+  <nav class="nav-extended ">
+    {% block nav %}
+      <div class="nav-wrapper blue light"> <!-- con valign-wrapper se alinea el titulo pero cambia el sidebar -->
+        <div class="brand-logo left topbar-boton-arriba-izquierda ">
+          <!--botón atrás reemplaza al regresar-->
+          <a href="#" onclick="history.go(-1)">
+            <i class="material-icons">keyboard_backspace</i>
+          </a>
+        </div>
+        <div class="top-titulos"
+          <p class="truncate top-bar-primeralinea">
+            <strong>AMO LOS PERROS</strong>
+          </p>
+
+          <!-- <p class="truncate top-bar-segundalinea">
+            <strong>AMO LOS PERROS</strong>
+          </p> -->
+        </div>
+  
+  
+        <!-- inicio lista de enlaces del menú arriba derecha -->
+     
+        <ul id="slide-out" class="side-nav">
+          <li>
+            <div class="user-view">
+              <div class="background logo-menu">
+                <img class="responsive-img" src="{% static 'images/logoamolosperros.png' %}" alt="side-nav">
+              </div>
+              <!-- <a href="#!user" class="valign-wrapper">
+                <img class="circle avatar-menu" src="imagenes/amo los perros.png">
+                <p class="black-text name truncate">
+                   
+                </p>
+              </a>-->
+            </div>
+          </li>
+          <li>
+            <a href="{% url 'login' %}">
+              <i class="material-icons">lock</i>Login
+            </a>
+          </li>
+          <!-- <li><div class="divider"></div></li> -->
+          <!-- <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Inicio</a></li> -->
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
+          <i class="material-icons">menu</i>
         </a>
       </div>
-      <div class="top-titulos">
-        <p class="truncate top-bar-primeralinea">
-          <strong>AMO A LOS PERROS</strong>
-        </p>
-        <!-- <p class="truncate top-bar-segundalinea">
-          3° A Esc. N°1 Gral. Belgrano
-        </p> -->
-      </div>
-      <!-- inicio lista de enlaces del menú arriba derecha -->
-      <ul id="slide-out" class="side-nav">
-        <li>
-          <div class="user-view">
-            <div class="background logo-menu">
-              <img class="responsive-img" src="" alt="logo-org">
-            </div>
-          </div>
-        </li>
-        <li>
-          <a href="#!">
-            <i class="material-icons">home</i>
-            Login
-          </a>
-        </li>
-       <!--  <li><div class="divider"></div></li> -->
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
-        <i class="material-icons">menu</i>
-      </a>
-    </div>
+     {% endblock %}
   </nav>
-  <!-- fin nav -->
+    <!-- fin nav -->
 
-  <!-- inicio contenedor principal -->
-  <div class="container">
-    <!-- inicio row para datos de campaña -->
-    <div class="row">
-      <!-- inicio columna datos de campaña -->
-      <div class="col s12">
-        <div class="card-panel grey center-align">
-          <span class="white-text">
-            <strong>CAMPAÑA ACTUAL</strong>
-            <br>
-            Esterilización en Barrio "San Cayetano"
-          </span>
-        </div>
-      </div>
-      <!-- fin columna para datos de campaña  -->      
-    </div>
-    <!-- fin row para para datos de campaña  -->
-
-
-  <div class="row borde-anaranjado">
-    <div class="row grey lighten-3">
-      <div class="col s7 borde-rojo">
-        <p>INSCRIPTOS</p>
-        <p>70</p>
-      </div>
-
-      <div class="col s5 borde-verde">
-        <p>perros 22</p>
-      </div>
-
-      <div class="col s5 borde-verde">
-        <p>gatos 17</p>
-      </div>
-    </div>
-
-    <div class="row grey lighten-3">
-      <div class="col s6 borde-rojo">
-        <p>Pagados: 50</p>
-      </div>
-
-      <div class="col s6 borde-verde">
-        <p>Grupo: 20/100</p>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col s12 center-align borde-amarillo">
-      <h5>Atendidos</h5>
-      <h2>20</h2>
-    </div>
-  </div>
-<!-- inicio botones inscribir y dar alta -->  
-  <div class="row">
-    <div class="col s12 m6 center-align">
-      <a class="waves-effect waves-light btn-large btn-ancho"><i class="material-icons left">assignment</i>Inscribir Paciente</a>
-    </div>
-    <div class="col s12 separador hide-on-med-and-up borde-anaranjado"></div>
-    <div class="col s12 m6 center-align">
-      <a class="waves-effect waves-light btn-large btn-ancho"><i class="material-icons left">assignment_turned_in</i>Dar de Alta</a>
-    </div>
-
-  </div>
-<!-- fin botones inscribir y dar alta -->
-
-<div class="row">
-
-  <div class="col s12">
-
-    <ul class="collapsible" data-collapsible="accordion">
-
-      <li>
-        <div class="collapsible-header grey lighten-4">
-          <i class="material-icons">tune
-          </i>
-          Ajustes de la campaña
-          <span class="secondary-content">
-            <i class="material-icons">expand_more</i>
-          </span>
-        </div>
-        
-        <div class="collapsible-body grey lighten-5">
-
-
-          <ul class="collection">
-            <li class="collection-item avatar">
-              
-              <span class="title">
-                <strong>Cerrar Inscripción</strong>
-              </span>
-              <p>No se recibirán más inscripciones públicas
-              </p>
-              <!-- Switch -->
-              <div class="secondary-content">
-                <div class="switch">
-                  <label>
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                  </label>
-                </div>
-              </div>  
-
-            </li>
-
-            <a href="#" class="grey-text text-darken-3">
-              <li class="collection-item avatar">
-                  <span class="title"><strong>Enlace público</strong>
-                  </span>
-
-                  <p>Ver, imprimir o compartir el enlace público de inscripciones
-                  </p>
-
-
-                  <span href="#!" class="secondary-content"><i class="material-icons">link</i></span>
-              </li>
-            </a>
+    
+      {% block content %} 
+        <div class="row center-align">
+            <div class="col s12">            
+               <img src="{% static 'images/logoamolosperros.png' %}">               
+            </div>
+            <p>Ayudamos a los animales en situación de calle, <br>
+               alos heridos, organizamos ferias de adopción<br>
+               y jornadas de castración a bajo costo.
+            </p>
             <div class="divider"></div>
-
-            <li class="collection-item avatar">
-              
-              <span class="title">
-                <strong>Finalizar Campaña</strong>
-              </span>
-              <p>Finalizará la campaña activa y se generarán las estadísticas
-              </p>
-              <!-- Switch -->
-              <div class="secondary-content">
-                <div class="switch">
-                  <label>
-                    <input type="checkbox">
-                    <span class="lever"></span>
-                  </label>
-                </div>
-              </div>  
-
-            </li>
-
-      
-          </ul>
-
-
-
         </div>
-      </li>
+       
+       {% if campaing %}        
+       <div class="row">
+           <div class="col s12 m8 center-align">
+            <h5>Proxima Campaña: {{campaing.fecha}}</h5>
+           </div>
+           <div class="col s12 m4">
+            <a class="waves-effect waves-light btn-large btn-ancho" href="about_campaña.html"> SOBRE CAMPAÑA</a>
+           </div>
+       </div>      
+       <div class="divider"></div>
+       {% endif %}
+      <div class="separador"></div>
+      <style>
+        .google-maps {
+        position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+        }
+        .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        }
+        </style>
+        <h5>Mapa de Alcancías</h5>
+        <p>Con tu colaboración <br>
+        ayudás a erradicar el moquillo</p>
+        <div class="google-maps">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1Jfy_veK9IiFJXC_ENdYCABjLZsk24B0u" width="600" height="450" frameborder="0" style="border:0" ></iframe>
+        </div>
+      {% endblock %}   
+    
 
-    </ul>
-
-  </div>
-
-</div>
-        
-
-
-
-  </div>
-  <!-- fin contenedor principal -->
+    
 </body>
-
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>
-
 <script type="text/javascript">
    $(".button-collapse").sideNav();
   $('.button-collapse').sideNav({
@@ -229,10 +120,10 @@
       onClose: function(el) {  }, // A function to be called when sideNav is closed
     }
   );
-
 </script>
 </html>
 
 
 
- {% endblock %}
+
+

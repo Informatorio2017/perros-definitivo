@@ -3,12 +3,19 @@ from .forms import LoginForm, CreateUserForm
 from django.contrib.auth import authenticate, login as login_django, logout as logout_django
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from app_campaing.models import Campaing
 
 def base(request):
 	return render(request, "base.html", {})
 
 def home(request):
-	return render(request,"home.html",{})
+	campanias = Campaing.objects.filter(habilitada=True)
+	campaing = Campaing()
+	if campanias:
+		campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+
+	contexto = {'campaing':campaing}
+	return render(request,"home.html",contexto)
 
 def login(request):
 	if request.user.is_authenticated():

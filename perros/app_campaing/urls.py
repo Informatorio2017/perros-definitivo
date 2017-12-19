@@ -10,7 +10,7 @@ urlpatterns = [
 
 
     #home publica##################
-
+    
 	url(r'^home/', views.home, name="home"),
 	#Urls Campaña##########33333
 
