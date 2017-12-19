@@ -51,8 +51,34 @@
 	</div>    
 
 
-	<br><br><br><br>
-	<h1>prueba estadisticas</h1>
+<!-- 	///////////////////////////////////////////////////////////////////// -->	
+
+		<script src="../../../static/js/Chart.js"></script>
+		<div id="canvas-holder">
+		<canvas id="chart-area" width="300" height="300"></canvas>
+		<canvas id="chart-area2" width="300" height="00"></canvas>
+		<canvas id="chart-area3" width="600" height="00"></canvas>
+		<canvas id="chart-area4" width="600" height="00"></canvas>
+		</div>
+		<script>
+
+		var pieData = [
+			{% for barrio_nombre,barrio_cantidad in estadistica.items %}
+
+				{value: {{barrio_cantidad.0}} ,color:"#0b82e7",highlight: "#0c62ab",label:{{'"'}}{{barrio_nombre}}{{'"'}}},
+			{% endfor %}
+		
+					];
+
+		var ctx = document.getElementById("chart-area").getContext("2d");
+		var ctx2 = document.getElementById("chart-area2").getContext("2d");
+		var ctx3 = document.getElementById("chart-area3").getContext("2d");
+		var ctx4 = document.getElementById("chart-area4").getContext("2d");
+		window.myPie = new Chart(ctx).Pie(pieData);	
+		</script>
+<!-- 	///////////////////////////////////////////////////////////////////// -->	
+
+ <h1>prueba estadisticas</h1>
 
 	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
 		<br>
@@ -69,6 +95,6 @@
 			<h6>Gatos: {{barrio_cantidad.3}}</h6>
 		<br>
 	{% endfor %}
-
+		
 
 {% endblock %}
