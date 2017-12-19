@@ -51,4 +51,15 @@
 	</div>    
 
 
+	<br><br><br><br>
+	<h1>prueba estadisticas</h1>
+
+	{% for key,value in estadistica.items%}
+		<br>
+		<h5>Barrio: {{key}}</h5>
+		<h6>Cantidad Atendidos: {{value}}</h4>
+		<br>
+	{% endfor %}
+
+
 {% endblock %}

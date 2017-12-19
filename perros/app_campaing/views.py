@@ -37,12 +37,40 @@ def ver_campana(request,id):
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
     campaing = Campaing()
 
+
+
+
+
     c_inscriptos = Animalito.objects.filter(campaing=campana.id).count()
     inscriptos = Animalito.objects.filter(campaing=campana.id)
     perros = inscriptos.filter(especie="CANINO").count()
     gatos = inscriptos.filter(especie="FELINO").count()
     pagados = Animalito.objects.filter(campaing=campana.id).aggregate(Sum('abono'))
-    atendidos = inscriptos.exclude(user_name='').count()
+    lista_atendidos = inscriptos.exclude(user_name='')
+    atendidos = lista_atendidos.count()
+
+
+
+
+    #parte para sacar por barrio
+
+    barrios = Barrio.objects.all()
+    estadistica = {}
+
+
+    for b in barrios:
+        atendidos_barrio = lista_atendidos.filter(propietario__barrio__nombre=b.nombre)
+        cant = atendidos_barrio.count()
+        
+        estadistica[b.nombre] = cant
+
+
+
+
+
+
+
+
     contexto = {
     "campana":campana,
     'atendidos':atendidos,
@@ -52,6 +80,7 @@ def ver_campana(request,id):
     'perros':perros,
     'gatos':gatos,
     "campanias":campanias,
+    "estadistica":estadistica,
     }
     return render(request, "ver_campana.html",contexto)
 
