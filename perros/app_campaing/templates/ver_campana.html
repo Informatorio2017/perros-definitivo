@@ -65,7 +65,7 @@
 		var pieData = [
 			{% for barrio_nombre,barrio_cantidad in estadistica.items %}
 
-				{value: {{barrio_cantidad.0}} ,color:"#0b82e7",highlight: "#0c62ab",label:{{'"'}}{{barrio_nombre}}{{'"'}}},
+				{value: {{barrio_cantidad.0}} ,color:{{'"#'}}{{barrio_cantidad.4}}{{'"'}},highlight: "#0c62ab",label:{{'"'}}{{barrio_nombre}}{{'"'}}},
 			{% endfor %}
 		
 					];
@@ -93,6 +93,7 @@
 		<h6>Porcentaje Atendidos: {{barrio_cantidad.1}}</h6>
 			<h6>Perros: {{barrio_cantidad.2}}</h6>
 			<h6>Gatos: {{barrio_cantidad.3}}</h6>
+			<h6>color: {{barrio_cantidad.4}}</h6>
 		<br>
 	{% endfor %}
 		

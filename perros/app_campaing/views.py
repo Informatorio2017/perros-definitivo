@@ -51,6 +51,10 @@ def ver_campana(request,id):
     barrios = Barrio.objects.all()
     estadistica = {}
 
+
+    colores = ("ff0000","00ff00","0000ff","0183f1","00ff00")
+    cuenta_color = 0
+
     for b in barrios:
         atendidos_barrio = lista_atendidos.filter(propietario__barrio__nombre=b.nombre)
 
@@ -60,7 +64,12 @@ def ver_campana(request,id):
             perros = atendidos_barrio.filter(especie="canino").count()
             porcentaje = cant*100/atendidos
 
-            estadistica[b.nombre] = (cant, porcentaje, perros, gatos)
+            color_pasar = colores[cuenta_color]
+            cuenta_color = cuenta_color+1
+            if cuenta_color==4:
+                cuenta_color=0
+
+            estadistica[b.nombre] = (cant, porcentaje, perros, gatos, color_pasar,)
 
         #estadistica[b.nombre] = cant
 
