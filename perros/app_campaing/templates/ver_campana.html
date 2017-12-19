@@ -54,10 +54,17 @@
 	<br><br><br><br>
 	<h1>prueba estadisticas</h1>
 
-	{% for key,value in estadistica.items%}
+	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
 		<br>
-		<h5>Barrio: {{key}}</h5>
-		<h6>Cantidad Atendidos: {{value}}</h4>
+		{{'<h1>""</h1>'}}
+		{{barrio_cantidad.1}}
+
+		<h5>Barrio: {{barrio_nombre}}</h5>
+		  	<div class="progress">
+      			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
+  			</div>
+		<h6>Cantidad Atendidos: {{barrio_cantidad.0}}</h4>
+		<h6>Porcentaje Atendidos: {{barrio_cantidad.1}}</h4>
 		<br>
 	{% endfor %}
 

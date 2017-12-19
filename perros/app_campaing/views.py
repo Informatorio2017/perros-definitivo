@@ -38,9 +38,6 @@ def ver_campana(request,id):
     campaing = Campaing()
 
 
-
-
-
     c_inscriptos = Animalito.objects.filter(campaing=campana.id).count()
     inscriptos = Animalito.objects.filter(campaing=campana.id)
     perros = inscriptos.filter(especie="CANINO").count()
@@ -62,7 +59,11 @@ def ver_campana(request,id):
         atendidos_barrio = lista_atendidos.filter(propietario__barrio__nombre=b.nombre)
         cant = atendidos_barrio.count()
         
-        estadistica[b.nombre] = cant
+        porcentaje = cant*100/atendidos
+
+        estadistica[b.nombre] = (cant, porcentaje)
+
+        #estadistica[b.nombre] = cant
 
 
 
