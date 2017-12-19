@@ -55,8 +55,8 @@ class Campaing(models.Model):
 		
 class Animalito(models.Model):
 	
-	ESPECIE = (("canino","Canino"),("felino","Felino"))
-	SEXO = (("macho","Macho"),("hembra","Hembra"))
+	ESPECIE = (("canino","CANINO"),("felino","FELINO"))
+	SEXO = (("macho","MACHO"),("hembra","HEMBRA"))
 
 	propietario = models.ForeignKey(Propietario, related_name="animalitos")
 	nombre_mascota = models.CharField(max_length = 30, null=True)

@@ -47,7 +47,7 @@ class PropietarioForm(forms.ModelForm):
 				  "telefono",
 				  "barrio")
 
-		labels = {"dni":"DNIiiii", 
+		labels = {"dni":"DNI", 
 				  "apellido":"Apellido",
 				  "nombre":"Nombre", 
 				  "telefono":"Teléfono",
