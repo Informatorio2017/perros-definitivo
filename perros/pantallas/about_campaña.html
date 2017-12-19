@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amo los Perros</title>
+  <link rel="stylesheet" href="css/materialize.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>       
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="cuerpo">
+  <!--Import jQuery before materialize.js-->
+  
+
+  <!-- inicio nav -->
+  <nav class="nav-extended ">
+      <div class="nav-wrapper blue light"> <!-- con valign-wrapper se alinea el titulo pero cambia el sidebar -->
+        <div class="brand-logo left topbar-boton-arriba-izquierda ">
+          <!--botón atrás reemplaza al regresar-->
+          <a href="#" onclick="history.go(-1)">
+            <i class="material-icons">keyboard_backspace</i>
+          </a>
+        </div>
+        <div class="top-titulos">
+          <p class="truncate top-bar-primeralinea">
+            <strong>AMO LOS PERROS</strong>
+          </p>
+          <!-- <p class="truncate top-bar-segundalinea">
+            <strong>AMO LOS PERROS</strong>
+          </p> -->
+        </div>
+  
+  
+        <!-- inicio lista de enlaces del menú arriba derecha -->
+     
+        <ul id="slide-out" class="side-nav">
+          <li>
+            <div class="user-view">
+              <div class="background logo-menu">
+                <img class="responsive-img" src="" alt="side-nav">
+              </div>
+              <!-- <a href="#!user" class="valign-wrapper">
+                <img class="circle avatar-menu" src="imagenes/amo los perros.png">
+                <p class="black-text name truncate">
+                   
+                </p>
+              </a>-->
+            </div>
+          </li>
+          <li>
+            <a href="home.html">
+              <i class="material-icons">home</i>CAMPAÑA/CREAR
+            </a>
+          </li>
+          <li>
+            <a href="estadisticas crear campañas.html">
+              <i class="material-icons">insert_chart</i>CREAR REPORTE
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect" href="#!">
+              <i class="material-icons">visibility</i>VER CAMPAÑAS
+            </a>
+          </li>
+          <!-- <li><div class="divider"></div></li> -->
+          <!-- <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Inicio</a></li> -->
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>
+    </nav>
+    <!-- fin nav -->
+
+
+      
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h4>CAMPAÑA DE CASTRACIÓN</h4>
+            </div> 
+        </div>
+
+        <div class="row">
+            <div class="col s12 center-align grey">
+                <strong> Estás registrándote para colaborar en la campaña de CASTRACIÓN
+                    que se realizará el Día: 19/12/18 &nbspHora: 8:00
+                </strong>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 center-align">
+                <h5>Castra a tu mascota, apadrina la castración de un callejero <br>
+                     y así evitás futuros animales abandonados.</h5>
+            </div>
+        </div>
+        
+       <div class="row">
+           <div class="col s4 m4">
+            <a class="waves-effect waves-light btn-large btn-ancho" href="#!"> Inscribir Mascotas</a>
+           </div>
+
+           <div class="col s4 m4">
+                <a class="waves-effect waves-light btn-large btn-ancho" href="#!"> Inscribirse como Voluntario</a>
+            </div>
+
+            <div class="col s4 m4">
+                <a class="waves-effect waves-light btn-large btn-ancho" href="#!"> Apadrinar</a>
+            </div>
+       </div>
+       <div class="divider"></div>
+
+       <div class="row">
+           <div class="col s12 center-align">
+               <h4>INSCRIBIR COLABORADOR</h4>
+           </div>
+       </div>
+
+       <div class="row">
+           <div class="col s6">
+                <i class=" large material-icons center-align">pan_tool</i>
+                
+                <p> &nbsp; &nbsp; TE ESPERAMOS A COLABORAR DURANTE LA <BR>
+                JORNADA, O A APADRINAR ALGUNA PERRA O GATA <BR>
+                CALLEJERA, O DE FAMILIA DE BAJOS RECURSOS. <br>
+                ENTRE TODOS PODEMOS DISMINUIR LA <BR>
+                SUPERPOBLACIÓN DE ANIMALES. </p> <BR>
+                 <strong>¡AYÚDANOS A DIFUNDIR ENTRE TUS CONTACTOS!</strong>
+           </div>
+
+           <div class="col s6">
+                <div class="input-field">
+                        Nombre:<input id="autocomplete-input" type="text" class="autocomplete">
+                        <label for="autocomplete-input"></label>
+                </div>
+
+                <div class="input-field">
+                    Apellido:<input id="autocomplete-input" type="text" class="autocomplete">
+                    <label for="autocomplete-input"></label>
+                </div>
+
+                <div class="input-field">
+                    Teléfono:<input id="autocomplete-input" type="text" class="autocomplete">
+                    <label for="autocomplete-input"></label>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                            <form action="#"> 
+                            <p class="white-text"><input  type="checkbox" id="padrino"/><label for="padrino">Padrino</label></p>
+                            </form>                          
+                    </div>
+
+                    <div class="col s6">
+                            <form action="#"> 
+                            <p class="white-text"><input  type="checkbox" id="voluntario"/><label for="voluntario">Voluntario</label></p>
+                            </form> 
+                            <div class="separador"></div>                         
+                    </div>
+
+                    <div>
+                            <a class="waves-effect waves-light btn-large btn-ancho" href="#!">ENVIAR</a>
+                    </div>   
+                </div>  
+            </div>
+       </div>
+       <div class="divider"></div>
+
+       <div class="row">
+            <div class="col s12 center-align">
+                <h4>INSCRIBIR PADRINO</h4>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <!-- <div class="col s6">
+                 <i class=" large material-icons center-align">pan_tool</i>
+                 
+                 <p> &nbsp; &nbsp; TE ESPERAMOS A COLABORAR DURANTE LA <BR>
+                 JORNADA, O A APADRINAR ALGUNA PERRA O GATA <BR>
+                 CALLEJERA, O DE FAMILIA DE BAJOS RECURSOS. <br>
+                 ENTRE TODOS PODEMOS DISMINUIR LA <BR>
+                 SUPERPOBLACIÓN DE ANIMALES. </p> <BR>
+                  <strong>¡AYÚDANOS A DIFUNDIR ENTRE TUS CONTACTOS!</strong>
+            </div> -->
+ 
+            <div class="col s12">
+                 <div class="input-field">
+                         Nombre:<input id="autocomplete-input" type="text" class="autocomplete">
+                         <label for="autocomplete-input"></label>
+                 </div>
+ 
+                 <div class="input-field">
+                     Apellido:<input id="autocomplete-input" type="text" class="autocomplete">
+                     <label for="autocomplete-input"></label>
+                 </div>
+ 
+                 <div class="input-field">
+                     Teléfono:<input id="autocomplete-input" type="text" class="autocomplete">
+                     <label for="autocomplete-input"></label>
+                 </div>
+                 <!-- <div class="row">
+                     <div class="col s6">
+                             <form action="#"> 
+                             <p class="white-text"><input  type="checkbox" id="padrino"/><label for="padrino">Padrino</label></p>
+                             </form>                          
+                     </div>
+ 
+                     <div class="col s6">
+                             <form action="#"> 
+                             <p class="white-text"><input  type="checkbox" id="voluntario"/><label for="voluntario">Voluntario</label></p>
+                             </form> 
+                             <div class="separador"></div>                         
+                     </div>
+                 </div>  -->
+                 <div>
+                    <a class="waves-effect waves-light btn-large btn-ancho" href="#!">ENVIAR</a>
+                </div> 
+             </div>
+        </div>
+ 
+
+    </div>
+
+    
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript">
+   $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true, // Choose whether you can drag to open on touch screens,
+      onOpen: function(el) {  }, // A function to be called when sideNav is opened
+      onClose: function(el) {  }, // A function to be called when sideNav is closed
+    }
+  );
+</script>
+</html>
