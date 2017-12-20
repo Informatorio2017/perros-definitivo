@@ -24,48 +24,81 @@
     <!-- fin row para para datos de campaña  -->
 
 
-  <div class="row borde-anaranjado">
-    <div class="row grey lighten-3">
-      <div class="col s7 borde-rojo">
-        <p>INSCRIPTOS</p>
-        <p>{{ c_inscriptos }}</p>
+  
+
+
+    <div class="row ">
+      <div class="col s12">
+        <div class="row grey lighten-3">
+          <div class="col s12 m2 l3"></div>
+          <div class="col s12 m8 l6">            
+            <div class="col s12 borde-negro center-align">
+              <p><h4><strong>INSCRIPTOS</strong></h4></p>
+              <p><h1>{{ c_inscriptos }}</h1></p>
+            </div>
+            <div class="col s6 borde-negro">
+              <img src="../../../static/images/dog.png" alt="" ><p class="right"><strong>{{perros}}</strong></p>
+            </div>
+            <div class="col s6 borde-negro">
+              <img src="../../../static/images/cat.png" alt="" ><p class="right"><strong>{{gatos}}</strong></p>
+            </div>
+          </div>
+          <div class="col s12 m2 l3"></div>
+        </div>
       </div>
 
-      <div class="col s5 borde-verde">
-        <p>perros {{perros}}</p>
+
+
+  
+
+      <div class="row grey lighten-3">
+        <div class="col s12">
+
+          <div class="col s4 borde-negro">
+            <p>
+              <i class="material-icons">attach_money</i>
+              <strong> {{ pagados }}</strong>
+            </p>
+          </div>
+
+          <div class="col s4 borde-negro">
+            <p>
+              <i class="material-icons">favorite</i>
+              <strong>  {{ campaing.monto_inter_grupo_gastado }}/{{ campaing.monto_inter_grupo_total }}</strong>
+            </p>
+          </div>
+
+          <div class="col s4 borde-negro">
+            <p>
+              <i class="material-icons">money_off</i>
+              <strong>{{ campaing.monto_inter_grupo_gastado }}/{{ campaing.monto_inter_grupo_total }}</strong></p>
+          </div>
+        </div>
       </div>
 
-      <div class="col s5 borde-verde">
-        <p>gatos {{gatos}}</p>
-      </div>
+
+
+
     </div>
 
-    <div class="row grey lighten-3">
-      <div class="col s6 borde-rojo">
-        <p>Pagados: {{ pagados }}</p>
-      </div>
-
-      <div class="col s6 borde-verde">
-        <p>{{ campaing.monto_inter_grupo_gastado }}/{{ campaing.monto_inter_grupo_total }}</p>
-      </div>
-    </div>
-  </div>
+  <div class="col s12 l3 m2"></div>
 
 
-  <div class="row">
-    <div class="col s12 center-align borde-amarillo">
+  <div class="row z-depth-4">
+    <div class="col s12 center-align borde-negro">
+      <!--<p class="z-depth-4">z-depth-4</p>  -->
       <h5>Atendidos</h5>
       <h2>{{atendidos}}</h2>
     </div>
   </div>
 <!-- inicio botones inscribir y dar alta -->  
   <div class="row">
-    <div class="col s12 m6 center-align">
-      <a class="waves-effect waves-light btn-large btn-ancho" href="/campaing/formulario_inscripcion/"><i class="material-icons left">assignment</i>Inscribir Paciente</a>
+    <div class="col s12 m6 center-align"> 
+      <a class="waves-effect red btn-large btn-ancho" href="/campaing/formulario_inscripcion/"><i class="material-icons left">assignment</i>Inscribir Paciente</a>
     </div>
-    <div class="col s12 separador hide-on-med-and-up borde-anaranjado"></div>
-    <div class="col s12 m6 center-align">
-      <a class="waves-effect waves-light btn-large btn-ancho" href="../buscar_paciente/"><i class="material-icons left">assignment_turned_in</i>Dar de Alta</a>
+    <div class="col s12 separador hide-on-med-and-up"></div>
+    <div class="col s12 m6 center-align"> 
+      <a class="waves-effect red btn-large btn-ancho" href="../buscar_paciente/"><i class="material-icons left">assignment_turned_in</i>Dar de Alta</a>
     </div>
 
   </div>
@@ -87,7 +120,7 @@
           </span>
         </div>
         
-        <div class="collapsible-body grey lighten-5 opciones_home">
+        <div class="collapsible-body grey lighthen-5 opciones_home">
 
 
           <ul class="collection">
