@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+<body class="cuerpo">
+  <!--Import jQuery before materialize.js-->
+  <!-- inicio nav -->
+  <nav class="nav-extended ">
+    {% block nav %}
+      <div class="nav-wrapper blue light"> <!-- con valign-wrapper se alinea el titulo pero cambia el sidebar -->
+        <div class="brand-logo left topbar-boton-arriba-izquierda ">
+          <!--botón atrás reemplaza al regresar-->
+          <a href="#" onclick="history.go(-1)">
+            <i class="material-icons">keyboard_backspace</i>
+          </a>
+        </div>
+        <div class="top-titulos"
+          <p class="truncate top-bar-primeralinea">
+            <img src="{% static 'images/icon_logo.png' %}"> <strong>AMO LOS PERROS</strong>
+          </p>
+
+          <!-- <p class="truncate top-bar-segundalinea">
+            <strong>AMO LOS PERROS</strong>
+          </p> -->
+        </div>  
+
+        <!-- inicio lista de enlaces del menú arriba derecha -->  
+        <ul id="slide-out" class="side-nav">
+          <li>
+            <div class="user-view">
+              <div class="background logo-menu">
+                <img class="responsive-img" src="{% static 'images/logoamolosperros.png' %}" alt="side-nav">
+              </div>
+              <!-- <a href="#!user" class="valign-wrapper">
+                <img class="circle avatar-menu" src="imagenes/amo los perros.png">
+                <p class="black-text name truncate">                   
+                </p>
+              </a>-->
+            </div>
+          </li>
+          <li>
+            <a href="{% url 'login' %}">
+              <i class="material-icons">lock</i>Login
+            </a>
+          </li>
+          <!-- <li><div class="divider"></div></li> -->
+          <!-- <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Inicio</a></li> -->
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>
+     {% endblock %}
+  </nav>
+    <!-- fin nav -->
+
+    
+      {% block content %} 
+        <div class="row">
+            <div class="col s12 center-align">
+                <h4>CAMPAÑA DE CASTRACIÓN</h4>
+            </div> 
+        </div>
+
+        <div class="row">
+            <div class="col s12 center-align grey">
+                <strong> Estás registrándote para colaborar en la campaña de CASTRACIÓN
+                    que se realizará el Día: {{campaing.fecha}} &nbspHora: 8:00
+                </strong>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 center-align">
+                <h5>Castra a tu mascota, apadrina la castración de un callejero <br>
+                     y así evitás futuros animales abandonados.</h5>
+            </div>
+        </div>
+        
+       <div class="row">
+           <div class="col s12 l4 center-align">
+                <h5> INSCRIBIR<BR>MASCOTA</h5>
+                <p>  Esterilizando o castrando<br> 
+                    a tu mascota ayudas con el aumento<br> 
+                    de población de mascotas<br>
+                    sin hogar.
+                </p>
+            <a class="waves-effect waves-light btn-large btn-ancho" href="../../pre_inscribirse">Inscribir</a>
+
+           </div>
+
+           <div class="col s12 l4 center-align">
+                <h5> INSCRIBIR <BR> COMO VOLUNTARIO</h5>
+                <p> Podes ayudar con donaciones<br>
+                 de medicamentos, elementos de limpieza<br>
+                (trapo de piso, lavandina, bolsa de residuos,<br> 
+                regillas, servilletas).</p>
+                <a class="waves-effect waves-light btn-large btn-ancho" href="#forminscrip">Inscribir</a>
+            </div>
+
+            <div class="col s12 l4 center-align">
+                <h5> INSCRIBIRSE <BR> COMO PADRINO</h5>
+                <p> Con tu aportes colaborás<br>
+                con la atención de muchos perros<br>
+                callejeros y de quienes no tienen<br>
+                medios para ser atendidos.</p>
+                <a class="waves-effect waves-light btn-large btn-ancho" href="#forminscrip">Inscribir</a>
+            </div>
+       </div>
+       <div class="divider"></div>
+
+       <div class="row">
+           <div id="forminscrip" class="col s12 center-align">
+               <h4>INSCRIBIR COLABORADOR</h4>
+           </div>
+       </div>
+
+       <div class="row">
+           <div class="col s12 l6 center-align">
+                <i class="large material-icons">pan_tool</i>
+                
+                <p> &nbsp; &nbsp; TE ESPERAMOS A COLABORAR DURANTE LA <BR>
+                JORNADA, O A APADRINAR ALGUNA PERRA O GATA <BR>
+                CALLEJERA, O DE FAMILIA DE BAJOS RECURSOS. <br>
+                ENTRE TODOS PODEMOS DISMINUIR LA <BR>
+                SUPERPOBLACIÓN DE ANIMALES. </p> <BR>
+                 <strong>¡AYÚDANOS A DIFUNDIR ENTRE TUS CONTACTOS!</strong>
+           </div>
+
+           <div class="col s12 l6 center-align ">
+                <form method="POST" accept-charset="utf-8">                                  
+                  {% csrf_token %}
+                  {{form.as_p}}
+                  <div class="row">                    
+                    <button type="submit" class="waves-effect waves-light blue-light accent-2 btn-large btn-ancho">ENVIAR
+                    </button>
+                       <!-- <a class="waves-effect waves-light btn-large btn-ancho" href="#!">ENVIAR</a> -->
+                  </div>  
+                </form>
+            </div>
+       </div>
+
+      {% endblock %}   
+    
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript">
+   $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true, // Choose whether you can drag to open on touch screens,
+      onOpen: function(el) {  }, // A function to be called when sideNav is opened
+      onClose: function(el) {  }, // A function to be called when sideNav is closed
+    }
+  );
+</script>
+</html>
+

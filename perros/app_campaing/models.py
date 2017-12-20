@@ -14,7 +14,7 @@ class Colaborador(models.Model):
 	nombre = models.CharField(max_length = 30)
 	apellido = models.CharField(max_length = 30)
 	telefono = models.CharField(max_length = 20)
-	dni = models.CharField(max_length = 8)
+	dni = models.CharField(max_length = 8,unique=True)
 	def __str__(self):
 		return self.nombre
 		return self.apellido

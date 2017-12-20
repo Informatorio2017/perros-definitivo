@@ -1,5 +1,5 @@
 from django import forms
-from .models import Campaing, Animalito, Propietario, Barrio, Lugar
+from .models import Campaing, Animalito, Propietario, Barrio, Lugar, Colaborador
 import app_campaing
 
 class CreateCampaing(forms.ModelForm):
@@ -25,7 +25,6 @@ class CreateCampaing(forms.ModelForm):
 		self.fields['monto_inter_grupo_total'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Valores Intervenciones Cubiertas'})
 		
 
-
 class BuscarPaciente_pre(forms.Form):
 
 	query = forms.IntegerField(label="Búsqueda")
@@ -36,9 +35,15 @@ class BuscarPaciente(forms.Form):
 	query = forms.IntegerField(label="Búsqueda")
 
 
+class ColaboradorForm(forms.Form):
+	dni=forms.CharField(max_length=8,label='DNI')
+	nombre=forms.CharField(max_length=30,label='Nombre')
+	apellido = forms.CharField(max_length = 30,label='Apellido')
+	telefono = forms.CharField(max_length = 20,label='Teléfono')	
+	padrino = forms.BooleanField(required=False, label='Padrino', widget=forms.CheckboxInput())
+	ayudante = forms.BooleanField(required=False, label='Colaborador', widget=forms.CheckboxInput())
 
 class PropietarioForm(forms.ModelForm):
-
 	class Meta:
 		model = Propietario
 		fields = ("dni", 
