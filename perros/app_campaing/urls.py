@@ -52,7 +52,11 @@ urlpatterns = [
 		#falta (donde te muestre numero preincripcion etc)
 	#busqueda de preiscripto, o enlace a inscripcion
 	url(r'^inscribir_paciente_pre/', views.inscribir_paciente_pre, name="inscribir_paciente_pre"),
-	#formulario inscripcion (tiene que recibir los datos preinscripto)
+	#formulario inscripcion
+		#con datos preinscriptos
+	url(r'^formulario_inscripcion_preinscriptos/(?P<id>\d+)/$', views.formulario_inscripcion_preinscriptos, name="formulario_inscripcion_preinscriptos"),
+	
+		#formulario limpio
 	url(r'^formulario_inscripcion/', views.formulario_inscripcion, name="formulario_inscripcion"),
 	
 	#buscarlo para darlo de alta
@@ -72,7 +76,6 @@ urlpatterns = [
 		#ver lugares
 		#ver barrios
 
-	url(r'^formulario_inscripcion_preinscriptos/(?P<id>\d+)/$', views.formulario_inscripcion_preinscriptos, name="formulario_inscripcion_preinscriptos"),
 
 	#login###############
 		#login

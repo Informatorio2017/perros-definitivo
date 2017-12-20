@@ -6,7 +6,7 @@
 
 {% for paciente in pacientes %}
 	<p>{{ paciente.nombre_mascota }} - ${{ paciente.especie }} </p>
-  	<p><a href="{% url 'formulario_inscripcion_preinscriptos' paciente.id%}">Inscribir</a></p>
+  	<p><a href="/campaing/formulario_inscripcion_preinscriptos/{{paciente.id}}/">Inscribir</a></p>
 
 {% endfor %}
 
