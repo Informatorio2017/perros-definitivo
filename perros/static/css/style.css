@@ -80,11 +80,10 @@ body{
 }
 
 .top-bar-primeralinea{
-	font-size: 1.7em;
+	font-size: 1.2em;
 	line-height:1.1em;
 	
-	margin-top: 2px!important;
-	margin-bottom: -8px!important;
+
 /*	margin:auto;
 */}
 
@@ -96,7 +95,7 @@ body{
 */}
 
 .top-titulos {
-	width:62%;
+	width:60%;
 	margin-left: 50px;
 	float: left;
 	padding: 0;
