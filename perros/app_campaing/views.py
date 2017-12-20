@@ -70,6 +70,8 @@ def ver_campana(request,id):
 
         #estadistica[b.nombre] = cant
 
+    saldo = campana.monto_inter_grupo_total - campana.monto_inter_grupo_gastado
+
     contexto = {
     "campana":campana,
     'atendidos':atendidos,
@@ -80,6 +82,7 @@ def ver_campana(request,id):
     'gatos':gatos,
     "campanias":campanias,
     "estadistica":estadistica,
+    "saldo":saldo,
     }
     return render(request, "ver_campana.html",contexto)
 
@@ -188,6 +191,7 @@ def home_admin(request):
     gatos = inscriptos.filter(especie="felino").count()
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
     atendidos = inscriptos.exclude(user_name='').count()
+    saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
     contexto = {
     'atendidos':atendidos,
     'pagados':pagados["abono__sum"],
@@ -196,6 +200,7 @@ def home_admin(request):
     'perros':perros,
     'gatos':gatos,
     "campanias":campanias,
+    "saldo":saldo
     }
     return render(request, "home_admin.html", contexto)
 
