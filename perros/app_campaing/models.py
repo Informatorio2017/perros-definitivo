@@ -37,7 +37,8 @@ class Propietario(models.Model):
 		return self.nombre
 
 class Campaing(models.Model):
-	TIPO = (("castracion","Castración"),("vacunacion","Vacunación"))
+	TIPO = (("castracion","Castración"),) #solo castraciones
+	#TIPO = (("castracion","Castración"),("vacunacion","Vacunación")) #con vacunaciones
 	fecha = models.DateField()
 	lugar = models.ForeignKey(Lugar, related_name="campaings")
 	colaborador = models.ManyToManyField(Colaborador, through = "CampaingColaborador")

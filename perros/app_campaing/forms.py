@@ -2,9 +2,12 @@ from django import forms
 from .models import Campaing, Animalito, Propietario, Barrio, Lugar, Colaborador
 import app_campaing
 
+
+
 class CreateCampaing(forms.ModelForm):
 	fecha = forms.DateField()
 	lugar = forms.ModelChoiceField(app_campaing.models.Lugar.objects.all())
+	
 	tipo = forms.ChoiceField(app_campaing.models.Campaing.TIPO)
 	monto_valor_operacion = forms.IntegerField()
 	monto_inter_grupo_total = forms.IntegerField()
