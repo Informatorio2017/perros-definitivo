@@ -132,7 +132,35 @@ body{
 	padding: 0;
 }
 
+.icono-home1{
+	line-height: .5em;
+	padding: 0;
+	margin: 0;
+	background-color: ;
 
+	}
+
+.icono-home2{
+	line-height: .5em;
+	padding: 0;
+	margin: 0;
+	background-color:;
+
+	}
+
+.icono-home3{
+	line-height: .5em;
+	padding: 0;
+	margin: 0;
+	background-color:;
+
+	}
+
+/*.borde-doble{
+	border: solid 5px red;
+}
+*/
+/*  qr code  */
 #qrcode canvas img{
 	width: 120%!important;
 	height: auto!important;

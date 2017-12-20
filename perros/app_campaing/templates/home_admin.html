@@ -27,20 +27,20 @@
   
 
 
-    <div class="row ">
+    <div class="row">
       <div class="col s12">
-        <div class="row grey lighten-3">
+        <div class="row  lighten-3">
           <div class="col s12 m2 l3"></div>
           <div class="col s12 m8 l6">            
             <div class="col s12 borde-negro center-align">
-              <p><h4><strong>INSCRIPTOS</strong></h4></p>
-              <p><h1>{{ c_inscriptos }}</h1></p>
+              <p><h4><strong>INSCRIPTOS: {{ c_inscriptos }}</strong></h4></p>
+              <!-- <p><h2><strong>{{ c_inscriptos }}</strong></h2></p> -->
             </div>
             <div class="col s6 borde-negro">
-              <img src="../../../static/images/dog.png" alt="" ><p class="right"><strong>{{perros}}</strong></p>
+              <img src="../../../static/images/dog.png" alt="" class="left"><p><h4 class="center-align"><strong>{{perros}}</strong></h4></p>
             </div>
             <div class="col s6 borde-negro">
-              <img src="../../../static/images/cat.png" alt="" ><p class="right"><strong>{{gatos}}</strong></p>
+              <img src="../../../static/images/cat.png" alt="" class="left"><p><h4 class="center-align"><strong>{{gatos}}</strong></h4></p>
             </div>
           </div>
           <div class="col s12 m2 l3"></div>
@@ -51,27 +51,37 @@
 
   
 
-      <div class="row grey lighten-3">
+      <div class="row lighten-3 ">
         <div class="col s12">
 
-          <div class="col s4 borde-negro">
+          <div class="col s4 borde-negro center-align">
+            <p class="icono-home">
+              <i class="material-icons">attach_money</i><br>
+            </p>
             <p>
-              <i class="material-icons">attach_money</i>
-              <strong> {{ pagados }}</strong>
+              <h5><strong>$ {{ pagados }}</strong></h5>
+              <h6>ABONADO</h6>
             </p>
           </div>
 
-          <div class="col s4 borde-negro">
+          <div class="col s4 borde-negro center-align">
+            <p class="icono-home">
+              <i class="material-icons">favorite</i><br> 
+            </p>
             <p>
-              <i class="material-icons">favorite</i>
-              <strong>  {{ campaing.monto_inter_grupo_gastado }}/{{ campaing.monto_inter_grupo_total }}</strong>
+              <h5><strong>$ {{ campaing.monto_inter_grupo_total }}</strong></h5>
+              <h6>GRUPO</h6>
             </p>
           </div>
 
-          <div class="col s4 borde-negro">
-            <p>
+          <div class="col s4 borde-negro center-align">
+            <p class="icono-home">
               <i class="material-icons">money_off</i>
-              <strong>{{ campaing.monto_inter_grupo_gastado }}/{{ campaing.monto_inter_grupo_total }}</strong></p>
+            </p>
+            <p>
+              <h5><strong>$ {{ campaing.monto_inter_grupo_total }}</strong></h5>
+              <h6>SALDO</h6>
+            </p>
           </div>
         </div>
       </div>
@@ -87,18 +97,20 @@
   <div class="row z-depth-4">
     <div class="col s12 center-align borde-negro">
       <!--<p class="z-depth-4">z-depth-4</p>  -->
-      <h5>Atendidos</h5>
+      <h5><strong>Atendidos</strong></h5>
       <h2>{{atendidos}}</h2>
     </div>
   </div>
 <!-- inicio botones inscribir y dar alta -->  
   <div class="row">
     <div class="col s12 m6 center-align"> 
-      <a class="waves-effect red btn-large btn-ancho" href="/campaing/inscribir_paciente_pre/"><i class="material-icons left">assignment</i>Inscribir Paciente</a>
+
+      <a class="waves-effect waves-light btn-large btn-ancho" href="/campaing/inscribir_paciente_pre/><i class="material-icons left">assignment</i>Inscribir Paciente</a>
+
     </div>
     <div class="col s12 separador hide-on-med-and-up"></div>
     <div class="col s12 m6 center-align"> 
-      <a class="waves-effect red btn-large btn-ancho" href="../buscar_paciente/"><i class="material-icons left">assignment_turned_in</i>Dar de Alta</a>
+      <a class="waves-effect waves-light btn-large btn-ancho" href="../buscar_paciente/"><i class="material-icons left">assignment_turned_in</i>Dar de Alta</a>
     </div>
 
   </div>
