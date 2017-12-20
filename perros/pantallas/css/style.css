@@ -34,6 +34,13 @@ body{
 
 }
 
+.contenedor{
+	padding: 0% 3%;
+}
+
+.contenedor p{
+	text-align: justify;
+}
 
 .cuerpo{
 /* 	background-image: url("../images/back-app.jpg");
