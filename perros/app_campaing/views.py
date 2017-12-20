@@ -38,7 +38,11 @@ def ver_campana(request,id):
     inscriptos = Animalito.objects.filter(campaing=campana.id)
     
     perros = inscriptos.filter(especie="canino").count()
+    porcentaje_perros = perros * 100 /c_inscriptos
     gatos = inscriptos.filter(especie="felino").count()
+    porcentaje_gatos = gatos * 100 /c_inscriptos
+   
+
     pagados = Animalito.objects.filter(campaing=campana.id).aggregate(Sum('abono'))
     lista_atendidos = inscriptos.exclude(user_name='')
     atendidos = lista_atendidos.count()
@@ -57,8 +61,8 @@ def ver_campana(request,id):
 
         cant = atendidos_barrio.count()
         if cant>0:
-            gatos = atendidos_barrio.filter(especie="felino").count()
-            perros = atendidos_barrio.filter(especie="canino").count()
+            gatos_barrio = atendidos_barrio.filter(especie="felino").count()
+            perros_barrio = atendidos_barrio.filter(especie="canino").count()
             porcentaje = cant*100/atendidos
 
             color_pasar = colores[cuenta_color]
@@ -66,7 +70,7 @@ def ver_campana(request,id):
             if cuenta_color==4:
                 cuenta_color=0
 
-            estadistica[b.nombre] = (cant, porcentaje, perros, gatos, color_pasar,)
+            estadistica[b.nombre] = (cant, porcentaje, perros_barrio, gatos_barrio, color_pasar,)
 
         #estadistica[b.nombre] = cant
 
@@ -83,6 +87,8 @@ def ver_campana(request,id):
     "campanias":campanias,
     "estadistica":estadistica,
     "saldo":saldo,
+    "porcentaje_perros":porcentaje_perros,
+    "porcentaje_gatos":porcentaje_gatos,
     }
     return render(request, "ver_campana.html",contexto)
 
