@@ -1,13 +1,10 @@
 from django.shortcuts import render, redirect
 from django.db.models import Sum
-from .forms import CreateCampaing, BuscarPaciente, AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm
-from .forms import CreateCampaing, BuscarPaciente_pre
-from .models import Campaing, Animalito, Propietario
-from .models import Colaborador
-from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio, CrearLugar
-from .models import Campaing, Animalito, Propietario, Barrio, Lugar
-from .models import Colaborador
 from django.http import Http404
+from .forms import AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm
+from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio, CrearLugar, ColaboradorForm
+from .models import Campaing, Animalito, Propietario, Barrio, Lugar
+from .models import Colaborador, CampaingColaborador
 
 campaning = None
 
@@ -105,6 +102,45 @@ def create_campaing(request):
         contexto = {"form":CreateCampaing}
 
         return render(request, "create_campaing.html", contexto)
+
+def about_campaing(request,id):
+    campaing = Campaing.objects.get(id=id)
+    if request.method == 'POST':
+        dni_post = request.POST['dni']
+        nombre_post = request.POST['nombre']
+        apellido_post = request.POST['apellido']
+        telefono_post = request.POST['telefono']
+        padrino_post = True#request.POST['padrino']
+        ayudante_post = False #request.POST['ayudante']
+ 
+        colaborador = Colaborador()
+        colaborador.dni = dni_post
+        colaborador.nombre = nombre_post
+        colaborador.apellido = apellido_post
+        colaborador.telefono = telefono_post
+        
+        # import ipdb; ipdb.set_trace()                
+
+        resultado = Colaborador.objects.filter(dni=dni_post).first()  
+
+        if resultado is None:
+            colaborador.save()
+
+        camp_colabora = CampaingColaborador()
+        camp_colabora.padrino = padrino_post
+        camp_colabora.ayudante = ayudante_post
+        camp_colabora.colaborador = colaborador
+        camp_colabora.campaing = campaing
+
+        camp_colabora.save()
+        
+        return redirect('home')
+        # else:        
+        #     return redirect('/Aca_si_no_valida_los_datos')
+    template = 'about_campaing.html'
+    contexto = {'campaing':campaing,'form':ColaboradorForm}    
+    return render(request,template,contexto)
+
 
 def home(request):
     contexto = {}
@@ -226,9 +262,6 @@ def formulario_inscripcion_preinscriptos(request,id):
     contexto = {"formPropietario":formPro,"formAnimalito":formAni}
     return render(request, "formulario_inscripcion.html", contexto)
 
-
-
-
 def pre_inscribirse(request):
     if request.method == 'POST':
         # import ipdb; ipdb.set_trace()                
@@ -245,13 +278,9 @@ def pre_inscribirse(request):
             animalito.propietario = propietario
                      
             campania = Campaing.objects.filter(habilitada=True)
-
-
-            
-            
+                    
             animalito.campaing = campania[0]
             animalito.save()  
-
         
             return redirect('/campaing/creado/')
         else:        
@@ -314,3 +343,41 @@ def crear_lugar(request):
         }
 
         return render(request, "crear_lugar.html", contexto)
+
+def creat_colaborador(request,id):
+    campaing = Campaing.objects.get(id=id)
+    if request.method == 'POST':
+        dni_post = request.POST['dni']
+        nombre_post = request.POST['nombre']
+        apellido_post = request.POST['apellido']
+        telefono_post = request.POST['telefono']
+        padrino_post = request.POST['padrino']
+        ayudante_post = request.POST['ayudante']
+ 
+        # user = authenticate(username=username_login,password=password_login)
+        colaborador = Colaborador()
+        colaborador.dni = dni_post
+        colaborador.nombre = nombre_post
+        colaborador.apellido = apellido_post
+        colaborador.telefono = telefono_post
+
+        resultado = Colaborador.objects.get(dni=dni)    
+        if resultado is None:
+            colaborador.save()
+
+        camp_colabora = CampaingColaborador()
+        camp_colabora.padrino = padrino_post
+        camp_colabora.ayudante = ayudante_post
+        camp_colabora.colaborador = colaborador
+        camp_colabora.campaing = campaing
+
+        camp_colabora.save()
+
+        return redirect('home')
+
+        # else:        
+        #     return redirect('/Aca_si_no_valida_los_datos')
+    
+    contexto = {"form":ColaboradorForm}
+    return render(request, "create_colaborador.html", contexto)
+

@@ -21,11 +21,9 @@
           <!-- <p class="truncate top-bar-segundalinea">
             <strong>AMO LOS PERROS</strong>
           </p> -->
-        </div>
-  
-  
-        <!-- inicio lista de enlaces del menú arriba derecha -->
-     
+        </div>  
+
+        <!-- inicio lista de enlaces del menú arriba derecha -->  
         <ul id="slide-out" class="side-nav">
           <li>
             <div class="user-view">
@@ -69,13 +67,14 @@
             <div class="divider"></div>
         </div>
        
-       {% if campaing %}        
+       {% if activa %}        
        <div class="row">
            <div class="col s12 m8 center-align">
             <h5>Proxima Campaña: {{campaing.fecha}}</h5>
            </div>
            <div class="col s12 m4">
-            <a class="waves-effect waves-light btn-large btn-ancho" href="about_campaña.html"> SOBRE CAMPAÑA</a>
+            <a class="waves-effect waves-light btn-large btn-ancho" href="campaing/about_campaing/{{campaing.id}}" > SOBRE CAMPAÑA</a>          
+
            </div>
        </div>      
        <div class="divider"></div>
