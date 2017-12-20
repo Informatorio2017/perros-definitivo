@@ -208,8 +208,9 @@ def inscribir_paciente_pre(request):
         if form.is_valid():
             query = form.cleaned_data["query"]
 
+            #falta filtrar para q los animales sean solo de la campaña
             pacientes = Animalito.objects.filter(nro_pre_inscripcion=query)
-                
+            
             return render(request, "inscribir_paciente_resultado_pre.html", {"query":query,"pacientes":pacientes})
     else:
         form = BuscarPaciente_pre()
