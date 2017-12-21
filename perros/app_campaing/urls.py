@@ -63,7 +63,7 @@ urlpatterns = [
 	#alta paciente / id 
 	url(r'^alta_paciente/([0-9]+)$', views.alta_paciente, name="alta_paciente"),
 
-
+	url(r'^inscripto_turno/([0-9]+)$', views.inscripto_turno, name="inscripto_turno"),
 
 	#lugares y barrios #############3
 
@@ -79,5 +79,7 @@ urlpatterns = [
 	#crear usuarios
 
 	url(r'^about_campaing/(?P<id>\d+)/$', views.about_campaing, name="about_campaing"),	
+
+
 			
 ]

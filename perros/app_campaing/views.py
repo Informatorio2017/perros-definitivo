@@ -404,3 +404,20 @@ def creat_colaborador(request,id):
     contexto = {"form":ColaboradorForm}
     return render(request, "create_colaborador.html", contexto)
 
+
+def inscripto_turno(request,id):
+    try:
+        paciente= Animalito.objects.get(turno=id)
+        # idprop= paciente.propietario
+        # propietario= Propietario.objects.get(pk=idprop)
+   
+    except Animalito.DoesNotExist:
+        raise Http404("No se encontro la mascota")
+    
+
+    contexto = {
+
+        "paciente":paciente,
+        
+    }
+    return render(request, "inscripto_turno.html",contexto)
