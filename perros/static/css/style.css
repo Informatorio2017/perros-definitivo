@@ -164,3 +164,10 @@ body{
 	width: 120%!important;
 	height: auto!important;
 }
+
+/*grafico de estadisticas*/
+
+.canvas-holder{
+	margin: auto!important; 
+	text-align: center!important;
+}
