@@ -281,8 +281,6 @@ def pre_inscribirse(request):
         formAni = AnimalitoPreinscripcionForm(request.POST)
 
         if formPro.is_valid() and formAni.is_valid():
-            #crear animalito
-            #crear propietario
             propietario = formPro.save(commit=False)        
             propietario.save()
 

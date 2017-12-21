@@ -13,8 +13,8 @@ class Colaborador(models.Model):
 
 	nombre = models.CharField(max_length = 30)
 	apellido = models.CharField(max_length = 30)
-	telefono = models.CharField(max_length = 20)
-	dni = models.CharField(max_length = 8,unique=True)
+	telefono = models.IntegerField()
+	dni = models.IntegerField(unique=True)
 	def __str__(self):
 		return self.nombre
 		return self.apellido
@@ -29,8 +29,8 @@ class Barrio(models.Model):
 class Propietario(models.Model):
 	nombre = models.CharField(max_length = 50)
 	apellido = models.CharField(max_length = 50)
-	dni = models.CharField(max_length = 8)
-	telefono = models.CharField(max_length = 20)	
+	dni = models.IntegerField()
+	telefono = models.IntegerField()	
 	barrio = models.ForeignKey(Barrio, related_name="propietario")
 	
 	def __str__(self):
