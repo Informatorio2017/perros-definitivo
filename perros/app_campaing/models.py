@@ -61,7 +61,7 @@ class Animalito(models.Model):
 
 	propietario = models.ForeignKey(Propietario, related_name="animalitos")
 	nombre_mascota = models.CharField(max_length = 30, null=True)
-	descripcion = models.CharField(max_length = 50)
+	descripcion = models.CharField(max_length = 50, null=True)
 	especie = models.CharField(max_length = 10, choices = ESPECIE)
 	sexo = models.CharField(max_length = 10, choices = SEXO)
 	nro_pre_inscripcion = models.IntegerField(null=True)

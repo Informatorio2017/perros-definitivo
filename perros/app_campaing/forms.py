@@ -94,7 +94,7 @@ class AnimalitoForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
 
 		super(AnimalitoForm, self).__init__(*args, **kwargs)
-		self.fields['nombre_mascota'].required=False
+		self.fields['descripcion'].required=False
 
 
 
@@ -122,7 +122,7 @@ class AnimalitoPreinscripcionForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
 
 		super(AnimalitoPreinscripcionForm, self).__init__(*args, **kwargs)
-		self.fields['nombre_mascota'].required=False
+		self.fields['descripcion'].required=False
 
 class CrearBarrio(forms.ModelForm):
 	nombre = forms.CharField()
