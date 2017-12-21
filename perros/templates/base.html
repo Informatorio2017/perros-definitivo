@@ -26,25 +26,26 @@
 
 		
 	</head>
-	<body>
-		
-		<nav class="nav-extended">
+	<body>		
+		<nav class="nav-extended green">
 		  {% block nav %}	
 		    <div class="nav-wrapper">
-		      <div class="brand-logo left topbar-boton-arriba-izquierda">
-		        <!--botón atrás reemplaza al regresar-->
-		        <a href="#" onclick="history.go(-1)">
-		          <i class="material-icons">keyboard_backspace</i>
+		      <div class="brand-logo left">
+		        <a href="#">
+		          <img class="responsive-img" src="{% static 'images/icon_logo.png' %}">
+		        {% block encabezado %} {% endblock %}
 		        </a>
 		      </div>
+		        <!--
 		      <div class="top-titulos">
 		        <p class="truncate top-bar-primeralinea">
-		          <strong>{% block encabezado %} {% endblock %}</strong>
+		          <strong></strong>
 		        </p>
-		        <!--<p class="truncate top-bar-segundalinea"> 
+		        <p class="truncate top-bar-segundalinea"> 
 		          
-		        </p> -->
+		        </p> 
 		      </div>
+		    -->
 		      <!-- inicio lista de enlaces del menú arriba derecha -->
 		      <ul id="slide-out" class="side-nav">
 		        <li>
