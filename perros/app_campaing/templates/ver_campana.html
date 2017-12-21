@@ -182,7 +182,8 @@
 	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
 
 		<h6>
-			<i class="material-icons">bookmark</i>
+			<i class= {{'"'}}material-icons {{barrio_cantidad.5}}-text text-{{barrio_cantidad.6}}{{'"'}}>bookmark</i>
+			
 			Barrio: {{barrio_nombre}}
 		</h6>
 <!-- 		  	<div class="progress">
@@ -193,6 +194,7 @@
 			<h6>Perros: {{barrio_cantidad.2}} Gatos: {{barrio_cantidad.3}}</h6>
 			<h6>color: {{barrio_cantidad.4}}</h6>
 			<h6>color nombre: {{barrio_cantidad.5}}</h6>
+			<h6>color descripcion: {{barrio_cantidad.6}}</h6>
 		<br>
 	{% endfor %}
 

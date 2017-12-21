@@ -54,44 +54,44 @@ def ver_campana(request,id):
 
 
     colores = (
-        ("e57373","red lighten-2"),
-        ("f06292","pink lighten-2"),
-        ("ba68c8","purple lighten-2"),
-        ("9575cd","deep-purple lighten-2"),
-        ("7986cb","indigo lighten-2"),
-        ("64b5f6","blue lighten-2"),
-        ("4fc3f7","light-blue lighten-2"),
-        ("4dd0e1","cyan lighten-2"),
-        ("4db6ac","teal lighten-2"),
-        ("81c784","green lighten-2"),
-        ("aed581","light-green lighten-2"),
-        ("dce775","lime lighten-2"),
-        ("fff176","yellow lighten-2"),
-        ("ffd54f","amber lighten-2"),
-        ("ffb74d","orange lighten-2"),
-        ("ff8a65","deep-orange lighten-2"),
-        ("a1887f","brown lighten-2"),
-        ("e0e0e0","grey lighten-2"),
-        ("90a4ae","blue-grey lighten-2"),
-        ("d32f2f","red darken-2"),
-        ("c2185b","pink darken-2"),
-        ("7b1fa2","purple darken-2"),
-        ("512da8","deep-purple darken-2"),
-        ("303f9f","indigo darken-2"),
-        ("1976d2","blue darken-2"),
-        ("0288d1","light-blue darken-2"),
-        ("0097a7","cyan darken-2"),
-        ("00796b","teal darken-2"),
-        ("388e3c","green darken-2"),
-        ("689f38","light-green darken-2"),
-        ("afb42b","lime darken-2"),
-        ("fbc02d","yellow darken-2"),
-        ("ffa000","amber darken-2"),
-        ("f57c00","orange darken-2"),
-        ("e64a19","deep-orange darken-2"),
-        ("5d4037","brown darken-2"),
-        ("616161","grey darken-2"),
-        ("455a64","blue-grey darken-2"),
+        ("e57373","red","lighten-2"),
+        ("f06292","pink","lighten-2"),
+        ("ba68c8","purple","lighten-2"),
+        ("9575cd","deep-purple","lighten-2"),
+        ("7986cb","indigo","lighten-2"),
+        ("64b5f6","blue","lighten-2"),
+        ("4fc3f7","light-blue","lighten-2"),
+        ("4dd0e1","cyan","lighten-2"),
+        ("4db6ac","teal","lighten-2"),
+        ("81c784","green","lighten-2"),
+        ("aed581","light-green","lighten-2"),
+        ("dce775","lime","lighten-2"),
+        ("fff176","yellow","lighten-2"),
+        ("ffd54f","amber","lighten-2"),
+        ("ffb74d","orange","lighten-2"),
+        ("ff8a65","deep-orange","lighten-2"),
+        ("a1887f","brown","lighten-2"),
+        ("e0e0e0","grey","lighten-2"),
+        ("90a4ae","blue-grey","lighten-2"),
+        ("d32f2f","red","darken-2"),
+        ("c2185b","pink","darken-2"),
+        ("7b1fa2","purple","darken-2"),
+        ("512da8","deep-purple","darken-2"),
+        ("303f9f","indigo","darken-2"),
+        ("1976d2","blue","darken-2"),
+        ("0288d1","light-blue","darken-2"),
+        ("0097a7","cyan","darken-2"),
+        ("00796b","teal","darken-2"),
+        ("388e3c","green","darken-2"),
+        ("689f38","light-green","darken-2"),
+        ("afb42b","lime","darken-2"),
+        ("fbc02d","yellow","darken-2"),
+        ("ffa000","amber","darken-2"),
+        ("f57c00","orange","darken-2"),
+        ("e64a19","deep-orange","darken-2"),
+        ("5d4037","brown","darken-2"),
+        ("616161","grey","darken-2"),
+        ("455a64","blue-grey","darken-2"),
 
 
 
@@ -110,11 +110,12 @@ def ver_campana(request,id):
             color_individual = colores[cuenta_color]
             color_pasar = color_individual[0]
             color_nombre_pasar = color_individual[1]
+            color_descripcion_pasar = color_individual[2]
             cuenta_color = cuenta_color+1
             if cuenta_color==37:
                 cuenta_color=0
 
-            estadistica[b.nombre] = (cant, porcentaje, perros_barrio, gatos_barrio, color_pasar, color_nombre_pasar)
+            estadistica[b.nombre] = (cant, porcentaje, perros_barrio, gatos_barrio, color_pasar, color_nombre_pasar, color_descripcion_pasar)
 
         #estadistica[b.nombre] = cant
 
