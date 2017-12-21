@@ -50,36 +50,52 @@
 	</div> -->
 
       <div class="row">
-        <div class="col s12 grey lighten-5">
+        <div class="col s12">
 
-          <div class="col s4 borde-negro center-align">
-            <p class="icono-home">
-              <i class="material-icons">local_atm</i><br>
-            </p>
-            <p>
+          <div class="col s4 borde-negro center-align grey lighten-5 z-depth-2">
+            <span class="icono-home">
+              <i class="material-icons medium">account_box</i>
+            </span>
+            <span>
               <h6><strong>$ {{ pagados }}</strong></h6>
-              <h6>PAGADO</h6>
-            </p>
+              <h6>Pagados por los dueños</h6>
+            </span>
           </div>
 
-          <div class="col s4 borde-negro center-align">
-            <p class="icono-home">
-              <i class="material-icons">favorite</i><br> 
-            </p>
-            <p>
-              <h6><strong>$ {{ campaing.monto_inter_grupo_total }}</strong></h6>
-              <h6>GRUPO</h6>
-            </p>
+          <div class="col s4 borde-negro center-align grey lighten-5 z-depth-2">
+            <span class="icono-home">
+              <i class="material-icons medium">favorite</i> 
+            </span>
+            <span>
+              <h6><strong>$ {{ campana.monto_inter_grupo_gastado }}</strong></h6>
+              <h6>Pagados por el grupo</h6>
+            </span>
           </div>
 
-          <div class="col s4 borde-negro center-align">
-            <p class="icono-home">
-              <i class="material-icons">attach_money</i>
-            </p>
-            <p>
+          <div class="col s4 borde-negro center-align grey lighten-5 z-depth-2">
+            <span class="icono-home">
+              <i class="material-icons medium">local_atm</i>
+            </span>
+
+            <!-- if para el color del saldo positivo o negativo -->
+            
+            {% if saldo > 0 %}
+
+            <span>
               <h6><strong>$ {{ saldo }}</strong></h6>
-              <h6>SALDO</h6>
-            </p>
+              <h6>Saldo del grupo</h6>
+            </span>
+
+            {% else %}
+
+            <span>
+              <h6 class="red-text text-darken-2"><strong>$ {{ saldo }}</strong></h6>
+              <h6>Saldo del grupo</h6>
+            </span>
+
+            {% endif %}
+
+
           </div>
         </div>
       </div>
@@ -124,51 +140,18 @@
 
 
 
-	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
-		<br>
-		{{'<h1>""</h1>'}}
-		{{barrio_cantidad.1}}
+    <div class="row borde-negro">
 
-		<h5>Barrio: {{barrio_nombre}}</h5>
-		  	<div class="progress">
-      			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
-  			</div>
-		<h6>Cantidad Atendidos: {{barrio_cantidad.0}}</h6>
-		<h6>Porcentaje Atendidos: {{barrio_cantidad.1}}</h6>
-			<h6>Perros: {{barrio_cantidad.2}}</h6>
-			<h6>Gatos: {{barrio_cantidad.3}}</h6>
-			<h6>color: {{barrio_cantidad.4}}</h6>
-		<br>
-	{% endfor %}
-		
+    	<div class="col s12 m6 borde-verde">
 
 
+ 
 
 
-
-<!-- 
-    <div class="row grey lighten-3">
-		<div class="col s12 borde-rojo">
-	    	<span class="title">Costo operación: {{ campana.monto_valor_operacion }} </span>
-	    </div>
-	</div>
-    <div class="row grey lighten-3">
-		<div class="col s12 borde-rojo">
-			<span class="title">Gastado de grupo: {{ campana.monto_inter_grupo_gastado }} </span>
-	    </div>
-	</div>
-    <div class="row grey lighten-3">
-		<div class="col s12 borde-rojo">
-			<span class="title">Fondo total de grupo: {{ campana.monto_inter_grupo_total }} </span>
-	    </div>
-	</div>   -->  
-
-
-<!-- 	///////////////////////////////////////////////////////////////////// -->	
 
 		<script src="../../../static/js/Chart.js"></script>
-		<div id="canvas-holder">
-		<canvas id="chart-area" width="300" height="300"></canvas>
+		<div id="canvas-holder" class="canvas-holder">
+		<canvas id="chart-area" width="250" height="250"></canvas>
 		<canvas id="chart-area2" width="300" height="00"></canvas>
 		<canvas id="chart-area3" width="600" height="00"></canvas>
 		<canvas id="chart-area4" width="600" height="00"></canvas>
@@ -189,6 +172,63 @@
 		var ctx4 = document.getElementById("chart-area4").getContext("2d");
 		window.myPie = new Chart(ctx).Pie(pieData);	
 		</script>
+<!-- 	///////////////////////////////////////////////////////////////////// -->	
+
+    	</div>
+
+    	<div class="col s12 m6 borde-verde">
+
+
+	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
+
+		<h6>
+			<i class="material-icons">bookmark</i>
+			Barrio: {{barrio_nombre}}
+		</h6>
+<!-- 		  	<div class="progress">
+      			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
+  			</div> -->
+		<h6>Atendidos: {{barrio_cantidad.0}} ({{barrio_cantidad.1}}%) </h6>
+		
+			<h6>Perros: {{barrio_cantidad.2}} Gatos: {{barrio_cantidad.3}}</h6>
+			<h6>color: {{barrio_cantidad.4}}</h6>
+			<h6>color nombre: {{barrio_cantidad.5}}</h6>
+		<br>
+	{% endfor %}
+
+
+
+		</div>
+
+    </div>
+
+
+  
+
+
+
+	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
+
+		<h6>Barrio: {{barrio_nombre}}</h6>
+		  	<div class="progress">
+      			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
+  			</div>
+		<h6>Cantidad Atendidos: {{barrio_cantidad.0}}</h6>
+		<h6>Porcentaje Atendidos: {{barrio_cantidad.1}}</h6>
+			<h6>Perros: {{barrio_cantidad.2}}</h6>
+			<h6>Gatos: {{barrio_cantidad.3}}</h6>
+			<h6>color: {{barrio_cantidad.4}}</h6>
+		<br>
+	{% endfor %}
+
+
+
+
+
+<!-- 	///////////////////////////////////////////////////////////////////// -->	
+
+
+
 <!-- 	///////////////////////////////////////////////////////////////////// -->	
 
  <h1>prueba estadisticas</h1>
