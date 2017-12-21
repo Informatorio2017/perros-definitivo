@@ -255,8 +255,8 @@ def formulario_inscripcion(request):
                 campania_actualizar.save()
 
             animalito.save()  
-        
-            return redirect('/campaing/home_admin/')
+            id_str = str(animalito.pk)
+            return redirect('/campaing/inscripto_turno/'+id_str)
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
     else:
@@ -277,8 +277,9 @@ def formulario_inscripcion_preinscriptos(request,id):
         formPro = PropietarioForm(request.POST,instance=animali.propietario)
         if formPro.is_valid() and formAni.is_valid():
             formPro.save()
-            formAni.save()    
-            return redirect('/campaing/home_admin/')
+            formAni.save()
+            id_str = str(animalito.pk)
+            return redirect('/campaing/inscripto_turno/'+id_str)
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
 
@@ -407,7 +408,7 @@ def creat_colaborador(request,id):
 
 def inscripto_turno(request,id):
     try:
-        paciente= Animalito.objects.get(turno=id)
+        paciente= Animalito.objects.get(pk=id)
         # idprop= paciente.propietario
         # propietario= Propietario.objects.get(pk=idprop)
    
@@ -418,6 +419,6 @@ def inscripto_turno(request,id):
     contexto = {
 
         "paciente":paciente,
-        
+
     }
     return render(request, "inscripto_turno.html",contexto)
