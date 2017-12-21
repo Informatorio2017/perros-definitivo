@@ -3,7 +3,6 @@ from .models import Campaing, Animalito, Propietario, Barrio, Lugar, Colaborador
 import app_campaing
 
 
-
 class CreateCampaing(forms.ModelForm):
 	fecha = forms.DateField()
 	lugar = forms.ModelChoiceField(app_campaing.models.Lugar.objects.all())
@@ -92,11 +91,15 @@ class AnimalitoForm(forms.ModelForm):
 				  "turno":forms.TextInput(),
 				  "abono":forms.TextInput()}		  
 
+	def __init__(self, *args, **kwargs):
+
+		super(AnimalitoForm, self).__init__(*args, **kwargs)
+		self.fields['nombre_mascota'].required=False
+
 
 
 class AnimalitoPreinscripcionForm(forms.ModelForm):
 	
-
 	class Meta:
 		model = Animalito
 		fields = ("especie",				  
@@ -116,7 +119,10 @@ class AnimalitoPreinscripcionForm(forms.ModelForm):
 				  "descripcion":forms.TextInput()
 				  }	
 
+	def __init__(self, *args, **kwargs):
 
+		super(AnimalitoPreinscripcionForm, self).__init__(*args, **kwargs)
+		self.fields['nombre_mascota'].required=False
 
 class CrearBarrio(forms.ModelForm):
 	nombre = forms.CharField()

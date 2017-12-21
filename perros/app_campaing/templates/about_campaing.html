@@ -42,6 +42,12 @@
               <i class="material-icons">lock</i>Login
             </a>
           </li>
+          <li>
+            <a href="{% url 'app_campaing:ver_campanas' %}">
+              <i class="material-icons">loyalty</i>Campañas
+            </a>
+          </li>
+
           <!-- <li><div class="divider"></div></li> -->
           <!-- <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Inicio</a></li> -->
         </ul>
@@ -52,8 +58,7 @@
      {% endblock %}
   </nav>
     <!-- fin nav -->
-
-    
+  
       {% block content %} 
         <div class="row">
             <div class="col s12 center-align">
@@ -61,8 +66,8 @@
             </div> 
         </div>
 
-        <div class="row">
-            <div class="col s12 center-align grey">
+        <div class="row grey lighten-2">
+            <div class="col s12 center-align ">
                 <strong> Estás registrándote para colaborar en la campaña de CASTRACIÓN
                     que se realizará el Día: {{campaing.fecha}} &nbspHora: 8:00
                 </strong>
@@ -77,33 +82,33 @@
         </div>
         
        <div class="row">
-           <div class="col s12 l4 center-align">
-                <h5> INSCRIBIR<BR>MASCOTA</h5>
-                <p>  Esterilizando o castrando<br> 
-                    a tu mascota ayudas con el aumento<br> 
-                    de población de mascotas<br>
-                    sin hogar.
-                </p>
-            <a class="waves-effect waves-light btn-large btn-ancho" href="../../pre_inscribirse">Inscribir</a>
-
-           </div>
-
-           <div class="col s12 l4 center-align">
-                <h5> INSCRIBIR <BR> COMO VOLUNTARIO</h5>
-                <p> Podes ayudar con donaciones<br>
-                 de medicamentos, elementos de limpieza<br>
-                (trapo de piso, lavandina, bolsa de residuos,<br> 
-                regillas, servilletas).</p>
-                <a class="waves-effect waves-light btn-large btn-ancho" href="#forminscrip">Inscribir</a>
+            <div class="col s12 l4 center-align contenedor">
+                <i class="large material-icons">pets</i>
+                  <h5> INSCRIBIR MASCOTA
+                    AQUÍ!
+                  </h5>
+                  <p>  Castrando
+                      a tu mascota ayudas 
+                      a evitar que aumente la
+                      población de animales
+                      sin hogar. Además mejoras su salud, carácter, prevenís enfermedades, 
+                       dándole mas años de vida .
+                  </p>
+              <a class="waves-effect waves-light btn-large btn-ancho red" href="../../pre_inscribirse">Inscribir</a>
             </div>
-
-            <div class="col s12 l4 center-align">
-                <h5> INSCRIBIRSE <BR> COMO PADRINO</h5>
-                <p> Con tu aportes colaborás<br>
-                con la atención de muchos perros<br>
-                callejeros y de quienes no tienen<br>
+              <div class="col s12 l4 center-align contenedor">
+                  <i class="large material-icons">pan_tool</i>
+                  <h5> INSCRIBIR COMO VOLUNTARIO</h5>
+                  <p> Podes ayudar con donacione de medicamentos, elementos de limpieza (trapo de piso, lavandina, bolsa de residuos,
+                  regillas, servilletas).</p>
+                  <a class="waves-effect waves-light btn-large btn-ancho red" href="#forminscrip">Inscribir</a>
+              </div>
+            <div class="col s12 l4 center-align contenedor">
+                <i class="large material-icons">favorite</i>
+                <h5> INSCRIBIRSE COMO PADRINO</h5>
+                <p> Con tu aporte colaborás a la atención de muchos perros que se encuentran abandonados en la calle y de aquellos que no tienen
                 medios para ser atendidos.</p>
-                <a class="waves-effect waves-light btn-large btn-ancho" href="#forminscrip">Inscribir</a>
+                <a class="waves-effect waves-light btn-large btn-ancho red" href="#forminscrip">Inscribir</a>
             </div>
        </div>
        <div class="divider"></div>
@@ -118,11 +123,11 @@
            <div class="col s12 l6 center-align">
                 <i class="large material-icons">pan_tool</i>
                 
-                <p> &nbsp; &nbsp; TE ESPERAMOS A COLABORAR DURANTE LA <BR>
-                JORNADA, O A APADRINAR ALGUNA PERRA O GATA <BR>
-                CALLEJERA, O DE FAMILIA DE BAJOS RECURSOS. <br>
-                ENTRE TODOS PODEMOS DISMINUIR LA <BR>
-                SUPERPOBLACIÓN DE ANIMALES. </p> <BR>
+                <p> &nbsp; &nbsp; TE ESPERAMOS A COLABORAR DURANTE LA 
+                JORNADA, O A APADRINAR ALGUNA PERRA O GATA 
+                CALLEJERA, O DE FAMILIA DE BAJOS RECURSOS. 
+                ENTRE TODOS PODEMOS DISMINUIR LA 
+                SUPERPOBLACIÓN DE ANIMALES. </p> 
                  <strong>¡AYÚDANOS A DIFUNDIR ENTRE TUS CONTACTOS!</strong>
            </div>
 
@@ -131,30 +136,16 @@
                   {% csrf_token %}
                   {{form.as_p}}
                   <div class="row">                    
-                    <button type="submit" class="waves-effect waves-light blue-light accent-2 btn-large btn-ancho">ENVIAR
+                    <button type="submit" class="waves-effect waves-light red accent-2 btn-large btn-ancho">ENVIAR
                     </button>
                        <!-- <a class="waves-effect waves-light btn-large btn-ancho" href="#!">ENVIAR</a> -->
                   </div>  
                 </form>
             </div>
-       </div>
 
-      {% endblock %}   
+       </div>  
+    </div>      
     
-</body>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-<script type="text/javascript">
-   $(".button-collapse").sideNav();
-  $('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 300
-      edge: 'right', // Choose the horizontal origin
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      draggable: true, // Choose whether you can drag to open on touch screens,
-      onOpen: function(el) {  }, // A function to be called when sideNav is opened
-      onClose: function(el) {  }, // A function to be called when sideNav is closed
-    }
-  );
-</script>
-</html>
+    {% endblock %}   
 
+ 
