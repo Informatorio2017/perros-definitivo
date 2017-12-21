@@ -185,10 +185,12 @@ def buscar_paciente(request):
 
 def home_admin(request):
     campanias = Campaing.objects.filter(habilitada=True)
+    saldo = 0
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
     campaing = Campaing()
     if campanias:
         campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+        saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
         
 
     c_inscriptos = Animalito.objects.filter(campaing=campaing.id).count()
@@ -197,7 +199,7 @@ def home_admin(request):
     gatos = inscriptos.filter(especie="felino").count()
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
     atendidos = inscriptos.exclude(user_name='').count()
-    saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
+    
     contexto = {
     'atendidos':atendidos,
     'pagados':pagados["abono__sum"],
@@ -232,7 +234,7 @@ def inscribir_paciente_pre(request):
 # incripción para los pacientes NO preinscriptos
 def formulario_inscripcion(request):
     if request.method == 'POST':
-        # import ipdb; ipdb.set_trace()                
+        import ipdb; ipdb.set_trace()                
         formPro = PropietarioForm(request.POST)
         formAni = AnimalitoForm(request.POST)
 
@@ -243,6 +245,12 @@ def formulario_inscripcion(request):
             animalito.propietario = propietario                    
             campania = Campaing.objects.filter(habilitada=True)
             animalito.campaing = campania[0]
+
+            if animalito.abono < campania[0].monto_valor_operacion:
+                grupo_animal = campania[0].monto_valor_operacion - animalito.abono
+                campania[0].monto_inter_grupo_gastado = campania[0].monto_inter_grupo_gastado + grupo_animal
+                campania[0].save()
+
             animalito.save()  
         
             return redirect('/campaing/home_admin/')
