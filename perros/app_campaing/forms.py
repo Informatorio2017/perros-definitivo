@@ -64,7 +64,14 @@ class PropietarioForm(forms.ModelForm):
 				  "apellido":forms.TextInput(),
 				  "nombre":forms.TextInput(), 
 				  "telefono":forms.TextInput(),
-				  "barrio":forms.Select()}		  
+				  "barrio":forms.Select()}
+
+	def __init__(self, *args, **kwargs):
+
+		super(PropietarioForm, self).__init__(*args, **kwargs)
+		self.fields['dni'].widget.attrs.update({'type' : 'tel'})
+		self.fields['telefono'].widget.attrs.update({'type' : 'tel'})
+
 	
 
 class AnimalitoForm(forms.ModelForm):
@@ -123,6 +130,7 @@ class AnimalitoPreinscripcionForm(forms.ModelForm):
 
 		super(AnimalitoPreinscripcionForm, self).__init__(*args, **kwargs)
 		self.fields['descripcion'].required=False
+
 
 class CrearBarrio(forms.ModelForm):
 	nombre = forms.CharField()
