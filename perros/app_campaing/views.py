@@ -234,9 +234,12 @@ def inscribir_paciente_pre(request):
 # incripción para los pacientes NO preinscriptos
 def formulario_inscripcion(request):
     if request.method == 'POST':
-        import ipdb; ipdb.set_trace()                
+                        
         formPro = PropietarioForm(request.POST)
         formAni = AnimalitoForm(request.POST)
+
+        #import ipdb
+        #ipdb.set_trace()
 
         if formPro.is_valid() and formAni.is_valid():
             propietario = formPro.save(commit=False)        
@@ -245,11 +248,11 @@ def formulario_inscripcion(request):
             animalito.propietario = propietario                    
             campania = Campaing.objects.filter(habilitada=True)
             animalito.campaing = campania[0]
-
-            if animalito.abono < campania[0].monto_valor_operacion:
-                grupo_animal = campania[0].monto_valor_operacion - animalito.abono
-                campania[0].monto_inter_grupo_gastado = campania[0].monto_inter_grupo_gastado + grupo_animal
-                campania[0].save()
+            campania_actualizar = campania[0]
+            if animalito.abono < campania_actualizar.monto_valor_operacion:
+                grupo_animal = campania_actualizar.monto_valor_operacion - animalito.abono
+                campania_actualizar.monto_inter_grupo_gastado = campania_actualizar.monto_inter_grupo_gastado + grupo_animal
+                campania_actualizar.save()
 
             animalito.save()  
         
