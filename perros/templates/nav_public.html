@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<div class="nav-wrapper blue light"> <!-- con valign-wrapper se alinea el titulo pero cambia el sidebar -->
+  <div class="brand-logo left topbar-boton-arriba-izquierda ">
+    <!--botón atrás reemplaza al regresar-->
+    <a href="#" onclick="history.go(-1)">
+      <i class="material-icons">keyboard_backspace</i>
+    </a>
+  </div>
+  <div class="top-titulos"
+    <p class="truncate top-bar-primeralinea">
+      <strong>AMO LOS PERROS</strong>
+    </p>
+    <!-- <p class="truncate top-bar-segundalinea">
+      <strong>AMO LOS PERROS</strong>
+    </p> -->
+  </div>  
+
+  <!-- inicio lista de enlaces del menú arriba derecha -->  
+  <ul id="slide-out" class="side-nav">
+    <li>
+      <div class="user-view">
+        <div class="background logo-menu">
+          <img class="responsive-img" src="{% static 'images/logoamolosperros.png' %}" alt="side-nav">
+        </div>
+        <!-- <a href="#!user" class="valign-wrapper">
+          <img class="circle avatar-menu" src="imagenes/amo los perros.png">
+          <p class="black-text name truncate">                   
+          </p>
+        </a>-->
+      </div>
+    </li>
+    <li>
+      <a href="{% url 'login' %}">
+        <i class="material-icons">lock</i>Login
+      </a>
+    </li>
+    <!-- <li><div class="divider"></div></li> -->
+    <!-- <li><a class="waves-effect" href="#!"><i class="material-icons">home</i>Inicio</a></li> -->
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
+    <i class="material-icons">menu</i>
+  </a>
+</div>

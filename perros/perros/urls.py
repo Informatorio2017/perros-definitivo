@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 # from app_campaing import views
 from . import views
-
+app_name="perros"
 urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
@@ -26,5 +26,5 @@ urlpatterns = [
 	url(r'^login/',views.login,name= 'login' ),
     url(r'^logout/',views.logout,name= 'logout' ),
     url(r'^create_user/',views.create_user,name= 'create_user' ),
-
 ]
+
