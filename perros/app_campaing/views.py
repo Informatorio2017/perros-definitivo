@@ -363,7 +363,7 @@ def formulario_inscripcion_preinscriptos(request,id):
         if formPro.is_valid() and formAni.is_valid():
             formPro.save()
             formAni.save()
-            id_str = str(animalito.pk)
+            id_str = str(animali.pk)
             return redirect('/campaing/inscripto_turno/'+id_str)
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
