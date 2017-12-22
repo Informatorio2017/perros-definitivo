@@ -385,9 +385,12 @@ def pre_inscribirse(request):
             animalito.propietario = propietario
                      
             campania = Campaing.objects.filter(habilitada=True)
-                    
+
             animalito.campaing = campania[0]
             animalito.save()  
+
+            animalito.nro_pre_inscripcion = animalito.pk
+            animalito.save()
 
             id_str = str(animalito.pk)
             return redirect('/campaing/pre_inscripto_turno/'+id_str)    

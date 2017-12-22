@@ -156,6 +156,7 @@
 		<canvas id="chart-area3" width="600" height="00"></canvas>
 		<canvas id="chart-area4" width="600" height="00"></canvas>
 		</div>
+
 		<script>
 
 		var pieData = [
@@ -221,31 +222,7 @@
 
 		</div>  
 
-    	<div class="col s12 m6 borde-verde">
 
-
-	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
-
-		<h6 class="valign-wrapper">
-			<i class= {{'"'}}material-icons {{barrio_cantidad.5}}-text text-{{barrio_cantidad.6}}{{'"'}}>bookmark</i>
-			
-			B°: {{barrio_nombre}} {{barrio_cantidad.0}} ({{barrio_cantidad.1}}%)
-		</h6>
-<!-- 		  	<div class="progress">
-      			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
-		<h6>Atendidos: {{barrio_cantidad.0}} ({{barrio_cantidad.1}}%) </h6>
-  			</div> -->
-		
-			<h6>Perros: {{barrio_cantidad.2}} Gatos: {{barrio_cantidad.3}}</h6>
-			<h6>color: {{barrio_cantidad.4}}</h6>
-<!-- 			<h6>color nombre: {{barrio_cantidad.5}}</h6>
-			<h6>color descripcion: {{barrio_cantidad.6}}</h6>
-		<br> -->
-	{% endfor %}
-
-
-
-		</div>
 
     </div>
 
