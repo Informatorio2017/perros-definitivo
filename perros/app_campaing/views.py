@@ -210,7 +210,8 @@ def about_campaing(request,id):
 
         camp_colabora.save()
         
-        return redirect('home')
+        return redirect('../../colaborador_inscripto')
+
         # else:        
         #     return redirect('/Aca_si_no_valida_los_datos')
     template = 'about_campaing.html'
@@ -387,8 +388,9 @@ def pre_inscribirse(request):
                     
             animalito.campaing = campania[0]
             animalito.save()  
-        
-            return redirect('/campaing/creado/')
+
+            id_str = str(animalito.pk)
+            return redirect('/campaing/pre_inscripto_turno/'+id_str)    
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
     else:
@@ -479,8 +481,7 @@ def creat_colaborador(request,id):
 
         camp_colabora.save()
 
-        return redirect('home')
-
+        return redirect('colaborador_inscripto')
         # else:        
         #     return redirect('/Aca_si_no_valida_los_datos')
     
@@ -496,11 +497,22 @@ def inscripto_turno(request,id):
    
     except Animalito.DoesNotExist:
         raise Http404("No se encontro la mascota")
-    
-
     contexto = {
 
         "paciente":paciente,
-
     }
     return render(request, "inscripto_turno.html",contexto)
+
+def pre_inscripto_turno(request,id):
+    try:
+        paciente= Animalito.objects.get(pk=id)
+   
+    except Animalito.DoesNotExist:
+        raise Http404("No se encontro la mascota")
+    contexto = {"paciente":paciente,}
+    return render(request, "pre_inscripto_turno.html",contexto)
+
+def colaborador_inscripto(request):
+    template = "colaborador_inscripto.html"
+    contexto = {}
+    return render(request, template, contexto)
