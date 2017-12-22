@@ -239,10 +239,17 @@ def home_admin(request):
         saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
         
 
-    c_inscriptos = Animalito.objects.filter(campaing=campaing.id).count()
-    inscriptos = Animalito.objects.filter(campaing=campaing.id)
+    animales_en_campana = Animalito.objects.filter(campaing=campaing.id)
+
+    preinscriptos = animales_en_campana.filter(turno=None)
+    inscriptos = animales_en_campana.exclude(turno=None)
+
+    cant_preinscriptos = preinscriptos.count()
+    cant_inscriptos= inscriptos.count()
+  
     perros = inscriptos.filter(especie="canino").count()
     gatos = inscriptos.filter(especie="felino").count()
+
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
     atendidos = inscriptos.exclude(user_name='').count()
     
@@ -250,7 +257,8 @@ def home_admin(request):
     'atendidos':atendidos,
     'pagados':pagados["abono__sum"],
     'campaing':campaing,
-    'c_inscriptos':c_inscriptos,
+    'c_inscriptos':cant_inscriptos,
+    'c_preinscriptos':cant_preinscriptos,
     'perros':perros,
     'gatos':gatos,
     "campanias":campanias,
