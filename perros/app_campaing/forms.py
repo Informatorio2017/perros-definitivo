@@ -8,23 +8,23 @@ class CreateCampaing(forms.ModelForm):
 	lugar = forms.ModelChoiceField(app_campaing.models.Lugar.objects.all())
 	
 	tipo = forms.ChoiceField(app_campaing.models.Campaing.TIPO)
-	monto_valor_operacion = forms.IntegerField()
-	monto_inter_grupo_total = forms.IntegerField()
+	monto_valor_operacion = forms.IntegerField(label="Costo de la Intervención")
+	monto_inter_grupo_total = forms.IntegerField(label="Dinero disponible para cubrir intervenciones por parte del grupo")
 	
 	class Meta:
 		model = Campaing
 		fields =  ["fecha","lugar", "tipo", "monto_valor_operacion","monto_inter_grupo_total"]
-		labels = {"fecha":"Fecha","lugar":"Lugar", "tipo":"Tipo","monto_valor_operacion":"Valor Intervención", "monto_inter_grupo_total":"Valor Intervenciones Cubiertas"}
+		#labels = {"fecha":"Fecha","lugar":"Lugar", "tipo":"Tipo","monto_valor_operacion":"Valor Intervención", "monto_inter_grupo_total":"Valor Intervenciones Cubiertas"}
 
 	def __init__(self, *args, **kwargs):
 
 		super(CreateCampaing, self).__init__(*args, **kwargs)
 		#self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre'})
 		self.fields['fecha'].widget.attrs.update({'class' : 'datepicker','placeholder' : 'Fecha', 'type' : 'text'})
-		self.fields['lugar'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Lugar'})
-		self.fields['tipo'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Tipo'})
-		self.fields['monto_valor_operacion'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Valor Intervención'})
-		self.fields['monto_inter_grupo_total'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Valores Intervenciones Cubiertas'})
+		self.fields['lugar'].widget.attrs.update({'placeholder' : 'Lugar'})
+		self.fields['tipo'].widget.attrs.update({'placeholder' : 'Tipo'})
+		self.fields['monto_valor_operacion'].widget.attrs.update({'placeholder' : 'Valor Intervención',})
+		self.fields['monto_inter_grupo_total'].widget.attrs.update({'placeholder' : 'Dinero Disponible para grupo'})
 		
 
 class BuscarPaciente_pre(forms.Form):
@@ -39,8 +39,8 @@ class BuscarPaciente(forms.Form):
 
 class ColaboradorForm(forms.Form):
 	dni=forms.CharField(max_length=8,label='DNI')
-	nombre=forms.CharField(max_length=30,label='Nombre')
 	apellido = forms.CharField(max_length = 30,label='Apellido')
+	nombre=forms.CharField(max_length=30,label='Nombre')
 	telefono = forms.CharField(max_length = 20,label='Teléfono')	
 	padrino = forms.BooleanField(required=False, label='Padrino', widget=forms.CheckboxInput())
 	ayudante = forms.BooleanField(required=False, label='Colaborador', widget=forms.CheckboxInput())
@@ -85,8 +85,8 @@ class AnimalitoForm(forms.ModelForm):
 				  "abono")
 
 		labels = {"especie":"Especie",
-				  "nombre_mascota":"Nombre Mascota",
 				  "sexo":"Sexo",
+				  "nombre_mascota":"Nombre Mascota",
 				  "descripcion":"Observaciones",
 				  "turno":"Turno",
 				  "abono":"Abono"}
@@ -110,8 +110,8 @@ class AnimalitoPreinscripcionForm(forms.ModelForm):
 	class Meta:
 		model = Animalito
 		fields = ("especie",				  
-				  "nombre_mascota",
 				  "sexo",
+				  "nombre_mascota",
 				  "descripcion")
 
 		labels = {"especie":"Especie",
@@ -133,31 +133,31 @@ class AnimalitoPreinscripcionForm(forms.ModelForm):
 
 
 class CrearBarrio(forms.ModelForm):
-	nombre = forms.CharField()
-	detalle = forms.CharField()
+	nombre = forms.CharField(label="Nombre del Barrio")
+	detalle = forms.CharField(label="Descripción")
 	
 	class Meta:
 		model = Barrio
 		fields =  ["nombre", "detalle"]
-		labels = {"nombre":"Nombre del Barrio", "detalle":"Descripción"}
+		#labels = {"nombre":"Nombre del Barrio", "detalle":"Descripción"}
 
 	def __init__(self, *args, **kwargs):
 
 		super(CrearBarrio, self).__init__(*args, **kwargs)
-		self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre'})
-		self.fields['detalle'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Descripción del Barrio'})
+		self.fields['nombre'].widget.attrs.update({'placeholder' : 'Nombre'})
+		self.fields['detalle'].widget.attrs.update({'placeholder' : 'Descripción del Barrio'})
 		self.fields['detalle'].required=False
 
 class CrearLugar(forms.ModelForm):
-	nombre = forms.CharField()
-	direccion = forms.CharField()
+	nombre = forms.CharField(label="Nombre del lugar")
+	direccion = forms.CharField(label="Dirección")
 
 	class Meta:
 		model = Lugar
 		fields = ["nombre","direccion"]
-		labels = {"nombre":"Nombre del Lugar", "direccion":"Direccion"}
+		#labels = {"nombre":"Nombre del Lugar", "direccion":"Direccion"}
 
 	def __init__(self, *args, **kwargs):
 		super(CrearLugar, self).__init__(*args, **kwargs)
-		self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre del Lugar'})
-		self.fields['direccion'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Descripción del Lugar'})
+		self.fields['nombre'].widget.attrs.update({'placeholder' : 'Nombre del Lugar'})
+		self.fields['direccion'].widget.attrs.update({'placeholder' : 'Descripción del Lugar'})
