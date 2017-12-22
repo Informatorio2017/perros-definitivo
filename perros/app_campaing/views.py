@@ -119,6 +119,26 @@ def ver_campana(request,id):
 
         #estadistica[b.nombre] = cant
 
+
+    est_felino = lista_atendidos.filter(especie="felino")
+    est_gatos_atendidos = est_felino.filter(sexo="macho").count()
+    est_gatas_atendidas = est_felino.filter(sexo="hembra").count()
+    est_canino = lista_atendidos.filter(especie="canino")
+    est_perros_atendidos = est_canino.filter(sexo="macho").count()
+    est_perras_atendidos = est_canino.filter(sexo="hembra").count()
+
+
+    color = colores[10]
+    color_gato = color[0]
+    color = colores[15]
+    color_gata = color[0]
+    color = colores[20]
+    color_perro = color[0]
+    color = colores[25]
+    color_perra = color[0]
+    estadistica_sex_animal = {"Gatos Atendidos":(est_gatos_atendidos,color_gato),"Gatas Atendidas":(est_gatas_atendidas,color_gata),"Perros Atendidos":(est_perros_atendidos,color_perro),"Perras Atendidas":(est_perras_atendidos,color_perra),}
+    
+
     saldo = campana.monto_inter_grupo_total - campana.monto_inter_grupo_gastado
     #saldo = -250  era para probar que negativo salga en rojo
 
@@ -135,6 +155,7 @@ def ver_campana(request,id):
     "saldo":saldo,
     "porcentaje_perros":porcentaje_perros,
     "porcentaje_gatos":porcentaje_gatos,
+    "estadistica_sexo":estadistica_sex_animal,
     }
     return render(request, "ver_campana.html",contexto)
 
