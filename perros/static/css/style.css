@@ -128,7 +128,7 @@ body{
 /*    home admin      */
 
 .opciones_home{
-	padding: 0;
+	padding: 0px!important;
 }
 
 .icono-home1{
@@ -154,6 +154,10 @@ body{
 	background-color:;
 
 	}
+
+/*.avatar-home{
+	max-width: 40%;
+}*/
 
 /*.borde-doble{
 	border: solid 5px red;

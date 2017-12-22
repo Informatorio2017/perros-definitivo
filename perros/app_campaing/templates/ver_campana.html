@@ -7,7 +7,7 @@
 			
 			
 {% block content %} 
-	<div class="row borde-verde">
+	<div class="row">
 		<div class="col s12">
 			<div class="col s2 valign-wrapper">
 				<i class="material-icons">pets</i>
@@ -58,7 +58,7 @@
             </span>
             <span>
               <h6><strong>$ {{ pagados }}</strong></h6>
-              <h6>Pagados por los dueños</h6>
+              <h6>Pagados por dueño</h6>
             </span>
           </div>
 
@@ -68,7 +68,7 @@
             </span>
             <span>
               <h6><strong>$ {{ campana.monto_inter_grupo_gastado }}</strong></h6>
-              <h6>Pagados por el grupo</h6>
+              <h6>Pagados por grupo</h6>
             </span>
           </div>
 
@@ -140,9 +140,9 @@
 
 
 
-    <div class="row borde-negro">
+    <div class="row">
 
-    	<div class="col s12 m6 borde-verde">
+    	<div class="col s12 m6">
 
 
  
@@ -166,6 +166,7 @@
 		
 					];
 
+
 		var ctx = document.getElementById("chart-area").getContext("2d");
 		var ctx2 = document.getElementById("chart-area2").getContext("2d");
 		var ctx3 = document.getElementById("chart-area3").getContext("2d");
@@ -176,26 +177,59 @@
 
     	</div>
 
+
+
+
+
+
+
+
+		<div class="col s12 m6">
+
+
+
+
+		  <ul class="collection">
+
+	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
+
+		    <li class="collection-item opciones_home">
+			<h6 class="valign-wrapper">
+				<i class= {{'"'}}material-icons {{barrio_cantidad.5}}-text text-{{barrio_cantidad.6}}{{'"'}}>bookmark</i>
+				
+				B°: {{barrio_nombre}} {{barrio_cantidad.0}} ({{barrio_cantidad.1}}%)
+			</h6>
+		      <!-- <h6>Perros: {{barrio_cantidad.2}} Gatos: {{barrio_cantidad.3}}</h6> -->
+		      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+		    </li>
+
+	{% endfor %}
+		  </ul>
+
+
+
+		</div>  
+
     	<div class="col s12 m6 borde-verde">
 
 
 	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
 
-		<h6>
+		<h6 class="valign-wrapper">
 			<i class= {{'"'}}material-icons {{barrio_cantidad.5}}-text text-{{barrio_cantidad.6}}{{'"'}}>bookmark</i>
 			
-			Barrio: {{barrio_nombre}}
+			B°: {{barrio_nombre}} {{barrio_cantidad.0}} ({{barrio_cantidad.1}}%)
 		</h6>
 <!-- 		  	<div class="progress">
       			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
-  			</div> -->
 		<h6>Atendidos: {{barrio_cantidad.0}} ({{barrio_cantidad.1}}%) </h6>
+  			</div> -->
 		
 			<h6>Perros: {{barrio_cantidad.2}} Gatos: {{barrio_cantidad.3}}</h6>
 			<h6>color: {{barrio_cantidad.4}}</h6>
-			<h6>color nombre: {{barrio_cantidad.5}}</h6>
+<!-- 			<h6>color nombre: {{barrio_cantidad.5}}</h6>
 			<h6>color descripcion: {{barrio_cantidad.6}}</h6>
-		<br>
+		<br> -->
 	{% endfor %}
 
 
