@@ -152,7 +152,7 @@
 		<script src="../../../static/js/Chart.js"></script>
 		<div id="canvas-holder" class="canvas-holder">
 		<canvas id="chart-area" width="250" height="250"></canvas>
-		<canvas id="chart-area2" width="300" height="00"></canvas>
+		<canvas id="chart-area2" width="250" height="250"></canvas>
 		<canvas id="chart-area3" width="600" height="00"></canvas>
 		<canvas id="chart-area4" width="600" height="00"></canvas>
 		</div>
@@ -167,11 +167,22 @@
 					];
 
 
+
+		var pieData2 = [
+			{% for barrio_nombre,barrio_cantidad in estadistica.items %}
+
+				{value: {{barrio_cantidad.0}} ,color:{{'"#'}}{{barrio_cantidad.4}}{{'"'}},highlight: "#0c62ab",label:{{'"'}}{{barrio_nombre}}{{'"'}}},
+			{% endfor %}
+		
+					];
+
+
 		var ctx = document.getElementById("chart-area").getContext("2d");
 		var ctx2 = document.getElementById("chart-area2").getContext("2d");
 		var ctx3 = document.getElementById("chart-area3").getContext("2d");
 		var ctx4 = document.getElementById("chart-area4").getContext("2d");
 		window.myPie = new Chart(ctx).Pie(pieData);	
+		window.myPie = new Chart(ctx2).Pie(pieData2);
 		</script>
 <!-- 	///////////////////////////////////////////////////////////////////// -->	
 
