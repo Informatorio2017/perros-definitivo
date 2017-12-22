@@ -33,7 +33,17 @@
 body{
 
 }
+.titulos{
+	color: #ee6e73;
+}
 
+.image-container img{
+	max-width: 200px;
+}
+
+.image-container2 img{
+	width: 20%;
+}
 .contenedor{
 	padding: 0% 3%;
 }
