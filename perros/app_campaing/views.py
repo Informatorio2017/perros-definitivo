@@ -5,6 +5,12 @@ from .forms import AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm
 from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio, CrearLugar, ColaboradorForm
 from .models import Campaing, Animalito, Propietario, Barrio, Lugar
 from .models import Colaborador, CampaingColaborador
+#-------------------------------------------------------
+from django.conf import settings
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from django.views.generic import View
+from django.http import HttpResponse
 
 campaning = None
 
@@ -483,3 +489,72 @@ def inscripto_turno(request,id):
 
     }
     return render(request, "inscripto_turno.html",contexto)
+#-----------------------------------------------------
+
+class ReportePersonasPDF(View):
+
+    def cabecera(self,pdf):
+        #Utilizamos el archivo logo_django.png que está guardado en la carpeta media/imagenes
+        archivo_imagen = settings.MEDIA_ROOT+'/logoamolosperros.png'
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+        pdf.drawImage(archivo_imagen, 40, 750, 120, 90,preserveAspectRatio=True)
+
+    def get(self, request, *args, **kwargs):
+        #Indicamos el tipo de contenido a devolver, en este caso un pdf
+        response = HttpResponse(content_type='application/pdf')
+        #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
+        buffer = BytesIO()
+        #Canvas nos permite hacer el reporte con coordenadas X y Y
+        pdf = canvas.Canvas(buffer)
+        #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
+        self.cabecera(pdf)
+        #Con show page hacemos un corte de página para pasar a la siguiente
+        pdf.showPage()
+        pdf.save()
+        pdf = buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+# #-----------------------------------------------------
+#     def tabla(self,pdf,y):
+#         #Creamos una tupla de encabezados para neustra tabla
+#         encabezados = ('DNI', 'Nombre', 'Apellido Paterno', 'Apellido Materno')
+#         #Creamos una lista de tuplas que van a contener a las personas
+#         detalles = [(persona.dni, persona.nombre, persona.apellido_paterno, persona.apellido_materno) for persona in Persona.objects.all()]
+#         #Establecemos el tamaño de cada una de las columnas de la tabla
+#         detalle_orden = Table([encabezados] + detalles, colWidths=[2 * cm, 5 * cm, 5 * cm, 5 * cm])
+#         #Aplicamos estilos a las celdas de la tabla
+#         detalle_orden.setStyle(TableStyle(
+#         [
+#                 #La primera fila(encabezados) va a estar centrada
+#                 ('ALIGN',(0,0),(3,0),'CENTER'),
+#                 #Los bordes de todas las celdas serán de color negro y con un grosor de 1
+#                 ('GRID', (0, 0), (-1, -1), 1, colors.black),
+#                 #El tamaño de las letras de cada una de las celdas será de 10
+#                 ('FONTSIZE', (0, 0), (-1, -1), 10),
+#                 ]
+#         ))
+#         #Establecemos el tamaño de la hoja que ocupará la tabla
+#         detalle_orden.wrapOn(pdf, 800, 600)
+#         #Definimos la coordenada donde se dibujará la tabla
+#         detalle_orden.drawOn(pdf, 60,y)
+
+#     def get(self, request, *args, **kwargs):
+#         #Indicamos el tipo de contenido a devolver, en este caso un pdf
+#         response = HttpResponse(content_type='application/pdf')
+#         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
+#         buffer = BytesIO()
+#         #Canvas nos permite hacer el reporte con coordenadas X y Y
+#         pdf = canvas.Canvas(buffer)
+#         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
+#         self.cabecera(pdf)
+#         y = 600
+#         self.tabla(pdf, y)
+#         #Con show page hacemos un corte de página para pasar a la siguiente
+#         pdf.showPage()
+#         pdf.save()
+#         pdf = buffer.getvalue()
+#         buffer.close()
+#         response.write(pdf)
+#         return response

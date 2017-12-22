@@ -80,6 +80,7 @@ urlpatterns = [
 
 	url(r'^about_campaing/(?P<id>\d+)/$', views.about_campaing, name="about_campaing"),	
 
+	url(r'^reporte_personas_pdf/$',views.ReportePersonasPDF.as_view(), name="reporte_personas_pdf"),		
 
 			
 ]

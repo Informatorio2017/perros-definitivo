@@ -1,0 +1,24 @@
+<div class='form-group'>
+    <div class="row">
+        <div class="col-lg-9">
+
+        </div>
+        <div class="col-lg-1">
+            <a href="{% url 'personas:reporte_personas_excel' %}" class="btn btn-info btn-block">
+                <span class="glyphicon glyphicon-list-alt"></span>
+            </a>
+        </div>
+        {% if perms.personas.add_persona %}
+        <div class="col-lg-1">
+            <a href="{% url 'personas:crear_persona' %}" class="btn btn-info btn-block">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        {% endif %}
+        <div class="col-lg-1">
+            <a href="{% url 'personas:reporte_personas_pdf' %}" class="btn btn-info btn-block">
+                <span class="glyphicon glyphicon-file"></span>
+            </a>
+        </div>
+    </div>
+</div>
