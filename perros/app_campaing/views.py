@@ -202,6 +202,15 @@ def home(request):
     return render(request, "home.html", contexto)
 
 def alta_paciente(request,id):
+
+    if request.method == "POST":
+        dar_alta = Animalito.objects.get(pk=id)
+        dar_alta.user_name = "nombre"
+        dar_alta.save()
+        contexto = {}
+        return render(request,"paciente_dado_de_alta.html",contexto)
+
+
     try:
         paciente= Animalito.objects.get(pk=id)
         # idprop= paciente.propietario

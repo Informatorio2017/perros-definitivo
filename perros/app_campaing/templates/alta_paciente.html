@@ -36,8 +36,11 @@
             
         </li>
     </ul>
+    <form method="POST">
+        {% csrf_token %}
     <button class="btn waves-effect waves-light" type="submit" name="action">Dar de Alta
         <i class="material-icons right">check</i>
     </button>
+    </form>
 
 {% endblock %}
