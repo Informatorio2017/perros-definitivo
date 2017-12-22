@@ -17,12 +17,26 @@
 <form  method="post">
 	{% csrf_token %}
 	{{ form }}
-
-	<input type="submit" value="buscar">
+	<div class="right-align">
+		<input class="waves-effect waves-light btn-large center-align" type="submit" value="buscar">
+	</div>
 
 </form>
-<p></p>
-<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large center-align">no pre inscripto</a>
+<br>
+<div class="row">
+
+<div class="col s12 m6">
+	<p class="center-align">
+		<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large center-align">no pre-inscripto</a>
+	</p>
+</div>
+
+<div class="col s12 m6">
+	<p class="center-align">
+		<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large disabled center-align">Lista de pre-inscriptos</a>
+	</p>
+</div>
+</div>
 
 
 

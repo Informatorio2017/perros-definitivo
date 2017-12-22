@@ -28,19 +28,25 @@
 
 
     <div class="row">
+
+
       <div class="col s12">
         <div class="row  lighten-3">
           <div class="col s12 m2 l3"></div>
-          <div class="col s12 m8 l6">            
+          <div class="col s12 m8 l6">
+            <div class="col s12 borde-negro center-align grey darken-4 white-text">
+              <p><h6>PREINSCRIPTOS: {{ c_inscriptos }}</h6></p> <!--REEMPLAZAR POR PREINSCRIPTOS -->
+              <!-- <p><h2><strong>{{ c_inscriptos }}</strong></h2></p> -->
+            </div>
             <div class="col s12 borde-negro center-align">
-              <p><h4><strong>INSCRIPTOS: {{ c_inscriptos }}</strong></h4></p>
+              <p><h5><strong>INSCRIPTOS: {{ c_inscriptos }}</strong></h5></p>
               <!-- <p><h2><strong>{{ c_inscriptos }}</strong></h2></p> -->
             </div>
             <div class="col s6 borde-negro">
-              <img src="../../../static/images/dog.png" alt="" class="left"><p><h4 class="center-align"><strong>{{perros}}</strong></h4></p>
+              <img src="../../../static/images/dog.png" alt="" class="left avatar-home"><p><h5 class="center-align"><strong>{{perros}}</strong></h5></p>
             </div>
             <div class="col s6 borde-negro">
-              <img src="../../../static/images/cat.png" alt="" class="left"><p><h4 class="center-align"><strong>{{gatos}}</strong></h4></p>
+              <img src="../../../static/images/cat.png" alt="" class="left avatar-home"><p><h5 class="center-align"><strong>{{gatos}}</strong></h5></p>
             </div>
           </div>
           <div class="col s12 m2 l3"></div>
@@ -51,40 +57,57 @@
 
   
 
-      <div class="row lighten-3 ">
+      <div class="row">
         <div class="col s12">
 
-          <div class="col s4 borde-negro center-align">
-            <p class="icono-home">
-              <i class="material-icons">attach_money</i><br>
-            </p>
-            <p>
-              <h5><strong>$ {{ pagados }}</strong></h5>
-              <h6>ABONADO</h6>
-            </p>
+          <div class="col s4 borde-negro center-align grey lighten-5 z-depth-2">
+            <span class="icono-home">
+              <i class="material-icons medium">account_box</i>
+            </span>
+            <span>
+              <h6><strong>$ {{ pagados }}</strong></h6>
+              <h6>Pagados por dueño</h6>
+            </span>
           </div>
 
-          <div class="col s4 borde-negro center-align">
-            <p class="icono-home">
-              <i class="material-icons">favorite</i><br> 
-            </p>
-            <p>
-              <h5><strong>$ {{ campaing.monto_inter_grupo_gastado }}</strong></h5>
-              <h6>GRUPO</h6>
-            </p>
+          <div class="col s4 borde-negro center-align grey lighten-5 z-depth-2">
+            <span class="icono-home">
+              <i class="material-icons medium">favorite</i> 
+            </span>
+            <span>
+              <h6><strong>$ {{ campaing.monto_inter_grupo_gastado }}</strong></h6>
+              <h6>Pagados por grupo</h6>
+            </span>
           </div>
 
-          <div class="col s4 borde-negro center-align">
-            <p class="icono-home">
-              <i class="material-icons">money_off</i>
-            </p>
-            <p>
-              <h5><strong>$ {{ saldo }}</strong></h5>
-              <h6>SALDO</h6>
-            </p>
+          <div class="col s4 borde-negro center-align grey lighten-5 z-depth-2">
+            <span class="icono-home">
+              <i class="material-icons medium">local_atm</i>
+            </span>
+
+            <!-- if para el color del saldo positivo o negativo -->
+            
+            {% if saldo > 0 %}
+
+            <span>
+              <h6><strong>$ {{ saldo }}</strong></h6>
+              <h6>Saldo del grupo</h6>
+            </span>
+
+            {% else %}
+
+            <span>
+              <h6 class="red-text text-darken-2"><strong>$ {{ saldo }}</strong></h6>
+              <h6>Saldo del grupo</h6>
+            </span>
+
+            {% endif %}
+
+
           </div>
         </div>
       </div>
+
 
 
 

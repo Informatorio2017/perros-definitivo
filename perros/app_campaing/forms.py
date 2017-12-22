@@ -29,12 +29,12 @@ class CreateCampaing(forms.ModelForm):
 
 class BuscarPaciente_pre(forms.Form):
 
-	query = forms.IntegerField(label="Búsqueda")
+	query = forms.IntegerField(label="Ingrese el N° de preinscripción")
 
 
 class BuscarPaciente(forms.Form):
 
-	query = forms.IntegerField(label="Búsqueda")
+	query = forms.IntegerField(label="Ingrese el N° de turno")
 
 
 class ColaboradorForm(forms.Form):
