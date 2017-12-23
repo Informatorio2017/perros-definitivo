@@ -161,10 +161,9 @@
 
 		<script src="../../../static/js/Chart.js"></script>
 		<div id="canvas-holder" class="canvas-holder">
-		<canvas id="chart-area" width="250" height="250"></canvas>
-		<canvas id="chart-area2" width="250" height="250"></canvas>
-		<canvas id="chart-area3" width="600" height="00"></canvas>
-		<canvas id="chart-area4" width="600" height="00"></canvas>
+		<canvas id="chart-areaA" width="250" height="250"></canvas>
+		
+		
 		</div>
 
 		<script>
@@ -178,25 +177,10 @@
 					];
 
 
-
-
-
-
-		var pieData2 = [
-			{% for especimen,cantidad in estadistica_sexo.items %}
-
-				{value: {{cantidad.0}} ,color:{{'"#'}}{{cantidad.1}}{{'"'}},highlight: "#0c62ab",label:{{'"'}}{{especimen}}{{'"'}}},
-			{% endfor %}
+		var ctx = document.getElementById("chart-areaA").getContext("2d");
 		
-					];
-
-
-		var ctx = document.getElementById("chart-area").getContext("2d");
-		var ctx2 = document.getElementById("chart-area2").getContext("2d");
-		var ctx3 = document.getElementById("chart-area3").getContext("2d");
-		var ctx4 = document.getElementById("chart-area4").getContext("2d");
 		window.myPie = new Chart(ctx).Pie(pieData);	
-		window.myPie = new Chart(ctx2).Pie(pieData2);
+
 		</script>
 <!-- 	///////////////////////////////////////////////////////////////////// -->	
 
@@ -234,6 +218,83 @@
 
 
 		</div>  
+
+
+	</div>
+    <div class="row">	
+
+	<div class="col s12 m6">
+
+
+ 		<script src="../../../static/js/Chart.js"></script>
+		<div id="canvas-holder2" class="canvas-holder">
+			<canvas id="chart-areaB" width="250" height="250"></canvas>
+		</div>
+
+		<script>
+			var pieDataB = [
+				{% for especimen,cantidad in estadistica_sexo.items %}
+
+					{value: {{cantidad.0}} ,color:{{'"#'}}{{cantidad.1}}{{'"'}},highlight: "#0c62ab",label:{{'"'}}{{especimen}}{{'"'}}},
+				{% endfor %}
+			
+						];
+
+
+			var ctxB = document.getElementById("chart-areaB").getContext("2d");
+		
+			window.myPie = new Chart(ctxB).Pie(pieDataB);
+		</script>
+<!-- 	///////////////////////////////////////////////////////////////////// -->	
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+		<div class="col s12 m6">
+
+
+
+
+
+		  <ul class="collection">
+
+	{% for especimen,cantidad in estadistica_sexo.items %}
+
+		    <li class="collection-item opciones_home">
+			<h6 class="valign-wrapper">
+				<i class= {{'"'}}material-icons {{cantidad.2}}-text text-{{cantidad.3}}{{'"'}}>bookmark</i>
+				
+				B°: {{especimen}} {{cantidad.0}} ({{cantidad.0}}%)
+			</h6>
+		      <!-- <h6>Perros: {{barrio_cantidad.2}} Gatos: {{barrio_cantidad.3}}</h6> -->
+		      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+		    </li>
+
+	{% endfor %}
+		  </ul>
+
+
+
+
+
+		</div>  
+
+
+
+
+
+
+
+
+
 
 
 

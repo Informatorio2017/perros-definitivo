@@ -148,15 +148,32 @@ def ver_campana(request,id):
     est_perras_atendidos = est_canino.filter(sexo="hembra").count()
 
 
-    color = colores[10]
+    color = colores[5]
     color_gato = color[0]
-    color = colores[15]
+    color_gato_nombre = color[1]
+    color_gato_descripcion = color[2]
+
+    color = colores[10]
     color_gata = color[0]
-    color = colores[20]
+    color_gata_nombre = color[1]
+    color_gata_descripcion = color[2]
+
+    color = colores[13]
     color_perro = color[0]
-    color = colores[25]
+    color_perro_nombre = color[1]
+    color_perro_descripcion = color[2]
+
+    color = colores[16]
     color_perra = color[0]
-    estadistica_sex_animal = {"Gatos Atendidos":(est_gatos_atendidos,color_gato),"Gatas Atendidas":(est_gatas_atendidas,color_gata),"Perros Atendidos":(est_perros_atendidos,color_perro),"Perras Atendidas":(est_perras_atendidos,color_perra),}
+    color_perra_nombre = color[1]
+    color_perra_descripcion = color[2]
+
+    estadistica_sex_animal = {
+    "Gatos Atendidos":(est_gatos_atendidos,color_gato,color_gato_nombre,color_gato_descripcion),
+    "Gatas Atendidas":(est_gatas_atendidas,color_gata,color_gata_nombre,color_gata_descripcion),
+    "Perros Atendidos":(est_perros_atendidos,color_perro,color_perro_nombre,color_perro_descripcion),
+    "Perras Atendidas":(est_perras_atendidos,color_perra,color_perra_nombre,color_perra_descripcion),
+    }
     
 
     saldo = campana.monto_inter_grupo_total - campana.monto_inter_grupo_gastado
