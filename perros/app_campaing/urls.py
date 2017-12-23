@@ -79,7 +79,12 @@ urlpatterns = [
 	#crear usuarios
 	url(r'^about_campaing/(?P<id>\d+)/$', views.about_campaing, name="about_campaing"),	
 
+
 	url(r'^pre_inscripto_turno/(?P<id>\d+)/$', views.pre_inscripto_turno, name="pre_inscripto_turno"),	
+
+	url(r'^reporte_personas_pdf/$',views.ReportePersonasPDF.as_view(), name="reporte_personas_pdf"),		
+	url(r'^reporte_personas_pdf2/$',views.ReportePersonasPDF2.as_view(), name="reporte_personas_pdf2"),		
+
 
 	url(r'^colaborador_inscripto/', views.colaborador_inscripto, name="colaborador_inscripto"),	
 			
