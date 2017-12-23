@@ -61,6 +61,7 @@ urlpatterns = [
 	#buscarlo para darlo de alta
 	url(r'^buscar_paciente/', views.buscar_paciente, name="buscar_paciente"),
 	url(r'^listado_preinscriptos/', views.listado_preinscriptos, name="listado_preinscriptos"),
+	url(r'^listado_inscriptos/', views.listado_inscriptos, name="listado_inscriptos"),
 	#alta paciente / id 
 	url(r'^alta_paciente/([0-9]+)$', views.alta_paciente, name="alta_paciente"),
 

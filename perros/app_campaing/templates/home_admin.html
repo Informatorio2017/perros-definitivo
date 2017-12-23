@@ -159,55 +159,40 @@
 
 
           <ul class="collection">
-            <li class="collection-item avatar">
-              
-              <span class="title">
-                <strong>Cerrar Inscripción</strong>
+            <li class="collection-item">
+              <a href="/campaing/close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red left">
+                <i class="material-icons">lock</i>
+              </a>
+          
+              <span>
+                <strong>Cerrar Inscripción</strong><br>
+                No se recibirán más inscripciones públicas
               </span>
-              <p>No se recibirán más inscripciones públicas
-              </p>
-              <!-- Switch -->
-              <div class="secondary-content">
-                <a href="/campaing/close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red">
-                  <i class="material-icons">lock</i>
-                </a>
-              </div>  
-
             </li>
 
-            <a href="#" class="grey-text text-darken-3">
-              <li class="collection-item avatar">
-                  <span class="title"><strong>Enlace público</strong>
-                  </span>
-
-                  <p>Ver, imprimir o compartir el enlace público de inscripciones
-                  </p>
-
-
-              <div class="secondary-content">
-                <a href="../ver_qr/" class="btn-floating btn-medium waves-effect waves-light red">
-                  <i class="material-icons">link</i>
-                </a>
-              </div>  
-
-              </li>
-            </a>
-
-
-            <li class="collection-item avatar">
-              
-              <span class="title">
-                <strong>Finalizar Campaña</strong>
+            <li class="collection-item">
+              <a href="../ver_qr/" class="btn-floating btn-medium waves-effect waves-light red left">
+                <i class="material-icons">link</i>
+              </a>
+          
+              <span>
+                <strong>Enlace público</strong><br>
+                Ver, imprimir o compartir el enlace público de inscripciones.
               </span>
-              <p>Finalizará la campaña activa y se generarán las estadísticas
-              </p>
-              <div class="secondary-content">
-                <a href="/campaing/end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red">
-                  <i class="material-icons">power_settings_new</i>
-                </a>
-              </div>   
-
             </li>
+
+            <li class="collection-item">
+              <a href="/campaing/end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red left">
+                <i class="material-icons">power_settings_new</i>
+              </a>
+          
+              <span>
+                <strong>Finalizar Campaña</strong><br>
+                Finalizará la campaña activa y se generarán las estadísticas
+              </span>
+            </li>
+
+
 
       
           </ul>
