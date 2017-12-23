@@ -68,7 +68,7 @@ class PropietarioForm(forms.ModelForm):
 
 	def __init__(self, *args, **kwargs):
 
-		super(ColaboradorForm, self).__init__(*args, **kwargs)
+		super(PropietarioForm, self).__init__(*args, **kwargs)
 		self.fields['dni'].widget.attrs.update({'type' : 'number'})
 		self.fields['telefono'].widget.attrs.update({'type' : 'number'})
 
