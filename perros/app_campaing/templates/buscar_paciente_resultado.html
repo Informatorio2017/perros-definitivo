@@ -11,8 +11,9 @@
 
 
  <ul class="collection">
- {% for paciente in pacientes %}
+  {% for paciente in pacientes %}
    <li class="collection-item avatar">
+
     {% if paciente.especie == "canino" %}
     	<img src="../../../static/images/dog.png" alt="" class="circle">
     {% else %}
@@ -22,15 +23,16 @@
     <p>
         {{ paciente.nombre }} - ({{ paciente.especie }})<br>
         {{ paciente.propietario.nombre}}
-          </p>
+    </p>
     <a href="../alta_paciente/{{paciente.id}}" class="secondary-content">
-	  <button class="btn waves-effect waves-light" type="submit" name="action" >Alta
-	    <i class="material-icons right">check</i>
-	  </button>
+  	  <button class="btn waves-effect waves-light" type="submit" name="action" >Alta
+  	    <i class="material-icons right">check</i>
+  	  </button>
     </a>
-    </li>
-
+  </li>
 {% endfor %}
+</ul>
+
 <a class="waves-effect waves-light btn-large">buscar otro</a>
 
 {% endblock %}
