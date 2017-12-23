@@ -45,11 +45,17 @@ def ver_campana(request,id):
 
     campanias = Campaing.objects.filter(habilitada=True)
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
-    campaing = Campaing()
+    #campaing = Campaing()
 
 
-    c_inscriptos = Animalito.objects.filter(campaing=campana.id).count()
-    inscriptos = Animalito.objects.filter(campaing=campana.id)
+    animales_en_campana = Animalito.objects.filter(campaing=campana.id)
+
+    preinscriptos = animales_en_campana.filter(turno=None)
+    inscriptos = animales_en_campana.exclude(turno=None)
+
+
+    c_inscriptos = inscriptos.count()
+    c_preinscriptos = preinscriptos.count()
     
     perros = inscriptos.filter(especie="canino").count()
     porcentaje_perros = perros * 100 /c_inscriptos
@@ -160,8 +166,9 @@ def ver_campana(request,id):
     "campana":campana,
     'atendidos':atendidos,
     'pagados':pagados["abono__sum"],
-    'campaing':campaing,
+    'campaing':campana,
     'c_inscriptos':c_inscriptos,
+    'c_preinscriptos':c_preinscriptos,
     'perros':perros,
     'gatos':gatos,
     "campanias":campanias,
