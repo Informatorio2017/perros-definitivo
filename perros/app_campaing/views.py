@@ -152,27 +152,35 @@ def ver_campana(request,id):
     color_gato = color[0]
     color_gato_nombre = color[1]
     color_gato_descripcion = color[2]
+    if atendidos > 0:
+        porcentaje_gato = est_gatos_atendidos*100/atendidos
 
     color = colores[10]
     color_gata = color[0]
     color_gata_nombre = color[1]
     color_gata_descripcion = color[2]
+    if atendidos > 0:
+        porcentaje_gata = est_gatas_atendidas*100/atendidos
 
     color = colores[13]
     color_perro = color[0]
     color_perro_nombre = color[1]
     color_perro_descripcion = color[2]
+    if atendidos > 0:
+        porcentaje_perro = est_perros_atendidos*100/atendidos
 
     color = colores[23]
     color_perra = color[0]
     color_perra_nombre = color[1]
     color_perra_descripcion = color[2]
+    if atendidos > 0:
+        porcentaje_perra = est_perras_atendidos*100/atendidos
 
     estadistica_sex_animal = {
-    "Gatos Atendidos":(est_gatos_atendidos,color_gato,color_gato_nombre,color_gato_descripcion),
-    "Gatas Atendidas":(est_gatas_atendidas,color_gata,color_gata_nombre,color_gata_descripcion),
-    "Perros Atendidos":(est_perros_atendidos,color_perro,color_perro_nombre,color_perro_descripcion),
-    "Perras Atendidas":(est_perras_atendidos,color_perra,color_perra_nombre,color_perra_descripcion),
+    "Gatos Atendidos":(est_gatos_atendidos,color_gato,color_gato_nombre,color_gato_descripcion,porcentaje_gato),
+    "Gatas Atendidas":(est_gatas_atendidas,color_gata,color_gata_nombre,color_gata_descripcion,porcentaje_gata),
+    "Perros Atendidos":(est_perros_atendidos,color_perro,color_perro_nombre,color_perro_descripcion,porcentaje_perro),
+    "Perras Atendidas":(est_perras_atendidos,color_perra,color_perra_nombre,color_perra_descripcion,porcentaje_perra),
     }
     
 
