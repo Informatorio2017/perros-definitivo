@@ -581,3 +581,86 @@ class ReportePersonasPDF(View):
         buffer.close()
         response.write(pdf)
         return response
+
+class ReportePersonasPDF2(View):
+
+    def cabecera(self,pdf):
+        #Establecemos el tamaño de letra en 16 y el tipo de letra Helvetica
+        pdf.setFont("Helvetica", 16)
+        #Dibujamos una cadena en la ubicación X,Y especificada
+        pdf.drawString(230, 790, u" Amo los Perros SP")
+        pdf.setFont("Helvetica", 14)
+        pdf.drawString(200, 770, u"   Estadísticas de la campaña")
+        #Utilizamos el archivo logo_django.png que está guardado en la carpeta media/imagenes
+        archivo_imagen = settings.MEDIA_ROOT+'/logoamolosperros.png'
+        #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
+        pdf.drawImage(archivo_imagen, 40, 750, 120, 90,preserveAspectRatio=True)
+
+    def get(self, request, *args, **kwargs):
+        #Indicamos el tipo de contenido a devolver, en este caso un pdf
+        response = HttpResponse(content_type='application/pdf')
+        #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
+        buffer = BytesIO()
+        #Canvas nos permite hacer el reporte con coordenadas X y Y
+        pdf = canvas.Canvas(buffer)
+        #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
+        self.cabecera(pdf)
+        #Con show page hacemos un corte de página para pasar a la siguiente
+        pdf.showPage()
+        pdf.save()
+        pdf = buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
+#-----------------------------------------------------
+
+    def tabla(self,pdf,y):
+        #Creamos una tupla de encabezados para neustra tabla
+        
+        encabezados = ('Dueño','Nombre Mascota','Especie','Abonó', 'Nro preinscripcion')
+        #Creamos una lista de tuplas que van a contener a las personas
+    
+        # detalles = []
+        # for anima in Animalito.objects.all():
+        #     if cop:
+        #         meter = dats
+        #         detalles.append(meter)
+        detalles2 = [('Mascotas Preinscriptas ', ':')]
+        detalles = [(animalito.propietario,animalito.nombre_mascota,animalito.especie ,animalito.abono, animalito.nro_pre_inscripcion) for animalito in Animalito.objects.all() if animalito.nro_pre_inscripcion is not None]
+        #Establecemos el tamaño de cada una de las columnas de la tabla
+        # print detalles
+        detalle_orden = Table(detalles2 + [encabezados] +  detalles)
+        #Aplicamos estilos a las celdas de la tabla
+        detalle_orden.setStyle(TableStyle(
+        [
+            
+            ('GRID', (0, 0), (5, -1), 1, colors.black),
+            ('LINEBELOW', (0, 0), (-1, 1), 2, colors.black),
+            ('BACKGROUND', (0, 0), (-1, 1), colors.grey)
+        ]
+        ))
+        #Establecemos el tamaño de la hoja que ocupará la tabla
+        detalle_orden.wrapOn(pdf, 800, 600)
+        #Definimos la coordenada donde se dibujará la tabla
+        detalle_orden.drawOn(pdf, 60,y)
+
+    def get(self, request, *args, **kwargs):
+        
+        #Indicamos el tipo de contenido a devolver, en este caso un pdf
+        response = HttpResponse(content_type='application/pdf')
+        #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
+        buffer = BytesIO()
+        #Canvas nos permite hacer el reporte con coordenadas X y Y
+        pdf = canvas.Canvas(buffer)
+        #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
+        self.cabecera(pdf)
+        y = 600
+        self.tabla(pdf, 650)
+        #Con show page hacemos un corte de página para pasar a la siguiente
+        pdf.showPage()
+        pdf.save()
+        pdf = buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
