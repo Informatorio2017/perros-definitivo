@@ -46,11 +46,7 @@ class ColaboradorForm(forms.Form):
 	ayudante = forms.BooleanField(required=False, label='Colaborador', widget=forms.CheckboxInput())
 
 
-	def __init__(self, *args, **kwargs):
 
-		super(ColaboradorForm, self).__init__(*args, **kwargs)
-		self.fields['dni'].widget.attrs.update({'type' : 'number'})
-		self.fields['telefono'].widget.attrs.update({'type' : 'number'})
 
 class PropietarioForm(forms.ModelForm):
 	class Meta:
