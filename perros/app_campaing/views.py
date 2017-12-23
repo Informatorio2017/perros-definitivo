@@ -497,7 +497,7 @@ def inscripto_turno(request,id):
 
     }
     return render(request, "inscripto_turno.html",contexto)
-#-----------------------------------------------------
+#REPORTES-----------------------------------------------------
 
 class ReportePersonasPDF(View):
 
@@ -535,20 +535,26 @@ class ReportePersonasPDF(View):
     def tabla(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
         
-        encabezados = ('Dueño','Nombre Mascota','Especie','Abonó','N° Preinscripcion', 'Turno')
+        encabezados = ('Dueño','Nombre Mascota','Especie','Abonó', 'Turno')
         #Creamos una lista de tuplas que van a contener a las personas
-        #{% if saldo > 0 %}
-        detalles = [(animalito.propietario,animalito.nombre_mascota,animalito.especie ,animalito.abono,animalito.nro_pre_inscripcion, animalito.turno) for animalito in Animalito.objects.all()]
+    
+        # detalles = []
+        # for anima in Animalito.objects.all():
+        #     if cop:
+        #         meter = dats
+        #         detalles.append(meter)
+        detalles2 = [('Mascotas inscriptas:', '1')]
+        detalles = [(animalito.propietario,animalito.nombre_mascota,animalito.especie ,animalito.abono, animalito.turno) for animalito in Animalito.objects.all() if animalito.nro_pre_inscripcion is None]
         #Establecemos el tamaño de cada una de las columnas de la tabla
-      #  print detalles
-        detalle_orden = Table([encabezados] + detalles)
+        # print detalles
+        detalle_orden = Table(detalles2 + [encabezados] +  detalles)
         #Aplicamos estilos a las celdas de la tabla
         detalle_orden.setStyle(TableStyle(
         [
             
             ('GRID', (0, 0), (5, -1), 1, colors.black),
-            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.black),
-            ('BACKGROUND', (0, 0), (-1, 0), colors.dodgerblue)
+            ('LINEBELOW', (0, 0), (-1, 1), 2, colors.black),
+            ('BACKGROUND', (0, 0), (-1, 1), colors.grey)
         ]
         ))
         #Establecemos el tamaño de la hoja que ocupará la tabla
