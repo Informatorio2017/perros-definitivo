@@ -439,6 +439,8 @@ def formulario_inscripcion_preinscriptos(request,id):
     return render(request, "formulario_inscripcion.html", contexto)
 
 def pre_inscribirse(request):
+
+    campanias = Campaing.objects.filter(habilitada=True)
     if request.method == 'POST':
         # import ipdb; ipdb.set_trace()                
         formPro = PropietarioForm(request.POST)
@@ -451,9 +453,9 @@ def pre_inscribirse(request):
             animalito   = formAni.save(commit=False)         
             animalito.propietario = propietario
                      
-            campania = Campaing.objects.filter(habilitada=True)
+            
 
-            animalito.campaing = campania[0]
+            animalito.campaing = campanias[0]
             animalito.save()  
 
             animalito.nro_pre_inscripcion = animalito.pk
@@ -464,7 +466,11 @@ def pre_inscribirse(request):
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
     else:
-        contexto = {"formPropietario":PropietarioForm,"formAnimalito":AnimalitoPreinscripcionForm}
+        contexto = {
+        "formPropietario":PropietarioForm,
+        "formAnimalito":AnimalitoPreinscripcionForm,
+        "campanias":campanias,
+        }
 
         return render(request, "pre_inscribirse.html", contexto)
 

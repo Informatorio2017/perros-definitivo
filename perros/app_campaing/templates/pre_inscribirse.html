@@ -51,8 +51,9 @@
      {% endblock %}
 
 {% block content %} 
-  <!-- inicio contenedor principal -->
-  <div class="container">
+
+
+{% if campanias %}  
     <!-- inicio row  -->
     <div class="row">
       <!-- inicio columna para datos de campaña -->
@@ -87,9 +88,12 @@
       </div>              
     </form>
   </div>
-             <!-- FIN FORMULARIO  -->
-  </div>
-  <!-- fin contenedor principal -->
+
+{% else %}
+  <h1>No hay campañas pa preinscribirse</h1>
+  <a href="/">home</a>
+{% endif %}
+
 
 {% endblock %}
 
