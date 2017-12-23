@@ -35,7 +35,8 @@ def creado(request):
 
 #
 def ver_campanas(request):
-    return render(request, 'ver_campanas.html', {'campanas':Campaing.objects.all()})
+
+    return render(request, 'ver_campanas.html', {'campanas':Campaing.objects.all().exclude(habilitada=True)})
 
 def ver_campana(request,id):
     try:
@@ -448,6 +449,26 @@ def listado_preinscriptos(request):
     'preinscriptos':preinscriptos,
     }
     return render(request, "listado_preinscriptos.html", contexto)
+
+
+def listado_inscriptos(request):
+    campanias = Campaing.objects.filter(habilitada=True)
+    #campanias = Campaing.objects.get(id=1)#(habilitada=True)
+    campaing = Campaing()
+    if campanias:
+        campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+        saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
+        
+    animales_en_campana = Animalito.objects.filter(campaing=campaing.id)
+    #preinscriptos = animales_en_campana.filter(turno=None)
+    inscriptos = animales_en_campana.exclude(turno=None)
+
+    contexto = {
+    'campaing':campaing,
+    'inscriptos':inscriptos,
+    #'preinscriptos':preinscriptos,
+    }
+    return render(request, "listado_inscriptos.html", contexto)
 
 
 

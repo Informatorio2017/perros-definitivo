@@ -7,28 +7,28 @@
 {% block encabezado %}Amo los Perros{% endblock %}
 			
 {% block content %} 
-	<h5>Preinscriptos </h5> 
+	<h5>Pacientes </h5> 
 
 
  <ul class="collection">
- {% for preinscripto in preinscriptos %}
+ {% for inscripto in inscriptos %}
    <li class="collection-item avatar">
-    {% if preinscripto.especie == "canino" %}
+    {% if nscripto.especie == "canino" %}
     	<img src="../../../static/images/dog.png" alt="" class="circle">
     {% else %}
       	<img src="../../../static/images/cat.png" alt="" class="circle">
     {%endif%}
 
     <p>
-        {{ preinscripto.propietario.apellido}} {{ preinscripto.propietario.nombre}} -<strong>(#{{preinscripto.nro_pre_inscripcion}})</strong>  
+        {{ inscripto.propietario.apellido}} {{ inscripto.propietario.nombre}} -<strong>(#{{inscripto.nro_pre_inscripcion}})</strong>  
         
         <br>
-        {{ preinscripto.nombre_mascota }} - ({{ preinscripto.especie }})
+        {{ inscripto.nombre_mascota }} - ({{ inscripto.especie }})
         
           </p>
-    <a href="/campaing/formulario_inscripcion_preinscriptos/{{preinscripto.id}}/" class="secondary-content">
+    <a href="../alta_paciente/{{inscripto.id}}" class="secondary-content">
 	  <button class="btn-floating waves-effect waves-light" type="submit" name="action" >
-	    <i class="material-icons">playlist_add</i>
+	    <i class="material-icons">loyalty</i>
 	  </button>
     </a>
     </li>
