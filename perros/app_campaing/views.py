@@ -248,7 +248,8 @@ def alta_paciente(request,id):
 
     if request.method == "POST":
         dar_alta = Animalito.objects.get(pk=id)
-        dar_alta.user_name = "nombre"#reemplazar por nombre del q esta logueado
+        username = request.user.username
+        dar_alta.user_name = username
         dar_alta.save()
 
         contexto = {
@@ -308,6 +309,8 @@ def home_admin(request):
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
     atendidos = inscriptos.exclude(user_name='').count()
     
+    
+
     contexto = {
     'atendidos':atendidos,
     'pagados':pagados["abono__sum"],
@@ -317,7 +320,8 @@ def home_admin(request):
     'perros':perros,
     'gatos':gatos,
     "campanias":campanias,
-    "saldo":saldo
+    "saldo":saldo,
+    
     }
     return render(request, "home_admin.html", contexto)
 
