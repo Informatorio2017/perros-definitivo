@@ -248,7 +248,7 @@ def alta_paciente(request,id):
 
     if request.method == "POST":
         dar_alta = Animalito.objects.get(pk=id)
-        dar_alta.user_name = "nombre"
+        dar_alta.user_name = "nombre"#reemplazar por nombre del q esta logueado
         dar_alta.save()
 
         contexto = {
