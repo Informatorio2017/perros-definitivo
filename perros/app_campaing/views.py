@@ -163,7 +163,7 @@ def ver_campana(request,id):
     color_perro_nombre = color[1]
     color_perro_descripcion = color[2]
 
-    color = colores[16]
+    color = colores[23]
     color_perra = color[0]
     color_perra_nombre = color[1]
     color_perra_descripcion = color[2]
