@@ -16,7 +16,7 @@ from django.views.generic import ListView
 from reportlab.platypus import SimpleDocTemplate, Paragraph, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
-from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import A4
 from reportlab.platypus import Table
 #-------------------------------------------------------
 
@@ -536,13 +536,7 @@ class ReportePersonasPDF(View):
         #Creamos una tupla de encabezados para neustra tabla
         
         encabezados = ('Dueño','Nombre Mascota','Especie','Abonó', 'Turno')
-        #Creamos una lista de tuplas que van a contener a las personas
-    
-        # detalles = []
-        # for anima in Animalito.objects.all():
-        #     if cop:
-        #         meter = dats
-        #         detalles.append(meter)
+ 
         detalles2 = [('Mascotas inscriptas:', '1')]
         detalles = [(animalito.propietario,animalito.nombre_mascota,animalito.especie ,animalito.abono, animalito.turno) for animalito in Animalito.objects.all() if animalito.nro_pre_inscripcion is None]
         #Establecemos el tamaño de cada una de las columnas de la tabla
@@ -560,7 +554,7 @@ class ReportePersonasPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla
         detalle_orden.wrapOn(pdf, 800, 600)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 60,y)
+        detalle_orden.drawOn(pdf, 110,550)
 
     def get(self, request, *args, **kwargs):
         
@@ -572,7 +566,6 @@ class ReportePersonasPDF(View):
         pdf = canvas.Canvas(buffer)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
-        y = 600
         self.tabla(pdf, 550)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
@@ -594,7 +587,7 @@ class ReportePersonasPDF2(View):
         #Utilizamos el archivo logo_django.png que está guardado en la carpeta media/imagenes
         archivo_imagen = settings.MEDIA_ROOT+'/logoamolosperros.png'
         #Definimos el tamaño de la imagen a cargar y las coordenadas correspondientes
-        pdf.drawImage(archivo_imagen, 40, 750, 120, 90,preserveAspectRatio=True)
+        pdf.drawImage(archivo_imagen, 70, 730, 120, 80,preserveAspectRatio=True)
 
     def get(self, request, *args, **kwargs):
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
@@ -620,12 +613,6 @@ class ReportePersonasPDF2(View):
         
         encabezados = ('Dueño','Nombre Mascota','Especie','Abonó', 'Nro preinscripcion')
         #Creamos una lista de tuplas que van a contener a las personas
-    
-        # detalles = []
-        # for anima in Animalito.objects.all():
-        #     if cop:
-        #         meter = dats
-        #         detalles.append(meter)
         detalles2 = [('Mascotas Preinscriptas ', ':')]
         detalles = [(animalito.propietario,animalito.nombre_mascota,animalito.especie ,animalito.abono, animalito.nro_pre_inscripcion) for animalito in Animalito.objects.all() if animalito.nro_pre_inscripcion is not None]
         #Establecemos el tamaño de cada una de las columnas de la tabla
@@ -655,10 +642,11 @@ class ReportePersonasPDF2(View):
         pdf = canvas.Canvas(buffer)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
-        y = 600
-        self.tabla(pdf, 650)
+        
+        #y=550-
+        self.tabla(pdf, 550)
         #Con show page hacemos un corte de página para pasar a la siguiente
-        pdf.showPage()
+        #pdf.showPage()
         pdf.save()
         pdf = buffer.getvalue()
         buffer.close()
