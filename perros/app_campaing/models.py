@@ -83,6 +83,3 @@ class CampaingColaborador(models.Model):
 		
 	class Meta:
 		unique_together=("campaing","colaborador")
-
-
-
