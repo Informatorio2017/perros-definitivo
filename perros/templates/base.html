@@ -56,7 +56,7 @@
 		          </div>
 		        </li>
 		        <li>
-		          <a href="/campaing/home_admin/">
+		          <a href="/">
 		            <i class="material-icons">home</i>Inicio
 		          </a>
 		        </li>
@@ -65,6 +65,35 @@
 		        <li>
 		          <a class="waves-effect" href="/campaing/ver_campanas/"><i class="material-icons">visibility</i>Ver Campañas</a>
 		        </li>
+			    {% if user.is_authenticated %}
+					<li class="divider"></li>
+				    <li>
+				      <a href="{% url 'logout' %}">
+				        <i class="material-icons">vpn_key</i>Cerrar Seción
+				      </a>
+				    </li>
+				    <li>
+				      <a href="/campaing/home_admin/">
+				        <i class="material-icons">network_check</i>Escritorio
+				      </a>
+				    </li>
+				    <li>
+				      <a href="/campaing/crear_barrio/">
+				        <i class="material-icons">dashboard</i>Agregar Barrio
+				      </a>
+				    </li>
+				    <li>
+				      <a href="/campaing/crear_lugar/">
+				        <i class="material-icons">add_location</i>Agregar Lugar
+				      </a>
+				    </li>				    
+				{% else %}		        
+				    <li>
+				      <a href="{% url 'login' %}">
+				        <i class="material-icons">fingerprint</i>Iniciar Sesión
+				      </a>
+				    </li>
+				{% endif %}			        
 		      </ul>
 		      <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
 		        <i class="material-icons">menu</i>
