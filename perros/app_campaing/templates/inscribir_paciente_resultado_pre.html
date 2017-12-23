@@ -2,15 +2,30 @@
 {% block title %}Resultados{% endblock %}
 
 {% block content %}
-<h2>Se buscó: {{ query }}</h2>
+<h3>Se buscó: N° {{ query }}</h3>
 
 {% for paciente in pacientes %}
 	<p>{{ paciente.nombre_mascota }} - ${{ paciente.especie }} </p>
   	<p><a href="/campaing/formulario_inscripcion_preinscriptos/{{paciente.id}}/">Inscribir</a></p>
 
 {% endfor %}
+	 <div class="row">
+	
+		<div class="col s12 m6 center-align">
 
-<a href="/campaing/inscribir_paciente_pre/" class="waves-effect waves-light btn-large">buscar otro</a>
-<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large">no pre inscripto</a>
+			<a href="/campaing/inscribir_paciente_pre/" class="waves-effect waves-light btn-large btn-ancho">buscar otro</a>
+
+		</div>
+
+		<div class="col s12 separador hide-on-med-and-up"></div>
+
+		<div class="col s12 m6 center-align btn-ancho">
+
+			<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large btn-ancho">no preinscripto</a>
+
+		</div>
+	
+
+	</div>
 
 {% endblock %}
