@@ -45,6 +45,13 @@ class ColaboradorForm(forms.Form):
 	padrino = forms.BooleanField(required=False, label='Padrino', widget=forms.CheckboxInput())
 	ayudante = forms.BooleanField(required=False, label='Colaborador', widget=forms.CheckboxInput())
 
+
+	def __init__(self, *args, **kwargs):
+
+		super(ColaboradorForm, self).__init__(*args, **kwargs)
+		self.fields['dni'].widget.attrs.update({'type' : 'number'})
+		self.fields['telefono'].widget.attrs.update({'type' : 'number'})
+
 class PropietarioForm(forms.ModelForm):
 	class Meta:
 		model = Propietario
@@ -68,7 +75,7 @@ class PropietarioForm(forms.ModelForm):
 
 	def __init__(self, *args, **kwargs):
 
-		super(ColaboradorForm, self).__init__(*args, **kwargs)
+		super(PropietarioForm, self).__init__(*args, **kwargs)
 		self.fields['dni'].widget.attrs.update({'type' : 'number'})
 		self.fields['telefono'].widget.attrs.update({'type' : 'number'})
 
