@@ -229,7 +229,10 @@ def alta_paciente(request,id):
         dar_alta = Animalito.objects.get(pk=id)
         dar_alta.user_name = "nombre"
         dar_alta.save()
-        contexto = {}
+
+        contexto = {
+        "paciente":dar_alta,
+        }
         return render(request,"paciente_dado_de_alta.html",contexto)
 
 
