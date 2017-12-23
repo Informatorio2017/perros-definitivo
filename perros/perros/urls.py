@@ -26,5 +26,6 @@ urlpatterns = [
 	url(r'^login/',views.login,name= 'login' ),
     url(r'^logout/',views.logout,name= 'logout' ),
     url(r'^create_user/',views.create_user,name= 'create_user' ),
+    url(r'^creditos/', views.creditos, name="creditos"),
 ]
 

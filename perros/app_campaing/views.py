@@ -279,9 +279,6 @@ def about_campaing(request,id):
     return render(request,template,contexto)
 
 
-def home(request):
-    contexto = {}
-    return render(request, "home.html", contexto)
 
 def alta_paciente(request,id):
 

@@ -61,3 +61,10 @@ def create_user(request):
 
 	contexto = {'form':form}
 	return render(request,'create_user.html',contexto)
+
+
+
+
+def creditos(request):
+    contexto = {}
+    return render(request, "creditos.html", contexto)

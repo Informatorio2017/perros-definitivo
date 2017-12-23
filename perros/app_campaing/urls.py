@@ -88,5 +88,10 @@ urlpatterns = [
 
 
 	url(r'^colaborador_inscripto/', views.colaborador_inscripto, name="colaborador_inscripto"),	
+
+
+
+
+	
 			
 ]
