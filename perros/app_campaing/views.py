@@ -534,9 +534,11 @@ class ReportePersonasPDF(View):
 
     def tabla(self,pdf,y):
         #Creamos una tupla de encabezados para neustra tabla
-        encabezados = ('Dueño', 'Número preinscripcion', 'Turno')
+        
+        encabezados = ('Dueño','Nombre Mascota','Especie','Abonó','N° Preinscripcion', 'Turno')
         #Creamos una lista de tuplas que van a contener a las personas
-        detalles = [(animalito.propietario, animalito.nro_pre_inscripcion, animalito.turno) for animalito in Animalito.objects.all()]
+        #{% if saldo > 0 %}
+        detalles = [(animalito.propietario,animalito.nombre_mascota,animalito.especie ,animalito.abono,animalito.nro_pre_inscripcion, animalito.turno) for animalito in Animalito.objects.all()]
         #Establecemos el tamaño de cada una de las columnas de la tabla
       #  print detalles
         detalle_orden = Table([encabezados] + detalles)
@@ -544,8 +546,8 @@ class ReportePersonasPDF(View):
         detalle_orden.setStyle(TableStyle(
         [
             
-            ('GRID', (0, 0), (3, -1), 1, colors.dodgerblue),
-            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.darkblue),
+            ('GRID', (0, 0), (5, -1), 1, colors.black),
+            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.black),
             ('BACKGROUND', (0, 0), (-1, 0), colors.dodgerblue)
         ]
         ))
@@ -555,6 +557,7 @@ class ReportePersonasPDF(View):
         detalle_orden.drawOn(pdf, 60,y)
 
     def get(self, request, *args, **kwargs):
+        
         #Indicamos el tipo de contenido a devolver, en este caso un pdf
         response = HttpResponse(content_type='application/pdf')
         #La clase io.BytesIO permite tratar un array de bytes como un fichero binario, se utiliza como almacenamiento temporal
@@ -564,7 +567,7 @@ class ReportePersonasPDF(View):
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
         y = 600
-        self.tabla(200, 770, pdf, y)
+        self.tabla(pdf, 550)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
