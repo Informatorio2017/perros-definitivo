@@ -538,7 +538,8 @@ class ReportePersonasPDF(View):
         encabezados = ('Dueño','Nombre Mascota','Especie','Abonó', 'Turno')
  
         detalles2 = [('Mascotas inscriptas:', '1')]
-        detalles = [(animalito.propietario,animalito.nombre_mascota,animalito.especie ,animalito.abono, animalito.turno) for animalito in Animalito.objects.all() if animalito.nro_pre_inscripcion is None]
+        detalles = [(animalito.propietario,animalito.nombre_mascota,animalito.especie ,animalito.abono, animalito.turno) 
+        for animalito in Animalito.objects.all() if animalito.nro_pre_inscripcion is None]
         #Establecemos el tamaño de cada una de las columnas de la tabla
         # print detalles
         detalle_orden = Table(detalles2 + [encabezados] +  detalles)
@@ -554,7 +555,7 @@ class ReportePersonasPDF(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla
         detalle_orden.wrapOn(pdf, 800, 600)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 110,550)
+        detalle_orden.drawOn(pdf, 90,y)
 
     def get(self, request, *args, **kwargs):
         
@@ -566,7 +567,11 @@ class ReportePersonasPDF(View):
         pdf = canvas.Canvas(buffer)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
-        self.tabla(pdf, 550)
+        y= 670
+        for animalito in Animalito.objects.all(): 
+            if animalito.nro_pre_inscripcion is None:
+                y=y-16    
+        self.tabla(pdf, y)
         #Con show page hacemos un corte de página para pasar a la siguiente
         pdf.showPage()
         pdf.save()
@@ -630,7 +635,7 @@ class ReportePersonasPDF2(View):
         #Establecemos el tamaño de la hoja que ocupará la tabla
         detalle_orden.wrapOn(pdf, 800, 600)
         #Definimos la coordenada donde se dibujará la tabla
-        detalle_orden.drawOn(pdf, 60,y)
+        detalle_orden.drawOn(pdf, 90,y)
 
     def get(self, request, *args, **kwargs):
         
@@ -642,9 +647,11 @@ class ReportePersonasPDF2(View):
         pdf = canvas.Canvas(buffer)
         #Llamo al método cabecera donde están definidos los datos que aparecen en la cabecera del reporte.
         self.cabecera(pdf)
-        
-        #y=550-
-        self.tabla(pdf, 550)
+        y= 670
+        for animalito in Animalito.objects.all(): 
+            if animalito.nro_pre_inscripcion is not None:
+                y=y-16 
+        self.tabla(pdf, y)
         #Con show page hacemos un corte de página para pasar a la siguiente
         #pdf.showPage()
         pdf.save()
