@@ -8,11 +8,25 @@ from .models import Colaborador, CampaingColaborador
 
 campaning = None
 
-def cerrar_inscripcion_campaing(request):
-    return render(request, 'confirmar_fin_inscrip.html')
+def cerrar_inscripcion_campaing(request,id):
+    campaing = Campaing.objects.get(id=id)
+    
+    template = 'confirmar_fin_inscrip.html'
+    contexto = {
+    "campaing":campaing,
+    }
+    return render(request,template,contexto)
+    
 
-def fin_campaing(request):
-    return render(request, 'confirmar_fin_campana.html')
+def fin_campaing(request,id):
+    campaing = Campaing.objects.get(id=id)
+    
+    template = 'confirmar_fin_campana.html'
+    contexto = {
+    "campaing":campaing,
+    }
+    return render(request,template,contexto)
+
 
 
 #se va esta view
