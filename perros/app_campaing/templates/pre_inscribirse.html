@@ -54,6 +54,7 @@
 
 
 {% if campanias %}  
+  {% if campana.preinscripcion %}
     <!-- inicio row  -->
     <div class="row">
       <!-- inicio columna para datos de campaña -->
@@ -88,6 +89,11 @@
       </div>              
     </form>
   </div>
+  {% else %}
+    <h1>preinscripción no habilitada</h1>
+     <a href="/">home</a>
+  {% endif %}
+
 
 {% else %}
   <h1>No hay campañas pa preinscribirse</h1>
