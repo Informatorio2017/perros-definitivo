@@ -73,10 +73,14 @@ def ver_campana(request,id):
     c_preinscriptos = preinscriptos.count()
     
     perros = inscriptos.filter(especie="canino").count()
-    porcentaje_perros = perros * 100 /c_inscriptos
     gatos = inscriptos.filter(especie="felino").count()
-    porcentaje_gatos = gatos * 100 /c_inscriptos
-   
+
+    if c_inscriptos>0:
+        porcentaje_perros = perros * 100 /c_inscriptos
+        porcentaje_gatos = gatos * 100 /c_inscriptos
+    else:
+        porcentaje_perros = 0
+        porcentaje_gatos = 0
 
     pagados = Animalito.objects.filter(campaing=campana.id).aggregate(Sum('abono'))
     lista_atendidos = inscriptos.exclude(user_name='')
@@ -167,29 +171,38 @@ def ver_campana(request,id):
     color_gato = color[0]
     color_gato_nombre = color[1]
     color_gato_descripcion = color[2]
-    if atendidos > 0:
-        porcentaje_gato = est_gatos_atendidos*100/atendidos
+
+    
 
     color = colores[10]
     color_gata = color[0]
     color_gata_nombre = color[1]
     color_gata_descripcion = color[2]
-    if atendidos > 0:
-        porcentaje_gata = est_gatas_atendidas*100/atendidos
+
+    
 
     color = colores[13]
     color_perro = color[0]
     color_perro_nombre = color[1]
     color_perro_descripcion = color[2]
-    if atendidos > 0:
-        porcentaje_perro = est_perros_atendidos*100/atendidos
+
+    
 
     color = colores[23]
     color_perra = color[0]
     color_perra_nombre = color[1]
     color_perra_descripcion = color[2]
+    
     if atendidos > 0:
+        porcentaje_gato = est_gatos_atendidos*100/atendidos
+        porcentaje_gata = est_gatas_atendidas*100/atendidos
+        porcentaje_perro = est_perros_atendidos*100/atendidos
         porcentaje_perra = est_perras_atendidos*100/atendidos
+    else:
+        porcentaje_gato = 0
+        porcentaje_gata = 0
+        porcentaje_perro = 0
+        porcentaje_perra = 0
 
     estadistica_sex_animal = {
     "Gatos Atendidos":(est_gatos_atendidos,color_gato,color_gato_nombre,color_gato_descripcion,porcentaje_gato),
