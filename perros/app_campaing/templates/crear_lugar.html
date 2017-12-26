@@ -5,27 +5,24 @@
 {% block content %} 
 	
 	<div class="row">
-    <form class="col s12" method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-  
-      <div class="row"> <!-- row para los botones de abajo -->
+    <div class="col s12 m6">
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+      </form>
 
-        <div class="col s12  center-align">
 
-          <button type="submit" class="waves-effect waves-light accent-2 btn-large"><i class="material-icons">add_location</i></i>      Crear Lugar
+          <button type="submit" class="waves-effect waves-light accent-2 btn-large"><i class="material-icons">add_location</i></i>     <strong>Crear Lugar</strong>
           </button>
-        </div>
+    </div>   
 
-      </div>              
-    </form>
-  </div>
+     <div class="separador"></div>          
 
 
-<div class="divider"></div>
-<h5 class="center-align">Listado de Lugares </h5> 
 
-<div class="row">
+<div class="divider"></div> 
+<h5 class="center-left">Listado de Lugares </h5> 
+
   <ul class="collection">
 {% for lugar in lugares %}
         
@@ -39,7 +36,8 @@
     
 
 {% endfor %}
-  </ul>
+    </ul>
+  </div>
 </div>
 
 
