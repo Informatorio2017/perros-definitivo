@@ -501,11 +501,26 @@ def formulario_inscripcion_preinscriptos(request,id):
        # import ipdb; ipdb.set_trace()                
         formAni = AnimalitoForm(request.POST,instance=animali)
         formPro = PropietarioForm(request.POST,instance=animali.propietario)
+
+#
         if formPro.is_valid() and formAni.is_valid():
-            formPro.save()
-            formAni.save()
-            id_str = str(animali.pk)
+            propietario = formPro.save(commit=False)        
+            propietario.save()
+            animalito   = formAni.save(commit=False)         
+            animalito.propietario = propietario                    
+            campania = Campaing.objects.filter(habilitada=True)
+            animalito.campaing = campania[0]
+            campania_actualizar = campania[0]
+            if animalito.abono < campania_actualizar.monto_valor_operacion:
+                grupo_animal = campania_actualizar.monto_valor_operacion - animalito.abono
+                campania_actualizar.monto_inter_grupo_gastado = campania_actualizar.monto_inter_grupo_gastado + grupo_animal
+                campania_actualizar.save()
+
+            animalito.save()  
+            id_str = str(animalito.pk)
             return redirect('/campaing/inscripto_turno/'+id_str)
+
+#
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
 
