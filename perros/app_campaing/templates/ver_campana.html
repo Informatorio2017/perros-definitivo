@@ -208,8 +208,7 @@
 				
 				B°: {{barrio_nombre}} {{barrio_cantidad.0}} ({{barrio_cantidad.1|floatformat:"1"}}%)
 			</h6>
-		      <!-- <h6>Perros: {{barrio_cantidad.2}} Gatos: {{barrio_cantidad.3}}</h6> -->
-		      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+
 		    </li>
 
 	{% endfor %}
@@ -274,8 +273,7 @@
 				
 				B°: {{especimen}} {{cantidad.0}} ({{cantidad.4|floatformat:"1"}}%)
 			</h6>
-		      <!-- <h6>Perros: {{barrio_cantidad.2}} Gatos: {{barrio_cantidad.3}}</h6> -->
-		      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+
 		    </li>
 
 	{% endfor %}
@@ -312,10 +310,10 @@
       			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
   			</div>
 		<h6>Cantidad Atendidos: {{barrio_cantidad.0}}</h6>
-		<h6>Porcentaje Atendidos: {{barrio_cantidad.1}}</h6>
+		<h6>Porcentaje Atendidos: {{barrio_cantidad.1|floatformat:"2"}}%</h6>
 			<h6>Perros: {{barrio_cantidad.2}}</h6>
 			<h6>Gatos: {{barrio_cantidad.3}}</h6>
-			<h6>color: {{barrio_cantidad.4}}</h6>
+			
 		<br>
 	{% endfor %}
 
