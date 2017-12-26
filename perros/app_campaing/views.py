@@ -529,13 +529,13 @@ def pre_inscribirse(request,id):
             return redirect('/Aca_si_no_valida_los_datos')
     else:
         campana = Campaing()
-        if campanias:
-            campana = campanias[0]
+    
+
         contexto = {
         "formPropietario":PropietarioForm,
         "formAnimalito":AnimalitoPreinscripcionForm,
 
-        "campanias":campanias,
+
         "campana":campana,
 
 
