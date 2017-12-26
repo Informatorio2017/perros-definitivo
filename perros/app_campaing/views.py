@@ -18,20 +18,36 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import Table
+from django.contrib.auth.decorators import login_required
+
 #-------------------------------------------------------
 
-campaning = None
 
+@login_required(login_url='login')
 def cerrar_inscripcion_campaing(request,id):
+    # import ipdb; ipdb.set_trace()                
+    if request.session['num'] != int(id):
+        return redirect('/campaing/url_inexistente/')
+
     campaing = Campaing.objects.get(id=id)
     
     template = 'confirmar_fin_inscrip.html'
-    contexto = {
-    "campaing":campaing,
-    }
+    contexto = {"campaing":campaing,}
     return render(request,template,contexto)
-    
 
+@login_required(login_url='login')
+def confirmar_cierre_preinscipcion(request,id):
+
+    campaing = Campaing.objects.get(id=id)
+    campaing.preinscripcion = False
+    campaing.save()
+    return redirect('/campaing/home_admin/')
+
+@login_required(login_url='login')
+def url_inexistente(request):
+    return render(request,'url_inexistente.html',{})
+
+@login_required(login_url='login')
 def fin_campaing(request,id):
     campaing = Campaing.objects.get(id=id)
     
@@ -41,6 +57,12 @@ def fin_campaing(request,id):
     }
     return render(request,template,contexto)
 
+@login_required(login_url='login')
+def confirmar_cierre_campania(request,id):
+    campaing = Campaing.objects.get(id=id)
+    campaing.habilitada = False
+    campaing.save()
+    return redirect('/campaing/home_admin/')
 
 
 #se va esta view
@@ -61,7 +83,6 @@ def ver_campana(request,id):
     campanias = Campaing.objects.filter(habilitada=True)
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
     #campaing = Campaing()
-
 
     animales_en_campana = Animalito.objects.filter(campaing=campana.id)
 
@@ -221,10 +242,12 @@ def ver_campana(request,id):
     return render(request, "ver_campana.html",contexto)
 
 #
+@login_required(login_url='login')
 def ver_colaboradores(request):
     return render(request, 'ver_colaboradores.html', {'colaboradores':Colaborador.objects.all()})
 
 #
+@login_required(login_url='login')
 def create_campaing(request):
     if request.method == 'POST':
         form = CreateCampaing(request.POST)
@@ -241,15 +264,32 @@ def create_campaing(request):
         return render(request, "create_campaing.html", contexto)
 
 def about_campaing(request,id):
-    campaing = Campaing.objects.get(id=id)
+    try:
+       campaing = Campaing.objects.get(id=id)       
+    except Campaing.DoesNotExist:
+       campaing = None
+
+    if campaing is None or campaing.habilitada == False:
+        return redirect('home')
+
     if request.method == 'POST':
         dni_post = request.POST['dni']
         nombre_post = request.POST['nombre']
         apellido_post = request.POST['apellido']
         telefono_post = request.POST['telefono']
-        padrino_post = True#request.POST['padrino']
-        ayudante_post = False #request.POST['ayudante']
- 
+        colaborador_post = request.POST['colaborador']
+
+        ayudante = False
+        padrino = False
+
+        if colaborador_post == "C":
+            ayudante = True
+        elif colaborador_post == "P":
+            padrino = True
+        else:
+            ayudante = True
+            padrino = True
+
         colaborador = Colaborador()
         colaborador.dni = dni_post
         colaborador.nombre = nombre_post
@@ -264,14 +304,15 @@ def about_campaing(request,id):
             colaborador.save()
 
         camp_colabora = CampaingColaborador()
-        camp_colabora.padrino = padrino_post
-        camp_colabora.ayudante = ayudante_post
+        camp_colabora.padrino = padrino
+        camp_colabora.ayudante = ayudante
         camp_colabora.colaborador = colaborador
         camp_colabora.campaing = campaing
 
         camp_colabora.save()
-        
-        return redirect('../../colaborador_inscripto')
+
+        id_str = str(camp_colabora.id)          
+        return redirect('../../colaborador_inscripto/'+id_str)
 
         # else:        
         #     return redirect('/Aca_si_no_valida_los_datos')
@@ -280,9 +321,8 @@ def about_campaing(request,id):
     return render(request,template,contexto)
 
 
-
+@login_required(login_url='login')
 def alta_paciente(request,id):
-
     if request.method == "POST":
         dar_alta = Animalito.objects.get(pk=id)
         username = request.user.username
@@ -293,8 +333,6 @@ def alta_paciente(request,id):
         "paciente":dar_alta,
         }
         return render(request,"paciente_dado_de_alta.html",contexto)
-
-
     try:
         paciente= Animalito.objects.get(pk=id)
         # idprop= paciente.propietario
@@ -305,6 +343,7 @@ def alta_paciente(request,id):
     return render(request, "alta_paciente.html",{"paciente":paciente})
 
 
+@login_required(login_url='login')
 def buscar_paciente(request):
 
     if request.method == "POST":
@@ -321,14 +360,17 @@ def buscar_paciente(request):
 
     return render(request,"buscar_paciente.html",{"form":form})
 
-
+@login_required(login_url='login')
 def home_admin(request):
     campanias = Campaing.objects.filter(habilitada=True)
+    # import ipdb; ipdb.set_trace()                
+    
     saldo = 0
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
     campaing = Campaing()
     if campanias:
         campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+        request.session['num'] = campaing.id
         saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
         
 
@@ -358,11 +400,12 @@ def home_admin(request):
     'gatos':gatos,
     "campanias":campanias,
     "saldo":saldo,
-    
+    'preinscripcion':campaing.preinscripcion,    
     }
     return render(request, "home_admin.html", contexto)
 
 
+@login_required(login_url='login')
 def inscribir_paciente_pre(request):       
 
     if request.method == "POST":
@@ -382,6 +425,7 @@ def inscribir_paciente_pre(request):
 
 
 # incripción para los pacientes NO preinscriptos
+@login_required(login_url='login')
 def formulario_inscripcion(request):
     if request.method == 'POST':
                         
@@ -415,6 +459,7 @@ def formulario_inscripcion(request):
         return render(request, "formulario_inscripcion.html", contexto)
 
 # incripción para los pacientes preinscriptos
+@login_required(login_url='login')
 def formulario_inscripcion_preinscriptos(request,id):
     animali = Animalito.objects.get(id = id )
     # import ipdb; ipdb.set_trace()                
@@ -436,9 +481,16 @@ def formulario_inscripcion_preinscriptos(request,id):
     contexto = {"formPropietario":formPro,"formAnimalito":formAni}
     return render(request, "formulario_inscripcion.html", contexto)
 
-def pre_inscribirse(request):
+def pre_inscribirse(request,id):
+    # campanias = Campaing.objects.filter(habilitada=True)
+    try:
+       campaing = Campaing.objects.get(id=id)
+    except Campaing.DoesNotExist:
+       campaing = None
 
-    campanias = Campaing.objects.filter(habilitada=True)
+    if campaing is None or campaing.habilitada == False or campaing.preinscripcion == False:
+        return redirect('home')
+
     if request.method == 'POST':
         # import ipdb; ipdb.set_trace()                
         formPro = PropietarioForm(request.POST)
@@ -450,10 +502,9 @@ def pre_inscribirse(request):
 
             animalito   = formAni.save(commit=False)         
             animalito.propietario = propietario
-                     
-            
-
-            animalito.campaing = campanias[0]
+                                 
+            # animalito.campaing = campanias[0]
+            animalito.campaing = campaing
             animalito.save()  
 
             animalito.nro_pre_inscripcion = animalito.pk
@@ -467,12 +518,13 @@ def pre_inscribirse(request):
         contexto = {
         "formPropietario":PropietarioForm,
         "formAnimalito":AnimalitoPreinscripcionForm,
-        "campanias":campanias,
+        "campanias":campaing,
         }
 
         return render(request, "pre_inscribirse.html", contexto)
 
 
+@login_required(login_url='login')
 def listado_preinscriptos(request):
     campanias = Campaing.objects.filter(habilitada=True)
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
@@ -493,6 +545,7 @@ def listado_preinscriptos(request):
     return render(request, "listado_preinscriptos.html", contexto)
 
 
+@login_required(login_url='login')
 def listado_inscriptos(request):
     campanias = Campaing.objects.filter(habilitada=True)
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
@@ -513,7 +566,7 @@ def listado_inscriptos(request):
     return render(request, "listado_inscriptos.html", contexto)
 
 
-
+@login_required(login_url='login')
 def ver_qr(request):
     
     campania = Campaing.objects.filter(preinscripcion=True)
@@ -526,7 +579,7 @@ def ver_qr(request):
     }
     return render(request, "ver_qr.html", contexto)    
 
-
+@login_required(login_url='login')
 def crear_barrio(request):
     if request.method == 'POST':
         form = CrearBarrio(request.POST)
@@ -547,7 +600,7 @@ def crear_barrio(request):
 
         return render(request, "crear_barrio.html", contexto)
 
-
+@login_required(login_url='login')
 def crear_lugar(request):
     if request.method == 'POST':
         form = CrearLugar(request.POST)
@@ -566,6 +619,7 @@ def crear_lugar(request):
         }
 
         return render(request, "crear_lugar.html", contexto)
+
 
 def creat_colaborador(request,id):
     campaing = Campaing.objects.get(id=id)
@@ -604,6 +658,7 @@ def creat_colaborador(request,id):
     return render(request, "create_colaborador.html", contexto)
 
 
+@login_required(login_url='login')
 def inscripto_turno(request,id):
     try:
         paciente= Animalito.objects.get(pk=id)
@@ -618,7 +673,6 @@ def inscripto_turno(request,id):
     }
     return render(request, "inscripto_turno.html",contexto)
 
-
 def pre_inscripto_turno(request,id):
     try:
         paciente= Animalito.objects.get(pk=id)
@@ -628,9 +682,20 @@ def pre_inscripto_turno(request,id):
     contexto = {"paciente":paciente,}
     return render(request, "pre_inscripto_turno.html",contexto)
 
-def colaborador_inscripto(request):
+
+def colaborador_inscripto(request,id):
+    try:
+        campaing_colaborador= CampaingColaborador.objects.get(id=id)
+
+    except CampaingColaborador.DoesNotExist:
+        raise Http404("No se encontro la CampaingColaborador")
+
+    if campaing_colaborador.campaing.habilitada == False:
+        return redirect('home')
+
+    contexto = {"campaing_colaborador":campaing_colaborador}
     template = "colaborador_inscripto.html"
-    contexto = {}
+
     return render(request, template, contexto)
 
 #REPORTES-----------------------------------------------------

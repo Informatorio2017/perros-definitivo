@@ -94,7 +94,7 @@
                       sin hogar. Además mejoras su salud, carácter, prevenís enfermedades, 
                        dándole mas años de vida .
                   </p>
-              <a class="waves-effect waves-light btn-large btn-ancho" href="../../pre_inscribirse">Inscribir</a>
+              <a class="waves-effect waves-light btn-large btn-ancho" href="../../pre_inscribirse/{{campaing.id}}">Inscribir</a>
             </div>
             <div class="col s12 separador"></div>
               <div class="col s12 l4 center-align contenedor">
@@ -150,4 +150,12 @@
     
     {% endblock %}   
 
- 
+ {% block extra_js %}
+  <!-- Para que funcione el select  -->
+  <script>
+  $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
+
+{% endblock %}

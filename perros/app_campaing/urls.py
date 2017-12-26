@@ -30,9 +30,13 @@ urlpatterns = [
 
 	#####falta finalizar inscripcion pública campaña confirmar (campaña_id)
 	url(r'^close_inscription_campaing/([0-9]+)$', views.cerrar_inscripcion_campaing, name="cerrar_inscripcion_campaing"),
+	url(r'^confirmar_cierre_preinscipcion/([0-9]+)$', views.confirmar_cierre_preinscipcion, name="confirmar_cierre_preinscipcion"),
 	#####falta finalizar campaña confirmar (campaña_id)
 	url(r'^end_campaing/([0-9]+)$', views.fin_campaing, name="fin_campaing"),
     
+    url(r'^confirmar_cierre_campania/([0-9]+)$', views.confirmar_cierre_campania, name="confirmar_cierre_campania"),
+
+    url(r'^url_inexistente/', views.url_inexistente, name="url_inexistente"),
 
 	#Colaborador################
 
@@ -46,7 +50,7 @@ urlpatterns = [
 	#animalito#############33
 
 	#formulario preinscripcion
-	url(r'^pre_inscribirse/', views.pre_inscribirse, name="pre_inscribirse"),
+	url(r'^pre_inscribirse/(?P<id>\d+)/$', views.pre_inscribirse, name="pre_inscribirse"),
 	#preinscrip ok
 		#falta (donde te muestre numero preincripcion etc)
 	#busqueda de preiscripto, o enlace a inscripcion
@@ -81,14 +85,12 @@ urlpatterns = [
 	#crear usuarios
 	url(r'^about_campaing/(?P<id>\d+)/$', views.about_campaing, name="about_campaing"),	
 
-
 	url(r'^pre_inscripto_turno/(?P<id>\d+)/$', views.pre_inscripto_turno, name="pre_inscripto_turno"),	
 
 	url(r'^reporte_personas_pdf/$',views.ReportePersonasPDF.as_view(), name="reporte_personas_pdf"),		
 	url(r'^reporte_personas_pdf2/$',views.ReportePersonasPDF2.as_view(), name="reporte_personas_pdf2"),		
 
-
-	url(r'^colaborador_inscripto/', views.colaborador_inscripto, name="colaborador_inscripto"),	
+	url(r'^colaborador_inscripto/(?P<id>\d+)/$', views.colaborador_inscripto, name="colaborador_inscripto"),	
 
 
 

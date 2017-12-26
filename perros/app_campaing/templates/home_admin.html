@@ -159,13 +159,14 @@
 
 
           <ul class="collection">
+            {% if preinscripcion %}
             <li class="collection-item">
               <a href="/campaing/close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red left">
                 <i class="material-icons">lock</i>
               </a>
           
               <span>
-                <strong>Cerrar Inscripción</strong><br>
+                <strong>Cerrar Preinscripción</strong><br>
                 No se recibirán más inscripciones públicas
               </span>
             </li>
@@ -180,6 +181,7 @@
                 Ver, imprimir o compartir el enlace público de inscripciones.
               </span>
             </li>
+            {% endif %}
 
             <li class="collection-item">
               <a href="/campaing/end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red left">
@@ -191,13 +193,8 @@
                 Finalizará la campaña activa y se generarán las estadísticas
               </span>
             </li>
-
-
-
       
           </ul>
-
-
 
         </div>
       </li>

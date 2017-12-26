@@ -28,26 +28,21 @@ class CreateCampaing(forms.ModelForm):
 		
 
 class BuscarPaciente_pre(forms.Form):
-
 	query = forms.IntegerField(label="Ingrese el N° de preinscripción")
 
 
 class BuscarPaciente(forms.Form):
-
 	query = forms.IntegerField(label="Ingrese el N° de turno")
 
 
 class ColaboradorForm(forms.Form):
+	OPTIONS = ((None, ''),("C", "Colaborador"),("P", "Padrino"),("A", "Colaborador/Padrino"),)	
 	dni=forms.CharField(max_length=8,label='DNI')
 	apellido = forms.CharField(max_length = 30,label='Apellido')
 	nombre=forms.CharField(max_length=30,label='Nombre')
-	telefono = forms.CharField(max_length = 20,label='Teléfono')	
-	padrino = forms.BooleanField(required=False, label='Padrino', widget=forms.CheckboxInput())
-	ayudante = forms.BooleanField(required=False, label='Colaborador', widget=forms.CheckboxInput())
-
-
-
-
+	telefono = forms.CharField(max_length = 20,label='Teléfono')
+	colaborador = forms.ChoiceField(choices=OPTIONS, required=True, label="Tipo de colaboración")
+	
 class PropietarioForm(forms.ModelForm):
 	class Meta:
 		model = Propietario

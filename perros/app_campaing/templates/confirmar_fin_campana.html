@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %} Perros de la Calle {% endblock %}
-{% block encabezado %} Crear Barrio {% endblock %}
+{% block title %} AmoLosPerrosSP {% endblock %}
+{% block encabezado %} Finalizar Campaña {% endblock %}
 
 {% block content %} 
 	
-
 	<div class="col s12 separador"></div>
 
 	<div class="row">
@@ -19,9 +18,7 @@
 		<div class="col s12 separador"></div>
 
 		<div class="col s12 m12 center-align">
-
-  			<button type="submit" class="waves-effect waves-light accent-2 btn-large">FINALIZAR CAMPAÑA</button>
-
+			<a class="waves-effect waves-light accent-2 btn-large" href="../confirmar_cierre_campania/{{campaing.id}} ">FINALIZAR CAMPAÑA</a>
   		</div>
 	</div>
 
