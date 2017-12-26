@@ -273,6 +273,9 @@ def create_campaing(request):
         else:        
             return redirect('/Aca_si_no_valida_los_datos')
     else:
+        campanias = Campaing.objects.filter(habilitada=True)
+        if campanias:
+            return redirect('home')
         contexto = {"form":CreateCampaing}
 
         return render(request, "create_campaing.html", contexto)
