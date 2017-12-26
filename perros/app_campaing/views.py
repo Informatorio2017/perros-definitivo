@@ -359,6 +359,16 @@ def alta_paciente(request,id):
 
 @login_required(login_url='login')
 def buscar_paciente(request):
+    campanias = Campaing.objects.filter(habilitada=True)
+    # import ipdb; ipdb.set_trace()                
+       
+    #campanias = Campaing.objects.get(id=1)#(habilitada=True)
+    campaing = Campaing()
+    if campanias:
+        campaing = campanias[0]
+    inscriptos_en_campana =  Animalito.objects.filter(campaing=campaing)
+
+
 
     if request.method == "POST":
         form = BuscarPaciente(request.POST)
@@ -366,7 +376,7 @@ def buscar_paciente(request):
         if form.is_valid():
 
             query = form.cleaned_data["query"]
-            pacientes = Animalito.objects.filter(turno=query)
+            pacientes = inscriptos_en_campana.filter(turno=query)
             
             return render(request, "buscar_paciente_resultado.html", {"query":query,"pacientes":pacientes})
     else:
