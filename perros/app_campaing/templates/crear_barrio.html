@@ -5,28 +5,27 @@
 {% block content %} 
 	
 	<div class="row">
-    <form class="col s12" method="POST">
-      {% csrf_token %}
-      {{ form.as_p }}
-  
-      <div class="row"> <!-- row para los botones de abajo -->
+      <div class="col s12 m6">
+      <!--<div class="fixed-action"> -->
+       
+          <form method="POST">
+            {% csrf_token %}
+              {{ form.as_p }}
+          </form>
 
-        <div class="col s12  center-align">
-
-          <button type="submit" class="waves-effect waves-light accent-2 btn-large"><i class="material-icons">dashboard</i></i>      Crear Barrio
-          </button>
-        </div>
-
-      </div>              
-    </form>
-  </div>
-
+            <button type="submit" class="waves-effect waves-light accent-2 btn-large "><i class="material-icons">dashboard</i></i>      <strong>Crear Barrio</strong>
+            </button>
+       
+      </div>
+      <!--</div>  -->
+    
+  <div class="separador"></div>
 
 
 <div class="divider"></div>
-<h5 class="center-align">Listado de Barrios </h5> 
+<h5 class="center-left">Listado de Barrios: </h5> 
 
-<div class="row">
+<div class="col s12 m6">
   <ul class="collection">
 {% for barrio in barrios %}
         
@@ -43,9 +42,11 @@
   </ul>
 </div>
 
+  </div>              
 
 {% endblock %}
 
 {% block extra_js %} 
+
 
 {% endblock %}
