@@ -161,7 +161,7 @@
           <ul class="collection">
             {% if preinscripcion %}
             <li class="collection-item">
-              <a href="/campaing/close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red left">
+              <a href="/campaing/close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light left">
                 <i class="material-icons">lock</i>
               </a>
           
@@ -172,7 +172,7 @@
             </li>
 
             <li class="collection-item">
-              <a href="../ver_qr/" class="btn-floating btn-medium waves-effect waves-light red left">
+              <a href="../ver_qr/" class="btn-floating btn-medium waves-effect waves-light left">
                 <i class="material-icons">link</i>
               </a>
           
@@ -184,7 +184,7 @@
             {% endif %}
 
             <li class="collection-item">
-              <a href="/campaing/end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light red left">
+              <a href="/campaing/end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light left">
                 <i class="material-icons">power_settings_new</i>
               </a>
           
@@ -230,7 +230,31 @@
 
 	{% else %}
 
-		<a href="/campaing/create_campaing/">Crear Campaña</a>
+    <div class="row">
+
+      <div class="col s12 separador"></div>
+
+
+      <div class="col s12">
+        <div class="card-panel grey center-align z-depth-4">
+          <span class="white-text">
+            <h5>No hay campañas, para crear una haga click en 
+            <strong>"crear campaña"</h5></strong>
+          </span>
+        </div>
+      </div>
+
+      <!--<div class="col s12 center-align grey z-depth-4">
+        <h5>No hay campañas, para crear una haga click en 
+          <strong>"crear campaña"</strong>.</h5>
+      </div>  -->
+
+      <div class="col s12 separador"></div>
+
+      <div class="col s12 center-align ">
+        <a class="waves-effect waves-light btn-large" href="/campaing/create_campaing/"><i class="material-icons left"></i>Crear Campaña</a>
+      </div>
+    </div>
 		
 	{% endif %}
 {% endblock %}
