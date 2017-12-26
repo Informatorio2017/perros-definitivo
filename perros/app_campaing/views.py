@@ -409,8 +409,11 @@ def home_admin(request):
     perros = inscriptos.filter(especie="canino").count()
     gatos = inscriptos.filter(especie="felino").count()
 
-    pagados = 0
+    
+
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
+    if pagados is None:
+        pagados = 0
     atendidos = inscriptos.exclude(user_name='').count()
     
     
