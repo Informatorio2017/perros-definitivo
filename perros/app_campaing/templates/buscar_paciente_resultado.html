@@ -1,14 +1,9 @@
 {% extends "base.html" %}
 
-  
-{% block title %}Amo a los Perros{% endblock %}
-
 {% block encabezado %}Resultados{% endblock %}
-			
 
 {% block content %}
 <h5>Se encontraron: {{ query }}</h5>
-
 
  <ul class="collection">
   {% for paciente in pacientes %}
