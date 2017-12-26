@@ -34,7 +34,7 @@ def login(request):
 		if user is not None:
 			login_django(request,user)
 			request.session['member_id'] = user.id
-			request.session.set_expiry(200) #86400 = 24hs		
+			request.session.set_expiry(43200) #86400 = 24hs		
 
 			return redirect('/campaing/home_admin/')
 		else:
