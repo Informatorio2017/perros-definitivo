@@ -93,26 +93,26 @@ def ver_campana(request,id):
 
 
     colores = (
-        ("e57373","red","lighten-2"),
-        ("f06292","pink","lighten-2"),
-        ("ba68c8","purple","lighten-2"),
+        ("e57373","red","lighten-2"),   #0
+        ("f06292","pink","lighten-2"),  #1
+        ("ba68c8","purple","lighten-2"),    #2
         ("9575cd","deep-purple","lighten-2"),
         ("7986cb","indigo","lighten-2"),
-        ("64b5f6","blue","lighten-2"),
-        ("4dd0e1","cyan","lighten-2"),
+        ("64b5f6","blue","lighten-2"),  #5
+        ("4dd0e1","cyan","lighten-2"),  #6
         ("4db6ac","teal","lighten-2"),
-        ("81c784","green","lighten-2"),
+        ("81c784","green","lighten-2"), #7
         ("aed581","light-green","lighten-2"),
-        ("dce775","lime","lighten-2"),
+        ("dce775","lime","lighten-2"),  #10
         ("fff176","yellow","lighten-2"),
-        ("ffd54f","amber","lighten-2"),
+        ("ffd54f","amber","lighten-2"), #12
         ("4fc3f7","light-blue","lighten-2"),
-        ("ffb74d","orange","lighten-2"),
+        ("ffb74d","orange","lighten-2"),    #14
         ("ff8a65","deep-orange","lighten-2"),
         ("a1887f","brown","lighten-2"),
         ("e0e0e0","grey","lighten-2"),
         ("90a4ae","blue-grey","lighten-2"),
-        ("d32f2f","red","darken-2"),
+        ("d32f2f","red","darken-2"),    #19
         ("c2185b","pink","darken-2"),
         ("7b1fa2","purple","darken-2"),
         ("512da8","deep-purple","darken-2"),
@@ -123,14 +123,14 @@ def ver_campana(request,id):
         ("00796b","teal","darken-2"),
         ("388e3c","green","darken-2"),
         ("689f38","light-green","darken-2"),
-        ("afb42b","lime","darken-2"),
+        ("afb42b","lime","darken-2"),   #30
         ("fbc02d","yellow","darken-2"),
         ("ffa000","amber","darken-2"),
         ("f57c00","orange","darken-2"),
         ("e64a19","deep-orange","darken-2"),
-        ("5d4037","brown","darken-2"),
+        ("5d4037","brown","darken-2"),  #35
         ("616161","grey","darken-2"),
-        ("455a64","blue-grey","darken-2"),
+        ("455a64","blue-grey","darken-2"),  #37
 
 
 
@@ -167,28 +167,28 @@ def ver_campana(request,id):
     est_perras_atendidos = est_canino.filter(sexo="hembra").count()
 
 
-    color = colores[5]
+    color = colores[7]
     color_gato = color[0]
     color_gato_nombre = color[1]
     color_gato_descripcion = color[2]
 
     
 
-    color = colores[10]
+    color = colores[14]
     color_gata = color[0]
     color_gata_nombre = color[1]
     color_gata_descripcion = color[2]
 
     
 
-    color = colores[13]
+    color = colores[5]
     color_perro = color[0]
     color_perro_nombre = color[1]
     color_perro_descripcion = color[2]
 
     
 
-    color = colores[23]
+    color = colores[12]
     color_perra = color[0]
     color_perra_nombre = color[1]
     color_perra_descripcion = color[2]
