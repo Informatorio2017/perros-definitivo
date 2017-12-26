@@ -305,16 +305,20 @@
 
 	{% for barrio_nombre,barrio_cantidad in estadistica.items %}
 
-		<h6>Barrio: {{barrio_nombre}}</h6>
-		  	<div class="progress">
-      			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
-  			</div>
-		<h6>Cantidad Atendidos: {{barrio_cantidad.0}}</h6>
-		<h6>Porcentaje Atendidos: {{barrio_cantidad.1|floatformat:"2"}}%</h6>
-			<h6>Perros: {{barrio_cantidad.2}}</h6>
-			<h6>Gatos: {{barrio_cantidad.3}}</h6>
-			
-		<br>
+		
+			<div class="card-panel blue-grey lighten-2">
+				<h6>Barrio: {{barrio_nombre}}</h6>
+				  	<div class="progress">
+		      			<div class="determinate" {{"style="}} {{'"width:'}}{{barrio_cantidad.1|floatformat:"0"}}{{'%"'}}></div>
+		  			</div>
+				<h6>Cantidad Atendidos: {{barrio_cantidad.0}}</h6>
+				<h6>Porcentaje Atendidos: {{barrio_cantidad.1|floatformat:"2"}}%</h6>
+					<h6>Perros: {{barrio_cantidad.2}}</h6>
+					<h6>Gatos: {{barrio_cantidad.3}}</h6>
+					
+				<br>
+			</div>
+		
 	{% endfor %}
 
 
