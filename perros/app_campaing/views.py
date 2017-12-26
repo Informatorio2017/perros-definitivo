@@ -415,8 +415,8 @@ def home_admin(request):
     
 
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
-    if pagados is None:
-        pagados = 0
+    if pagados["abono__sum"] is None:
+        pagados["abono__sum"] = 0
     atendidos = inscriptos.exclude(user_name='').count()
     
     
