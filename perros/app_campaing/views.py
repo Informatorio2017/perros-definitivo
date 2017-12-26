@@ -267,6 +267,10 @@ def ver_colaboradores(request):
 #
 @login_required(login_url='login')
 def create_campaing(request):
+    # import ipdb; ipdb.set_trace()                
+    if request.session['num'] != 0:
+        return redirect('/campaing/home_admin/')
+
     if request.method == 'POST':
         form = CreateCampaing(request.POST)
         #import ipdb
@@ -398,13 +402,13 @@ def home_admin(request):
     
     saldo = 0
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
+    request.session['num'] = 0
     campaing = Campaing()
     if campanias:
         campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
         request.session['num'] = campaing.id
         saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
         
-
     animales_en_campana = Animalito.objects.filter(campaing=campaing.id)
 
     preinscriptos = animales_en_campana.filter(turno=None)
@@ -423,11 +427,14 @@ def home_admin(request):
         pagados["abono__sum"] = 0
     atendidos = inscriptos.exclude(user_name='').count()
     
-    
+    if pagados["abono__sum"] is None:
+        pagados_aux = 0
+    else:
+        pagados_aux = pagados["abono__sum"]
 
     contexto = {
     'atendidos':atendidos,
-    'pagados':pagados["abono__sum"],
+    'pagados':pagados_aux,
     'campaing':campaing,
     'c_inscriptos':cant_inscriptos,
     'c_preinscriptos':cant_preinscriptos,

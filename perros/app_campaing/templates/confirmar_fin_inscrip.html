@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block encabezado %} Cierre de preinscripción {% endblock %}
+{% block encabezado %} Finalizar Preinscipción {% endblock %}
 
 {% block content %} 
 
@@ -9,11 +9,10 @@
 
 	<div class="row">
 
+		<!-- <div class="col s12 m12 borde-negro center-align z-depth-4"> -->
 
-		<div class="col s12 m12 borde-negro center-align z-depth-4">
-
-			<h5><strong>¡ ATENCIÓN !</strong></h5><br><h5>Al confirmar esta acción ya no estará disponible el formulario de preinscripción para que puedan inscribirse las mascotas.</h5>
-
+<!-- 			<h5><strong>¡ ATENCIÓN !</strong></h5><br><h5>Al confirmar esta acción ya no estará disponible el formulario de preinscripción para que puedan inscribirse las mascotas.</h5>
+ -->
 		<div class="card-panel grey col s12 m12 center-align z-depth-4">
 			<span class="white-text">
 				<h5><strong>¡ ATENCIÓN !</strong></h5><br><h5>Al confirmar esta acción ya no estará disponible el formulario de preinscripción para que puedan inscribirse las mascotas.</h5>
@@ -21,23 +20,26 @@
 
 		</div>
 
-		<!--<div class="col s12 separador"></div> -->
-
-		<div class="col s12 m6 center-align">
 
 
- 			<button type="submit" class="waves-effect waves-light accent-2 btn-large">CERRAR PREINSCRIPCIONES</button>
- 		</div>
-
- 		<div class="col s12 separador hide-on-med-and-up"></div> 
-
- 		<div class="col s12 m6 center-align">
+<!-- 		<div class="col s12 m6 center-align">
 
 			<a class="waves-effect waves-light accent-2 btn-large" href="../confirmar_cierre_preinscipcion/{{campaing.id}} ">FINALIZAR PREINSCRIPCIONES</a>
 
-
- 			<button type="submit" class="waves-effect waves-light accent-2 btn-large">CANCELAR</button>
  		</div>
+ -->
+		<div class="col s12 m6 center-align">
+
+			<a class="waves-effect waves-light accent-2 btn-large" href="../confirmar_cierre_preinscipcion/{{campaing.id}} ">FINALIZAR PREINSCRIPCIONES</a>
+
+  		</div>
+
+  		<div class="col s12 separador hide-on-med-and-up"></div>
+
+		<div class="col s12 m6 center-align">
+
+			<a class="waves-effect waves-light accent-2 btn-large" href="../home_admin/ ">VOLVER</a>  		
+  		</div>
 
 
 	</div>
