@@ -115,11 +115,11 @@ body{
 .subtitulo-ver_campana{
 	font-size: 1.2em;
 	line-height:1.3em;
-	margin-top: 2px!important;
+	margin-top: -12px!important;
 }
 .total-ver_campana{
-	font-size: 1.9em;
-	line-height:2.0em;
+	font-size: 3.1em;
+	line-height:1.2em;
 	margin-top: 2px!important;
 }
 
@@ -175,4 +175,20 @@ body{
 	margin: auto!important; 
 	text-align: center!important;
 }
-z
+
+
+
+/* estilo del footer  */
+
+
+/*
+.footer-copyright {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+text-align: left;
+}
+*/  
