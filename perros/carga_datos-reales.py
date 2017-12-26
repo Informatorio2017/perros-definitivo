@@ -214,6 +214,7 @@ try:
 	consulta.execute(sql,reg3)
 	consulta.execute(sql,reg4)
 	consulta.execute(sql,reg5)
+	consulta.execute(sql,reg6)
 	consulta.execute(sql,reg7)
 	consulta.execute(sql,reg8)
 	consulta.execute(sql,reg9)
