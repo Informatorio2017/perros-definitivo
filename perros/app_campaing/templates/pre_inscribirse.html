@@ -55,49 +55,67 @@
 
 {% if campanias %}  
   {% if campana.preinscripcion %}
-    <!-- inicio row  -->
-    <div class="row">
-      <!-- inicio columna para datos de campaña -->
-      <div class="col s12">
-       <div class="card-panel grey center-align">
-          <span class="white-text"><strong>AGREGUE LOS DATOS PARA CREAR UNA</strong> <!-- ES PARA QUE VAYA UN RENGLON ABAJO, strong= para que sea en negrita -->
-            INSCRIPCIÓN
-          </span>
-        </div>       
-      </div>
-      <!-- fin datos campaña -->      
-    </div>
-          <!-- fin row  -->
-
-    <!-- INICIO FORMULARIO  -->
-    <div class="row">
-    <form class="col s12" method="POST">
-      {% csrf_token %}
-      <h3>DATOS PROPIETARIO</h3>      
-      {{ formPropietario.as_p }}
-	  <h3>DATOS MASCOTA</h3>      
-      {{ formAnimalito.as_p }}
-  
-      <div class="row"> <!-- row para los botones de abajo -->
-
-        <div class="col s12  center-align">
-
-          <button type="submit" class="waves-effect waves-light blue-light accent-2 btn-large btn-ancho"><i class="material-icons">check_circle</i></i>CONFIRMAR
-          </button>
+      <!-- inicio row  -->
+      <div class="row">
+        <!-- inicio columna para datos de campaña -->
+        <div class="col s12">
+         <div class="card-panel grey center-align">
+            <span class="white-text"><strong>AGREGUE LOS DATOS PARA CREAR UNA</strong> <!-- ES PARA QUE VAYA UN RENGLON ABAJO, strong= para que sea en negrita -->
+              INSCRIPCIÓN
+            </span>
+          </div>       
         </div>
+        <!-- fin datos campaña -->      
+      </div>
+            <!-- fin row  -->
 
-      </div>              
-    </form>
-  </div>
+      <!-- INICIO FORMULARIO  -->
+      <div class="row">
+        <form class="col s12" method="POST">
+          {% csrf_token %}
+          <h3>DATOS PROPIETARIO</h3>      
+          {{ formPropietario.as_p }}
+  	      <h3>DATOS MASCOTA</h3>      
+          {{ formAnimalito.as_p }}
+    
+        <div class="row"> <!-- row para los botones de abajo -->
+
+          <div class="col s12  center-align">
+
+            <button type="submit" class="waves-effect waves-light blue-light accent-2 btn-large btn-ancho"><i class="material-icons">check_circle</i></i>CONFIRMAR
+            </button>
+          </div>
+
+        </div>              
+      </form>
+   </div>
   {% else %}
-    <h1>preinscripción no habilitada</h1>
-     <a href="/">home</a>
+        <br>
+        <div class="row">
+            <div class="col s12 center-align red ligthen-2 white-text">
+                <h5> ¡Preinscripción no habilitada!</h5>
+            </div>
+        </div>
+    
+    <div class="row center-align">
+      <a href="/" class="waves-effect waves-light btn-large"><i class="material-icons">home</i>Home</a>
+    </div>
+     
   {% endif %}
 
 
 {% else %}
-  <h1>No hay campañas pa preinscribirse</h1>
-  <a href="/">home</a>
+      <br>
+        <div class="row">
+            <div class="col s12 center-align red ligthen-2 white-text">
+                <h5> ¡No hay camapañas para preinscribirse!</h5>
+            </div>
+        </div>
+
+  <div class="row center-align">
+    <a href="/" class="waves-effect waves-light btn-large"><i class="material-icons">home</i>Home</a>
+  </div>
+
 {% endif %}
 
 
