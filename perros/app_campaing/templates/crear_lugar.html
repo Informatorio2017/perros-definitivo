@@ -17,22 +17,19 @@
     </div>   
 
      <div class="separador"></div>          
+  <div class="col s12 m6"> 
+  <h5 class="center-left">Listado de Lugares </h5> 
 
-
-
-<div class="divider"></div> 
-<h5 class="center-left">Listado de Lugares </h5> 
-
-  <ul class="collection">
-{% for lugar in lugares %}
-        
-    <li class="collection-item avatar">
-       <i class="material-icons circle">account_balance</i>
-      <span class="title">{{lugar.nombre}}</span>
-      <p>{{barrio.direccion}}
-      </p>
-      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
-    </li>
+    <ul class="collection">
+  {% for lugar in lugares %}
+          
+      <li class="collection-item avatar">
+         <i class="material-icons circle">account_balance</i>
+        <span class="title">{{lugar.nombre}}</span>
+        <p>{{barrio.direccion}}
+        </p>
+        <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+      </li>
     
 
 {% endfor %}

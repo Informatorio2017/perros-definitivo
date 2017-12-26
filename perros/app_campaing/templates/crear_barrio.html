@@ -22,20 +22,18 @@
   <div class="separador"></div>
 
 
-<div class="divider"></div>
-<h5 class="center-left">Listado de Barrios: </h5> 
-
-<div class="col s12 m6">
-  <ul class="collection">
-{% for barrio in barrios %}
-        
-    <li class="collection-item avatar">
-      <i class="material-icons circle">room</i>
-      <span class="title">{{barrio.nombre}}</span>
-      <p>{{barrio.detalle}}
-      </p>
-      <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
-    </li>
+  <div class="col s12 m6">
+    <p><h5 class="center-left">Listado de Barrios: </h5></p> 
+    <ul class="collection">
+  {% for barrio in barrios %}
+          
+      <li class="collection-item avatar">
+        <i class="material-icons circle">room</i>
+        <span class="title">{{barrio.nombre}}</span>
+        <p>{{barrio.detalle}}
+        </p>
+        <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+      </li>
     
 
 {% endfor %}
