@@ -71,8 +71,12 @@ def creado(request):
 
 #
 def ver_campanas(request):
+    campanas = Campaing.objects.all().exclude(habilitada=True).order_by("fecha").reverse()
+    contexto = {
+    'campanas':campanas,
+    }
 
-    return render(request, 'ver_campanas.html', {'campanas':Campaing.objects.all().exclude(habilitada=True)})
+    return render(request, 'ver_campanas.html', contexto)
 
 def ver_campana(request,id):
     try:
