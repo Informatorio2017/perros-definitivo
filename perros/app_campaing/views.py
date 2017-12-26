@@ -103,6 +103,7 @@ def ver_campana(request,id):
         porcentaje_perros = 0
         porcentaje_gatos = 0
 
+    pagados = 0
     pagados = Animalito.objects.filter(campaing=campana.id).aggregate(Sum('abono'))
     lista_atendidos = inscriptos.exclude(user_name='')
     atendidos = lista_atendidos.count()
@@ -398,6 +399,7 @@ def home_admin(request):
     perros = inscriptos.filter(especie="canino").count()
     gatos = inscriptos.filter(especie="felino").count()
 
+    pagados = 0
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
     atendidos = inscriptos.exclude(user_name='').count()
     
