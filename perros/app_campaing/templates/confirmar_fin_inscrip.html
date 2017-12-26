@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
+
 {% block title %}Amo a los Perros{% endblock %}
-{% block encabezado %} Crear Barrio {% endblock %}
+
+{% block encabezado %} Confirmar cierre de preinscripción {% endblock %}
+
 
 {% block content %} 
 
@@ -11,7 +14,6 @@
 	<div class="row">
 
 		<div class="col s12 m12 borde-negro center-align z-depth-4">
-	
 
 			<h5><strong>¡ ATENCIÓN !</strong></h5><br><h5>Al confirmar esta acción ya no estará disponible el formulario de preinscripción para que puedan inscribirse las mascotas.</h5>
 		</div>
@@ -20,6 +22,7 @@
 
 		<div class="col s12 m12 center-align">
 
+
  			<button type="submit" class="waves-effect waves-light accent-2 btn-large">CERRAR PREINSCRIPCIONES</button>
  		</div>
 
@@ -27,15 +30,14 @@
 
  		<div class="col s12 m12 center-align">
 
+			<a class="waves-effect waves-light accent-2 btn-large" href="../confirmar_cierre_preinscipcion/{{campaing.id}} ">FINALIZAR PREINSCRIPCIONES</a>
+
+
  			<button type="submit" class="waves-effect waves-light accent-2 btn-large">CANCELAR</button>
  		</div>
 
 
 	</div>
-
-
-
-
 
 
 {% endblock %}

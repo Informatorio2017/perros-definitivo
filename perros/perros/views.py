@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from app_campaing.models import Campaing
 
+
 def base(request):
 	return render(request, "base.html", {})
 
@@ -14,6 +15,7 @@ def home(request):
 	activa = False
 	if campanias:		
 		campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+		request.session['num'] = campaing.id
 		activa = True
 
 	contexto = {'campaing':campaing,'activa':activa}
@@ -31,6 +33,9 @@ def login(request):
 		user = authenticate(username=username_login,password=password_login)
 		if user is not None:
 			login_django(request,user)
+			request.session['member_id'] = user.id
+			request.session.set_expiry(200) #86400 = 24hs		
+
 			return redirect('/campaing/home_admin/')
 		else:
 			messages.error(request, 'Usuario o password incorrecto!!')
@@ -61,9 +66,6 @@ def create_user(request):
 
 	contexto = {'form':form}
 	return render(request,'create_user.html',contexto)
-
-
-
 
 def creditos(request):
     contexto = {}

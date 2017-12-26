@@ -12,44 +12,42 @@
  	    <br>
         <div class="row">
             <div class="col s12 center-align green ligthen-2 white-text">
-                <h5> ¡Gracias por su COLABORACIÓN!</h5>
+                <h5> ¡{{campaing_colaborador.colaborador.nombre}}, gracias por tu ayuda!</h5>
             </div>
-        </div>
-
-        <br>
-        <div class="row">
             <div class="col s12 center-align green ligthen-2 white-text">
-                <h5> Nos comunicaremos con usted a la brevedad </h5>
+                {% if campaing_colaborador.padrino and campaing_colaborador.ayudante %}
+                    <h6> Te has inscripto como COLABORADOR y como PADRINO de la campaña:</h6>
+                {% else %}
+                    {% if campaing_colaborador.ayudante %}
+                        <h6> Te has inscripto como COLABORADOR de la campaña:</h6>
+                    {% else %}
+                        <h6> Te has inscripto como PADRINNO de la campaña:</h6>
+                    {% endif %}    
+                {% endif %}
             </div>
+
         </div>
 
-<!--         <div class="row borde-negro">
+
+        <div class="row borde-negro">
             <div class="col s12 l6 center-align">
-                <h4>Datos de mascota:</h4> 
-                <p>Nombre: {{paciente.nombre_mascota}}</p>
-                <p>Especie: {{paciente.especie}}</p>
-                <p>Sexo: {{paciente.sexo}}</p>      
+                <h4>DATOS DE LA CAMPAÑA:</h4> 
+                <p>Campaña:  <b>{{campaing_colaborador.campaing.tipo}}</b></p>
+                <p>Fecha:  <b>{{campaing_colaborador.campaing.fecha}}</b></p>
+                <p>Lugar:  <b>{{campaing_colaborador.campaing.lugar}}</b></p>      
+                <p>Dirección:  <b>{{campaing_colaborador.campaing.lugar.direccion}}</b></p>      
                           
             </div>
 
-            <div class="col s12 l6 center-align">
-                <h4>Nº de Preinscripto:</h4> 
-                <h2>{{paciente.id}}</h2>
+        </div>
+
+
+        <div class="row">
+            <div class="col s12 center-align green ligthen-2 white-text">
+                <h5> ¡Nos estaremos comunicando con vos a la brevedad! </h5>
             </div>
         </div>
- -->
-<!--         <div class="row">
-            <div class="col s12 center-align">
-                <h4>¡TENER EN CUENTA!</h4>
-                <h5>
-                    Bla bla bla bla bla, <br>
-                    bla bla bla blabla bla, <br>
-                    bla bla bla blabla bla. <br>
-                    Bla bla bla bla bla.<br>
-                </h5>
-            </div>            
-        </div>
- -->
+
         <div class="divider"></div>
         <div class="separador"></div>
         <div class="row">
