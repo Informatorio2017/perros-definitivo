@@ -88,22 +88,6 @@ reg73 = ("ALBORADA","")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 sql = "INSERT INTO app_campaing_barrio(nombre,detalle) VALUES(?,?)"
 err = False
 try:
@@ -181,10 +165,6 @@ try:
 	consulta.execute(sql,reg72)
 	consulta.execute(sql,reg73)
 
-
-
-
-#####################ejecutar los otros barrios
 
 
 
