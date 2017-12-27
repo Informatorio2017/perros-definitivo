@@ -72,8 +72,20 @@ def creado(request):
 #
 def ver_campanas(request):
     campanas = Campaing.objects.all().exclude(habilitada=True).order_by("fecha").reverse()
+
+    campanas_pasar = []
+
+    for campana in campanas:
+        animales_en_campana = Animalito.objects.filter(campaing=campana.id)
+        inscriptos = animales_en_campana.exclude(turno=None)
+        lista_atendidos = inscriptos.exclude(user_name='')
+        atendidos = lista_atendidos.count()
+        campanas_pasar.append((campana,atendidos))
+
+
+
     contexto = {
-    'campanas':campanas,
+    'campanas':campanas_pasar,
     }
 
     return render(request, 'ver_campanas.html', contexto)
