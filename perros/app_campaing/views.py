@@ -649,10 +649,16 @@ def ver_qr(request):
     
     campania = Campaing.objects.filter(preinscripcion=True)
     campaing =campania[0]
-    campaing.url="www.amoalosperrotes.com"#url prueba
+    url_base = "www.amoalosperros.heroku.com"
+    #url_base = "127.0.0.1:8000" #localhost
+    url_completar = "/campaing/about_campaing/"
+    url_id_campaing = str(campaing.id)
+    url_pasar = url_base + url_completar + url_id_campaing
+    #campaing.url="www.amoalosperrotes.com"#url prueba
 
     contexto = {
-    "campaing":campaing
+    "campaing":campaing,
+    "url":url_pasar,
 
     }
     return render(request, "ver_qr.html", contexto)    
