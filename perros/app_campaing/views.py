@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db.models import Sum
 from django.http import Http404
-from .forms import AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm
+from .forms import AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm, UserForm
 from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio, CrearLugar, ColaboradorForm
 from .models import Campaing, Animalito, Propietario, Barrio, Lugar
 from .models import Colaborador, CampaingColaborador
@@ -21,6 +21,20 @@ from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 
 #-------------------------------------------------------
+
+@login_required(login_url='login')
+def create_user(request):
+    form = UserForm(request.POST or None)
+    if request.method == "POST":
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(user.password)    
+            user.save()
+
+            return redirect('home_admin')
+
+    contexto = {'form':form}
+    return render(request,'create_user.html',contexto)
 
 
 @login_required(login_url='login')

@@ -1,7 +1,13 @@
 from django import forms
 from .models import Campaing, Animalito, Propietario, Barrio, Lugar, Colaborador
+from django.contrib.auth.models import User
+
 import app_campaing
 
+class UserForm(forms.ModelForm):
+	class Meta:
+		model = User
+		fields = ('username','password')
 
 class CreateCampaing(forms.ModelForm):
 	fecha = forms.DateField()

@@ -1,6 +1,5 @@
 
 #url campaing
-
 from django.conf.urls import url
 from . import views
 
@@ -12,7 +11,9 @@ urlpatterns = [
     
 	# url(r'^home/', views.home, name="home"),
 	#Urls Campaña##########33333
-
+	
+	url(r'^create_user/', views.create_user, name="create_user"),
+	
 	#Crear Campaña###########################
     url(r'^create_campaing/', views.create_campaing, name="create_campaing"),
     #home admin admin campaña
