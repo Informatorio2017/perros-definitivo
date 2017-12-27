@@ -88,12 +88,15 @@
 				      <a href="/campaing/crear_lugar/">
 				        <i class="material-icons">add_location</i>Agregar Lugar
 				      </a>
-				    </li>				    
+				    </li>	
+				    {% if request.user.is_staff %}			    
 				    <li>
 				      <a href="/campaing/create_user/">
 				        <i class="material-icons">person_pin</i>Agregar Usuario
 				      </a>
 				    </li>
+				    {% endif %}
+
 
 				{% else %}		        
 				    <li>

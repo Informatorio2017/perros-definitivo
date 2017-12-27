@@ -67,11 +67,12 @@ class ColaboradorForm(forms.Form):
 	colaborador = forms.ChoiceField(choices=OPTIONS, required=True, label="Tipo de colaboración")
 	
 class PropietarioForm(forms.ModelForm):
+
 	#dni=forms.CharField(max_length=8,label='DNI')
 	#apellido = forms.CharField(max_length = 30,label='Apellido')
 	#nombre=forms.CharField(max_length=30,label='Nombre')
 	#telefono = forms.CharField(max_length = 20,label='Teléfono')
-	
+
 	class Meta:
 		model = Propietario
 		fields = ("dni", 
@@ -99,7 +100,6 @@ class PropietarioForm(forms.ModelForm):
 		self.fields['telefono'].widget.attrs.update({'type' : 'number'})
 
 	
-
 class AnimalitoForm(forms.ModelForm):
 	class Meta:
 		model = Animalito
