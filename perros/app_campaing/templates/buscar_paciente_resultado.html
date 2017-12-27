@@ -16,8 +16,12 @@
     {%endif%}
 
     <p>
-        {{ paciente.nombre }} - ({{ paciente.especie }})<br>
-        {{ paciente.propietario.nombre}}
+        {{ paciente.nombre_mascota }} - ({{ paciente.especie }}) <br>
+        
+        <span><i class="material-icons tiny">person</i> {{ paciente.propietario.nombre}} {{ paciente.propietario.apellido}}</span><br>
+        
+        <span>Tel: {{ paciente.propietario.telefono}}</span>
+        
     </p>
     <a href="../alta_paciente/{{paciente.id}}" class="secondary-content">
   	  <button class="btn waves-effect waves-light" type="submit" name="action" >Alta
