@@ -5,6 +5,8 @@ from .forms import AnimalitoForm, PropietarioForm, AnimalitoPreinscripcionForm, 
 from .forms import CreateCampaing, BuscarPaciente_pre, BuscarPaciente, CrearBarrio, CrearLugar, ColaboradorForm
 from .models import Campaing, Animalito, Propietario, Barrio, Lugar
 from .models import Colaborador, CampaingColaborador
+from django.contrib.auth.models import User
+
 #-------------------------------------------------------
 from django.conf import settings
 from io import BytesIO
@@ -33,7 +35,8 @@ def create_user(request):
 
             return redirect('app_campaing:home_admin')
 
-    contexto = {'form':form}
+    usuarios = User.objects.all().order_by('last_login','username')
+    contexto = {"form":form,"usuarios": usuarios,}
     return render(request,'create_user.html',contexto)
 
 
