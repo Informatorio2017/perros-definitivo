@@ -9,14 +9,18 @@
  <ul class="collection">
  {% for falta in falta_alta %}
    <li class="collection-item avatar">
+
     {% if falta.especie == "canino" %}
+
     	<img src="../../../static/images/dog.png" alt="" class="circle">
     {% else %}
       	<img src="../../../static/images/cat.png" alt="" class="circle">
     {%endif%}
 
     <p>
+
         {{ falta.propietario.apellido}} {{ falta.propietario.nombre}} -<strong>(#{{falta.nro_pre_inscripcion}})</strong>  
+
         
         <br>
         {{ falta.nombre_mascota }} - ({{ falta.especie }})

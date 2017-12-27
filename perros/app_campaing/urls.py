@@ -42,8 +42,8 @@ urlpatterns = [
 
 	#alta colaborador
 	###falta alta colaborador (publica)
-	#ver lista colaboradores
-    url(r'^ver_colaboradores/', views.ver_colaboradores, name="ver_colaboradores"),
+	#ver lista colaboradores de una campaña
+    url(r'^ver_colaboradores/([0-9]+)$', views.ver_colaboradores, name="ver_colaboradores"),
     	#falta meter /campaña id
 
 	

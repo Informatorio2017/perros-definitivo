@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+			
+{% block encabezado %}Colaboradores{% endblock %}
+			
+{% block content %} 
+	<h5>Campaña {{ campania.fecha }} </h5> 
+
+
+ <ul class="collection">
+ {% for colaborador in colaboradores %}
+   <li class="collection-item avatar">
+    {% if colaborador.padrino %}
+      {% if colaborador.ayudante %}
+      	<i class="material-icons circle">favorite</i>
+      {% else %}
+        <i class="material-icons circle">local_parking</i>
+      {%endif%}
+    {% else %}
+      <i class="material-icons circle">pan_tool</i>
+    {%endif%}
+
+    <p>
+        {{ colaborador.colaborador.apellido}} {{ colaborador.colaborador.nombre}}   
+        
+        <br>
+        {% if user.is_authenticated %} <span><i class="material-icons tiny">phone</i><strong>({{colaborador.colaborador.telefono}})</strong></span>
+        {%endif%}
+          </p>
+
+    </li>
+
+{% endfor %}
+</ul>
+<br>
+<div class="row center-align">
+<a href="/campaing/home_admin" class="waves-effect waves-light btn-large">
+	<i class="material-icons">reply</i>Regresar</a>
+</div>
+
+{% endblock %}
+
+

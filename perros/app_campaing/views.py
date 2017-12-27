@@ -273,8 +273,11 @@ def ver_campana(request,id):
 
 #
 @login_required(login_url='login')
-def ver_colaboradores(request):
-    return render(request, 'ver_colaboradores.html', {'colaboradores':Colaborador.objects.all()})
+def ver_colaboradores(request,id):
+    colaboradores = CampaingColaborador.objects.filter(campaing=id)
+    campania = Campaing.objects.get(id=id)
+
+    return render(request, 'listado_colaboradores_campana.html', {'colaboradores':colaboradores, 'campania':campania})
 
 #
 @login_required(login_url='login')
@@ -421,6 +424,9 @@ def home_admin(request):
         request.session['num'] = campaing.id
         saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
         
+    
+    colaboradores_en_campana = colaboradores = CampaingColaborador.objects.filter(campaing=campaing.id)
+    c_colaboradores_en_campana = colaboradores_en_campana.count()
     animales_en_campana = Animalito.objects.filter(campaing=campaing.id)
 
     preinscriptos = animales_en_campana.filter(turno=None)
@@ -448,6 +454,7 @@ def home_admin(request):
     'atendidos':atendidos,
     'pagados':pagados_aux,
     'campaing':campaing,
+    'c_colaboradores_en_campana':c_colaboradores_en_campana,
     'c_inscriptos':cant_inscriptos,
     'c_preinscriptos':cant_preinscriptos,
     'perros':perros,
