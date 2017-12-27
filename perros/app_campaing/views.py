@@ -637,9 +637,9 @@ def listado_inscriptos(request):
 
     contexto = {
     'campaing':campaing,
-    'inscriptos':inscriptos,
+    #'inscriptos':inscriptos,# descomentar si se necesita los inscriptos(sin tener en cuenta alta)
     'falta_alta':falta_alta,
-    #'preinscriptos':preinscriptos,
+    
     }
     return render(request, "listado_inscriptos.html", contexto)
 
