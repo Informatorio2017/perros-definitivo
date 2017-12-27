@@ -36,7 +36,7 @@ class BuscarPaciente(forms.Form):
 
 
 class ColaboradorForm(forms.Form):
-	OPTIONS = ((None, ''),("C", "Colaborador"),("P", "Padrino"),("A", "Colaborador/Padrino"),)	
+	OPTIONS = ((None, ''),("C", "Colaborador"),("P", "Padrino"),("A", "Colaborador y Padrino"),)	
 	dni=forms.CharField(max_length=8,label='DNI')
 	apellido = forms.CharField(max_length = 30,label='Apellido')
 	nombre=forms.CharField(max_length=30,label='Nombre')
