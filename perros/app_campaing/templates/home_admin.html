@@ -14,7 +14,14 @@
           <span class="white-text">
             <strong>CAMPAÑA ACTUAL</strong>
             <br>
-            <strong>{{ campaing.tipo.upper  }} EN {{ campaing.lugar.nombre.upper  }}</strong>
+            <strong>
+              
+              {% ifequal campaing.tipo "castracion" %}
+                CASTRACIÓN
+              {% else %}
+                VACUNACIÓN
+              {% endifequal %}
+               EN {{ campaing.lugar.nombre.upper  }}</strong>
           </span>
         </div>
       </div>
