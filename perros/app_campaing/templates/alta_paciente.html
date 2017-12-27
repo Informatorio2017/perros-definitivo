@@ -8,7 +8,7 @@
 
     <ul class="collection">
         <li class="collection-item avatar">
-            {% if paciente.especie == "CANINO" %}
+            {% if paciente.especie == "canino" %}
     	       <img src="../../../static/images/dog.png" alt="" class="circle">
             {% else %}
                 <img src="../../../static/images/cat.png" alt="" class="circle">
@@ -18,6 +18,11 @@
             <p>Turno: {{ paciente.turno }}</p>
             <p>Sexo: {{ paciente.sexo }}</p>
             <p>Pagó: {{ paciente.abono }}</p>
+            {% ifequal paciente.user_name "" %}
+             <p>NO ATENDIDO</p>
+            {% else %}
+             <p>ATENDIDO</p>
+            {% endifequal %}
             <a href="#!" class="secondary-content">   </a>
         </li>
     <!-- </ul> -->
@@ -45,10 +50,10 @@
 
          <div class="col s12 separador"></div>
 
+        
+
         <div class="col s12 m12 center-align">
-            <button class="btn waves-effect waves-light" type="submit" name="action">CANCELAR
-            <i class="material-icons right"></i>
-            </button>
+            <a href="/campaing/home_admin/" class="btn waves-effect waves-light">CANCELAR <i class="material-icons right"></i></a>
         </div>
 
     </div>

@@ -21,6 +21,11 @@
         <span><i class="material-icons tiny">person</i> {{ paciente.propietario.nombre}} {{ paciente.propietario.apellido}}</span><br>
         
         <span>Tel: {{ paciente.propietario.telefono}}</span>
+        {% ifequal paciente.user_name "" %}
+          <p>NO ATENDIDO</p>
+        {% else %}
+          <p>ATENDIDO</p>
+        {% endifequal %}
         
     </p>
     <a href="../alta_paciente/{{paciente.id}}" class="secondary-content">
