@@ -108,7 +108,7 @@ else:
 
 
 # insertar datos en una tabla CAMPAING
-reg1 = ('16/12/2017',200,2000,2000,"www.amoalosperros.com/campaing/1",1,"castracion",False,False)
+reg1 = ('2017-12-16',200,2000,2000,"www.amoalosperros.com/campaing/1",1,"castracion",False,False)
 
 
 sql = "INSERT INTO app_campaing_campaing(fecha,monto_valor_operacion,monto_inter_grupo_gastado,monto_inter_grupo_total,url,lugar_id,tipo,preinscripcion,habilitada) VALUES(?,?,?,?,?,?,?,?,?)"
