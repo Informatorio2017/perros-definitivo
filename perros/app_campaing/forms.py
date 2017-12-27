@@ -1,13 +1,30 @@
 from django import forms
 from .models import Campaing, Animalito, Propietario, Barrio, Lugar, Colaborador
 from django.contrib.auth.models import User
-
+from django.contrib.auth.forms import UserCreationForm
 import app_campaing
 
+# class UserForm(UserCreationForm):
+# 	pass
+
 class UserForm(forms.ModelForm):
+	username = forms.CharField(max_length=20)
+	password = forms.CharField(max_length=20, widget = forms.PasswordInput())
+
 	class Meta:
 		model = User
 		fields = ('username','password')
+
+	# class Meta:
+	# 	model = User
+	# 	fields = ('username','password')
+# class UserForm(forms.ModelForm):
+# 	username = forms.CharField(max_length=20)
+# 	password = forms.CharField(max_length=20, widget = forms.PasswordInput())
+
+# 	class Meta:
+# 		model = User
+# 		fields = ('username','password')
 
 class CreateCampaing(forms.ModelForm):
 	fecha = forms.DateField()
@@ -50,6 +67,11 @@ class ColaboradorForm(forms.Form):
 	colaborador = forms.ChoiceField(choices=OPTIONS, required=True, label="Tipo de colaboración")
 	
 class PropietarioForm(forms.ModelForm):
+	dni=forms.CharField(max_length=8,label='DNI')
+	apellido = forms.CharField(max_length = 30,label='Apellido')
+	nombre=forms.CharField(max_length=30,label='Nombre')
+	telefono = forms.CharField(max_length = 20,label='Teléfono')
+	
 	class Meta:
 		model = Propietario
 		fields = ("dni", 
