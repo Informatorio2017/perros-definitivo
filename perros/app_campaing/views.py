@@ -113,6 +113,8 @@ def ver_campana(request,id):
     campanias = Campaing.objects.filter(habilitada=True)
     #campanias = Campaing.objects.get(id=1)#(habilitada=True)
     #campaing = Campaing()
+    colaboradores = CampaingColaborador.objects.filter(campaing=campana.id)
+    c_colaboradores_en_campana = colaboradores.count()
 
     animales_en_campana = Animalito.objects.filter(campaing=campana.id)
 
@@ -268,6 +270,7 @@ def ver_campana(request,id):
     #saldo = -250  era para probar que negativo salga en rojo
 
     contexto = {
+    'c_colaboradores_en_campana':c_colaboradores_en_campana,
     "campana":campana,
     'atendidos':atendidos,
     'pagados':pagados["abono__sum"],
@@ -286,9 +289,9 @@ def ver_campana(request,id):
     return render(request, "ver_campana.html",contexto)
 
 #
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def ver_colaboradores(request,id):
-    colaboradores = CampaingColaborador.objects.filter(campaing=id)
+    colaboradores = CampaingColaborador.objects.filter(campaing=id).order_by('colaborador__apellido')
     campania = Campaing.objects.get(id=id)
 
     return render(request, 'listado_colaboradores_campana.html', {'colaboradores':colaboradores, 'campania':campania})
