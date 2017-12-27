@@ -57,6 +57,19 @@
 		            
 		          </div>
 		        </li>
+
+			    {% if user.is_authenticated %}
+
+		        <li>
+		          <a href="#">
+		            <i class="material-icons">person_pin</i>{{user.username}}
+		          </a>
+		        </li>
+
+<!-- 		        <li>
+		            <i class="material-icons">person_pin</i>hola
+		        </li> -->
+		        {% endif %}
 		        <li>
 		          <a href="/">
 		            <i class="material-icons">home</i>Inicio
@@ -92,7 +105,7 @@
 				    {% if request.user.is_staff %}			    
 				    <li>
 				      <a href="/campaing/create_user/">
-				        <i class="material-icons">person_pin</i>Agregar Usuario
+				        <i class="material-icons">person_add</i>Agregar Usuario
 				      </a>
 				    </li>
 				    {% endif %}
@@ -112,6 +125,7 @@
 				      </a>
 				    </li>		        
 		      </ul>
+
 		      <a href="#" data-activates="slide-out" class="button-collapse right show-on-large">
 		        <i class="material-icons">menu</i>
 		      </a>
