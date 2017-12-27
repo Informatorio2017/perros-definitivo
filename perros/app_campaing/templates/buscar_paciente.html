@@ -5,27 +5,30 @@
 {% block content %}
 
 
-<form action="" method="post">
+	<div class="col s12 separador "></div>
 
 
-	<div class="col s8">
-		
-	{% csrf_token %}
-	{{ form }}
+	<form action="" method="post">
+
+
+		<div class="col s8">
+			
+		{% csrf_token %}
+		{{ form }}
+		</div>
+
+		<div class="col s4 right-align">
+			<button type="submit" class="waves-effect waves-light accent-2 btn-large"><i class="material-icons left">search</i>Buscar</button>	
+		</div>
+
+	</form>
+
+
+	<div class="col s12 m6">
+		<p class="center-align">
+			<a href="/campaing/listado_inscriptos/" class="waves-effect waves-light btn-large center-align"><i class="material-icons left">content_paste</i>Lista de Pacientes</a>
+		</p>
 	</div>
-
-	<div class="col s4 right-align">
-		<button type="submit" class="waves-effect waves-light accent-2 btn-large">Buscar</button>	
-	</div>
-
-</form>
-
-
-<div class="col s12 m6">
-	<p class="center-align">
-		<a href="/campaing/listado_inscriptos/" class="waves-effect waves-light btn-large center-align">Lista de Pacientes</a>
-	</p>
-</div>
 
 
 
