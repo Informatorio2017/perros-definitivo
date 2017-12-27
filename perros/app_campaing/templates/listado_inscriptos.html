@@ -1,28 +1,28 @@
 {% extends "base.html" %}
 			
-{% block encabezado %}Listado de inscriptos{% endblock %}
+{% block encabezado %}Listado de altas{% endblock %}
 			
 {% block content %} 
 	<h5>Pacientes </h5> 
 
 
  <ul class="collection">
- {% for inscripto in inscriptos %}
+ {% for falta in falta_alta %}
    <li class="collection-item avatar">
-    {% if nscripto.especie == "canino" %}
+    {% if falta.especie == "canino" %}
     	<img src="../../../static/images/dog.png" alt="" class="circle">
     {% else %}
       	<img src="../../../static/images/cat.png" alt="" class="circle">
     {%endif%}
 
     <p>
-        {{ inscripto.propietario.apellido}} {{ inscripto.propietario.nombre}} -<strong>(#{{inscripto.nro_pre_inscripcion}})</strong>  
+        {{ falta.propietario.apellido}} {{ falta.propietario.nombre}} -<strong>(#{{falta.nro_pre_inscripcion}})</strong>  
         
         <br>
-        {{ inscripto.nombre_mascota }} - ({{ inscripto.especie }})
+        {{ falta.nombre_mascota }} - ({{ falta.especie }})
         
           </p>
-    <a href="../alta_paciente/{{inscripto.id}}" class="secondary-content">
+    <a href="../alta_paciente/{{falta.id}}" class="secondary-content">
 	  <button class="btn-floating waves-effect waves-light" type="submit" name="action" >
 	    <i class="material-icons">loyalty</i>
 	  </button>

@@ -633,10 +633,12 @@ def listado_inscriptos(request):
     animales_en_campana = Animalito.objects.filter(campaing=campaing.id)
     #preinscriptos = animales_en_campana.filter(turno=None)
     inscriptos = animales_en_campana.exclude(turno=None)
+    falta_alta = inscriptos.filter(user_name="")
 
     contexto = {
     'campaing':campaing,
     'inscriptos':inscriptos,
+    'falta_alta':falta_alta,
     #'preinscriptos':preinscriptos,
     }
     return render(request, "listado_inscriptos.html", contexto)
