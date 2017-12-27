@@ -607,7 +607,7 @@ def listado_preinscriptos(request):
     campaing = Campaing()
     if campanias:
         campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
-        saldo = campaing.monto_inter_grupo_total - campaing.monto_inter_grupo_gastado
+        
         
     animales_en_campana = Animalito.objects.filter(campaing=campaing.id)
     preinscriptos = animales_en_campana.filter(turno=None)
