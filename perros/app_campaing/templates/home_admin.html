@@ -167,10 +167,10 @@
             <i class="material-icons">expand_more</i>
           </span>
         </div>
-        
+
+        {% if request.user.is_staff %}
         <div class="collapsible-body grey lighthen-5 opciones_home">
-
-
+        
           <ul class="collection">
             {% if preinscripcion %}
             <li class="collection-item">
@@ -208,8 +208,9 @@
             </li>
       
           </ul>
-
+        
         </div>
+        {% endif %}
       </li>
 
     </ul>

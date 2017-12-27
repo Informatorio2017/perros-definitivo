@@ -31,7 +31,7 @@ def create_user(request):
             user.set_password(user.password)    
             user.save()
 
-            return redirect('home_admin')
+            return redirect('app_campaing:home_admin')
 
     contexto = {'form':form}
     return render(request,'create_user.html',contexto)
@@ -452,7 +452,6 @@ def home_admin(request):
     perros = inscriptos.filter(especie="canino").count()
     gatos = inscriptos.filter(especie="felino").count()
 
-    
 
     pagados = Animalito.objects.filter(campaing=campaing.id).aggregate(Sum('abono'))
     if pagados["abono__sum"] is None:
