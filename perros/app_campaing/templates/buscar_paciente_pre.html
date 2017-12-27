@@ -9,30 +9,34 @@
 
 <!-- ESTE ES PARA BUSCAR LOS PREISCRIPTOS (PARA BUSCAR Y DAR DE ALTA EN : buscar_paciente.html) -->
 
+<div class="row">
+	<div class="col s12 m6">
+
 <form  method="post">
 	{% csrf_token %}
 	{{ form }}
 	<div class="right-align">
 
-		<button type="submit" class="waves-effect waves-light accent-2 btn-large">Buscar</button>	
-	
-
+		<button type="submit" class="waves-effect waves-light accent-2 btn-large"><i class="material-icons left">search</i> Buscar</button>	
 		
 	</div>
 
 </form>
+</div>
+</div>
+
 <br>
 <div class="row">
 
 <div class="col s12 m6">
 	<p class="center-align">
-		<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large center-align">No Pre-inscripto</a>
+		<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large center-align"><i class="material-icons left">event_busy</i> No Preinscripto</a>
 	</p>
 </div>
 
 <div class="col s12 m6">
 	<p class="center-align">
-		<a href="/campaing/listado_preinscriptos/" class="waves-effect waves-light btn-large center-align">Lista de Pre-inscriptos</a>
+		<a href="/campaing/listado_preinscriptos/" class="waves-effect waves-light btn-large center-align"><i class="material-icons left">event_available</i> Lista Preinscriptos</a>
 	</p>
 </div>
 </div>
