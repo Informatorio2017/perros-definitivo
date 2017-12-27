@@ -9,14 +9,14 @@
  <ul class="collection">
  {% for inscripto in inscriptos %}
    <li class="collection-item avatar">
-    {% if nscripto.especie == "canino" %}
+    {% if inscripto.especie == "canino" %}
     	<img src="../../../static/images/dog.png" alt="" class="circle">
     {% else %}
       	<img src="../../../static/images/cat.png" alt="" class="circle">
     {%endif%}
 
     <p>
-        {{ inscripto.propietario.apellido}} {{ inscripto.propietario.nombre}} -<strong>(#{{inscripto.nro_pre_inscripcion}})</strong>  
+        {{ inscripto.propietario.apellido}} {{ inscripto.propietario.nombre}} <strong>(#{{inscripto.nro_pre_inscripcion}})</strong>  
         
         <br>
         {{ inscripto.nombre_mascota }} - ({{ inscripto.especie }})
