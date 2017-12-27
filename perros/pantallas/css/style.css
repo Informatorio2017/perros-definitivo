@@ -38,7 +38,7 @@ body{
 }
 
 .image-container img{
-	max-width: 200px;
+	max-width: 150px;
 }
 
 .image-container2 img{
@@ -125,6 +125,12 @@ body{
 	max-width: 30%;
 	margin: auto;
 	padding-top: 4%;
+}
+
+
+
+#image-container44:hover {
+	filter: opacity(.5);
 }
 
 
