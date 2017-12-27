@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block encabezado %}Búsqueda de preinscripción{% endblock %}
+{% block encabezado %}Buscar preinscripto{% endblock %}
 
 
 {% block content %}
@@ -9,37 +9,41 @@
 
 <!-- ESTE ES PARA BUSCAR LOS PREISCRIPTOS (PARA BUSCAR Y DAR DE ALTA EN : buscar_paciente.html) -->
 
-<div class="row">
-	<div class="col s12 m6">
+	<div class="row">
+		<div class="col s12 m8">
+			<div class="col s12 separador"></div>
 
-<form  method="post">
-	{% csrf_token %}
-	{{ form }}
-	<div class="right-align">
+			<form  method="post">
+				{% csrf_token %}
+				{{ form }}
 
-		<button type="submit" class="waves-effect waves-light accent-2 btn-large"><i class="material-icons left">search</i> Buscar</button>	
-		
+		</div>
+
+				<div class="right-align col s12 m4">
+					<div class="col s12 separador"></div>
+					<button type="submit" class="waves-effect waves-light accent-2 btn-large"><i class="material-icons left">search</i> Buscar</button>	
+				</div>
+
+			</form>
 	</div>
 
-</form>
-</div>
-</div>
 
-<br>
-<div class="row">
+	<div class="row">
 
-<div class="col s12 m6">
-	<p class="center-align">
-		<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large center-align"><i class="material-icons left">event_busy</i> No Preinscripto</a>
-	</p>
-</div>
+		<div class="col s12 m6 center-align">
+			<!--<p class="center-align">  -->
+				<a href="/campaing/formulario_inscripcion/" class="waves-effect waves-light btn-large btn-ancho center-align"><i class="material-icons left">event_busy</i> No Preinscripto</a>
+			<!-- </p> -->
+		</div>
 
-<div class="col s12 m6">
-	<p class="center-align">
-		<a href="/campaing/listado_preinscriptos/" class="waves-effect waves-light btn-large center-align"><i class="material-icons left">event_available</i> Lista Preinscriptos</a>
-	</p>
-</div>
-</div>
+		<div class="col s12 separador hide-on-med-and-up"></div>
+
+		<div class="col s12 m6 center-align">
+			<!--<p class="center-align">  -->
+				<a href="/campaing/listado_preinscriptos/" class="waves-effect waves-light btn-large btn-ancho center-align"><i class="material-icons left">event_available</i> Lista Preinscriptos</a>
+			<!--</p> -->
+		</div>
+	</div>
 
 
 
