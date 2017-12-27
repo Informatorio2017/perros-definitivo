@@ -193,3 +193,5 @@ body{
 text-align: left;
 }
 */  
+.image-container img{
+	max-width: 150px;
