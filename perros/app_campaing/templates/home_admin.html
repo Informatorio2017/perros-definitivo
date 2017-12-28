@@ -152,7 +152,7 @@
   </div>
 <!-- fin botones inscribir y dar alta -->
 
-{% if request.user.is_staff %}
+
 <div class="row">
 
   <div class="col s12">
@@ -173,53 +173,58 @@
         <div class="collapsible-body grey lighthen-5 opciones_home">
         
           <ul class="collection">
-            {% if preinscripcion %}
-            <li class="collection-item">
-              <a href="/campaing/close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light left">
-                <i class="material-icons">lock</i>
-              </a>
-          
-              <span>
-                <strong>Cerrar Preinscripción</strong><br>
-                No se recibirán más inscripciones públicas
-              </span>
-            </li>
+          {% if preinscripcion %}
 
-            <li class="collection-item">
-              <a href="../ver_qr/" class="btn-floating btn-medium waves-effect waves-light left">
-                <i class="material-icons">link</i>
-              </a>
-          
-              <span>
-                <strong>Enlace público</strong><br>
-                Ver, imprimir o compartir el enlace público de inscripciones.
-              </span>
-            </li>
+                {% if request.user.is_staff %}
+                  <li class="collection-item">
+                    <a href="/campaing/close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light left">
+                      <i class="material-icons">lock</i>
+                    </a>
+                
+                    <span>
+                      <strong>Cerrar Preinscripción</strong><br>
+                      No se recibirán más inscripciones públicas
+                    </span>
+                  </li>
+                {% endif %}
 
-
-            <li class="collection-item">
-              <a href="/campaing/end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light left">
-                <i class="material-icons">power_settings_new</i>
-              </a>
+                  <li class="collection-item">
+                    <a href="../ver_qr/" class="btn-floating btn-medium waves-effect waves-light left">
+                      <i class="material-icons">link</i>
+                    </a>
+                
+                    <span>
+                      <strong>Enlace público</strong><br>
+                      Ver, imprimir o compartir el enlace público de inscripciones.
+                    </span>
+                  </li>
+            {% endif %}
+                {% if request.user.is_staff %}
+                <li class="collection-item">
+                  <a href="/campaing/end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light left">
+                    <i class="material-icons">power_settings_new</i>
+                  </a>
+              
+                  <span>
+                    <strong>Finalizar Campaña</strong><br>
+                    Finalizará la campaña activa y se generarán las estadísticas
+                  </span>
+                </li>
+                {% endif %}
           
-              <span>
-                <strong>Finalizar Campaña</strong><br>
-                Finalizará la campaña activa y se generarán las estadísticas
-              </span>
-            </li>
-      
-          </ul>
+              </ul>
+            
+          </div>
+        </li>
         
-        </div>
-        {% endif %}
-      </li>
+      
 
     </ul>
 
   </div>
 
 </div>
-{% endif %}
+
 
 
 
