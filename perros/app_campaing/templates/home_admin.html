@@ -249,31 +249,59 @@
 
 	{% else %}
 
-    <div class="row">
+     {% if request.user.is_staff %}
+        <div class="row">
 
-      <div class="col s12 separador"></div>
+          <div class="col s12 separador"></div>
 
 
-      <div class="col s12">
-        <div class="card-panel grey center-align z-depth-4">
-          <span class="white-text">
+          <div class="col s12">
+            <div class="card-panel grey center-align z-depth-4">
+              <span class="white-text">
+                <h5>No hay campañas, para crear una haga click en 
+                <strong>"crear campaña"</h5></strong>
+              </span>
+            </div>
+          </div>
+
+          <!--<div class="col s12 center-align grey z-depth-4">
             <h5>No hay campañas, para crear una haga click en 
-            <strong>"crear campaña"</h5></strong>
-          </span>
+              <strong>"crear campaña"</strong>.</h5>
+          </div>  -->
+
+          <div class="col s12 separador"></div>
+
+          <div class="col s12 center-align ">
+            <a class="waves-effect waves-light btn-large" href="/campaing/create_campaing/"><i class="material-icons left">loyalty</i>Crear Campaña</a>
+          </div>
         </div>
-      </div>
+      {% else %}
+                  <div class="row">
 
-      <!--<div class="col s12 center-align grey z-depth-4">
-        <h5>No hay campañas, para crear una haga click en 
-          <strong>"crear campaña"</strong>.</h5>
-      </div>  -->
+          <div class="col s12 separador"></div>
 
-      <div class="col s12 separador"></div>
 
-      <div class="col s12 center-align ">
-        <a class="waves-effect waves-light btn-large" href="/campaing/create_campaing/"><i class="material-icons left">loyalty</i>Crear Campaña</a>
-      </div>
-    </div>
-		
+          <div class="col s12">
+            <div class="card-panel grey center-align z-depth-4">
+              <span class="white-text">
+                <h5>No hay campañas activas, para ver campañas anteriores haga click en 
+                <strong>"Ver Campañas"</h5></strong>
+              </span>
+            </div>
+          </div>
+
+          <!--<div class="col s12 center-align grey z-depth-4">
+            <h5>No hay campañas, para crear una haga click en 
+              <strong>"crear campaña"</strong>.</h5>
+          </div>  -->
+
+          <div class="col s12 separador"></div>
+
+          <div class="col s12 center-align ">
+            <a class="waves-effect waves-light btn-large" href="/campaing/ver_campanas/"><i class="material-icons left">loyalty</i>Ver Campañas</a>
+          </div>
+        </div>
+	   {% endif %}
+
 	{% endif %}
 {% endblock %}
