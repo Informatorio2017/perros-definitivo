@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+<body class="cuerpo">
+  <!--Import jQuery before materialize.js-->
+  <!-- inicio nav -->
+
+    <!-- fin nav -->
+      {% block nav %}
+        {% include 'nav_public.html' %}
+      {% endblock %}
+    
+      {% block content %} 
+        <div class="row center-align">
+            <div class="col s12">            
+               <img src="{% static 'images/logoamolosperros.png' %}">               
+            </div>
+            <p>Ayudamos a los animales<br> en situación de calle
+              y a los heridos.<br> Organizamos ferias de adopción<br>
+               y jornadas de castración a bajo costo.
+            </p>
+            <div class="divider"></div>
+        </div>
+       
+       {% if activa %}        
+       <div class="row">
+           <div class="col s12 m8 center-align">
+            <h5>Próxima Campaña: {{campaing.fecha}}</h5>
+           </div>
+           <div class="col s12 m4">
+            <a class="waves-effect waves-light btn-large btn-ancho" href="campaing/about_campaing/{{campaing.id}}" > SOBRE CAMPAÑA</a>          
+
+           </div>
+       </div>
+       {% else %}
+        <div class="row">
+           <div class="col s12 m8 center-align">
+            <h5>Ahora no hay una campaña activa</h5>
+            <h6>Conocé el trabajo que venimos realizando, te invitamos a ver los resultados de nuestras campañas anteriores. Podrás ver las estadísticas y los colaboradores que participar</h6>
+           </div>
+           <div class="col s12 m4">
+            <a class="waves-effect waves-light btn-large btn-ancho valign-wrapper" href="campaing/ver_campanas/" > <i class="material-icons left">assessment</i> VER CAMPAÑAS</a>          
+
+           </div>
+        </div>
+
+       {% endif %}
+       <div class="divider"></div>
+      <div class="separador"></div><div class="separador"></div>
+      <style>
+        .google-maps {
+        position: relative;
+        padding-bottom: 75%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+        }
+        .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        }
+        </style>
+        <div class="row">
+          <div class="col s12 m6 center-align">
+            <h5>Mapa de Alcancías</h5>
+          </div>
+          <div class="col s12 m6">
+            <h6>Nuestras alcancías nos permiten realizar periódicamente campañas de vacunación. <br>Con tu colaboración ayudás a erradicar el moquillo nervioso. <br>Buscá en el mapa la alcancía más cercana a tu domicilio y ayudanos.</h6>
+          </div>
+        </div>
+
+      {% endblock %}   
+    
+
+    
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript">
+   $(".button-collapse").sideNav();
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true, // Choose whether you can drag to open on touch screens,
+      onOpen: function(el) {  }, // A function to be called when sideNav is opened
+      onClose: function(el) {  }, // A function to be called when sideNav is closed
+    }
+  );
+</script>
+</html>
+
+
+
+
+{% block extra_js %} 
+
+        <div class="google-maps">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1Jfy_veK9IiFJXC_ENdYCABjLZsk24B0u" width="600" height="450" frameborder="0" style="border:0" ></iframe>
+        </div>
+        <div class="col s12 separador"></div>
+
+{% endblock %}
