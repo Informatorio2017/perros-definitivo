@@ -675,7 +675,7 @@ def ver_qr(request):
     
     campania = Campaing.objects.filter(preinscripcion=True)
     campaing =campania[0]
-    url_base = "192.168.0.109"
+    url_base = "amolosperros.ga"
     #url_base = "127.0.0.1:8000" #localhost
     url_completar = "/campaing/about_campaing/"
     url_id_campaing = str(campaing.id)
