@@ -494,8 +494,20 @@ def inscribir_paciente_pre(request):
         if form.is_valid():
             query = form.cleaned_data["query"]
 
-            #falta filtrar para q los animales sean solo de la campaña
-            pacientes = Animalito.objects.filter(nro_pre_inscripcion=query)
+            #
+            #
+            campanias = Campaing.objects.filter(habilitada=True)
+            #campanias = Campaing.objects.get(id=1)#(habilitada=True)
+            campaing = Campaing()
+            if campanias:
+                campaing = campanias[0] # ACÁ VA INSTANCIADA LA CAMPAÑA ACTUAL
+        
+        
+            animales_en_campana = Animalito.objects.filter(campaing=campaing.id)
+            preinscriptos = animales_en_campana.filter(turno=None)
+            #
+            #
+            pacientes = preinscriptos.filter(nro_pre_inscripcion=query)
             
             return render(request, "inscribir_paciente_resultado_pre.html", {"query":query,"pacientes":pacientes})
     else:
