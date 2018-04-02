@@ -5,7 +5,7 @@
 {% block content %} 
 	<h6 class="center-align"><strong>Campaña {{ campania.fecha }}</strong></h6> 
 
-
+{% if colaboradores %}
  <ul class="collection z-depth-2">
  {% for colaborador in colaboradores %}
    <li class="collection-item avatar grey lighten-5">
@@ -40,10 +40,21 @@
 
 {% endfor %}
 </ul>
+{% else %}
+
+<div class="card-panel grey darken-4 center-align">
+  <span class="white-text">
+    <strong>NO HAY COLABORADORES</strong>    
+  </span> 
+</div>
+
+
+{%endif%}
+
 <br>
 <div class="row center-align">
 <a href="/campaing/ver_campanas/" class="waves-effect waves-light btn-large">
-	<i class="material-icons">reply</i>Regresar</a>
+	<i class="material-icons left">reply</i><strong>Regresar</strong></a>
 </div>
 
 {% endblock %}
