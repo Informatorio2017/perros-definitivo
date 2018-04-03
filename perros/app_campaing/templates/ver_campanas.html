@@ -13,7 +13,8 @@
 {% for campana in campanas %}
         
         <div class="col s12 m6 l4">
-          <div class="card grey lighten-4">
+          <div class="separador"></div>
+          <div class="card grey lighten-3">
             <div class="card-content center-align">
               <span class="titulo-ver_campana "><i class="material-icons">event</i>{{ campana.0.fecha  }}</span><br>
               <span class="subtitulo-ver_campana"><i class="material-icons">place</i>{{ campana.0.lugar }}</span>
@@ -21,9 +22,17 @@
               <h6 class="subtitulo-ver_campana center-align">Castraciones</h6>
 
             </div>
-            <div class="card-action center-align">
-              <a class="blue-grey-text" href="../ver_campana/{{campana.0.id}}"><i class="material-icons">assessment</i>Estadísticas</a>
-            </div>
+            <div class="col s12 m12 l12 card-action center-align z-depth-1">
+
+              
+                <div class="col s4 m4 l4">
+                  <i class="material-icons right">assessment</i>
+                </div>
+                <div class="col s8 m8 l8">
+                  <a class="black-text left" href="../ver_campana/{{campana.0.id}}">Estadísticas</a>
+                </div>
+              </div>
+          
 
 
           </div>
