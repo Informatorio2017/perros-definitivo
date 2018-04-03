@@ -11,39 +11,32 @@
  	    <br>
         <div class="row">
 
-            <div class="col s12 center-align green ligthen-2 white-text">
-                <h5> ¡{{campaing_colaborador.colaborador.nombre}}, gracias por tu ayuda!</h5>
+            <div class="col s12 center-align grey darken-4 white-text">
+                <h4> ¡{{campaing_colaborador.colaborador.nombre}}, gracias por tu ayuda!</h4>
+                <h6>Nos comunicaremos con usted a la brevedad.</h6>
             </div>
-            <div class="col s12 center-align green ligthen-2 white-text">
+
+            <div class="col s12 center-align black-text">
+
                 {% if campaing_colaborador.padrino and campaing_colaborador.ayudante %}
-                    <h6> Te has inscripto como COLABORADOR y como PADRINO de la campaña:</h6>
+                    <h5> Te has inscripto como COLABORADOR y como PADRINO de la campaña:</h5>
                 {% else %}
                     {% if campaing_colaborador.ayudante %}
-                        <h6> Te has inscripto como COLABORADOR de la campaña:</h6>
+                        <h5> Te has inscripto como COLABORADOR de la campaña:</h5>
                     {% else %}
-                        <h6> Te has inscripto como PADRINO de la campaña:</h6>
+                        <h5> Te has inscripto como PADRINO de la campaña:</h5>
                     {% endif %}    
                 {% endif %}
-
-
-            <div class="col s12 center-align grey ligthen-2 white-text z-depth-4">
-                <h5> ¡ Gracias por su COLABORACIÓN !</h5>
-            </div>
-        </div>
-
-        <br>
-        <div class="row">
-            <div class="col s12 center-align ligthen-2 black-text z-depth-4">
-                <h5> Nos comunicaremos con usted a la brevedad. </h5>
-
-
             </div>
 
-        </div>
+        
+
+        
+        <div class="row"></div>
 
 
-        <div class="row borde-negro">
-            <div class="col s12 l6 center-align">
+        <div class="row col s12 borde-negro">
+            <div class="col s12 center-align ">
                 <h4>DATOS DE LA CAMPAÑA:</h4> 
                 <p>Campaña:  <b>{{campaing_colaborador.campaing.tipo}}</b></p>
                 <p>Fecha:  <b>{{campaing_colaborador.campaing.fecha}}</b></p>
@@ -54,12 +47,6 @@
 
         </div>
 
-
-        <div class="row">
-            <div class="col s12 center-align green ligthen-2 white-text">
-                <h5> ¡Nos estaremos comunicando a la brevedad! </h5>
-            </div>
-        </div>
 
         <div class="divider"></div>
         <div class="separador"></div>
