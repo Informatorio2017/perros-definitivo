@@ -27,10 +27,6 @@ class UserForm(forms.ModelForm):
 # 		fields = ('username','password')
 
 class CreateCampaing(forms.ModelForm):
-	fecha = forms.DateField()
-	lugar = forms.ModelChoiceField(app_campaing.models.Lugar.objects.all())
-	
-	tipo = forms.ChoiceField(app_campaing.models.Campaing.TIPO)
 	monto_valor_operacion = forms.IntegerField(label="Costo de la Intervención")
 	monto_inter_grupo_total = forms.IntegerField(label="Dinero disponible para cubrir intervenciones por parte del grupo")
 	
@@ -43,7 +39,7 @@ class CreateCampaing(forms.ModelForm):
 
 		super(CreateCampaing, self).__init__(*args, **kwargs)
 		#self.fields['nombre'].widget.attrs.update({'class' : 'mi_clase_nombre','placeholder' : 'Nombre'})
-		self.fields['fecha'].widget.attrs.update({'class' : 'datepicker','placeholder' : 'Fecha', 'type' : 'text'})
+		self.fields['fecha'].widget.attrs.update({'class' : '','placeholder' : 'Fecha', 'type' : 'text'})
 		self.fields['lugar'].widget.attrs.update({'placeholder' : 'Lugar'})
 		self.fields['tipo'].widget.attrs.update({'placeholder' : 'Tipo'})
 		self.fields['monto_valor_operacion'].widget.attrs.update({'placeholder' : 'Valor Intervención',})

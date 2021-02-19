@@ -308,12 +308,14 @@ def create_campaing(request):
 
     if request.method == 'POST':
         form = CreateCampaing(request.POST)
+        print(request.POST)
         #import ipdb
         #ipdb.set_trace()
         if form.is_valid():       
             form.save()
             return redirect('/campaing/home_admin/')
-        else:        
+        else:
+            print(form.errors)
             return redirect('/Aca_si_no_valida_los_datos')
     else:
         campanias = Campaing.objects.filter(habilitada=True)

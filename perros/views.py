@@ -22,7 +22,7 @@ def home(request):
 	return render(request,"home.html",contexto)
 
 def login(request):
-	if request.user.is_authenticated():
+	if request.user.is_authenticated:
 		return redirect('app_campaing:home_admin')	
 	#  5 tipos de mensajes. de éxito, de error, de informacion, de debug, de wardning
 
