@@ -2,8 +2,8 @@
 
 {% block encabezado %} Home {% endblock %}
 
-{% block content %} 
-	{% if campanias %}  
+{% block content %}
+  {% if campanias %}
 
 
     <!-- inicio row para datos de campaña -->
@@ -15,24 +15,24 @@
             <strong>CAMPAÑA ACTUAL</strong>
             <br>
             <strong>
-              
-              {% ifequal campaing.tipo "castracion" %}
+
+              {% if campaing.tipo == "castracion" %}
                 CASTRACIÓN
               {% else %}
                 VACUNACIÓN
-              {% endifequal %}
+              {% endif %}
                EN {{ campaing.lugar.nombre.upper  }}</strong>
           </span>
         </div>
       </div>
-      <!-- fin columna para datos de campaña  --> 
-            <div class="col s12 m1 l2"></div> 
+      <!-- fin columna para datos de campaña  -->
+            <div class="col s12 m1 l2"></div>
             <div class="col s12 m10 l8 center-align">
               <a href="/campaing/ver_colaboradores/{{ campaing.id }}" class=" btn-ancho btn white-text">
-              <i class="material-icons tiny">tag_faces</i> Ver Colaboradores ({{ c_colaboradores_en_campana }}) 
+              <i class="material-icons tiny">tag_faces</i> Ver Colaboradores ({{ c_colaboradores_en_campana }})
               </a>
             </div>
-            <div class="col s12 m1 l2"></div> 
+            <div class="col s12 m1 l2"></div>
     </div>
     <!-- fin row para para datos de campaña  -->
 
@@ -68,7 +68,7 @@
 
 
 
-  
+
 
       <div class="row">
         <div class="col s12">
@@ -85,7 +85,7 @@
 
           <div class="col s4 borde-negro center-align grey lighten-5 z-depth-2">
             <span class="icono-home">
-              <i class="material-icons medium">favorite</i> 
+              <i class="material-icons medium">favorite</i>
             </span>
             <span>
               <h6><strong>$ {{ campaing.monto_inter_grupo_gastado }}</strong></h6>
@@ -99,7 +99,7 @@
             </span>
 
             <!-- if para el color del saldo positivo o negativo -->
-            
+
             {% if saldo > 0 %}
 
             <span>
@@ -137,15 +137,15 @@
       <h2>{{atendidos}}</h2>
     </div>
   </div>
-<!-- inicio botones inscribir y dar alta -->  
+<!-- inicio botones inscribir y dar alta -->
   <div class="row">
-    <div class="col s12 m6 center-align"> 
+    <div class="col s12 m6 center-align">
 
       <a class="waves-effect waves-light btn-large btn-ancho" href="/campaing/inscribir_paciente_pre/"><i class="material-icons left">assignment</i>Inscribir Paciente</a>
 
     </div>
     <div class="col s12 separador hide-on-med-and-up"></div>
-    <div class="col s12 m6 center-align"> 
+    <div class="col s12 m6 center-align">
       <a class="waves-effect waves-light btn-large btn-ancho" href="../buscar_paciente/"><i class="material-icons left">assignment_turned_in</i>Dar de Alta</a>
     </div>
 
@@ -169,9 +169,9 @@
           </span>
         </div>
 
-        
+
         <div class="collapsible-body grey lighthen-5 opciones_home">
-        
+
           <ul class="collection">
           {% if preinscripcion %}
 
@@ -180,7 +180,7 @@
                     <a href="/campaing/close_inscription_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light left">
                       <i class="material-icons">lock</i>
                     </a>
-                
+
                     <span>
                       <strong>Cerrar Preinscripción</strong><br>
                       No se recibirán más inscripciones públicas
@@ -192,7 +192,7 @@
                     <a href="../ver_qr/" class="btn-floating btn-medium waves-effect waves-light left">
                       <i class="material-icons">link</i>
                     </a>
-                
+
                     <span>
                       <strong>Enlace público</strong><br>
                       Ver, imprimir o compartir el enlace público de inscripciones.
@@ -204,20 +204,20 @@
                   <a href="/campaing/end_campaing/{{campaing.id}}" class="btn-floating btn-medium waves-effect waves-light left">
                     <i class="material-icons">power_settings_new</i>
                   </a>
-              
+
                   <span>
                     <strong>Finalizar Campaña</strong><br>
                     Finalizará la campaña activa y se generarán las estadísticas
                   </span>
                 </li>
                 {% endif %}
-          
+
               </ul>
-            
+
           </div>
         </li>
-        
-      
+
+
 
     </ul>
 
@@ -226,28 +226,7 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-
-	{% else %}
+  {% else %}
 
      {% if request.user.is_staff %}
         <div class="row">
@@ -258,14 +237,14 @@
           <div class="col s12">
             <div class="card-panel grey darken-4 center-align z-depth-4">
               <span class="white-text">
-                <h5>No hay campañas, para crear una haga click en 
+                <h5>No hay campañas, para crear una haga click en
                 <strong>"crear campaña"</h5></strong>
               </span>
             </div>
           </div>
 
           <!--<div class="col s12 center-align grey z-depth-4">
-            <h5>No hay campañas, para crear una haga click en 
+            <h5>No hay campañas, para crear una haga click en
               <strong>"crear campaña"</strong>.</h5>
           </div>  -->
 
@@ -284,14 +263,14 @@
           <div class="col s12">
             <div class="card-panel grey center-align z-depth-4">
               <span class="white-text">
-                <h5>No hay campañas activas, para ver campañas anteriores haga click en 
+                <h5>No hay campañas activas, para ver campañas anteriores haga click en
                 <strong>"Ver Campañas"</h5></strong>
               </span>
             </div>
           </div>
 
           <!--<div class="col s12 center-align grey z-depth-4">
-            <h5>No hay campañas, para crear una haga click en 
+            <h5>No hay campañas, para crear una haga click en
               <strong>"crear campaña"</strong>.</h5>
           </div>  -->
 
@@ -301,7 +280,7 @@
             <a class="waves-effect waves-light btn-large" href="/campaing/ver_campanas/"><i class="material-icons left">loyalty</i>Ver Campañas</a>
           </div>
         </div>
-	   {% endif %}
+     {% endif %}
 
-	{% endif %}
+  {% endif %}
 {% endblock %}

@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block encabezado %}Alta de paciente{% endblock %}
-			
-			
-{% block content %} 
-	<h4>Paciente </h4> 
+
+
+{% block content %}
+    <h4>Paciente </h4>
 
     <ul class="collection">
         <li class="collection-item avatar">
             {% if paciente.especie == "canino" %}
-    	       <img src="../../../static/images/dog.png" alt="" class="circle">
+               <img src="../../../static/images/dog.png" alt="" class="circle">
             {% else %}
                 <img src="../../../static/images/cat.png" alt="" class="circle">
             {%endif%}
@@ -18,11 +18,11 @@
             <p>Turno: {{ paciente.turno }}</p>
             <p>Sexo: {{ paciente.sexo }}</p>
             <p>Pagó: {{ paciente.abono }}</p>
-            {% ifequal paciente.user_name "" %}
+            {% if not paciente.user_name %}
              <p>NO ATENDIDO</p>
             {% else %}
              <p>ATENDIDO</p>
-            {% endifequal %}
+            {% endif %}
             <a href="#!" class="secondary-content">   </a>
         </li>
     <!-- </ul> -->
@@ -30,11 +30,11 @@
         <li class="collection-item avatar">
             <i class="material-icons circle">person</i>
             <span class="title">Nombre: {{ paciente.propietario.nombre }} - {{ paciente.propietario.apellido }} </span>
-            
+
             <!-- <p>DNI: {{ paciente.propietario.dni }} </p> -->
             <p>Tel: {{ paciente.propietario.telefono }} </p>
             <p>Barrio: {{ paciente.propietario.barrio }} </p>
-            
+
         </li>
     </ul>
     <form method="POST">
@@ -50,12 +50,12 @@
         <div class="col s12 separador hide-on-med-and-up"></div>
 
 
-        
+
 
         <div class="col s12 m6 center-align">
             <a href="/campaing/home_admin/" class="btn waves-effect waves-light red btn-large btn-ancho"><i class="material-icons left">cancel</i>CANCELAR</a>
 
-       
+
 
         </div>
 

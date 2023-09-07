@@ -2,27 +2,27 @@
 
 {% block encabezado %} Código QR {% endblock %}
 
-{% block content %} 
-	<!-- inicio contenedor principal -->
+{% block content %}
+  <!-- inicio contenedor principal -->
   <div class="container">
     <!-- inicio row  -->
     <div class="row">
       <!-- inicio columna para datos de campaña -->
       <div class="col s12">
        <div class="card-panel grey darken-4 center-align">
-          <span class="white-text"><strong>CAMPAÑA 
-          {% ifequal campaing.tipo "castracion" %}
+          <span class="white-text"><strong>CAMPAÑA
+          {% if campaing.tipo == "castracion" %}
                 CASTRACIÓN
               {% else %}
                 VACUNACIÓN
-              {% endifequal %}
+              {% endif %}
               </strong>
                <br>{{ campaing.lugar.nombre.upper  }}
                <!-- ES PARA QUE VAYA UN RENGLON ABAJO, strong= para que sea en negrita -->" {{ campaing.lugar.direccion.upper }} " <br>{{ campaing.fecha }}
           </span>
-        </div>       
+        </div>
       </div>
-      <!-- fin datos campaña -->      
+      <!-- fin datos campaña -->
     </div>
     <!-- fin row  -->
 
@@ -33,7 +33,7 @@
       <div class="col s12  center-align">
        <!-- <p><h3><strong> CÓDIGO - QR </strong></h3></p>  br: para que vaya un renglon abajo -->
         <!-- row para el link -->
-     
+
 
 
         <div class="row">
@@ -46,7 +46,7 @@
         </div>
 
         <script>
-          
+
           var qrcode = new QRCode("qrcode", {
             text: "{{url}}",
             width: 260,
@@ -63,9 +63,9 @@
 
 
       </div>
-    </div> 
+    </div>
 
-   
+
 
     <div class="col s12  center-align">
            <p>Escanee el código o ingrese a: <br><a href={{'"'}}{{url}}{{'"'}}>{{url}}</a> <br>
@@ -101,6 +101,6 @@
   <!-- fin contenedor principal -->
 {% endblock %}
 
-{% block extra_js %} 
+{% block extra_js %}
 
 {% endblock %}
