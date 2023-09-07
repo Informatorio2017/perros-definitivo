@@ -1,1 +1,1 @@
-web: gunicorn django_snippets.wsgi
+web: gunicorn perros.wsgi
