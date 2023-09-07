@@ -16,3 +16,5 @@ sqlparse==0.4.4
     # via django
 typing-extensions==4.7.1
     # via asgiref
+whitenoise==6.5.0
+    # via -r requirements.in.txt

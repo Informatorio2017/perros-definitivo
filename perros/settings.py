@@ -27,7 +27,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'imagenes')
 SECRET_KEY = '0#1fd)y(guv0rn22yfrtk$8l@y9kd()(^j3x9f8x+(kx$bvf$w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ.get('DEBUG', False) in [True, 'True', 'true', '1']
 
 ALLOWED_HOSTS = ['*']
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
